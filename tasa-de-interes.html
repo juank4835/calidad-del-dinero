@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La tasa de interés — La calidad del dinero</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #5DCAA5;
+  --rojo: #FF5577;
+  --rojo-fuerte: #FF1744;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 19px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.75;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 8rem;
+}
+
+.chapter-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.chapter-eyebrow .dim {
+  color: var(--rojo);
+}
+
+.chapter-title {
+  font-size: 2.6rem;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.chapter-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 4rem;
+}
+
+.ornament {
+  text-align: center;
+  color: var(--verde);
+  font-size: 1.2rem;
+  margin: 0 auto 3.5rem;
+  letter-spacing: 0.5em;
+}
+
+.prose p {
+  font-size: 1.12rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.prose p.lead {
+  font-size: 1.28rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+}
+
+.prose .lead::first-letter {
+  font-size: 3.6rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.82;
+  margin: 0.08em 0.12em -0.1em 0;
+  color: var(--verde);
+}
+
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: #fff; }
+
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+
+.section-num {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 0.6rem;
+  margin-top: 3.5rem;
+}
+
+blockquote {
+  margin: 2.2rem 0;
+  padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--verde);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+blockquote .cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+blockquote .cite::before { content: "— "; }
+
+.profundizacion {
+  margin: 2.8rem 0;
+  padding: 1.6rem 1.8rem;
+  background: var(--surface);
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+}
+
+.profundizacion .tag {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+}
+
+.profundizacion p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+}
+
+.profundizacion p:last-child { margin-bottom: 0; }
+
+.pendiente {
+  margin: 2.5rem 0;
+  padding: 1.4rem 1.6rem;
+  border: 1px dashed var(--rule);
+  border-radius: 6px;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  html { font-size: 17px; }
+  .page { padding: 3rem 1.2rem 5rem; }
+  .chapter-title { font-size: 2rem; }
+}
+
+/* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
+.nav-top {
+  max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0;
+}
+.nav-top a {
+  font-size: 0.85rem; color: var(--ink-soft); text-decoration: none;
+  letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot {
+  max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.nav-foot a {
+  font-size: 0.9rem; color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+
+</style>
+</head>
+<body>
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+
+<article class="page">
+
+  <div class="chapter-eyebrow">Primera dimensión &middot; <span class="dim">gravedad crítica</span></div>
+  <h1 class="chapter-title">La tasa de interés</h1>
+  <p class="chapter-subtitle">La paciencia de una sociedad, vuelta información</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+
+    <!-- ====== APERTURA ====== -->
+    <p class="lead">Cerramos el capítulo anterior con una afirmación que conviene no dejar pasar como si fuera evidente: que la tasa de interés es información, y que la información puede falsificarse. Detengámonos en la primera mitad. ¿Información sobre qué, exactamente? ¿Qué dato transporta ese número, y a quién?</p>
+
+    <p>Imagine que pudiera ver, en un solo dato, cuánta gente en su país está dispuesta a esperar. Cuántos ahorran pensando en diez años y cuántos gastan todo el viernes. Cuánta paciencia hay disponible, en este momento, para emprender cosas que tardan en dar fruto. No existe ninguna encuesta que capture eso —nadie va casa por casa preguntando «¿cuánto está usted dispuesto a esperar?»—. Y sin embargo ese dato existe, se actualiza solo, y está a la vista de todos. Es la tasa de interés.</p>
+
+    <p>Esa es su función, y es asombrosa cuando se la entiende: la tasa de interés condensa en un número la preferencia temporal de millones de personas que no se conocen entre sí, que jamás se pusieron de acuerdo, y que ni siquiera saben que están aportando un dato. Cada persona que decide ahorrar en vez de gastar, o pedir prestado en vez de esperar, empuja levemente ese número. El resultado de todos esos empujones es una cifra que le revela a cualquiera que sepa leerla algo que ninguna autoridad podría averiguar por su cuenta: cuánto futuro está dispuesta a financiar esta sociedad, hoy.</p>
+
+    <p>Conviene separar dos cosas que esa cifra hace a la vez, porque el resto del capítulo depende de la distinción. La tasa de interés <em>es</em> información —un hecho verdadero sobre cuánta paciencia hay en una sociedad—. Y es, al mismo tiempo, la <span class="term-verde">señal</span> que lleva esa información hasta quienes deciden construir: el empresario que evalúa si levantar una fábrica, la familia que considera una hipoteca, el gobierno que sopesa una obra. El hecho y su transmisión. Guarde esta distinción, porque cuando lleguemos a la falsificación veremos que el fraude corrompe las dos cosas a la vez: ensucia el hecho y engaña al que lo recibe.</p>
+
+    <!-- ====== MOVIMIENTO 2: el mecanismo concreto ====== -->
+    <p>Veámoslo con las personas que ya conocemos. Juan, como recordará, es de los que apartan parte del sueldo; Luisa también ahorra; Carlos vive al día y gasta todo. Y Hernando es aquel que quería montar su taller y necesitaba recursos que no tenía hoy. Pongámoslos a todos en la misma economía.</p>
+
+    <p>Fíjese en lo que acaba de aparecer sin que nadie lo organizara. Por un lado, hay ahorro disponible: lo que Juan y Luisa apartaron y no van a usar por ahora. Por otro, hay alguien que quiere construir algo que tarda en dar fruto y necesita esos recursos antes de tiempo: Hernando y su taller. Entre ellos puede haber un trato. Juan y Luisa entregan hoy lo que tienen guardado; Hernando lo usa para sus máquinas y, cuando el taller produzca, devuelve más de lo que recibió. Ese «más» es el interés: lo que Hernando paga por usar antes de tiempo un futuro que todavía no había llegado.</p>
+
+    <p>Ahora viene lo importante, y es pura preferencia temporal en acción a escala social. Suponga que mucha gente se vuelve paciente —que no solo Juan y Luisa, sino Carlos y miles más empiezan a ahorrar—. De pronto hay una montaña de ahorro buscando en qué emplearse. Cuando algo abunda, su precio baja: con tanto ahorro disponible, quienes lo prestan compiten por colocarlo, y se conforman con menos a cambio. La tasa de interés baja. Y al revés: si casi nadie ahorra, los pocos ahorros disponibles son disputados, y el interés sube. La tasa de interés no es más que el precio de la paciencia disponible —baja cuando hay mucha, alta cuando hay poca—.</p>
+
+    <p>Y aquí está lo que su descenso le dice a Hernando, y a todos los que como él quieren construir. Una tasa baja es un mensaje: «hay paciencia de sobra; la sociedad está dispuesta a esperar; adelante con los proyectos largos, hay con qué sostenerlos hasta que maduren». Una tasa alta dice lo contrario: «hay poca paciencia; no comprometa recursos en cosas que tardan, porque la gente los va a querer de vuelta pronto». El empresario no necesita conocer a Juan ni a Luisa ni saber cuánto ahorró cada uno. Le basta con leer la tasa. En ese número está condensada la decisión de todos ellos.</p>
+
+    <!-- ====== PENDIENTE ====== -->
+    <span class="section-num">Sigue</span>
+    <p class="pendiente">Próximos movimientos: aquí puede entrar el gráfico de los dos lados (ahorradores con su preferencia temporal / empresarios que toman los ahorros) → qué significa que la tasa «coordine» (Hayek en lenguaje llano: nadie posee la información entera) → la falsificación: qué pasa cuando se empuja la tasa por debajo de la verdad → el ciclo como la realidad cobrándose la mentira.</p>
+
+  </div>
+
+</article>
+<nav class="nav-foot"><a class="prev" href="ahorro-real.html">El ahorro real</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+
+</body>
+</html>
