@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los tres regímenes — Arregla el dinero, arregla el mundo</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #5DCAA5;
+  --rojo: #FF5577;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: #fff; }
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
+blockquote .cite::before { content: "— "; }
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+</style>
+</head>
+<body>
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+<article class="page">
+
+  <div class="chapter-eyebrow">Bloque I · Fundamentos</div>
+  <h1 class="chapter-title">Los tres regímenes</h1>
+  <p class="chapter-subtitle">Por qué la diferencia que importa no es la que todos discuten</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+
+    <!-- ====== APERTURA: el gancho conceptual ====== -->
+    <p class="lead">Cuando se discute qué tipo de dinero es mejor, la pelea casi siempre se libra en el mismo terreno: ¿debe controlarlo el Estado o los privados? ¿Banco central o mercado libre? Es la pregunta de todos los debates, la línea que divide a los bandos. Y es la pregunta equivocada —o, al menos, no es la que de verdad importa—.</p>
+
+    <p>Porque hay sistemas controlados por privados que falsifican las señales igual que el peor banco central, y la pregunta «público o privado» no los distingue de los que no. Con la vara que forjamos en el capítulo anterior —¿el dinero deja que los precios digan la verdad?— la línea divisoria cae en otro lugar, y separa a los regímenes de un modo que el debate habitual no ve. La pregunta verdadera no es quién emite el dinero. Es si ese dinero respeta una promesa.</p>
+
+    <p>¿Qué promesa? La más simple de todas. Todo dinero descansa sobre un acuerdo silencioso: que cada unidad representa una porción real de la riqueza del mundo, y que nadie puede fabricar unidades nuevas sin que haya algo real detrás de ellas. Un dinero honesto es uno donde ese acuerdo se cumple —donde lo que circula corresponde a lo que existe—. Un dinero deshonesto es uno donde el acuerdo se rompe: donde alguien puede crear dinero de la nada y, al hacerlo, falsificar la señal que todos leen, sin haber añadido al mundo nada que ese dinero nuevo represente.</p>
+
+    <p>A lo largo de la historia, la humanidad ha organizado su dinero de tres maneras, y se distinguen exactamente por cómo tratan ese acuerdo. Una lo respeta por completo. Otra lo rompe del todo, deliberadamente, y hace de esa ruptura su forma de operar. Y una tercera, a medio camino, lo rompe solo en parte —casi sin proponérselo—, y es, por eso mismo, la más reveladora de las tres. Vamos a verlas no por quién las controla, sino por la única pregunta que importa: ¿dejan que el dinero diga la verdad? Empezaremos por los dos extremos, donde la respuesta es más nítida, y terminaremos por el caso del medio, que es donde se esconde la lección más fina de todas.</p>
+
+    <!-- ====== MOVIMIENTO 1: el dinero duro (oro y Bitcoin) ====== -->
+    <span class="section-num">El dinero que respeta el acuerdo</span>
+    <p>Empecemos por el dinero que respeta el acuerdo sin reservas. A lo largo de casi toda la historia, ese dinero fue el oro. No porque tuviera algo mágico, sino por una propiedad simple y decisiva: es endemoniadamente difícil de producir. Para tener más oro hay que encontrarlo, extraerlo de la roca, refinarlo —un esfuerzo enorme que solo rinde un poco de metal cada año—. Nadie puede despertar una mañana y duplicar el oro del mundo. Y esa dificultad, que parece un defecto, es justamente lo que lo vuelve honesto: como nadie puede fabricarlo a voluntad, la cantidad de oro que circula dice algo verdadero sobre el esfuerzo humano que costó sacarlo. La señal no se puede falsificar, porque el oro no se puede falsificar.</p>
+
+    <p>Pero «difícil de producir» no es lo mismo que «imposible de producir», y ahí el oro tiene una grieta. Se puede descubrir una veta nueva. Puede mejorar la tecnología de extracción. La historia conoce episodios en que una avalancha inesperada de oro —el que España trajo de América, por ejemplo— diluyó el valor del que ya existía y encareció todo a su paso. La oferta del oro crece despacio y a regañadientes, sí, pero no es del todo predecible: siempre cabe la sorpresa de que aparezca más. La señal del oro es honesta, pero tiene un punto de ruido.</p>
+
+    <p>Y aquí aparece, por primera vez en esta historia, algo nuevo. Bitcoin es la primera forma de dinero que cierra esa grieta por completo. Su cantidad total está fijada de antemano —nunca habrá más de veintiún millones de unidades, y el ritmo al que se producen está escrito en el sistema, a la vista de todos, hasta la última que se emitirá dentro de más de un siglo—. No hay veta nueva que descubrir, no hay tecnología que acelere su producción, no hay continente por saquear. Donde la oferta del oro es lenta pero incierta, la de Bitcoin es conocida con precisión absoluta. Cualquiera puede saber hoy cuánto existirá en cualquier momento del futuro. Es, en cuanto a la honestidad de su cantidad, el dinero más estricto jamás concebido.</p>
+
+    <p>No confunda esto con una comparación de conveniencia. El oro y Bitcoin difieren en mil cosas prácticas —en cómo se guardan, se mueven, se dividen, se verifican—, y esas diferencias importan para la vida diaria. Pero esa es otra discusión, y no la de este libro. Para nuestra única pregunta —¿deja este dinero que la señal diga la verdad?— oro y Bitcoin están del mismo lado, y es el lado honesto. Entre ellos hay grados: el oro respeta el acuerdo, Bitcoin lo respeta de forma más estricta aún. Pero ambos comparten lo esencial, lo que los separa de todo lo que viene después: nadie puede crear de la nada unidades nuevas para falsificar lo que el dinero dice. Y esa diferencia —entre un dinero que no se puede falsificar y uno que sí— es la que de verdad parte la historia en dos.</p>
+
+    <!-- ====== PENDIENTE ====== -->
+    <span class="section-num">Sigue</span>
+    <p class="pendiente">Próximos movimientos: el segundo extremo —la banca central con dinero fiat, el dinero que rompe el acuerdo a voluntad (contraste dramático con el dinero duro)— → el caso del medio, en menor proporción: la banca libre con reserva fraccionaria, que demuestra que el problema no es público vs. privado sino respetar o no el acuerdo → la frase ancla: «la diferencia operativa es enorme; la diferencia ética es nula» → cierre del capítulo y del Bloque I. Verificar el corpus de Rothbard antes de citar formulaciones sobre reserva fraccionaria como fraude.</p>
+
+  </div>
+
+</article>
+
+<nav class="nav-foot"><a class="prev" href="criterio-de-evaluacion.html">El criterio de evaluación</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+</body>
+</html>
