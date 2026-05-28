@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El criterio de evaluación — Arregla el dinero, arregla el mundo</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #5DCAA5;
+  --rojo: #FF5577;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: #fff; }
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
+blockquote .cite::before { content: "— "; }
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+</style>
+</head>
+<body>
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+<article class="page">
+
+  <div class="chapter-eyebrow">Bloque I · Fundamentos</div>
+  <h1 class="chapter-title">El criterio de evaluación</h1>
+  <p class="chapter-subtitle">Por qué medimos el dinero con la regla equivocada</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+
+    <!-- ====== APERTURA: el médico y el termómetro ====== -->
+    <p class="lead">Imagine que un médico lo declara sano porque su termómetro marca 36.5°. No le revisó nada más —ni la presión, ni la sangre, ni el dolor que usted vino a contarle—. Solo el termómetro: como no hay fiebre, está usted sano, váyase tranquilo. Usted no volvería a ese médico. Y sin embargo, así es como se nos enseñó a juzgar el dinero —por un puñado de termómetros que miden lo que es fácil medir, no lo que de verdad importa—.</p>
+
+    <p>Abra cualquier noticiero económico y verá esos termómetros desfilar. ¿Subió mucho la inflación este mes? ¿Creció la economía? ¿Está estable la moneda frente al dólar? ¿Bajó el desempleo? Son las preguntas de siempre, las que definen si un país va bien o mal, si un banco central hizo buen trabajo, si hay que celebrar o preocuparse. Y todas comparten un defecto silencioso: miden el resultado, no la causa. Miden cómo se ve el cuerpo hoy, no si la sangre que lo recorre dice la verdad.</p>
+
+    <p>Tome el más respetado de todos: la estabilidad de precios. Un banco central que mantiene la inflación en su famoso 2% anual es aplaudido como ejemplo de buena gestión. Pero piense en lo que ese número esconde. Para que el promedio de los precios suba apenas 2%, pueden estar pasando cosas brutales por debajo: precios que se desploman porque la tecnología abarata todo, tapados por precios que se disparan porque se imprimió dinero. El promedio se ve plácido —2%, todo en orden— mientras la información que cada precio debía transmitir está siendo aplastada y maquillada. El termómetro marca 36.5°, y el paciente se está enfermando.</p>
+
+    <!-- ====== MOVIMIENTO 2: el giro, la vara verdadera ====== -->
+    <p>Si esos termómetros miden lo equivocado, ¿qué habría que mirar? Vuelva a la idea del capítulo anterior: el dinero es el sistema que transporta la información con que una sociedad decide qué hacer. Si eso es cierto, entonces un buen dinero es, sencillamente, el que transporta esa información sin corromperla. El que deja que cada precio diga la verdad sobre lo que de verdad pasa. La pregunta que importa no es «¿se mantienen estables los precios?», sino una mucho más honda: «¿dicen la verdad los precios?».</p>
+
+    <p>Esa es la vara de este libro, y conviene enunciarla sin rodeos: un régimen monetario es bueno en la medida en que preserva la calidad de la información que el dinero transmite, y malo en la medida en que la degrada. No importa cuán estable se vea, cuánto crezca la economía bajo su mando, ni cuántos premios reciban quienes lo administran. Si las señales que produce son falsas, es un mal dinero —por bien que luzca en los termómetros de siempre—.</p>
+
+    <p>Y aquí está lo que vuelve a esta vara tan distinta de las demás: puede dar veredictos opuestos a los convencionales. Un dinero puede ser admirablemente estable y, al mismo tiempo, profundamente mentiroso —si su estabilidad se logra interviniendo y maquillando las señales—. Y al revés: un dinero cuyo poder de compra sube y baja puede estar diciendo la pura verdad sobre un mundo que cambia. La estabilidad no es la salud; a veces es el maquillaje que la oculta. Lo que buscamos no es un dinero quieto, sino un dinero honesto.</p>
+
+    <!-- ====== MOVIMIENTO 3: el cierre, puente a los regímenes ====== -->
+    <p>Tenemos entonces una vara, y es la primera de su clase: no mide el dinero por cómo se ve, sino por si dice la verdad. Con ella en la mano, el resto del libro deja de ser una colección de quejas sueltas sobre la economía y se vuelve una sola investigación ordenada. Porque si lo que distingue al buen dinero del malo es la calidad de la información que produce, entonces la pregunta práctica es inevitable: ¿qué formas de organizar el dinero protegen esa información, y cuáles la corrompen?</p>
+
+    <p>Resulta que, a lo largo de la historia y hasta hoy, la humanidad ha ensayado tres maneras de organizar su dinero. Una protege las señales casi sin proponérselo. Otra las corrompe un poco, casi por accidente. Y la tercera las falsifica a voluntad, como política deliberada. Se parecen menos de lo que el lenguaje sugiere y difieren de un modo que casi nadie nota —porque la diferencia que importa no es la que suele discutirse—. A examinarlas, una por una, con la vara ya en la mano, dedicaremos el capítulo siguiente.</p>
+
+  </div>
+
+</article>
+
+<nav class="nav-foot"><a class="prev" href="dinero-como-informacion.html">El dinero como sistema de información</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+</body>
+</html>
