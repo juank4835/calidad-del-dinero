@@ -158,6 +158,10 @@ blockquote .cite {
 }
 
 blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
 
 /* ============================================================
    APARTADO DE PROFUNDIZACIÓN (Mises)
@@ -257,22 +261,22 @@ blockquote .cite::before { content: "— "; }
 
     <p>Imagine a alguien que valorara el futuro exactamente igual que el presente —que le diera lo mismo disfrutar algo hoy o dentro de un año—. Esa persona no consumiría hoy: pospondría, porque posponer no le cuesta nada. Pero mañana enfrentaría la misma decisión, y volvería a posponer, por la misma razón. Y pasado mañana otra vez. Si de verdad el momento le fuera indiferente, no llegaría nunca el día de consumir: aplazaría para siempre. Acumularía sin disfrutar jamás, lo cual es absurdo, porque el sentido de producir y acumular es, al final, consumir. Rothbard lo dice sin rodeos:</p>
 
-    <blockquote>
-      Si un hombre, ceteris paribus, no prefiriera la satisfacción presente a la satisfacción futura, no consumiría... Pero el hecho de «no consumir nunca» es un absurdo, ya que el consumo es el fin de toda producción.
-      <span class="cite">Rothbard, El hombre, la economía y el Estado, cap. 1</span>
-    </blockquote>
+    <div class="cita-autor">
+      <span class="texto">"Si un hombre, ceteris paribus, no prefiriera la satisfacción presente a la satisfacción futura, no consumiría... Pero el hecho de "no consumir nunca" es un absurdo, ya que el consumo es el fin de toda producción."</span>
+      <span class="atribucion">Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 1</span>
+    </div>
 
     <p>El que alguien actúe —el que en algún momento deje de posponer y efectivamente consuma— demuestra que prefiere el presente al futuro. No hace falta medir a nadie ni preguntarle: basta con que actúe. Por eso no es una tendencia estadística que admita excepciones, sino una condición de la acción misma. Rothbard la llama, con razón, <span class="term-verde">el hecho universal de la preferencia temporal</span>.</p>
 
     <div class="profundizacion">
       <span class="tag">Para ir más hondo</span>
-      <p>Este tipo de prueba —mostrar que negar algo conduce a un absurdo— es la forma en que la Escuela Austriaca establece sus verdades fundamentales. No observa el mundo para ver «cuántas veces» ocurre algo; muestra que lo contrario es impensable. Mises clasificaba la preferencia temporal como una <em>categoría de la acción humana</em>: no algo que los hombres tengan más o menos, sino una estructura presente en todo acto, sin excepción posible. Su discusión está en <em>La Acción Humana</em>, cap. XVIII.</p>
+      <p>Este tipo de prueba —mostrar que negar algo conduce a un absurdo— es la forma en que la Escuela Austriaca establece sus verdades fundamentales. No observa el mundo para ver "cuántas veces" ocurre algo; muestra que lo contrario es impensable. Mises clasificaba la preferencia temporal como una <em>categoría de la acción humana</em>: no algo que los hombres tengan más o menos, sino una estructura presente en todo acto, sin excepción posible. Su discusión está en <em>La Acción Humana</em>, cap. XVIII.</p>
     </div>
 
     <!-- ====== MOVIMIENTO 3: la objeción del hielo ====== -->
-    <p>Aquí mucha gente siente una objeción, y conviene atenderla porque parece sólida. Imagine que estamos en pleno invierno y alguien le ofrece un bloque de hielo: ¿lo quiere ahora o el próximo verano? Casi cualquiera responde «en verano». Y entonces parece que preferimos el futuro al presente —justo lo contrario de lo que acabamos de afirmar—.</p>
+    <p>Aquí mucha gente siente una objeción, y conviene atenderla porque parece sólida. Imagine que estamos en pleno invierno y alguien le ofrece un bloque de hielo: ¿lo quiere ahora o el próximo verano? Casi cualquiera responde "en verano". Y entonces parece que preferimos el futuro al presente —justo lo contrario de lo que acabamos de afirmar—.</p>
 
-    <p>Pero mire con cuidado qué se está comparando. El hielo en invierno, cuando hace frío y no sirve para casi nada, y el hielo en verano, cuando refresca y se agradece, no son el mismo bien. Físicamente son idénticos —la misma agua congelada—, pero lo que usted valora no es el objeto físico: es la satisfacción que le produce. Y la satisfacción de «hielo cuando hace calor» es sencillamente distinta —y mayor— que la de «hielo cuando ya tengo frío». No está prefiriendo el futuro al presente. Está prefiriendo un bien mejor a uno peor, y resulta que el mejor llega después.</p>
+    <p>Pero mire con cuidado qué se está comparando. El hielo en invierno, cuando hace frío y no sirve para casi nada, y el hielo en verano, cuando refresca y se agradece, no son el mismo bien. Físicamente son idénticos —la misma agua congelada—, pero lo que usted valora no es el objeto físico: es la satisfacción que le produce. Y la satisfacción de "hielo cuando hace calor" es sencillamente distinta —y mayor— que la de "hielo cuando ya tengo frío". No está prefiriendo el futuro al presente. Está prefiriendo un bien mejor a uno peor, y resulta que el mejor llega después.</p>
 
     <p>La regla seguía intacta todo el tiempo: si le ofrecieran la <em>misma</em> satisfacción —ese hielo refrescante de verano— hoy mismo o dentro de un año, la querría hoy. La preferencia temporal no dice que siempre queramos los objetos cuanto antes; dice que, comparando la misma satisfacción en dos momentos, siempre preferimos el momento más cercano. El error de la objeción está en confundir la cosa con el valor que la cosa nos da.</p>
 
@@ -300,7 +304,7 @@ blockquote .cite::before { content: "— "; }
 
     <p>Pasa algo notable. Los más pacientes —los que están dispuestos a no consumir hoy— tienen ahorros que prestar. Los que quieren construir algo ahora —una casa, una fábrica, un negocio— necesitan esos recursos y están dispuestos a pagar por usarlos antes de tiempo. Cuando unos y otros se encuentran, surge un precio: cuánto hay que ofrecer para convencer a alguien de que espere, de que entregue hoy lo que podría disfrutar, a cambio de recibir más mañana. Ese precio es la <span class="term-verde">tasa de interés</span>.</p>
 
-    <p>Probablemente usted creía que la tasa de interés era otra cosa: el número que anuncia el banco central, la cifra que sale en las noticias cuando «suben» o «bajan» las tasas. Pero eso es como confundir el clima con el termómetro —y peor, con un termómetro que alguien puede trucar—. La tasa de interés, en su raíz, no la fija ninguna autoridad: nace del encuentro entre la paciencia de unos y la urgencia de otros, igual que el precio del pan nace del encuentro entre panaderos y hambrientos. Que exista alguien que se arrogue el poder de decretarla no la convierte en su creación, del mismo modo que un funcionario que fijara por decreto el precio del pan no estaría <em>creando</em> ese precio, sino tapándolo. Tenga presente esta distinción: vamos a volver a ella muchas veces.</p>
+    <p>Probablemente usted creía que la tasa de interés era otra cosa: el número que anuncia el banco central, la cifra que sale en las noticias cuando "suben" o "bajan" las tasas. Pero eso es como confundir el clima con el termómetro —y peor, con un termómetro que alguien puede trucar—. La tasa de interés, en su raíz, no la fija ninguna autoridad: nace del encuentro entre la paciencia de unos y la urgencia de otros, igual que el precio del pan nace del encuentro entre panaderos y hambrientos. Que exista alguien que se arrogue el poder de decretarla no la convierte en su creación, del mismo modo que un funcionario que fijara por decreto el precio del pan no estaría <em>creando</em> ese precio, sino tapándolo. Tenga presente esta distinción: vamos a volver a ella muchas veces.</p>
 
     <p>Aquí está lo que casi nadie ve. La tasa de interés no es un número que invente un banco ni que decrete un gobierno. En su forma genuina, es la paciencia de una sociedad entera vuelta cifra: el resumen de cuánto está dispuesta, en conjunto, a esperar. Cuando una sociedad ahorra mucho y mira lejos, la tasa es baja —hay abundancia de paciencia disponible—. Cuando vive al día y no tolera la espera, la tasa es alta. La tasa de interés <em>dice</em> algo verdadero sobre quiénes somos.</p>
 

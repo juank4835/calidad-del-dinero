@@ -136,6 +136,10 @@ blockquote .cite {
 }
 
 blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
 
 .profundizacion {
   margin: 2.8rem 0;
@@ -222,7 +226,7 @@ blockquote .cite::before { content: "— "; }
     <!-- ====== APERTURA ====== -->
     <p class="lead">Cerramos el capítulo anterior con una afirmación que conviene no dejar pasar como si fuera evidente: que la tasa de interés es información, y que la información puede falsificarse. Detengámonos en la primera mitad. ¿Información sobre qué, exactamente? ¿Qué dato transporta ese número, y a quién?</p>
 
-    <p>Imagine que pudiera ver, en un solo dato, cuánta gente en su país está dispuesta a esperar. Cuántos ahorran pensando en diez años y cuántos gastan todo el viernes. Cuánta paciencia hay disponible, en este momento, para emprender cosas que tardan en dar fruto. No existe ninguna encuesta que capture eso —nadie va casa por casa preguntando «¿cuánto está usted dispuesto a esperar?»—. Y sin embargo ese dato existe, se actualiza solo, y está a la vista de todos. Es la tasa de interés.</p>
+    <p>Imagine que pudiera ver, en un solo dato, cuánta gente en su país está dispuesta a esperar. Cuántos ahorran pensando en diez años y cuántos gastan todo el viernes. Cuánta paciencia hay disponible, en este momento, para emprender cosas que tardan en dar fruto. No existe ninguna encuesta que capture eso —nadie va casa por casa preguntando "¿cuánto está usted dispuesto a esperar?"—. Y sin embargo ese dato existe, se actualiza solo, y está a la vista de todos. Es la tasa de interés.</p>
 
     <p>Esa es su función, y es asombrosa cuando se la entiende: la tasa de interés condensa en un número la preferencia temporal de millones de personas que no se conocen entre sí, que jamás se pusieron de acuerdo, y que ni siquiera saben que están aportando un dato. Cada persona que decide ahorrar en vez de gastar, o pedir prestado en vez de esperar, empuja levemente ese número. El resultado de todos esos empujones es una cifra que le revela a cualquiera que sepa leerla algo que ninguna autoridad podría averiguar por su cuenta: cuánto futuro está dispuesta a financiar esta sociedad, hoy.</p>
 
@@ -231,15 +235,15 @@ blockquote .cite::before { content: "— "; }
     <!-- ====== MOVIMIENTO 2: el mecanismo concreto ====== -->
     <p>Veámoslo con las personas que ya conocemos. Juan, como recordará, es de los que apartan parte del sueldo; Luisa también ahorra; Carlos vive al día y gasta todo. Y Hernando es aquel que quería montar su taller y necesitaba recursos que no tenía hoy. Pongámoslos a todos en la misma economía.</p>
 
-    <p>Fíjese en lo que acaba de aparecer sin que nadie lo organizara. Por un lado, hay ahorro disponible: lo que Juan y Luisa apartaron y no van a usar por ahora. Por otro, hay alguien que quiere construir algo que tarda en dar fruto y necesita esos recursos antes de tiempo: Hernando y su taller. Entre ellos puede haber un trato. Juan y Luisa entregan hoy lo que tienen guardado; Hernando lo usa para sus máquinas y, cuando el taller produzca, devuelve más de lo que recibió. Ese «más» es el interés: lo que Hernando paga por usar antes de tiempo un futuro que todavía no había llegado.</p>
+    <p>Fíjese en lo que acaba de aparecer sin que nadie lo organizara. Por un lado, hay ahorro disponible: lo que Juan y Luisa apartaron y no van a usar por ahora. Por otro, hay alguien que quiere construir algo que tarda en dar fruto y necesita esos recursos antes de tiempo: Hernando y su taller. Entre ellos puede haber un trato. Juan y Luisa entregan hoy lo que tienen guardado; Hernando lo usa para sus máquinas y, cuando el taller produzca, devuelve más de lo que recibió. Ese "más" es el interés: lo que Hernando paga por usar antes de tiempo un futuro que todavía no había llegado.</p>
 
     <p>Ahora viene lo importante, y es pura preferencia temporal en acción a escala social. Suponga que mucha gente se vuelve paciente —que no solo Juan y Luisa, sino Carlos y miles más empiezan a ahorrar—. De pronto hay una montaña de ahorro buscando en qué emplearse. Cuando algo abunda, su precio baja: con tanto ahorro disponible, quienes lo prestan compiten por colocarlo, y se conforman con menos a cambio. La tasa de interés baja. Y al revés: si casi nadie ahorra, los pocos ahorros disponibles son disputados, y el interés sube. La tasa de interés no es más que el precio de la paciencia disponible —baja cuando hay mucha, alta cuando hay poca—.</p>
 
-    <p>Y aquí está lo que su descenso le dice a Hernando, y a todos los que como él quieren construir. Una tasa baja es un mensaje: «hay paciencia de sobra; la sociedad está dispuesta a esperar; adelante con los proyectos largos, hay con qué sostenerlos hasta que maduren». Una tasa alta dice lo contrario: «hay poca paciencia; no comprometa recursos en cosas que tardan, porque la gente los va a querer de vuelta pronto». El empresario no necesita conocer a Juan ni a Luisa ni saber cuánto ahorró cada uno. Le basta con leer la tasa. En ese número está condensada la decisión de todos ellos.</p>
+    <p>Y aquí está lo que su descenso le dice a Hernando, y a todos los que como él quieren construir. Una tasa baja es un mensaje: "hay paciencia de sobra; la sociedad está dispuesta a esperar; adelante con los proyectos largos, hay con qué sostenerlos hasta que maduren". Una tasa alta dice lo contrario: "hay poca paciencia; no comprometa recursos en cosas que tardan, porque la gente los va a querer de vuelta pronto". El empresario no necesita conocer a Juan ni a Luisa ni saber cuánto ahorró cada uno. Le basta con leer la tasa. En ese número está condensada la decisión de todos ellos.</p>
 
     <!-- ====== PENDIENTE ====== -->
     <span class="section-num">Sigue</span>
-    <p class="pendiente">Próximos movimientos: aquí puede entrar el gráfico de los dos lados (ahorradores con su preferencia temporal / empresarios que toman los ahorros) → qué significa que la tasa «coordine» (Hayek en lenguaje llano: nadie posee la información entera) → la falsificación: qué pasa cuando se empuja la tasa por debajo de la verdad → el ciclo como la realidad cobrándose la mentira.</p>
+    <p class="pendiente">Próximos movimientos: aquí puede entrar el gráfico de los dos lados (ahorradores con su preferencia temporal / empresarios que toman los ahorros) → qué significa que la tasa "coordine" (Hayek en lenguaje llano: nadie posee la información entera) → la falsificación: qué pasa cuando se empuja la tasa por debajo de la verdad → el ciclo como la realidad cobrándose la mentira.</p>
 
   </div>
 
