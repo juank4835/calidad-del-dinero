@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La discriminación bancaria — La calidad del dinero</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #5DCAA5;
+  --rojo: #FF5577;
+  --rojo-fuerte: #FF1744;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 19px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.75;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 8rem;
+}
+
+.chapter-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.chapter-title {
+  font-size: 2.6rem;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.chapter-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 4rem;
+}
+
+.ornament {
+  text-align: center;
+  color: var(--verde);
+  font-size: 1.2rem;
+  margin: 0 auto 3.5rem;
+  letter-spacing: 0.5em;
+}
+
+.prose p {
+  font-size: 1.12rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.prose p.lead {
+  font-size: 1.28rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+}
+
+.prose .lead::first-letter {
+  font-size: 3.6rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.82;
+  margin: 0.08em 0.12em -0.1em 0;
+  color: var(--verde);
+}
+
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: #fff; }
+
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+
+.section-num {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 0.6rem;
+  margin-top: 3.5rem;
+}
+
+blockquote {
+  margin: 2.2rem 0;
+  padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--verde);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+blockquote .cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
+
+.pendiente {
+  margin: 2.5rem 0;
+  padding: 1.4rem 1.6rem;
+  border: 1px dashed var(--rule);
+  border-radius: 6px;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  html { font-size: 17px; }
+  .page { padding: 3rem 1.2rem 5rem; }
+  .chapter-title { font-size: 2rem; }
+}
+
+/* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
+.nav-top {
+  max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0;
+}
+.nav-top a {
+  font-size: 0.85rem; color: var(--ink-soft); text-decoration: none;
+  letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot {
+  max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.nav-foot a {
+  font-size: 0.9rem; color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+
+</style>
+</head>
+<body>
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+
+<article class="page">
+
+  <div class="chapter-eyebrow">Séptima dimensión · gravedad media</div>
+  <h1 class="chapter-title">La discriminación bancaria</h1>
+  <p class="chapter-subtitle">Quién recibe el crédito —y por qué casi nunca es usted</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+
+    <!-- ====== APERTURA: la fila del banco ====== -->
+    <p class="lead">Dos personas entran al banco el mismo día a pedir un crédito. La primera es una empresa grande, conocida, con cuentas abiertas en esa entidad desde hace años y un gerente que almuerza con el director. La segunda es Juan, con un proyecto sólido —ha hecho los números, el negocio se sostiene— pero sin más respaldo que su trabajo y una idea buena. Usted ya sabe cómo termina la historia: a la empresa le aprueban el crédito esa misma semana, a una tasa baja; a Juan le piden garantías que no tiene, le ofrecen una tasa más alta, o simplemente le dicen que no. Y aquí está lo que importa: no es porque el proyecto de Juan sea peor. Es porque Juan está lejos, y la empresa está cerca.</p>
+
+    <p>¿Cerca de qué? De la fuente del dinero. Y para entender qué significa eso —y por qué decide quién prospera y quién no en una economía entera— hay que mirar de frente algo que casi todos malentienden: de dónde sale, en realidad, el dinero que el banco presta.</p>
+
+    <!-- ====== QUIÉN CREA EL DINERO: los bancos comerciales ====== -->
+    <p>La creencia común es que el banco es un intermediario: recoge los ahorros de unos y se los presta a otros, como un puente entre el que guarda y el que necesita. Si así fuera, el banco solo podría prestar lo que alguien ahorró de verdad, y este capítulo no existiría. Pero no es así, y lo vimos al principio del libro: el banco no presta el ahorro que tiene; presta dinero que crea en el momento de prestar. Bajo reserva fraccionaria, por cada peso que de verdad guarda, presta varios que no existían hasta que firmó el préstamo. El banco comercial no mueve dinero ajeno: <span class="term-rojo">fabrica dinero nuevo</span>.</p>
+
+    <p>Esto cambia por completo quién es el protagonista de esta historia. Solemos imaginar que la fábrica del dinero es el banco central —el edificio imponente, el comité, la imprenta—. Y es verdad que el banco central está en el origen: pone la base, respalda el sistema, rescata a quien tropieza, coordina a todos para que inflen al mismo ritmo. Pero el que de verdad crea la mayor parte del dinero nuevo, el que lo fabrica peso a peso cada vez que aprueba un préstamo, es el banco comercial —el de la esquina, el de la fila donde están Juan y la empresa—. El banco central habilita y respalda; los bancos comerciales fabrican. Están enchufados a él —por eso pueden crear sin miedo, sabiendo que si fallan habrá quien los sostenga—, pero son ellos los que están en la cabeza de la cadena: la mano que abre el grifo del dinero nuevo, y que decide hacia dónde corre.</p>
+
+    <p>Y ese "hacia dónde" es todo el asunto. Porque si el banco solo prestara ahorro real —dinero que alguien produjo y guardó—, tendría que ser cuidadoso: ese dinero es escaso, hay que dirigirlo al mejor proyecto, al que de verdad rinda, porque equivocarse cuesta. Pero cuando el dinero se crea de la nada, esa disciplina se afloja. No está repartiendo un recurso escaso que le costó reunir; está repartiendo algo que fabrica con la firma. Y entonces la pregunta de a quién prestarle deja de responderse por el mérito del proyecto y empieza a responderse por otra cosa: por la cercanía.</p>
+
+    <!-- ====== LA SEÑAL: hacia dónde fluye el crédito ====== -->
+    <p>Detengámonos en lo que está en juego, porque es una señal más, de las que venimos siguiendo todo el libro. El crédito, bien entendido, es una de las señales más importantes de una economía: dice <span class="term-verde">hacia dónde debe fluir el capital</span> —qué proyectos merecen recursos, cuáles no—. En un sistema honesto, donde solo se presta lo ahorrado, esa señal funciona: el ahorro fluye hacia quien promete devolverlo con el mayor rendimiento, es decir, hacia donde será más productivo. El crédito dirige el capital de la sociedad hacia sus mejores usos, como una brújula que apunta al proyecto que más vale la pena. No importa si usted tiene padrinos: importa si su proyecto es bueno.</p>
+
+    <p>Cuando el dinero se crea de la nada, esa brújula se desvía. El crédito ya no fluye hacia el mejor proyecto, sino hacia el más cercano a quien fabrica el dinero. La señal que debía decir "este negocio es productivo" pasa a decir "este cliente es de los nuestros". Y los de afuera —los Juanes, los que tienen buenas ideas pero no padrinos— quedan compitiendo en desventaja contra los de adentro, no porque sus proyectos sean peores, sino porque no están enchufados a la fuente. Rothbard lo dijo sin rodeos, nombrando a los beneficiarios:</p>
+
+    <div class="cita-autor">
+      <span class="texto">"Los prestatarios del banco, comerciantes o consumidores —su clientela—, se benefician con el nuevo dinero, ya que son quienes primero lo reciben."</span>
+      <span class="atribucion">Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 12</span>
+    </div>
+
+    <p>Su clientela: los de adentro. No el mejor proyecto, sino el cliente conocido. Y fíjese en la doble ventaja del que está cerca, porque es la misma carrera que ya vimos con los precios: no solo recibe el crédito —recibe el dinero <em>nuevo</em>, cuando todavía conserva su valor, antes de que los precios suban—. El de adentro recibe dinero fresco y barato para comprar el mundo a precios de ayer; el de afuera, si acaso recibe algo, lo recibe tarde, caro, y devaluado. La discriminación bancaria y el reparto desigual del dinero nuevo son, en el fondo, la misma injusticia mirada en el momento del préstamo.</p>
+
+    <!-- ====== LA OBJECIÓN DEL RIESGO ====== -->
+    <p>Aquí, si usted tiene buen ojo —o algo de formación financiera—, va a levantar la mano con la objeción más seria que admite este capítulo. "Un momento. ¿No es simplemente que prestarle a la empresa grande es menos riesgoso? Ella tiene activos, historial, con qué responder; Juan es un desconocido con una idea. Cualquier banco prudente prefiere al cliente seguro. Eso no es privilegio: es buena gestión del riesgo." La objeción es legítima, y hay que concederla de entrada: evaluar el riesgo es sensato, y un banco honesto también le prestaría con más cuidado a quien no tiene cómo responder. Si la historia se acabara ahí, no habría de qué quejarse.</p>
+
+    <p>Pero la historia no se acaba ahí, y lo que la objeción pasa por alto es lo decisivo: <em>el dinero creado de la nada no elimina la evaluación del riesgo, pero corrompe el incentivo a hacerla bien</em>. Mire por qué, y verá que el argumento se da vuelta.</p>
+
+    <p>Conviene apoyarse aquí en una distinción que popularizó Milton Friedman —que no era de esta tradición, sino más bien un adversario de ella, lo que vuelve aún más revelador que su esquema ilumine tan bien el problema—. Friedman observó que hay cuatro maneras de gastar dinero, y que el cuidado con que se gasta depende de dos cosas: de quién es el dinero, y para quién es lo que se compra. Cuando uno gasta <em>su</em> dinero en <em>sí mismo</em>, cuida las dos puntas: que sea bueno y que no cueste de más. Cuando gasta su dinero en otro —un regalo—, cuida el precio pero afloja en la calidad. Cuando gasta el dinero de otro en sí mismo —una cena con cuenta ajena—, cuida la calidad pero no el precio. Y cuando gasta <em>el dinero de otro en un tercero</em>, no cuida ninguna de las dos: ni el precio, porque no es suyo, ni la calidad, porque no es para él. Es el cuadrante de la indiferencia total —y es, ni más ni menos, cómo se gasta el dinero de los impuestos: no es de quien lo gasta ni va a parar a él, así que poco importa en qué se gaste o si rinde—.</p>
+
+    <p>Guarde esa cuarta casilla, porque es exactamente donde está parado el banco que presta dinero creado de la nada. Hágase la pregunta incómoda: ¿de quién es el dinero que reparte, y para quién es? No es suyo —lo fabricó con la firma, no lo ahorró—. Y no es para él —es para el cliente—. Dinero que no es suyo, prestado a un tercero: el cuadrante cuatro, el de la indiferencia. Por eso el incentivo está roto de raíz. No es que el banquero sea malo o perezoso por carácter; es que está estructuralmente en la posición de quien gasta lo ajeno en otro, y en esa posición —Friedman lo vio con claridad— a nadie le importa demasiado si el capital se dirige bien o mal.</p>
+
+    <p>Y ahora sí, vea cómo eso destroza la evaluación del riesgo. Cuando alguien presta su propio ahorro, lo cuida como propio —si el proyecto fracasa, pierde él, y por eso escarba, pregunta, exige, busca de verdad si el negocio rinde—. Pero el banco comercial enchufado al banco central no arriesga lo suyo: si las cosas se tuercen, hay un prestamista de última instancia que lo respalda, hay rescates, hay seguro de depósitos. <span class="term-rojo">Juega con red</span>. Es la cuarta casilla otra vez: ni el dinero es suyo ni la pérdida será del todo suya. Y quien juega con red no evalúa el riesgo como quien se juega el patrimonio: lo evalúa con pereza. Entonces "prestarle al de siempre" no es la conclusión de un análisis cuidadoso del riesgo: es el atajo cómodo de quien no necesita ser cuidadoso. La objeción supone un banquero prudente que arriesga lo propio; pero el dinero que se crea de la nada produce justo lo contrario —un banquero que reparte lo de todos y, por eso mismo, no se molesta en mirar bien—.</p>
+
+    <p>Y ahí está la vuelta completa: con dinero honesto, el banco <em>también</em> evaluaría el riesgo —pero arriesgando un ahorro real y escaso, tendría un incentivo feroz a descubrir si el proyecto de Juan, aun siendo menos conocido, rinde lo suficiente para valer la pena—. Buscaría el mejor proyecto ajustado por su riesgo, porque equivocarse le costaría lo suyo. El dinero creado de la nada apaga ese incentivo: como no le duele perder y siempre puede fabricar más, le sale más barato prestarle al conocido que tomarse el trabajo de evaluar al desconocido. No es que el privilegio reemplace la evaluación del riesgo; es que <span class="term-rojo">elimina el incentivo a evaluarlo con honestidad</span>. Juan no pierde porque su proyecto sea malo: pierde porque, en un sistema donde al banco no le duele equivocarse, nadie tiene razones para averiguar si su proyecto es bueno.</p>
+
+    <p>Hay todavía una vuelta de tuerca, por si quedara duda. ¿De dónde salieron los activos que vuelven "tan segura" a la empresa grande? En buena parte, de haber estado cerca del dinero nuevo antes: compró barato, con crédito previo, lo que hoy vale más y le sirve de colateral. Su menor riesgo no es un dato caído del cielo —es, en parte, el premio acumulado de privilegios anteriores—. El sistema fabrica el colateral que luego invoca para justificar prestarle más al mismo. De modo que "es menos riesgoso" no siempre describe un mérito: a veces describe la ventaja heredada de quien lleva tiempo cerca del grifo.</p>
+
+    <!-- ====== EL EFECTO ACUMULATIVO ====== -->
+    <p>Y esto no es un episodio aislado: es un sesgo que se repite en cada ciclo de crédito, año tras año, y por eso sus efectos se acumulan. Cada vez que se crea dinero nuevo, los de adentro reciben primero y se afianzan; los de afuera quedan un paso atrás. El que ya tenía acceso al crédito barato crece, compra, se expande; el que no, se queda. Con el tiempo, la economía no se organiza según quién produce mejor, sino según quién estuvo más cerca de la fuente del dinero. <span class="term-rojo">El capital deja de fluir hacia el mérito y fluye hacia el privilegio</span> —y como el privilegio, una vez ganado, compra más privilegio, la distancia entre los de adentro y los de afuera se ensancha sola—. No es que el sistema falle en repartir bien: es que reparte exactamente según la cercanía al grifo, y lo hace una y otra vez, hasta que la estructura entera de la economía lleva impresa la huella de quién tenía acceso al dinero nuevo y quién no.</p>
+
+    <!-- ====== EL BINARIO / SUSTRATO ====== -->
+    <p>Y como siempre, todo esto depende de una sola cosa. Con dinero honesto —el que no se puede crear de la nada— el banco no tiene un grifo que abrir: solo puede prestar lo que alguien ahorró de verdad, y eso lo obliga a la disciplina. Cada préstamo arriesga un ahorro real, suyo o de sus depositantes, así que conviene dirigirlo al mejor proyecto, no al amigo. La cercanía no da ninguna ventaja, porque no hay dinero nuevo que repartir antes que nadie: hay un ahorro escaso que hay que colocar bien. El crédito vuelve a fluir hacia el mérito, porque es la única forma de no perder. La discriminación bancaria no es un abuso que un buen banquero evitaría por decencia: es una posibilidad que solo existe cuando se puede fabricar dinero. Quítele al banco el grifo, y la fila del comienzo se ordena sola por la calidad de los proyectos, no por la cercanía de los clientes.</p>
+
+    <!-- ====== CIERRE: arquetipo + puente ====== -->
+    <p>Recoja la forma, que es la de siempre. La causa sigue siendo la misma raíz de todo el libro: el ahorro real, lo que una sociedad de verdad guardó para invertir. La señal de este capítulo es el crédito —hacia dónde fluye el capital—. El que la lee es el banco, que decide a quién prestar. Y el desenlace depende del dinero: si es honesto, el crédito fluye al mérito y la sociedad invierte en lo que de verdad rinde; si se crea de la nada, el crédito fluye al privilegio, y la economía se reorganiza alrededor de quién está cerca de la fuente, no de quién produce mejor. Una sociedad que reparte el crédito por cercanía termina premiando a los enchufados y castigando a los capaces —y lo hace en silencio, préstamo a préstamo, hasta que parece el orden natural de las cosas—.</p>
+
+    <p>Hemos visto al dinero falso corromper señal tras señal: la tasa, la estructura productiva, las pérdidas, los precios, el cálculo a futuro, el ahorro guardado, y ahora el reparto del crédito. En todos los casos hubo algo que nos permitió ver el daño: pudimos rastrearlo, nombrarlo, seguir el hilo desde la fuente hasta la consecuencia. Pero eso fue posible solo porque, de algún modo, la información estaba ahí para quien supiera mirar. ¿Y si el propio dinero pudiera esconder sus movimientos? ¿Si fuera imposible saber cuánto se ha creado, o quién lo tiene, o si las cuentas cuadran? Esa es la última de nuestras dimensiones —la posibilidad misma de auditar el dinero, de verificar que no nos engañan—, y es la que sigue.</p>
+
+  </div>
+
+
+</article>
+<nav class="nav-foot"><a class="prev" href="poder-adquisitivo.html">El poder adquisitivo</a><a class="idx" href="index.html">Índice</a><a class="next" href="auditabilidad.html">La auditabilidad</a></nav>
+
+
+</body>
+</html>
