@@ -174,84 +174,10 @@ blockquote .cite::before { content: "— "; }
   text-align: center;
 }
 
-/* ====== FIGURA: liberación de recursos ====== */
-.figura {
-  margin: 3rem 0;
-  display: block;
-}
-
-.fig-cols {
-  display: flex;
-  align-items: stretch;
-  gap: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.fig-col { flex: 1; display: flex; flex-direction: column; }
-
-.fig-head { text-align: center; margin-bottom: 1rem; }
-.fig-head .h1 { font-size: 0.95rem; color: var(--ink); }
-.fig-head .h2 { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-top: 0.15rem; }
-
-.fig-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: 8px;
-  margin-bottom: 0.7rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-}
-
-.fig-item svg { width: 24px; height: 24px; flex-shrink: 0; stroke: var(--ink-soft); fill: none; stroke-width: 1.6; }
-.fig-item span { font-size: 1rem; color: var(--ink); }
-
-.fig-mid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 84px;
-}
-.fig-mid .lbl { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-bottom: 0.4rem; }
-.fig-mid svg { width: 30px; height: 18px; stroke: var(--verde); fill: none; stroke-width: 1.8; }
-
-.fig-free {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  border-radius: 8px;
-  background: rgba(93,202,165,0.10);
-  border: 1px solid var(--verde);
-  padding: 1.2rem;
-}
-.fig-free .pool { display: flex; gap: 1rem; margin-bottom: 0.9rem; }
-.fig-free .pool svg { width: 26px; height: 26px; stroke: var(--verde); fill: none; stroke-width: 1.6; }
-.fig-free .f1 { font-size: 0.98rem; color: var(--ink); }
-.fig-free .f2 { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-top: 0.2rem; text-align: center; }
-
-.fig-cap {
-  display: block;
-  clear: both;
-  text-align: center;
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  margin-top: 0.5rem;
-  line-height: 1.6;
-}
-.fig-cap .em { color: var(--ink); font-style: normal; }
-
 @media (max-width: 640px) {
   html { font-size: 17px; }
   .page { padding: 3rem 1.2rem 5rem; }
   .chapter-title { font-size: 2rem; }
-  .fig-cols { flex-direction: column; }
-  .fig-mid { flex-direction: row; min-height: 40px; gap: 0.6rem; }
-  .fig-mid .lbl { margin: 0; }
-  .fig-mid svg { transform: rotate(90deg); }
 }
 
 /* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
@@ -303,37 +229,33 @@ blockquote .cite::before { content: "— "; }
     <!-- ====== MOVIMIENTO 2 · LA SEÑAL: el poder adquisitivo ====== -->
     <p>Pongámosle nombre a lo que esa persona perdió. No perdió pesos —los pesos siguen ahí, en la libreta, más numerosos que nunca—. Perdió <span class="term-verde">poder adquisitivo</span>: la capacidad de su dinero para comprar cosas reales. Y esa es la medida que de verdad importa, porque a nadie le sirve el dinero por el dinero mismo; le sirve por lo que puede cambiar por él —un techo, comida, la educación de un hijo, descanso al final de la vida—. El poder adquisitivo es eso: cuánto mundo real cabe dentro de lo que usted tiene guardado.</p>
 
-    <p>Quizás reconozca esta idea, porque es la cinta del capítulo anterior vista desde el otro lado. Allá nos preguntábamos si la unidad de medida conservaría su tamaño hacia el futuro, para poder calcular. Aquí la pregunta es más simple y más inmediata: ¿el dinero que usted ya tiene, hoy, conserva lo que vale? Es la misma cinta, pero ya no mirando hacia adelante —¿podré planear?— sino hacia lo que sostiene en la mano —¿esto que junté seguirá valiendo lo que vale?—. La predecibilidad era sobre el futuro que usted quiere construir; el poder adquisitivo es sobre el pasado que usted ya construyó y guardó.</p>
+    <p>Es, si quiere, la otra cara de la dimensión anterior. Allá nos preguntábamos si la unidad de medida conservaría su tamaño hacia el futuro, para poder planear. Aquí la pregunta es más inmediata: lo que usted ya guardó, ¿sigue valiendo lo que valía? No mira hacia el futuro que quiere construir, sino hacia el pasado que ya construyó y puso a salvo.</p>
 
     <p>Y conviene ver con claridad qué es lo que se mide, porque es fácil confundirse. El poder adquisitivo no se mide en el número —ese puede crecer y crecer mientras lo que compra se desploma—. Se mide en cosas: cuántos panes, cuántos litros de leche, cuántos metros de techo compra una unidad de su dinero. Cuando ese poder baja, usted es más pobre, aunque el número de su cuenta sea idéntico o mayor. La riqueza nunca estuvo en los números: estuvo siempre en lo que los números pueden comprar.</p>
 
     <!-- ====== MOVIMIENTO 3 · LA FALSIFICACIÓN: el saqueo silencioso ====== -->
     <p>Entonces, ¿qué le pasó a la persona que ahorró toda una vida? No le subieron los precios por arte de magia. Pasó algo más concreto, y lo venimos viendo desde el principio del libro: mientras ella guardaba, alguien estuvo creando dinero nuevo de la nada. Y cada unidad nueva que aparece no añade riqueza —no hay más panes, ni más techos, ni más trabajo en el mundo por el hecho de imprimir—; lo único que hace es repartir el mismo valor entre más unidades. <span class="term-rojo">Cada peso nuevo que se crea le resta un poco de valor a todos los pesos que ya existían</span> —incluidos los que ella tenía guardados—. Su dinero no se movió de la cuenta; pero el valor se le fue saliendo por debajo, diluido por cada unidad que se fabricó mientras dormía.</p>
 
-    <p>Es importante ver por qué esto solo puede pasar con cierto tipo de dinero. Con dinero honesto —ese que nadie puede crear por decreto— lo que usted guarda se queda quieto en valor, o incluso vale más con el tiempo: si la sociedad produce más cosas y la cantidad de dinero no se infla, cada unidad compra más, no menos. Ahorrar, bajo dinero honesto, es guardar el fruto del trabajo tal cual, sin que se derrita. Pero con dinero que se crea de la nada, ahorrar es llenar un balde que tiene una fuga en el fondo: usted echa agua —trabaja, guarda—, y el nivel baja igual, porque alguien, en otra parte, abrió un agujero que usted no ve ni controla. El saqueo no está en que le saquen agua del balde; está en que agrandan el balde —crean más unidades— y su agua, la misma de siempre, ahora llena una fracción menor.</p>
+    <p>Es importante ver por qué esto solo puede pasar con cierto tipo de dinero. Con dinero honesto —ese que nadie puede crear por decreto— lo que usted guarda se queda quieto en valor, o incluso vale más con el tiempo: si la sociedad produce más cosas y la cantidad de dinero no se infla, cada unidad compra más, no menos. Ahorrar, bajo dinero honesto, es guardar el fruto del trabajo tal cual, sin que se derrita. Pero con dinero que se crea de la nada, ahorrar es llenar un balde que tiene una fuga en el fondo: usted echa agua —trabaja, guarda—, y el nivel baja igual, porque alguien, en otra parte, abrió un agujero que usted no ve ni controla. Y fíjese bien dónde está el saqueo: no en que le saquen agua del balde, sino en que agrandan el balde —crean más unidades— y su agua, la misma de siempre, ahora llena una fracción menor.</p>
 
     <p>Y aquí está lo que vuelve este saqueo distinto de cualquier otro: <span class="term-rojo">es un robo que no deja huellas</span>. Cuando suben un impuesto, usted lo ve: hay una ley, un debate, un porcentaje con nombre, alguien a quien reclamarle. Cuando le roban la casa, hay un delito, una víctima, una denuncia. Pero cuando le diluyen el ahorro creando dinero, no hay ley que usted haya votado, no hay una cifra que le hayan cobrado, no hay un culpable señalado, no hay siquiera un momento exacto en que ocurrió —fue gota a gota, todos los días, durante años—. Por eso es el saqueo perfecto: empobrece a millones sin que ninguno pueda señalar el instante en que le quitaron algo. Es un impuesto que nadie aprobó, que no aparece en ninguna factura, y que recae con más fuerza sobre quien menos puede defenderse: el que ahorra en efectivo, el que no tiene cómo poner su dinero a salvo, el viejo de nuestra historia.</p>
 
-    <!-- ====== MOVIMIENTO 4 · LA INVERSIÓN DE LA VIRTUD ====== -->
-    <p>Hay una consecuencia de esto que va más hondo que el robo mismo, y conviene detenerse en ella, porque cambia el carácter de toda una sociedad. Piense en lo que el dinero que se diluye le enseña a la gente. Le enseña que ahorrar es de tontos. Que guardar el fruto del trabajo es verlo derretirse. Que el prudente —el que se aguanta las ganas, el que posterga, el que junta para el futuro— es castigado, mientras que el que gasta todo de inmediato, antes de que el dinero pierda valor, al menos no pierde. El dinero malo invierte el premio y el castigo: vuelve insensato lo que siempre fue sensato.</p>
+    <!-- ====== MOVIMIENTO 4 · LA INVERSIÓN DE LA VIRTUD (comprimido) ====== -->
+    <p>Hay una consecuencia de esto que va más hondo que el robo mismo. Piense en lo que el dinero que se diluye le enseña a la gente: que ahorrar es de tontos, que guardar el fruto del trabajo es verlo derretirse, que el prudente —el que se aguanta, el que posterga, el que junta para el futuro— es castigado, mientras el que gasta todo de inmediato al menos no pierde. El dinero malo invierte el premio y el castigo: vuelve insensato lo que siempre fue sensato. Y la gente no es tonta: aprende. Si guardar pierde, la respuesta racional es no guardar —gastar ya, mientras el dinero todavía compra, o lanzarse a inversiones cada vez más arriesgadas, no por audacia sino por defensa—. La virtud del ahorro, que cualquiera podía practicar, se vuelve un lujo de expertos: bajo dinero honesto el camino seguro de una familia común era trabajar, guardar, esperar; bajo dinero que se diluye, ese camino se cierra.</p>
 
-    <p>Y la gente no es tonta: aprende. Si guardar pierde, la respuesta racional es no guardar. Gastar ya, mientras el dinero todavía compra. O lanzarse a inversiones cada vez más arriesgadas, no por audacia sino por defensa —cualquier cosa antes que quedarse con un dinero que se evapora—. Bajo dinero honesto, el camino seguro para una familia común era simple y al alcance de todos: trabajar, guardar, esperar. Bajo dinero que se diluye, ese camino se cierra, y se obliga a todos —hasta al más prudente— a volverse algo de especulador para no empobrecer. La virtud del ahorro, que cualquiera podía practicar, se convierte en un lujo de expertos financieros.</p>
-
-    <p>Fíjese en la inversión completa, porque es enorme: un buen dinero premia la paciencia y hace del ahorro el camino natural de cualquiera; un dinero que se diluye premia la impaciencia y empuja a una sociedad entera a vivir el corto plazo, a consumir hoy lo que sea, a no confiar en el mañana. No es solo que le roben a usted sus ahorros. Es que le enseñan a usted, y a todos, a no ahorrar.</p>
-
-    <p>Recuerde la preferencia temporal del comienzo del libro: esa disposición a esperar —a preferir el fruto mañana si vale la pena— que distinguía a quien ahorraba de quien gastaba todo. Dijimos entonces que cada quien tiene la suya. Pero fíjese en lo que el dinero malo le hace a esa disposición: no se limita a reflejarla, la empuja. Un dinero que castiga al que espera vuelve a toda una sociedad más impaciente —no porque la gente haya cambiado por dentro, sino porque esperar dejó de tener sentido—. El tipo de dinero no es neutral frente a la paciencia de un pueblo: la moldea. Con dinero que conserva su valor, esperar premia, y la sociedad aprende a mirar lejos. Con dinero que se diluye, esperar castiga, y la sociedad aprende a vivir el día. Lo que el dinero malo corrompe, al final, no es solo su cuenta: es el horizonte mismo con que una civilización entera mira hacia adelante. Pero esa consecuencia —la más honda de todas— tiene su propio lugar más adelante en el libro; por ahora basta con ver que el saqueo no termina en el bolsillo.</p>
+    <p>Es la inversión completa: un buen dinero premia la paciencia y hace del ahorro el camino natural de cualquiera; un dinero que se diluye premia la impaciencia y empuja a todos a vivir el corto plazo. No es solo que le roben a usted sus ahorros: es que le enseñan a usted, y a todos, a no ahorrar. Y eso —lo que el dinero malo le hace, a la larga, a la paciencia de un pueblo entero— es quizá la consecuencia más honda de todas; pero tiene su propio lugar más adelante en el libro. Por ahora basta con ver que el saqueo no termina en el bolsillo: también toca el carácter.</p>
 
     <!-- ====== MOVIMIENTO 5 · LOS TRES REGÍMENES: oro y Bitcoin juntos frente al fiat ====== -->
     <p>Y ahora la pregunta de siempre: ¿de qué depende que el dinero conserve el valor de lo que usted guarda, o se lo diluya? Depende, como todo en este libro, de si se puede crear de la nada. El dinero fiat puede —y por eso diluye—: cada unidad nueva que el comité decide imprimir es un poco de valor que sale, sin aviso, de todo lo que ya estaba guardado. Es el único de los tres regímenes que saquea por esta vía, y lo hace por diseño.</p>
 
-    <p>Frente a él, los dos dineros honestos se comportan igual, y por eso aquí vuelven a ir del brazo. Ni el oro ni Bitcoin se pueden crear por decreto, y por eso ninguno de los dos diluye lo que usted guarda: lo que usted ahorra en ellos conserva su valor, porque nadie puede fabricar unidades nuevas para licuar las suyas. En la dimensión anterior —la predecibilidad— los separamos, porque mirando al futuro no son idénticos. Pero en esta, la de preservar el valor de lo ya guardado frente al saqueo de la dilución, están del mismo lado: los dos protegen el fruto del trabajo, mientras que el fiat lo derrite. Lo que ahorró aquella persona se habría salvado en cualquiera de los dos; lo que la arruinó fue el único de los tres que se puede imprimir.</p>
+    <p>Frente a él, los dos dineros honestos se comportan igual, y por eso aquí vuelven a ir del brazo. Ni el oro ni Bitcoin se pueden crear por decreto, y por eso ninguno de los dos diluye lo que usted guarda: lo que ahorra en ellos conserva su valor, porque nadie puede fabricar unidades nuevas para licuar las suyas. En la dimensión anterior —la predecibilidad— los separamos, porque mirando al futuro no son idénticos. Pero en esta, la de preservar el valor de lo ya guardado frente a la dilución, están del mismo lado: los dos protegen el fruto del trabajo, mientras que el fiat lo derrite. Lo que ahorró aquella persona se habría salvado en cualquiera de los dos; lo que la arruinó fue el único de los tres que se puede imprimir.</p>
 
-    <!-- ====== MOVIMIENTO 6 · CIERRE: arquetipo + remate + puente ====== -->
-    <p>Recoja la forma, que es la de siempre. La causa es la misma de todo el libro: el trabajo guardado, el ahorro de quien prefirió esperar. La señal de este capítulo es el poder adquisitivo —cuánto vale, en cosas reales, lo que usted tiene—. La lectura es directa, tan directa que no necesita teoría: usted abre la billetera y ve qué alcanza. Y el desenlace depende, como siempre, del dinero: si es honesto, lo guardado se conserva y el trabajo de una vida sigue siendo el trabajo de una vida; si se puede crear de la nada, lo guardado se diluye y el trabajo de una vida se evapora sin que nadie lo toque.</p>
+    <!-- ====== MOVIMIENTO 6 · CIERRE: arquetipo + remate + puente a discriminación bancaria ====== -->
+    <p>Recoja la forma, que es la de siempre. La causa es la misma de todo el libro: el trabajo guardado, el ahorro de quien prefirió esperar. La señal de este capítulo es el poder adquisitivo —cuánto vale, en cosas reales, lo que usted tiene—. La lectura es tan directa que no necesita teoría: usted abre la billetera y ve qué alcanza. Y el desenlace depende, como siempre, del dinero: si es honesto, lo guardado se conserva y el trabajo de una vida sigue siendo el trabajo de una vida; si se puede crear de la nada, lo guardado se diluye y el trabajo de una vida se evapora sin que nadie lo toque.</p>
 
     <p>De todas las dimensiones que hemos recorrido, esta es la que cualquiera puede comprobar sin saber una palabra de economía: basta con haber visto a un abuelo contar lo que juntó, o con recordar lo que costaba el pan hace diez años. Y por eso mismo es la más reveladora. <span class="term-verde">Un dinero honesto es el único que le devuelve, intacto, el trabajo que usted le confió</span> —no se lo multiplica por arte de magia, pero tampoco se lo roba en silencio—. Guardar en él es guardar de verdad: lo que usted metió es lo que encontrará, esperándolo, cuando lo necesite. Eso, que debería ser lo mínimo que se le pide a un dinero, resulta ser un privilegio que solo el dinero honesto concede.</p>
 
-    <p>Pero hay un detalle del saqueo que todavía no hemos mirado, y que lo hace aún más injusto. Hemos hablado como si la dilución cayera pareja sobre todos —como si a todos nos licuara el ahorro por igual—. No es así. El dinero nuevo no llega al mismo tiempo a todas las manos: algunos lo reciben primero, cuando todavía conserva su valor, y otros lo reciben al final, cuando ya subieron los precios. Hay quienes están cerca del lugar donde se crea el dinero, y quienes están lejos. Y esa cercanía —quién cobra primero y quién cobra de último— decide quién gana y quién pierde con cada peso que se imprime. A esa otra cara del saqueo, la de los que tienen acceso al dinero nuevo y los que no, dedicaremos el capítulo que sigue.</p>
+    <p>Hasta aquí hemos visto el saqueo por el lado del que guarda: el ahorro que se diluye. Pero hay otra mano en el mismo bolsillo, y mira al otro lado del mostrador —no a quien guarda el dinero, sino a quien lo recibe nuevo—. Porque el dinero que se crea de la nada no se reparte por igual ni llega a todos: alguien decide a quién se le presta primero, y ese alguien no es un mercado ciego, sino una banca que favorece a los suyos. Quién tiene acceso al dinero nuevo y quién no —quién está adentro y quién toca una puerta que no se abre— es la siguiente dimensión, y revela que el dinero malo no solo empobrece a quien ahorra: también escoge, de antemano, a quién enriquece.</p>
 
   </div>
 
