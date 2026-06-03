@@ -174,86 +174,6 @@ blockquote .cite::before { content: "— "; }
   text-align: center;
 }
 
-/* ====== FIGURA: liberación de recursos ====== */
-.figura {
-  margin: 3rem 0;
-  display: block;
-}
-
-.fig-cols {
-  display: flex;
-  align-items: stretch;
-  gap: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.fig-col { flex: 1; display: flex; flex-direction: column; }
-
-.fig-head { text-align: center; margin-bottom: 1rem; }
-.fig-head .h1 { font-size: 0.95rem; color: var(--ink); }
-.fig-head .h2 { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-top: 0.15rem; }
-
-.fig-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: 8px;
-  margin-bottom: 0.7rem;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-}
-
-.fig-item svg { width: 24px; height: 24px; flex-shrink: 0; stroke: var(--ink-soft); fill: none; stroke-width: 1.6; }
-.fig-item span { font-size: 1rem; color: var(--ink); }
-
-.fig-mid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 84px;
-}
-.fig-mid .lbl { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-bottom: 0.4rem; }
-.fig-mid svg { width: 30px; height: 18px; stroke: var(--verde); fill: none; stroke-width: 1.8; }
-
-.fig-free {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  border-radius: 8px;
-  background: rgba(93,202,165,0.10);
-  border: 1px solid var(--verde);
-  padding: 1.2rem;
-}
-.fig-free .pool { display: flex; gap: 1rem; margin-bottom: 0.9rem; }
-.fig-free .pool svg { width: 26px; height: 26px; stroke: var(--verde); fill: none; stroke-width: 1.6; }
-.fig-free .f1 { font-size: 0.98rem; color: var(--ink); }
-.fig-free .f2 { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; margin-top: 0.2rem; text-align: center; }
-
-.fig-cap {
-  display: block;
-  clear: both;
-  text-align: center;
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  margin-top: 0.5rem;
-  line-height: 1.6;
-}
-.fig-cap .em { color: var(--ink); font-style: normal; }
-
-@media (max-width: 640px) {
-  html { font-size: 17px; }
-  .page { padding: 3rem 1.2rem 5rem; }
-  .chapter-title { font-size: 2rem; }
-  .fig-cols { flex-direction: column; }
-  .fig-mid { flex-direction: row; min-height: 40px; gap: 0.6rem; }
-  .fig-mid .lbl { margin: 0; }
-  .fig-mid svg { transform: rotate(90deg); }
-}
-
 /* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
 .nav-top {
   max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0;
@@ -294,60 +214,13 @@ blockquote .cite::before { content: "— "; }
   <div class="prose">
 
     <!-- ====== APERTURA ====== -->
-    <p class="lead">Pregúntele a cualquiera qué es ahorrar y le dirá lo mismo: guardar dinero. No gastarlo. Verlo acumularse en una cuenta. Esa imagen es tan natural que parece no tener vuelta de hoja —y sin embargo esconde el corazón del asunto, y conviene desarmarla, porque casi todo lo que sigue en este libro depende de verlo bien.</p>
+    <p class="lead">Usted cree que ahorra cuando ve crecer el saldo de su cuenta. Venga, que le voy a contar una historia que cambia eso: lo que llamamos ahorrar no es lo que usted piensa, y entenderlo le explica por qué, a veces, puede guardar dinero toda una vida y terminar con las manos casi vacías.</p>
+
+    <p>Pregúntele a cualquiera qué es ahorrar y le dirá lo mismo: guardar dinero. No gastarlo. Verlo acumularse en una cuenta. Esa imagen es tan natural que parece no tener vuelta de hoja —y sin embargo esconde el corazón del asunto, y conviene desarmarla, porque casi todo lo que sigue en este libro depende de verlo bien.</p>
 
     <p>Piense otra vez en Juan, aquel que apartaba una parte de su sueldo en lugar de gastarla. ¿Qué hizo realmente? La respuesta fácil es "guardó dinero". Pero mire más hondo, hacia el mundo físico, no hacia su cuenta. Juan, al no gastar, <em>no consumió</em> cosas que habría consumido: no se comió ciertos alimentos, no usó cierta gasolina, no ocupó el trabajo de nadie en servirle un capricho. Todas esas cosas —el alimento, la gasolina, las horas de trabajo— quedaron ahí, disponibles, sin que Juan las reclamara. Eso es lo que de verdad hizo Juan: no guardó un número en una pantalla, sino que <em>liberó pedazos del mundo real</em> del consumo de hoy.</p>
 
     <p>Y eso es exactamente lo que necesita alguien como Hernando. Hernando quiere montar un taller —tiene el plan, la destreza, las ganas— pero para levantarlo no le sirven los billetes: necesita cemento, acero, herramientas, el trabajo de obreros. Esos recursos tenían que salir de algún lado. Salieron de ahí: de las cosas que Juan, Luisa y los demás ahorradores decidieron no consumir. El ahorro de unos es, literalmente, el material con que otros construyen. El dinero solo fue el mensajero que conectó una cosa con la otra.</p>
-
-    <!-- ====== FIGURA: liberación de recursos ====== -->
-    <figure class="figura">
-      <div class="fig-cols">
-        <div class="fig-col">
-          <div class="fig-head">
-            <div class="h1">Comprometidos en el consumo</div>
-            <div class="h2">se gastarían hoy</div>
-          </div>
-          <div class="fig-item">
-            <svg viewBox="0 0 24 24"><path d="M12 3c-2.5 0-4 1.8-4 4 0 .6.1 1.1.3 1.6C7 9.3 6 10.8 6 12.5 6 15.5 8.7 18 12 18s6-2.5 6-5.5c0-1.7-1-3.2-2.3-3.9.2-.5.3-1 .3-1.6 0-2.2-1.5-4-4-4z"/><path d="M12 18v3"/></svg>
-            <span>Alimento</span>
-          </div>
-          <div class="fig-item">
-            <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5.5 6.8 5.5 10a5.5 5.5 0 0 1-11 0c0-3.2 2.5-6 5.5-10z"/></svg>
-            <span>Combustible</span>
-          </div>
-          <div class="fig-item">
-            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="8" height="5"/><rect x="13" y="5" width="8" height="5"/><rect x="3" y="14" width="8" height="5"/><rect x="13" y="14" width="8" height="5"/></svg>
-            <span>Materiales</span>
-          </div>
-        </div>
-
-        <div class="fig-mid">
-          <div class="lbl">ahorrar = soltar</div>
-          <svg viewBox="0 0 30 18"><path d="M2 9h24"/><path d="M20 4l6 5-6 5"/></svg>
-        </div>
-
-        <div class="fig-col">
-          <div class="fig-head">
-            <div class="h1">Liberados</div>
-            <div class="h2">disponibles, sin gastar</div>
-          </div>
-          <div class="fig-free">
-            <div class="pool">
-              <svg viewBox="0 0 24 24"><path d="M12 3c-2.5 0-4 1.8-4 4 0 .6.1 1.1.3 1.6C7 9.3 6 10.8 6 12.5 6 15.5 8.7 18 12 18s6-2.5 6-5.5c0-1.7-1-3.2-2.3-3.9.2-.5.3-1 .3-1.6 0-2.2-1.5-4-4-4z"/><path d="M12 18v3"/></svg>
-              <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5.5 6.8 5.5 10a5.5 5.5 0 0 1-11 0c0-3.2 2.5-6 5.5-10z"/></svg>
-              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="8" height="5"/><rect x="13" y="5" width="8" height="5"/><rect x="3" y="14" width="8" height="5"/><rect x="13" y="14" width="8" height="5"/></svg>
-            </div>
-            <div class="f1">Recursos libres</div>
-            <div class="f2">listos para algún uso</div>
-          </div>
-        </div>
-      </div>
-      <figcaption class="fig-cap">
-        <span class="em">Ahorrar no es guardar dinero: es soltar recursos del consumo de hoy.</span><br>
-        Qué se hace con ellos después es otra historia.
-      </figcaption>
-    </figure>
 
     <!-- ====== MOVIMIENTO EXPLOSIVO: la grieta ====== -->
     <p>Ahora viene la grieta, y conviene verla despacio porque de ella depende casi todo lo que sigue. Acabamos de ver que el dinero es solo el mensajero: lo que de verdad importa son los recursos reales que el ahorro libera. El dinero los representa, los cuenta, los mueve de mano en mano —pero no <em>es</em> ellos—. El billete en el bolsillo de Hernando no es cemento ni acero: es un derecho a reclamar cemento y acero que alguien, en algún lugar, dejó disponibles.</p>
