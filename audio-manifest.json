@@ -27,6 +27,15 @@
       "words": 738,
       "duration_seconds": 301.2,
       "generated_at": "2026-06-03T17:54:07Z"
+    },
+    "tres-regimenes.html": {
+      "text_sha256": "696631c50728383258a79ad58bdf0b481e378244a1ce471b9f8f56b154d148e5",
+      "chars": 23608,
+      "audio_path": "audio/tres-regimenes.mp3",
+      "alignment_path": "audio/tres-regimenes.alignment.json",
+      "words": 4119,
+      "duration_seconds": 1703.6,
+      "generated_at": "2026-06-03T18:00:23Z"
     }
   }
 }
