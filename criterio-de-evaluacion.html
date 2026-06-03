@@ -52,26 +52,51 @@ blockquote .cite::before { content: "— "; }
 .nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
 .nav-foot .next::after { content: " →"; color: var(--ink-soft); }
 .nav-foot .idx { color: var(--ink-soft); }
-.audio-player { margin: 2.5rem 0 3rem; padding: 1.4rem 1.6rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; font-family: var(--font-body); position: sticky; top: 0; z-index: 50; box-shadow: 0 8px 24px -10px rgba(0,0,0,0.5); }
-.ap-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 1.1rem; }
-.ap-controls { display: flex; align-items: center; gap: 1rem; }
-.ap-play { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule); background: transparent; color: var(--verde); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, background 0.2s; padding: 0; }
-.ap-play:hover { border-color: var(--verde); background: rgba(255,122,24,0.08); }
-.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
-.ap-play svg { width: 14px; height: 14px; fill: currentColor; pointer-events: none; }
-.ap-track { flex: 1; height: 28px; position: relative; cursor: pointer; min-width: 80px; }
-.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
-.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
-.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
-.audio-player:hover .ap-thumb, .ap-track:focus-visible .ap-thumb { opacity: 1; }
-.ap-time { flex-shrink: 0; font-size: 0.82rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; min-width: 80px; text-align: right; letter-spacing: 0.01em; }
-.ap-current { color: var(--ink-soft); transition: color 0.2s ease; }
-.audio-player.playing .ap-current { color: var(--verde); }
+
 .w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
 .w:hover { color: var(--verde); }
 .w.leida { color: var(--ink-soft); opacity: 0.85; }
 .w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
-@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } .ap-time { min-width: 64px; font-size: 0.75rem; } .audio-player { padding: 1.1rem 1.2rem; } }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+/* AUDIO PILL — reproductor flotante, colapsa/expande */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(420px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.55rem; margin-left: 0.65rem; margin-right: 0.25rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-track { flex: 1; min-width: 0; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb { opacity: 1; }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 36px; text-align: right; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 9px; font-size: 0.72rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
+
 </style>
 </head>
 <body>
@@ -82,23 +107,6 @@ blockquote .cite::before { content: "— "; }
   <div class="chapter-eyebrow">Bloque I · Fundamentos</div>
   <h1 class="chapter-title"><span class="w" data-w="0">El</span> <span class="w" data-w="1">criterio</span> <span class="w" data-w="2">de</span> <span class="w" data-w="3">evaluación</span></h1>
   <p class="chapter-subtitle"><span class="w" data-w="4">Por</span> <span class="w" data-w="5">qué</span> <span class="w" data-w="6">medimos</span> <span class="w" data-w="7">el</span> <span class="w" data-w="8">dinero</span> <span class="w" data-w="9">con</span> <span class="w" data-w="10">la</span> <span class="w" data-w="11">regla</span> <span class="w" data-w="12">equivocada</span></p>
-
-  <aside class="audio-player" aria-label="Reproductor de audio del capítulo">
-    <div class="ap-eyebrow">Audio del capítulo</div>
-    <div class="ap-controls">
-      <button class="ap-play" type="button" aria-label="Reproducir">
-        <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-      </button>
-      <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio">
-        <div class="ap-rail"></div>
-        <div class="ap-fill"></div>
-        <div class="ap-thumb"></div>
-      </div>
-      <div class="ap-time"><span class="ap-current">0:00</span> / <span class="ap-duration">--:--</span></div>
-      <audio class="ap-audio" preload="metadata" src="audio/criterio-de-evaluacion.mp3"></audio>
-    </div>
-  </aside>
 
   <div class="ornament">• • •</div>
 
@@ -131,34 +139,7 @@ blockquote .cite::before { content: "— "; }
 
 <nav class="nav-foot"><a class="prev" href="dinero-como-informacion.html">El dinero como sistema que transmite información</a><a class="idx" href="index.html">Índice</a><a class="next" href="tres-regimenes.html">Los tres regímenes</a></nav>
 
-<script>
-(function(){
-  document.querySelectorAll('.audio-player').forEach(function(p){
-    var a = p.querySelector('.ap-audio');
-    var b = p.querySelector('.ap-play');
-    var pi = p.querySelector('.ap-icon-play');
-    var ps = p.querySelector('.ap-icon-pause');
-    var tr = p.querySelector('.ap-track');
-    var fi = p.querySelector('.ap-fill');
-    var th = p.querySelector('.ap-thumb');
-    var cu = p.querySelector('.ap-current');
-    var du = p.querySelector('.ap-duration');
-    function fmt(t){ if(!isFinite(t)) return '--:--'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
-    a.addEventListener('loadedmetadata', function(){ du.textContent = fmt(a.duration); });
-    a.addEventListener('timeupdate', function(){ var pct = a.duration ? (a.currentTime/a.duration)*100 : 0; fi.style.width = pct+'%'; th.style.left = pct+'%'; cu.textContent = fmt(a.currentTime); });
-    a.addEventListener('ended', function(){ pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); });
-    b.addEventListener('click', function(){
-      if(a.paused){ a.play(); pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
-      else { a.pause(); pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
-    });
-    a.addEventListener('play', function(){ p.classList.add('playing'); });
-    a.addEventListener('pause', function(){ p.classList.remove('playing'); });
-    a.addEventListener('ended', function(){ p.classList.remove('playing'); });
-    tr.addEventListener('click', function(e){ if(!a.duration) return; var r=tr.getBoundingClientRect(); var pct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)); a.currentTime = pct*a.duration; });
-    tr.addEventListener('keydown', function(e){ if(!a.duration) return; if(e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); } else if(e.key==='ArrowLeft'){ a.currentTime = Math.max(0, a.currentTime-5); e.preventDefault(); } });
-  });
-})();
-</script>
+
 
 <script>
 /* Karaoke: resalta cada palabra mientras suena el audio */
@@ -241,5 +222,91 @@ blockquote .cite::before { content: "— "; }
 })();
 </script>
 
+<aside class="audio-pill" data-state="collapsed" data-duration="5:01" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/criterio-de-evaluacion.mp3"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-meta">
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span></div>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  a.addEventListener('loadedmetadata', function(){
+    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime);
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+  });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) a.play(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  tr.addEventListener('click', function(e){
+    if (!a.duration) return;
+    var r = tr.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(1, (e.clientX-r.left)/r.width));
+    a.currentTime = pct*a.duration;
+  });
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  pill.addEventListener('keydown', function(e){
+    if (e.key !== ' ' && e.key !== 'Spacebar') return;
+    if (e.target === rateBtn || e.target === closeBtn) return;
+    e.preventDefault();
+    if (a.paused) a.play(); else a.pause();
+  });
+})();
+</script>
 </body>
 </html>
