@@ -18,6 +18,15 @@
       "words": 2073,
       "duration_seconds": 859.7,
       "generated_at": "2026-06-03T17:09:00Z"
+    },
+    "criterio-de-evaluacion.html": {
+      "text_sha256": "efb88c9f1ea8a18c631241090fbed3257d71a7b7d1e36ae527c9da7e20a55b8e",
+      "chars": 4326,
+      "audio_path": "audio/criterio-de-evaluacion.mp3",
+      "alignment_path": "audio/criterio-de-evaluacion.alignment.json",
+      "words": 738,
+      "duration_seconds": 301.2,
+      "generated_at": "2026-06-03T17:54:07Z"
     }
   }
 }

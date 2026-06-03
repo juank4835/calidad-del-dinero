@@ -32,10 +32,12 @@ def wrap_words_in_block(html_block: str, start_idx: int) -> tuple[str, int]:
             pos += 1
     plain_text = "".join(plain)
 
-    # Pasada 2: encontrar matches de \w+
+    # Pasada 2: encontrar matches. Una "palabra" es \w+ permitiendo punto
+    # entre dígitos (para «36.5») u otros separadores típicos (apóstrofo).
     ranges = []
     idx = start_idx
-    for m in re.finditer(r"\w+", plain_text, flags=re.UNICODE):
+    word_re = re.compile(r"\w+(?:[.’']\w+)*", re.UNICODE)
+    for m in word_re.finditer(plain_text):
         s, e = m.start(), m.end()
         # mapear a posiciones HTML
         html_start = char_to_html[s]
