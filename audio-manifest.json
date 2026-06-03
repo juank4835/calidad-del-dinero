@@ -1,0 +1,21 @@
+{
+  "voice_id": "452WrNT9o8dphaYW5YGU",
+  "voice_name": "Abel - Reflective, Clear, Expressive",
+  "model": "eleven_multilingual_v2",
+  "voice_settings": {
+    "stability": 0.65,
+    "similarity_boost": 0.75,
+    "style": 0.2,
+    "use_speaker_boost": true
+  },
+  "release_tag": "audio",
+  "chapters": {
+    "dinero-como-informacion.html": {
+      "text_sha256": "9221a32fe2ca03965b6e9c4e73e206a55b5af44a47fbb69284ce0e57e6e45484",
+      "chars": 12092,
+      "audio_filename": "dinero-como-informacion.mp3",
+      "audio_url": "https://github.com/juank4835/calidad-del-dinero/releases/download/audio/dinero-como-informacion.mp3",
+      "generated_at": "2026-06-03T16:53:12Z"
+    }
+  }
+}

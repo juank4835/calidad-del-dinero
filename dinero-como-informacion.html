@@ -52,7 +52,21 @@ blockquote .cite::before { content: "— "; }
 .nav-foot a:hover { border-bottom-color: var(--verde); }
 .nav-foot .next::after { content: " →"; color: var(--ink-soft); }
 .nav-foot .idx { color: var(--ink-soft); }
-@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.audio-player { margin: 2.5rem 0 3rem; padding: 1.4rem 1.6rem; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; font-family: var(--font-body); }
+.ap-eyebrow { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 1.1rem; }
+.ap-eyebrow .ap-narrador { color: var(--ink-soft); }
+.ap-controls { display: flex; align-items: center; gap: 1rem; }
+.ap-play { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule); background: transparent; color: var(--verde); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, background 0.2s; padding: 0; }
+.ap-play:hover { border-color: var(--verde); background: rgba(255,122,24,0.08); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-play svg { width: 14px; height: 14px; fill: currentColor; pointer-events: none; }
+.ap-track { flex: 1; height: 28px; position: relative; cursor: pointer; min-width: 80px; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-player:hover .ap-thumb, .ap-track:focus-visible .ap-thumb { opacity: 1; }
+.ap-time { flex-shrink: 0; font-size: 0.82rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; min-width: 80px; text-align: right; letter-spacing: 0.01em; }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } .ap-time { min-width: 64px; font-size: 0.75rem; } .audio-player { padding: 1.1rem 1.2rem; } }
 </style>
 </head>
 <body>
@@ -63,6 +77,23 @@ blockquote .cite::before { content: "— "; }
   <div class="chapter-eyebrow">Bloque I · Fundamentos</div>
   <h1 class="chapter-title">El dinero como sistema que transmite información</h1>
   <p class="chapter-subtitle">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+
+  <aside class="audio-player" aria-label="Reproductor de audio del capítulo">
+    <div class="ap-eyebrow">Audio del capítulo · <span class="ap-narrador">narrado por Abel</span></div>
+    <div class="ap-controls">
+      <button class="ap-play" type="button" aria-label="Reproducir">
+        <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+      </button>
+      <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio">
+        <div class="ap-rail"></div>
+        <div class="ap-fill"></div>
+        <div class="ap-thumb"></div>
+      </div>
+      <div class="ap-time"><span class="ap-current">0:00</span> / <span class="ap-duration">--:--</span></div>
+      <audio class="ap-audio" preload="metadata" src="https://github.com/juank4835/calidad-del-dinero/releases/download/audio/dinero-como-informacion.mp3"></audio>
+    </div>
+  </aside>
 
   <div class="ornament">• • •</div>
 
@@ -123,6 +154,32 @@ blockquote .cite::before { content: "— "; }
 </article>
 
 <nav class="nav-foot"><span></span><a class="idx" href="index.html">Índice</a><a class="next" href="criterio-de-evaluacion.html">El criterio de evaluación</a></nav>
+
+<script>
+(function(){
+  document.querySelectorAll('.audio-player').forEach(function(p){
+    var a = p.querySelector('.ap-audio');
+    var b = p.querySelector('.ap-play');
+    var pi = p.querySelector('.ap-icon-play');
+    var ps = p.querySelector('.ap-icon-pause');
+    var tr = p.querySelector('.ap-track');
+    var fi = p.querySelector('.ap-fill');
+    var th = p.querySelector('.ap-thumb');
+    var cu = p.querySelector('.ap-current');
+    var du = p.querySelector('.ap-duration');
+    function fmt(t){ if(!isFinite(t)) return '--:--'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+    a.addEventListener('loadedmetadata', function(){ du.textContent = fmt(a.duration); });
+    a.addEventListener('timeupdate', function(){ var pct = a.duration ? (a.currentTime/a.duration)*100 : 0; fi.style.width = pct+'%'; th.style.left = pct+'%'; cu.textContent = fmt(a.currentTime); });
+    a.addEventListener('ended', function(){ pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); });
+    b.addEventListener('click', function(){
+      if(a.paused){ a.play(); pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+      else { a.pause(); pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+    });
+    tr.addEventListener('click', function(e){ if(!a.duration) return; var r=tr.getBoundingClientRect(); var pct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)); a.currentTime = pct*a.duration; });
+    tr.addEventListener('keydown', function(e){ if(!a.duration) return; if(e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); } else if(e.key==='ArrowLeft'){ a.currentTime = Math.max(0, a.currentTime-5); e.preventDefault(); } });
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -23,3 +23,10 @@ Desktop.ini
 # Variables de entorno
 .env
 .env.local
+
+# Audio generado (vive en GitHub Releases, no en el repo)
+audio/
+audio-pruebas/
+
+# EPUB exportado (se regenera con pandoc)
+*.epub
