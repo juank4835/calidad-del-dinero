@@ -70,6 +70,28 @@ body {
   font-size: 0.72rem; color: var(--rojo); margin-left: 0.5rem; font-style: italic;
 }
 
+.cimiento {
+  margin-top: 1.6rem; padding-top: 1.4rem;
+  border-top: 1px dashed var(--rule);
+}
+.cimiento .cim-tag {
+  display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--verde); margin-bottom: 0.5rem;
+}
+.cimiento .cim-cap { display: flex; align-items: baseline; gap: 0.9rem; }
+.cimiento .cim-cap a {
+  color: var(--ink); text-decoration: none; font-size: 1.05rem;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.cimiento .cim-cap a:hover { border-bottom-color: var(--verde); }
+.cimiento .cim-desc {
+  font-size: 0.9rem; font-style: italic; color: var(--ink-soft); margin-top: 0.4rem;
+}
+.cimiento .estado {
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-left: auto; padding-left: 1rem; white-space: nowrap; color: var(--verde);
+}
+
 .cadena {
   margin-top: 3rem; padding: 1.6rem 1.8rem;
   background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
@@ -191,11 +213,13 @@ body {
       <span class="grav">media</span>
       <span class="estado ok">Completo</span>
     </div>
-    <div class="cap">
-      <span class="num">14</span>
-      <a href="auditabilidad.html" class="titulo">La auditabilidad</a>
-      <span class="grav">meta</span>
-      <span class="estado ok">Completo</span>
+    <div class="cimiento">
+      <span class="cim-tag">La que las sostiene a todas</span>
+      <div class="cim-cap">
+        <a href="auditabilidad.html">La auditabilidad</a>
+        <span class="estado">Completo</span>
+      </div>
+      <p class="cim-desc">No una octava pieza, sino el suelo bajo las siete: si la base no se puede verificar, ninguna de las demás piezas dice la verdad.</p>
     </div>
   </section>
 
@@ -205,32 +229,32 @@ body {
     <p class="bloque-desc">La tesis aterrizada, de lo más visible a lo más profundo.</p>
 
     <div class="cap pend">
-      <span class="num">15</span>
+      <span class="num">14</span>
       <span class="titulo">La deforestación</span>
       <span class="estado todo">Por escribir</span>
     </div>
     <div class="cap pend">
-      <span class="num">16</span>
+      <span class="num">15</span>
       <span class="titulo">La degradación alimentaria</span>
       <span class="estado todo">Por escribir</span>
     </div>
     <div class="cap pend">
-      <span class="num">17</span>
+      <span class="num">16</span>
       <span class="titulo">La financiación de guerras</span>
       <span class="estado todo">Por escribir</span>
     </div>
     <div class="cap pend">
-      <span class="num">18</span>
+      <span class="num">17</span>
       <span class="titulo">Las crisis financieras contemporáneas</span>
       <span class="estado todo">Por escribir</span>
     </div>
     <div class="cap pend">
-      <span class="num">19</span>
+      <span class="num">18</span>
       <span class="titulo">El efecto sobre la preferencia temporal de la humanidad</span>
       <span class="estado todo">Por escribir</span>
     </div>
     <div class="cap pend">
-      <span class="num">20</span>
+      <span class="num">19</span>
       <span class="titulo">Arregla el dinero, arregla el mundo</span>
       <span class="estado todo">Por escribir</span>
     </div>
