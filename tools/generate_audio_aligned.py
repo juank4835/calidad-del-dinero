@@ -20,6 +20,8 @@ import base64
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 import urllib.request
 import urllib.error
@@ -181,9 +183,23 @@ def main():
         if align["character_end_times_seconds"]:
             time_offset += align["character_end_times_seconds"][-1]
 
-    # Guardar MP3
+    # Guardar MP3 (concatenación binaria)
     with open(mp3_path, "wb") as f:
         f.write(all_audio_bytes)
+
+    # Si hubo múltiples chunks, el header del MP3 concatenado reporta
+    # mal la duración (solo cuenta el primer chunk). Re-empacar con
+    # ffmpeg (sin recodificar) arregla los headers.
+    if len(chunks) > 1 and shutil.which("ffmpeg"):
+        tmp_out = mp3_path.with_suffix(".tmp.mp3")
+        subprocess.run(
+            ["ffmpeg", "-i", str(mp3_path), "-c", "copy", "-y", str(tmp_out)],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        tmp_out.replace(mp3_path)
+        print(f"(headers re-empacados con ffmpeg, duración correcta)")
 
     # Guardar alignment JSON
     out = {
