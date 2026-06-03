@@ -14,7 +14,10 @@
       "text_sha256": "9221a32fe2ca03965b6e9c4e73e206a55b5af44a47fbb69284ce0e57e6e45484",
       "chars": 12092,
       "audio_path": "audio/dinero-como-informacion.mp3",
-      "generated_at": "2026-06-03T16:53:12Z"
+      "alignment_path": "audio/dinero-como-informacion.alignment.json",
+      "words": 2073,
+      "duration_seconds": 859.7,
+      "generated_at": "2026-06-03T17:09:00Z"
     }
   }
 }
