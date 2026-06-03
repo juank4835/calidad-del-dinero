@@ -24,9 +24,10 @@ Desktop.ini
 .env
 .env.local
 
-# Audio generado (vive en GitHub Releases, no en el repo)
-audio/
+# Audios de prueba/scratch (no van al repo)
 audio-pruebas/
+# (Los MP3s finales en /audio/ SÍ van al repo para que Pages los sirva
+#  con el Content-Type correcto. GitHub Releases no sirve para streaming.)
 
 # EPUB exportado (se regenera con pandoc)
 *.epub
