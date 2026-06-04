@@ -38,13 +38,13 @@
       "generated_at": "2026-06-04T11:48:36Z"
     },
     "preferencia-temporal.html": {
-      "text_sha256": "de2791509b406f185bb4ff1e7d22330a5df353b94cde88cb87feb90f9021addd",
+      "text_sha256": "5069f7ecbb7b230737830251dcedf29caa0475abf570f508dc53acdbec9a924e",
       "chars": 12205,
       "audio_path": "audio/preferencia-temporal.mp3",
       "alignment_path": "audio/preferencia-temporal.alignment.json",
-      "words": 2072,
-      "duration_seconds": 872.476735,
-      "generated_at": "2026-06-04T18:13:20Z"
+      "words": 2218,
+      "duration_seconds": 929.692744,
+      "generated_at": "2026-06-04T19:01:01Z"
     },
     "ahorro-real.html": {
       "text_sha256": "2a1b0a90c65e80ebc10a656123828e562f39e8f0cd2630fb6815996b7f09a198",
