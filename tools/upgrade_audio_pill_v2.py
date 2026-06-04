@@ -440,8 +440,14 @@ def upgrade(html_path: Path, audio_src: str, duration: str, storage_key: str):
 
     align_url = audio_src.rsplit(".mp3", 1)[0] + ".alignment.json"
 
-    # Reemplazos en orden inverso de tamaño (para mantener regex válidos)
-    html = RE_JS_KARAOKE_V1.sub(JS_KARAOKE_V2.replace("{align_url}", align_url), html, count=1)
+    # Reemplazos en orden inverso de tamaño (para mantener regex válidos).
+    # OJO: el karaoke v2 depende del <audio class="ap-audio">, por lo que el
+    # bloque <script>Karaoke v2</script> tiene que ir DESPUÉS del <aside class=
+    # "audio-pill"> en el DOM. Aquí lo arrancamos de su posición original y lo
+    # reinsertamos justo antes de </body>.
+    karaoke_new = JS_KARAOKE_V2.replace("{align_url}", align_url)
+    html = RE_JS_KARAOKE_V1.sub("", html, count=1)  # arrancar el viejo en su sitio
+    html = html.replace("</body>", "\n" + karaoke_new + "\n</body>", 1)
     html = RE_JS_PILL_V1.sub(JS_PILL_V2, html, count=1)
     html = RE_HTML_PILL_V1.sub(
         HTML_PILL_V2.format(src=audio_src, duration=duration, key=storage_key),
