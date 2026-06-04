@@ -56,13 +56,13 @@
       "generated_at": "2026-06-04T18:34:22Z"
     },
     "cuando-un-precio-dice-la-verdad.html": {
-      "text_sha256": "0d38ad215f869684cf7ea262f7ef9d2bf95f699c6050d03cffbb92c595baa30d",
+      "text_sha256": "efc44a5e04246f9408ab47b63231d529844eaa195f46d6440d007b65f280cdd5",
       "chars": 13415,
       "audio_path": "audio/cuando-un-precio-dice-la-verdad.mp3",
       "alignment_path": "audio/cuando-un-precio-dice-la-verdad.alignment.json",
       "words": 2353,
-      "duration_seconds": 977.802449,
-      "generated_at": "2026-06-04T19:21:34Z"
+      "duration_seconds": 978.890295,
+      "generated_at": "2026-06-04T20:20:02Z"
     }
   }
 }
