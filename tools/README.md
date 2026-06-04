@@ -173,11 +173,26 @@ Cuando el cambio es muy grande (más del 30 %), regenerar todo sale más simple 
 
 **Fix permanente:** `ffmpeg_concat()` ahora convierte todos los paths a absolutos antes de escribir el archivo de lista.
 
-### 8. Símbolos `°` y `%` no se pronuncian al narrar
+### 8. Qué símbolos lee y qué símbolos se salta Abel (ElevenLabs en español)
 
-**Síntoma:** Abel lee "treinta y seis coma cinco" pero se salta el "°" (en `36.5°`) o el `%` (en `2%`). El audio dice menos de lo que el lector ve.
+| Símbolo | ¿Lo lee? | Ejemplo |
+|---|---|---|
+| `°` (grados) | **No** | `36.5°` → "treinta y seis coma cinco" (sin "grados") |
+| `%` (por ciento) | **Sí** | `2%` → "dos por ciento" |
+| `$` (peso/dólar) | Sí, según contexto | `$100` → "cien pesos" o "cien dólares" |
+| `&` | Sí | "y" |
+| `+` | A veces | depende del contexto |
+| `≈`, `≠`, `≤`, `≥` | **No** | se saltan |
 
-**Fix permanente:** insertar `<span class="audio-only"> grados</span>` después de `°` y `<span class="audio-only"> por ciento</span>` después de `%`. El CSS oculta visualmente esos spans (`position: absolute; left: -10000px`) pero el extractor sí los lee y los manda a ElevenLabs. Cuando vuelves a inyectar spans, los `<span class="w">` envuelven la palabra "grados"/"por ciento" como cualquier otra palabra, así que el karaoke las resalta brevemente cuando suenan.
+**Regla:** los símbolos *del teclado base* (cualquier cosa que viene mapeada en QWERTY estándar) suelen pronunciarse. Los símbolos unicode más exóticos (`°`, matemáticos griegos) se saltan.
+
+**Fix permanente para los que NO lee:** insertar la palabra hablada en un `<span class="audio-only">` justo después del símbolo. Ejemplo:
+```html
+36.5°<span class="audio-only"> grados</span>
+```
+El CSS oculta esos spans visualmente (`position: absolute; left: -10000px`), pero el extractor sí los manda a ElevenLabs y `inject_word_spans.py` envuelve la palabra para que el karaoke la resalte cuando suene.
+
+**Importante:** no agregar `<span class="audio-only">` para símbolos que el TTS YA pronuncia (como `%`), porque suena duplicado ("dos por ciento por ciento"). Probar primero qué dice el TTS antes de "ayudarlo".
 
 ### 9. La pill v2 contamina el texto plano con `15`, `0`, `1×`
 

@@ -20,13 +20,13 @@
       "generated_at": "2026-06-03T17:09:00Z"
     },
     "criterio-de-evaluacion.html": {
-      "text_sha256": "d0114fb5119f4cdf896005d6fb6b40a7b2c68c4c53984b051cec8e2520c6cb6d",
-      "chars": 4353,
+      "text_sha256": "37f33ab0602552336be6ce550c8e04fd9b773753b396dbd596e733b76292b957",
+      "chars": 4340,
       "audio_path": "audio/criterio-de-evaluacion.mp3",
       "alignment_path": "audio/criterio-de-evaluacion.alignment.json",
-      "words": 746,
-      "duration_seconds": 307.664399,
-      "generated_at": "2026-06-04T16:07:04Z"
+      "words": 740,
+      "duration_seconds": 303.299048,
+      "generated_at": "2026-06-04T16:19:04Z"
     },
     "tres-regimenes.html": {
       "text_sha256": "2a6ec622ecfdbd5bc1500029cdc98ca336d07870965cc5f9e4798f4e29ae6491",
