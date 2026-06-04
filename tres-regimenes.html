@@ -17,9 +17,12 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
 .page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
-.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); text-align: center; margin-bottom: 1.2rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
 .chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
 .chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
 .ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
