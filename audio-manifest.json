@@ -45,6 +45,15 @@
       "words": 2072,
       "duration_seconds": 872.476735,
       "generated_at": "2026-06-04T18:13:20Z"
+    },
+    "ahorro-real.html": {
+      "text_sha256": "2a1b0a90c65e80ebc10a656123828e562f39e8f0cd2630fb6815996b7f09a198",
+      "chars": 3637,
+      "audio_path": "audio/ahorro-real.mp3",
+      "alignment_path": "audio/ahorro-real.alignment.json",
+      "words": 621,
+      "duration_seconds": 261.503129,
+      "generated_at": "2026-06-04T18:34:22Z"
     }
   }
 }
