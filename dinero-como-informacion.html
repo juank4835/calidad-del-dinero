@@ -188,115 +188,6 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
 
 
 
-<script>
-/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
-(function(){
-  var ALIGN_URL = 'audio/dinero-como-informacion.alignment.json';
-  var audio = document.querySelector('.ap-audio');
-  if (!audio) return;
-  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
-  document.querySelectorAll('.w').forEach(function(el){
-    var i = parseInt(el.getAttribute('data-w'), 10);
-    if (!isNaN(i)) wordEls[i] = el;
-  });
-  try {
-    var allW = document.querySelectorAll('.w');
-    var rootEls = [];
-    allW.forEach(function(w){
-      var p = w.parentNode;
-      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
-      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
-    });
-    rootEls.forEach(function(root){
-      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
-      var seq = [], n;
-      while ((n = walker.nextNode())) {
-        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
-        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
-      }
-      var currentIdx = -1;
-      seq.forEach(function(node){
-        if (node.nodeType === 1) {
-          var i = parseInt(node.getAttribute('data-w'), 10);
-          if (!isNaN(i)) currentIdx = i;
-        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
-          var g = document.createElement('span');
-          g.className = 'g';
-          g.textContent = node.textContent;
-          node.parentNode.replaceChild(g, node);
-          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
-          glueEls[currentIdx].push(g);
-        }
-      });
-    });
-  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
-  fetch(ALIGN_URL)
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(data){
-      if (!data || !data.words) return;
-      words = data.words;
-      audio.addEventListener('timeupdate', tick);
-      audio.addEventListener('seeked', function(){ resetState(); tick(); });
-    })
-    .catch(function(){});
-  function findIdx(t){
-    if (!words || !words.length) return -1;
-    var lo = 0, hi = words.length - 1, ans = -1;
-    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
-    return ans;
-  }
-  function setGlue(i, add){
-    var arr = glueEls[i]; if (!arr) return;
-    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
-  }
-  function resetState(){
-    for (var k = 0; k < wordEls.length; k++) {
-      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
-      setGlue(k, false);
-    }
-    lastIdx = -1;
-  }
-  function tick(){
-    if (!words) return;
-    var idx = findIdx(audio.currentTime);
-    if (idx === lastIdx) return;
-    if (idx < lastIdx) {
-      for (var i = idx + 1; i <= lastIdx; i++) {
-        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
-        setGlue(i, false);
-      }
-    } else {
-      for (var j = Math.max(0, lastIdx); j < idx; j++) {
-        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
-        setGlue(j, true);
-      }
-    }
-    if (idx >= 0 && wordEls[idx]) {
-      wordEls[idx].classList.remove('leida');
-      wordEls[idx].classList.add('activa');
-      var rect = wordEls[idx].getBoundingClientRect();
-      var vh = window.innerHeight;
-      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
-        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
-        if (now - lastScrollAt > 600) {
-          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
-          lastScrollAt = now;
-        }
-      }
-    }
-    lastIdx = idx;
-  }
-  document.addEventListener('click', function(e){
-    var t = e.target;
-    if (!(t && t.classList && t.classList.contains('w'))) return;
-    var i = parseInt(t.getAttribute('data-w'), 10);
-    if (isNaN(i) || !words || !words[i]) return;
-    audio.currentTime = words[i].s;
-    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
-  });
-})();
-</script>
-
 <aside class="audio-pill" data-state="collapsed" data-duration="14:20" data-storage-key="dinero-como-informacion" aria-label="Reproductor de audio del capítulo">
   <audio class="ap-audio" preload="metadata" src="audio/dinero-como-informacion.mp3"></audio>
   <button class="ap-play" type="button" aria-label="Reproducir capítulo">
@@ -471,5 +362,116 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   });
 })();
 </script>
+
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/dinero-como-informacion.alignment.json';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (!(t && t.classList && t.classList.contains('w'))) return;
+    var i = parseInt(t.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+
+
 </body>
 </html>
