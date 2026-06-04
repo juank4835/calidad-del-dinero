@@ -72,6 +72,15 @@
       "words": 3318,
       "duration_seconds": 1394.272653,
       "generated_at": "2026-06-04T22:47:37Z"
+    },
+    "asignacion-intertemporal.html": {
+      "text_sha256": "35d6af3f69140cc89cb311070fdcd28aa6ec15eb3afb0737d316d94799673d8a",
+      "chars": 12576,
+      "audio_path": "audio/asignacion-intertemporal.mp3",
+      "alignment_path": "audio/asignacion-intertemporal.alignment.json",
+      "words": 2130,
+      "duration_seconds": 942.772245,
+      "generated_at": "2026-06-04T23:17:37Z"
     }
   }
 }
