@@ -409,6 +409,31 @@ document.addEventListener('DOMContentLoaded', function(){
   var heroCur = document.getElementById('heroCur');
   var waveform = document.getElementById('waveform');
   var miniBar = document.getElementById('miniBar');
+  var heroSpeed = document.getElementById('heroSpeed');
+
+  // Velocidad de reproducción: ciclo 1× → 1.25× → 1.5× → 2× → 1×
+  var SPEEDS = [1, 1.25, 1.5, 2];
+  var SPEED_KEY = 'audio-speed:dinero-como-informacion';
+  function applySpeed(rate){
+    audio.playbackRate = rate;
+    if (heroSpeed) heroSpeed.textContent = (rate % 1 === 0 ? rate.toFixed(0) : rate.toString()) + '×';
+    try { localStorage.setItem(SPEED_KEY, String(rate)); } catch(e){}
+  }
+  // Cargar velocidad guardada (o 1× por defecto)
+  var savedSpeed = 1;
+  try {
+    var s = parseFloat(localStorage.getItem(SPEED_KEY));
+    if (!isNaN(s) && SPEEDS.indexOf(s) !== -1) savedSpeed = s;
+  } catch(e){}
+  applySpeed(savedSpeed);
+
+  if (heroSpeed) heroSpeed.addEventListener('click', function(){
+    var cur = audio.playbackRate;
+    var idx = SPEEDS.indexOf(cur);
+    if (idx === -1) idx = 0;
+    var next = SPEEDS[(idx + 1) % SPEEDS.length];
+    applySpeed(next);
+  });
   var mbPlay = document.getElementById('mbPlay');
   var mbFill = document.getElementById('mbFill');
   var mbCur = document.getElementById('mbCur');
