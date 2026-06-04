@@ -173,6 +173,24 @@ Cuando el cambio es muy grande (más del 30 %), regenerar todo sale más simple 
 
 **Fix permanente:** `ffmpeg_concat()` ahora convierte todos los paths a absolutos antes de escribir el archivo de lista.
 
+### 8. Símbolos `°` y `%` no se pronuncian al narrar
+
+**Síntoma:** Abel lee "treinta y seis coma cinco" pero se salta el "°" (en `36.5°`) o el `%` (en `2%`). El audio dice menos de lo que el lector ve.
+
+**Fix permanente:** insertar `<span class="audio-only"> grados</span>` después de `°` y `<span class="audio-only"> por ciento</span>` después de `%`. El CSS oculta visualmente esos spans (`position: absolute; left: -10000px`) pero el extractor sí los lee y los manda a ElevenLabs. Cuando vuelves a inyectar spans, los `<span class="w">` envuelven la palabra "grados"/"por ciento" como cualquier otra palabra, así que el karaoke las resalta brevemente cuando suenan.
+
+### 9. La pill v2 contamina el texto plano con `15`, `0`, `1×`
+
+**Síntoma:** después de extraer el texto plano, el final del archivo trae números sueltos como `15` (botones de skip), `0:00` (tiempo) y `1×` (velocidad). El JSON acaba con esas "palabras" extras y descuadra contra el HTML.
+
+**Fix permanente:** `extract_text.py` ahora elimina cualquier `<aside class="audio-pill">...</aside>` y `<div class="hl-toolbar">` antes de tokenizar. El texto plano queda solo con el contenido del libro.
+
+### 10. Barra de progreso solo permite tap, no drag
+
+**Síntoma:** click en cualquier punto de la barra salta, pero no se puede agarrar el thumb y arrastrarlo.
+
+**Fix permanente:** reemplazar el listener `click` por un bloque que escucha `mousedown` + `mousemove`/`mouseup` en `window` (no en la propia track, para que el drag sobreviva al cursor saliendo de la barra). Soporte `touchstart/move/end` para móvil. Mientras se arrastra, pausar el audio y reanudar al soltar. El thumb se agranda 1.3x con la clase `.dragging` para feedback visual.
+
 ## Checklist antes de subir un cambio con audio
 
 - [ ] El conteo HTML (`grep -oE 'data-w="[0-9]+"' cap.html | wc -l`) coincide con el `word_count` del `*.alignment.json`.

@@ -21,6 +21,10 @@ def extract(html: str) -> str:
         r"<nav[^>]*>.*?</nav>",
         # divs/elementos con class chapter-eyebrow
         r'<div[^>]*class="[^"]*chapter-eyebrow[^"]*"[^>]*>.*?</div>',
+        # reproductor flotante (pill v2 trae botones "15", "1×", "0:00" que se cuelan como texto)
+        r'<aside[^>]*class="[^"]*audio-pill[^"]*"[^>]*>.*?</aside>',
+        # toolbar de subrayado (lo crea JS pero por si acaso aparece en el HTML estático)
+        r'<div[^>]*class="[^"]*hl-toolbar[^"]*"[^>]*>.*?</div>',
     ]:
         body = re.sub(pat, "", body, flags=re.DOTALL | re.IGNORECASE)
 
