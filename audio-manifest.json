@@ -36,6 +36,15 @@
       "words": 4644,
       "duration_seconds": 1916.392472,
       "generated_at": "2026-06-04T11:48:36Z"
+    },
+    "preferencia-temporal.html": {
+      "text_sha256": "de2791509b406f185bb4ff1e7d22330a5df353b94cde88cb87feb90f9021addd",
+      "chars": 12205,
+      "audio_path": "audio/preferencia-temporal.mp3",
+      "alignment_path": "audio/preferencia-temporal.alignment.json",
+      "words": 2072,
+      "duration_seconds": 872.476735,
+      "generated_at": "2026-06-04T18:13:20Z"
     }
   }
 }
