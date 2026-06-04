@@ -127,10 +127,190 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
 }
+
+/* ===== Audio First — hero, tabs, waveform, mini-bar ===== */
+.hero-player {
+  background: linear-gradient(180deg, #161618 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--rule);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-player::before {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,122,24,0.18) 0%, transparent 60%);
+  z-index: 0; pointer-events: none;
+}
+.hero-player > * { position: relative; z-index: 1; }
+.hero-player .ch-num {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--verde); margin-bottom: 1.4rem;
+}
+.hero-player .ch-title {
+  font-size: 2.6rem; line-height: 1.12; letter-spacing: -0.02em;
+  font-weight: 400; margin: 0 auto 0.7rem; max-width: 30rem; color: var(--ink);
+}
+.hero-player .ch-sub {
+  font-style: italic; color: var(--ink-soft);
+  font-size: 1.06rem; margin: 0 auto 2.5rem; max-width: 30rem;
+}
+.big-play {
+  width: 84px; height: 84px; border-radius: 50%;
+  background: var(--verde); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+  box-shadow: 0 12px 36px -10px rgba(255,122,24,0.6);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.big-play:hover {
+  transform: scale(1.05);
+  box-shadow: 0 18px 44px -10px rgba(255,122,24,0.75);
+}
+.big-play svg { width: 26px; height: 26px; fill: white; margin-left: 3px; }
+.big-play.playing svg.play-icon { display: none; }
+.big-play.playing svg.pause-icon { display: block; margin-left: 0; }
+.big-play svg.pause-icon { display: none; }
+.audio-meta {
+  display: flex; justify-content: center; gap: 2rem; align-items: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.84rem; color: var(--ink-soft); letter-spacing: 0.02em;
+}
+.audio-meta .narrator { color: var(--ink); }
+.audio-meta .dur { font-variant-numeric: tabular-nums; }
+.audio-meta .speed {
+  padding: 0.3rem 0.7rem; border: 1px solid var(--rule);
+  border-radius: 12px; cursor: pointer; user-select: none;
+}
+.waveform {
+  display: flex; gap: 2px; justify-content: center; align-items: end;
+  height: 36px; margin: 2rem auto 0; max-width: 480px; padding: 0 1rem;
+}
+.waveform span {
+  flex: 1; background: #5e5a57; border-radius: 1px; min-width: 2px;
+  transition: background 0.15s, height 0.2s;
+}
+.waveform span.played { background: var(--verde); }
+.waveform span.current {
+  background: var(--verde);
+  box-shadow: 0 0 8px var(--verde);
+}
+
+/* Tabs de modo */
+.reader-toggle {
+  display: flex; justify-content: center; gap: 0.5rem;
+  padding: 1.5rem; border-bottom: 1px solid var(--rule);
+  background: var(--bg);
+}
+.reader-toggle button {
+  background: transparent; border: 1px solid var(--rule); color: var(--ink-soft);
+  padding: 0.55rem 1.4rem; border-radius: 22px; cursor: pointer;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.83rem; letter-spacing: 0.05em;
+  transition: all 0.15s;
+}
+.reader-toggle button.active {
+  background: var(--ink); color: var(--bg); border-color: var(--ink);
+}
+.reader-toggle button:not(.active):hover {
+  color: var(--ink); border-color: var(--ink-soft);
+}
+
+/* Cuando el modo es "audio-only", ocultar el prose */
+body.mode-audio-only .page .prose,
+body.mode-audio-only .page .ornament,
+body.mode-audio-only .page .chapter-eyebrow,
+body.mode-audio-only .page .chapter-title,
+body.mode-audio-only .page .chapter-subtitle {
+  display: none;
+}
+
+/* Cuando el modo es solo lectura, ocultar partes del audio */
+body.mode-read-only .hero-player .waveform,
+body.mode-read-only .hero-player .audio-meta { display: none; }
+
+/* Ocultar la pill flotante original y el nav-top (los reemplaza el hero + mini-bar) */
+.audio-pill { display: none !important; }
+.nav-top { display: none !important; }
+
+/* Quitar el chapter-eyebrow + title + subtitle del article (ya están en el hero) */
+.page .chapter-eyebrow,
+.page .chapter-title,
+.page .chapter-subtitle,
+.page > .ornament:first-of-type { display: none; }
+
+/* Mini-bar abajo */
+.mini-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 70px;
+  background: rgba(14,14,16,0.96);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 1rem; padding: 0 1.5rem;
+  z-index: 50; opacity: 0; transform: translateY(100%);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.mini-bar.show { opacity: 1; transform: translateY(0); }
+.mini-bar .mb-play {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--verde); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.mini-bar .mb-play svg { width: 14px; height: 14px; fill: white; }
+.mini-bar .mb-play.playing svg.play-icon { display: none; }
+.mini-bar .mb-play.playing svg.pause-icon { display: block; }
+.mini-bar .mb-play svg.pause-icon { display: none; }
+.mini-bar .mb-info { flex: 1; font-family: 'Inter', system-ui, sans-serif; min-width: 0; }
+.mini-bar .mb-info .mb-title { font-size: 0.86rem; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-bar .mb-info .mb-meta { font-size: 0.74rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.mini-bar .mb-progress {
+  flex: 1; height: 3px; background: var(--rule); border-radius: 2px;
+  max-width: 260px; cursor: pointer; position: relative;
+}
+.mini-bar .mb-progress-fill {
+  height: 100%; width: 0%; background: var(--verde); border-radius: 2px;
+}
+.mini-bar .mb-time {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.78rem; color: var(--ink-soft);
+  font-variant-numeric: tabular-nums; min-width: 100px; text-align: right; flex-shrink: 0;
+}
+
+/* Más aire para la pagina porque ya no hay nav-top y el hero ocupa */
+.page { padding-top: 2rem !important; padding-bottom: 9rem !important; }
+
 </style>
 </head>
 <body>
 <nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+
+<section class="hero-player">
+  <div class="ch-num">Capítulo 1 · Bloque I</div>
+  <h1 class="ch-title">El dinero como sistema que transmite información</h1>
+  <p class="ch-sub">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+
+  <button class="big-play" id="bigPlay" aria-label="Reproducir capítulo">
+    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+
+  <div class="audio-meta">
+    <span>Escrito por <span class="narrator">Juan Camilo Álvarez Ramírez</span></span>
+    <span class="dur" id="heroDur">14:20</span>
+    <span class="speed" id="heroSpeed">1×</span>
+  </div>
+
+  <div class="waveform" id="waveform"></div>
+</section>
+
+<div class="reader-toggle">
+  <button data-mode="both" class="active">Leer + audio</button>
+  <button data-mode="audio-only">Solo escuchar</button>
+  <button data-mode="read-only">Solo leer</button>
+</div>
 
 <article class="page">
 
@@ -195,6 +375,124 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   </div>
 
 </article>
+
+<div class="mini-bar" id="miniBar">
+  <button class="mb-play" id="mbPlay" aria-label="Reproducir/Pausar">
+    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="pause-icon" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="mb-info">
+    <div class="mb-title">El dinero como sistema que transmite información</div>
+    <div class="mb-meta">Escrito por Juan Camilo Álvarez Ramírez</div>
+  </div>
+  <div class="mb-progress" id="mbProgress">
+    <div class="mb-progress-fill" id="mbFill"></div>
+  </div>
+  <div class="mb-time"><span id="mbCur">0:00</span> / <span id="mbDur">14:20</span></div>
+</div>
+
+<script>
+/* Audio First — conecta el hero player + mini-bar + tabs con el audio existente */
+document.addEventListener('DOMContentLoaded', function(){
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+
+  var bigPlay = document.getElementById('bigPlay');
+  var heroDur = document.getElementById('heroDur');
+  var waveform = document.getElementById('waveform');
+  var miniBar = document.getElementById('miniBar');
+  var mbPlay = document.getElementById('mbPlay');
+  var mbFill = document.getElementById('mbFill');
+  var mbCur = document.getElementById('mbCur');
+  var mbDur = document.getElementById('mbDur');
+  var mbProgress = document.getElementById('mbProgress');
+  var heroPlayer = document.querySelector('.hero-player');
+
+  // Construir 40 barras de waveform decorativo (alturas pseudoaleatorias)
+  for (var i = 0; i < 40; i++) {
+    var h = 30 + ((i * 37) % 60); // 30-90%
+    var s = document.createElement('span');
+    s.style.height = h + '%';
+    waveform.appendChild(s);
+  }
+  var bars = waveform.querySelectorAll('span');
+
+  function fmt(t){
+    if (!isFinite(t)) return '--:--';
+    var m = Math.floor(t / 60), s = Math.floor(t % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function togglePlay(){
+    if (audio.paused) {
+      var p = audio.play();
+      if (p && typeof p.catch === 'function') p.catch(function(){});
+    } else {
+      audio.pause();
+    }
+  }
+
+  bigPlay.addEventListener('click', togglePlay);
+  mbPlay.addEventListener('click', togglePlay);
+
+  audio.addEventListener('play', function(){
+    bigPlay.classList.add('playing');
+    mbPlay.classList.add('playing');
+  });
+  audio.addEventListener('pause', function(){
+    bigPlay.classList.remove('playing');
+    mbPlay.classList.remove('playing');
+  });
+
+  audio.addEventListener('loadedmetadata', function(){
+    var d = fmt(audio.duration);
+    heroDur.textContent = d;
+    mbDur.textContent = d;
+  });
+
+  audio.addEventListener('timeupdate', function(){
+    if (!audio.duration) return;
+    var pct = audio.currentTime / audio.duration;
+    mbFill.style.width = (pct * 100) + '%';
+    mbCur.textContent = fmt(audio.currentTime);
+
+    // Pintar waveform: barras "leídas" en naranja
+    var n = bars.length;
+    var idx = Math.floor(pct * n);
+    for (var i = 0; i < n; i++) {
+      bars[i].classList.toggle('played', i < idx);
+      bars[i].classList.toggle('current', i === idx);
+    }
+  });
+
+  // Click en mb-progress para saltar
+  mbProgress.addEventListener('click', function(e){
+    if (!audio.duration) return;
+    var r = mbProgress.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+  });
+
+  // Mini-bar aparece cuando el hero player sale de viewport
+  function onScroll(){
+    var rect = heroPlayer.getBoundingClientRect();
+    if (rect.bottom < 60) miniBar.classList.add('show');
+    else miniBar.classList.remove('show');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Tabs de modo
+  document.querySelectorAll('.reader-toggle button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.reader-toggle button').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.body.classList.remove('mode-audio-only', 'mode-read-only', 'mode-both');
+      document.body.classList.add('mode-' + btn.dataset.mode);
+    });
+  });
+});
+</script>
+
 
 <nav class="nav-foot"><span></span><a class="idx" href="index.html">Índice</a><a class="next" href="criterio-de-evaluacion.html">El criterio de evaluación</a></nav>
 
