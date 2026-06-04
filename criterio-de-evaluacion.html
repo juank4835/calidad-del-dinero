@@ -449,7 +449,7 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   document.addEventListener('click', function(e){
     var t = e.target;
     if (!(t && t.classList && t.classList.contains('w'))) return;
-    var __sel = window.getSelection if (window.getSelection && window.getSelection().toString().length > 0) return;if (window.getSelection && window.getSelection().toString().length > 0) return; window.getSelection(); if (__sel && __sel.rangeCount > 0 && !__sel.getRangeAt(0).collapsed && __sel.toString().trim().length > 1) return;
+    var __sel = window.getSelection && window.getSelection(); if (__sel && __sel.rangeCount > 0 && !__sel.getRangeAt(0).collapsed && __sel.toString().trim().length > 1) return;
     var i = parseInt(t.getAttribute('data-w'), 10);
     if (isNaN(i) || !words || !words[i]) return;
     audio.currentTime = words[i].s;
