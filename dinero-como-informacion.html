@@ -181,6 +181,8 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
 }
 .audio-meta .narrator { color: var(--ink); }
 .audio-meta .dur { font-variant-numeric: tabular-nums; }
+.audio-meta #heroCur { transition: color 0.2s ease; }
+body.audio-playing .audio-meta #heroCur { color: var(--verde); }
 .audio-meta .speed {
   padding: 0.3rem 0.7rem; border: 1px solid var(--rule);
   border-radius: 12px; cursor: pointer; user-select: none;
@@ -304,7 +306,7 @@ body.mode-read-only .hero-player .audio-meta { display: none; }
 
   <div class="audio-meta">
     <span>Escrito por <span class="narrator">Juan Camilo Álvarez Ramírez</span></span>
-    <span class="dur" id="heroDur">14:20</span>
+    <span class="dur"><span id="heroCur">0:00</span> / <span id="heroDur">14:20</span></span>
     <span class="speed" id="heroSpeed">1×</span>
   </div>
 
@@ -404,6 +406,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   var bigPlay = document.getElementById('bigPlay');
   var heroDur = document.getElementById('heroDur');
+  var heroCur = document.getElementById('heroCur');
   var waveform = document.getElementById('waveform');
   var miniBar = document.getElementById('miniBar');
   var mbPlay = document.getElementById('mbPlay');
@@ -482,10 +485,12 @@ document.addEventListener('DOMContentLoaded', function(){
   audio.addEventListener('play', function(){
     bigPlay.classList.add('playing');
     mbPlay.classList.add('playing');
+    document.body.classList.add('audio-playing');
   });
   audio.addEventListener('pause', function(){
     bigPlay.classList.remove('playing');
     mbPlay.classList.remove('playing');
+    document.body.classList.remove('audio-playing');
   });
 
   audio.addEventListener('loadedmetadata', function(){
@@ -498,7 +503,9 @@ document.addEventListener('DOMContentLoaded', function(){
     if (!audio.duration) return;
     var pct = audio.currentTime / audio.duration;
     mbFill.style.width = (pct * 100) + '%';
-    mbCur.textContent = fmt(audio.currentTime);
+    var curStr = fmt(audio.currentTime);
+    mbCur.textContent = curStr;
+    if (heroCur) heroCur.textContent = curStr;
 
     // Pintar waveform: barras "leídas" en naranja
     var n = bars.length;
