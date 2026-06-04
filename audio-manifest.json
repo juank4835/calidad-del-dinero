@@ -29,13 +29,13 @@
       "generated_at": "2026-06-03T17:54:07Z"
     },
     "tres-regimenes.html": {
-      "text_sha256": "66ce336bbb6c50ce0f72f1a4355c5b6984ecc0b352059e7601e1af0191ae3c26",
-      "chars": 23738,
+      "text_sha256": "2a6ec622ecfdbd5bc1500029cdc98ca336d07870965cc5f9e4798f4e29ae6491",
+      "chars": 26529,
       "audio_path": "audio/tres-regimenes.mp3",
       "alignment_path": "audio/tres-regimenes.alignment.json",
-      "words": 4236,
-      "duration_seconds": 1760.3,
-      "generated_at": "2026-06-03T22:00:00Z"
+      "words": 4644,
+      "duration_seconds": 1916.392472,
+      "generated_at": "2026-06-04T11:48:36Z"
     }
   }
 }
