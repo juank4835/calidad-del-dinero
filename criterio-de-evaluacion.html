@@ -448,8 +448,9 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   }
   document.addEventListener('click', function(e){
     var t = e.target;
-    if (!(t && t.classList && t.classList.contains('w'))) return;
-    var i = parseInt(t.getAttribute('data-w'), 10);
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
     if (isNaN(i) || !words || !words[i]) return;
     audio.currentTime = words[i].s;
     if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
