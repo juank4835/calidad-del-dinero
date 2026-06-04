@@ -189,13 +189,18 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   display: flex; gap: 2px; justify-content: center; align-items: end;
   height: 36px; margin: 2rem auto 0; max-width: 480px; padding: 0 1rem;
 }
+.waveform { cursor: pointer; }
+.waveform.dragging { cursor: grabbing; }
 .waveform span {
   flex: 1; background: #5e5a57; border-radius: 1px; min-width: 2px;
   transition: background 0.15s, height 0.2s;
+  pointer-events: none;
 }
-.waveform span.played { background: var(--verde); }
+.waveform:hover span { background: #7a7672; }
+.waveform.dragging span { transition: none; }
+.waveform span.played { background: var(--verde) !important; }
 .waveform span.current {
-  background: var(--verde);
+  background: var(--verde) !important;
   box-shadow: 0 0 8px var(--verde);
 }
 
@@ -416,6 +421,45 @@ document.addEventListener('DOMContentLoaded', function(){
     waveform.appendChild(s);
   }
   var bars = waveform.querySelectorAll('span');
+
+  // Click + drag sobre el waveform para saltar el audio (como Soundcloud)
+  var wfDragging = false, wfWasPlaying = false;
+  function wfSeek(clientX){
+    if (!audio.duration) return;
+    var r = waveform.getBoundingClientRect();
+    var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    audio.currentTime = pct * audio.duration;
+  }
+  function wfDown(e){
+    if (!audio.duration) return;
+    wfDragging = true;
+    wfWasPlaying = !audio.paused;
+    if (wfWasPlaying) audio.pause();
+    waveform.classList.add('dragging');
+    var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+    wfSeek(x);
+    e.preventDefault();
+  }
+  function wfMove(e){
+    if (!wfDragging) return;
+    var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+    wfSeek(x);
+    e.preventDefault();
+  }
+  function wfUp(){
+    if (!wfDragging) return;
+    wfDragging = false;
+    waveform.classList.remove('dragging');
+    if (wfWasPlaying) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  }
+  waveform.addEventListener('mousedown', wfDown);
+  waveform.addEventListener('touchstart', wfDown, { passive: false });
+  window.addEventListener('mousemove', wfMove);
+  window.addEventListener('touchmove', wfMove, { passive: false });
+  window.addEventListener('mouseup', wfUp);
+  window.addEventListener('touchend', wfUp);
+  window.addEventListener('touchcancel', wfUp);
+
 
   function fmt(t){
     if (!isFinite(t)) return '--:--';
