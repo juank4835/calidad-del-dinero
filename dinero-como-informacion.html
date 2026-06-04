@@ -273,11 +273,27 @@ body.mode-read-only .hero-player .audio-meta { display: none; }
 .mini-bar .mb-info .mb-title { font-size: 0.86rem; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mini-bar .mb-info .mb-meta { font-size: 0.74rem; color: var(--ink-soft); letter-spacing: 0.02em; }
 .mini-bar .mb-progress {
-  flex: 1; height: 3px; background: var(--rule); border-radius: 2px;
-  max-width: 260px; cursor: pointer; position: relative;
+  flex: 1; height: 4px; background: var(--rule); border-radius: 2px;
+  max-width: 320px; cursor: pointer; position: relative;
 }
+/* área de toque invisible más grande (12px arriba y abajo) para agarrar fácil */
+.mini-bar .mb-progress::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -12px; bottom: -12px;
+}
+.mini-bar .mb-progress.dragging { cursor: grabbing; }
 .mini-bar .mb-progress-fill {
   height: 100%; width: 0%; background: var(--verde); border-radius: 2px;
+  position: relative; pointer-events: none;
+}
+.mini-bar .mb-progress-fill::after {
+  content: ""; position: absolute; right: -6px; top: 50%;
+  width: 12px; height: 12px; border-radius: 50%; background: var(--verde);
+  transform: translateY(-50%) scale(0.6); opacity: 0;
+  transition: opacity 0.15s, transform 0.15s; pointer-events: none;
+}
+.mini-bar:hover .mb-progress-fill::after,
+.mini-bar .mb-progress.dragging .mb-progress-fill::after {
+  opacity: 1; transform: translateY(-50%) scale(1);
 }
 .mini-bar .mb-time {
   font-family: 'Inter', system-ui, sans-serif;
@@ -390,7 +406,6 @@ body.mode-read-only .hero-player .audio-meta { display: none; }
   </button>
   <div class="mb-info">
     <div class="mb-title">El dinero como sistema que transmite información</div>
-    <div class="mb-meta">Escrito por Juan Camilo Álvarez Ramírez</div>
   </div>
   <div class="mb-progress" id="mbProgress">
     <div class="mb-progress-fill" id="mbFill"></div>
@@ -541,12 +556,40 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 
-  // Click en mb-progress para saltar
-  mbProgress.addEventListener('click', function(e){
-    if (!audio.duration) return;
-    var r = mbProgress.getBoundingClientRect();
-    audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
-  });
+  // mb-progress: click + drag para saltar/scrubbing (mouse + touch)
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!audio.duration) return;
+      var r = mbProgress.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      audio.currentTime = pct * audio.duration;
+    }
+    function down(e){
+      if (!audio.duration) return;
+      dragging = true; wasPlaying = !audio.paused;
+      if (wasPlaying) audio.pause();
+      mbProgress.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x); e.preventDefault();
+    }
+    function move(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x); e.preventDefault();
+    }
+    function up(){
+      if (!dragging) return;
+      dragging = false; mbProgress.classList.remove('dragging');
+      if (wasPlaying) { var pr = audio.play(); if (pr && typeof pr.catch === 'function') pr.catch(function(){}); }
+    }
+    mbProgress.addEventListener('mousedown', down);
+    mbProgress.addEventListener('touchstart', down, { passive: false });
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, { passive: false });
+    window.addEventListener('mouseup', up);
+    window.addEventListener('touchend', up);
+  })();
 
   // Mini-bar visible si: el audio está sonando (control persistente desde el
   // inicio) O el hero ya salió de viewport (navegación mientras lees).
