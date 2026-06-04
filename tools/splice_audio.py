@@ -97,15 +97,25 @@ def ffmpeg_extract(src, t_start, t_end, dst):
 
 
 def ffmpeg_concat(parts, dst):
-    """Concatenar mp3s del mismo bitrate/sample/channels con concat demuxer."""
+    """Concatenar mp3s con concat demuxer.
+
+    Importante: el concat demuxer de ffmpeg interpreta las rutas del
+    archivo de lista como RELATIVAS al directorio de la lista. Por eso
+    forzamos paths absolutos resueltos antes de escribirlos, evitando
+    el bug «No such file or directory» que ya nos quemó una vez.
+    """
     listfile = dst.parent / "concat.txt"
-    listfile.write_text("\n".join(f"file '{p}'" for p in parts) + "\n")
-    subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(listfile),
-         "-c:a", "libmp3lame", "-b:a", "128k", "-ar", "44100", "-ac", "1", str(dst)],
-        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    )
-    listfile.unlink()
+    abs_parts = [Path(p).resolve() for p in parts]
+    listfile.write_text("\n".join(f"file '{p}'" for p in abs_parts) + "\n")
+    try:
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(listfile),
+             "-c:a", "libmp3lame", "-b:a", "128k", "-ar", "44100", "-ac", "1", str(dst)],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+    finally:
+        if listfile.exists():
+            listfile.unlink()
 
 
 def main():
