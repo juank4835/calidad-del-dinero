@@ -63,6 +63,15 @@
       "words": 2353,
       "duration_seconds": 978.890295,
       "generated_at": "2026-06-04T20:20:02Z"
+    },
+    "tasa-de-interes.html": {
+      "text_sha256": "4cceb98b56cee4b973df2c28b82652a24c135ea1e86a2bd59b6942a44295f37c",
+      "chars": 19409,
+      "audio_path": "audio/tasa-de-interes.mp3",
+      "alignment_path": "audio/tasa-de-interes.alignment.json",
+      "words": 3318,
+      "duration_seconds": 1394.272653,
+      "generated_at": "2026-06-04T22:47:37Z"
     }
   }
 }
