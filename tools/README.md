@@ -221,3 +221,27 @@ El CSS oculta esos spans visualmente (`position: absolute; left: -10000px`), per
 - Repo: <https://github.com/juank4835/calidad-del-dinero>
 - ElevenLabs voz Abel: <https://elevenlabs.io/app/voice-library?search=Abel>
 - Cuota mensual de la cuenta: <https://elevenlabs.io/app/subscription>
+
+## Sincronización automática con ~/Downloads (git hook)
+
+Hay un hook `.git/hooks/post-commit` que, tras cada commit, copia a
+`~/Downloads/` los `.html` de la raíz que cambiaron en ese commit. Mantiene
+Downloads fiel al repo sin intervención manual.
+
+- Es local (los hooks no se versionan). Si se clona el repo en otra máquina,
+  recrearlo con este contenido y `chmod +x`:
+
+```sh
+#!/bin/sh
+DEST="$HOME/Downloads"
+REPO="$(git rev-parse --show-toplevel)"
+[ -d "$DEST" ] || exit 0
+git diff-tree --no-commit-id --name-only -r HEAD | grep '\.html$' | while read f; do
+  base=$(basename "$f")
+  if [ "$f" = "$base" ] && [ -f "$REPO/$f" ]; then
+    cp "$REPO/$f" "$DEST/$base"
+  fi
+done
+```
+
+- Para desactivarlo: `rm .git/hooks/post-commit`
