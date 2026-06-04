@@ -548,14 +548,19 @@ document.addEventListener('DOMContentLoaded', function(){
     audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
   });
 
-  // Mini-bar aparece cuando el hero player sale de viewport
-  function onScroll(){
-    var rect = heroPlayer.getBoundingClientRect();
-    if (rect.bottom < 60) miniBar.classList.add('show');
+  // Mini-bar visible si: el audio está sonando (control persistente desde el
+  // inicio) O el hero ya salió de viewport (navegación mientras lees).
+  function updateMiniBar(){
+    var heroOut = heroPlayer.getBoundingClientRect().bottom < 60;
+    var playing = !audio.paused && !audio.ended;
+    if (heroOut || playing) miniBar.classList.add('show');
     else miniBar.classList.remove('show');
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', updateMiniBar, { passive: true });
+  audio.addEventListener('play', updateMiniBar);
+  audio.addEventListener('pause', updateMiniBar);
+  audio.addEventListener('ended', updateMiniBar);
+  updateMiniBar();
 
   // Tabs de modo
   document.querySelectorAll('.reader-toggle button').forEach(function(btn){
