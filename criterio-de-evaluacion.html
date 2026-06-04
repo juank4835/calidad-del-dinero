@@ -92,7 +92,7 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
 .ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
 .ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
 .audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb { opacity: 1; }
-.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 34px; text-align: right; }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
 .audio-pill.playing .ap-time { color: var(--verde); }
 .ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
 .ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
@@ -184,7 +184,7 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
       <div class="ap-fill"></div>
       <div class="ap-thumb"></div>
     </div>
-    <div class="ap-time"><span class="ap-current">0:00</span></div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
     <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
@@ -212,6 +212,7 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   var fi = pill.querySelector('.ap-fill');
   var th = pill.querySelector('.ap-thumb');
   var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
   var rateBtn = pill.querySelector('.ap-rate');
   var closeBtn = pill.querySelector('.ap-close');
   var skipBackBtn = pill.querySelector('.ap-skip-back');
@@ -253,6 +254,7 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
   }
   a.addEventListener('loadedmetadata', function(){
     if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
     var saved = loadPos();
     if (saved > 0 && saved < a.duration - 8) {
       a.currentTime = saved;
