@@ -92,6 +92,26 @@ body {
   margin-left: auto; padding-left: 1rem; white-space: nowrap; color: var(--verde);
 }
 
+.bisagra {
+  margin: 3rem 0; padding: 1.8rem 1.8rem;
+  text-align: center;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.bisagra .bis-tag {
+  display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.7rem;
+}
+.bisagra a {
+  color: var(--ink); text-decoration: none; font-size: 1.25rem; font-style: italic;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.bisagra a:hover { border-bottom-color: var(--verde); }
+.bisagra .bis-estado {
+  display: block; margin-top: 0.7rem;
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft); opacity: 0.5;
+}
+
 .cadena {
   margin-top: 3rem; padding: 1.6rem 1.8rem;
   background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
@@ -215,6 +235,13 @@ body {
       <p class="cim-desc">No una octava pieza, sino el suelo bajo las siete: si la base no se puede verificar, ninguna de las demás piezas dice la verdad.</p>
     </div>
   </section>
+
+  <!-- BISAGRA: del dinero honesto a las consecuencias -->
+  <div class="bisagra">
+    <span class="bis-tag">Antes de seguir · la pregunta inevitable</span>
+    <a href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a>
+    <span class="bis-estado">Por escribir</span>
+  </div>
 
   <!-- BLOQUE IV -->
   <section class="bloque">
