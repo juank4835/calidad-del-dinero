@@ -25,6 +25,9 @@ def extract(html: str) -> str:
         r'<aside[^>]*class="[^"]*audio-pill[^"]*"[^>]*>.*?</aside>',
         # toolbar de subrayado (lo crea JS pero por si acaso aparece en el HTML estático)
         r'<div[^>]*class="[^"]*hl-toolbar[^"]*"[^>]*>.*?</div>',
+        # cajas marcadas no-audio (recuadros de datos, citas): se ven pero NO se narran
+        r'<aside[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</aside>',
+        r'<blockquote[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</blockquote>',
     ]:
         body = re.sub(pat, "", body, flags=re.DOTALL | re.IGNORECASE)
 

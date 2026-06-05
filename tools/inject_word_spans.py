@@ -80,7 +80,26 @@ def process_html(html: str) -> tuple[str, int]:
 
     def repl_prose(m):
         nonlocal counter
-        inner, counter = wrap_words_in_block(m.group(1), counter)
+        block = m.group(1)
+        # Sacar las cajas no-audio (recuadros, citas) a placeholders para que
+        # NO se envuelvan en spans ni consuman índices de palabra. Se restauran
+        # tal cual después de envolver el resto. El placeholder es un comentario
+        # HTML <!--NOAUDIOk-->: wrap_words lo trata como un tag y lo salta.
+        stash = []
+
+        def _stash(mm):
+            stash.append(mm.group(0))
+            return f'<!--NOAUDIO{len(stash) - 1}-->'
+
+        block = re.sub(r'<aside\b[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</aside>',
+                       _stash, block, flags=re.DOTALL)
+        block = re.sub(r'<blockquote\b[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</blockquote>',
+                       _stash, block, flags=re.DOTALL)
+
+        inner, counter = wrap_words_in_block(block, counter)
+
+        for i, original in enumerate(stash):
+            inner = inner.replace(f'<!--NOAUDIO{i}-->', original)
         return f'<div class="prose">{inner}</div>\n\n</article>'
 
     html = re.sub(

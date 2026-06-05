@@ -137,14 +137,14 @@
       "generated_at": "2026-06-05T09:17:05Z"
     },
     "por-que-no-volver-al-oro.html": {
-      "text_sha256": "7abf27c3c79644f9683e3ebdc46d6131de72eb258a4f58524eb1263b712f08a5",
-      "chars": 10741,
+      "text_sha256": "9ac61de359204e60033d52bec2a0e4243638144064bdb4d5ff22512c820b3b20",
+      "chars": 13432,
       "audio_path": "audio/por-que-no-volver-al-oro.mp3",
       "alignment_path": "audio/por-que-no-volver-al-oro.alignment.json",
-      "words": 2010,
-      "duration_seconds": 803.06102,
-      "generated_at": "2026-06-05T12:38:51Z",
-      "note": "pausas de 1s insertadas tras cada título (sin regenerar TTS)"
+      "words": 2494,
+      "duration_seconds": 999.487823,
+      "generated_at": "2026-06-05T13:35:44Z",
+      "note": "recuadros y cita como cajas no-audio (no narradas); pausas 1s tras títulos"
     }
   }
 }
