@@ -31,3 +31,7 @@ audio-pruebas/
 
 # EPUB exportado (se regenera con pandoc)
 *.epub
+
+# temporales de empalme/pausas de audio
+audio/.splice_work/
+audio/.pause_work/
