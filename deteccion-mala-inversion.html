@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La detección de la mala inversión — La calidad del dinero</title>
+<title>La detección de la mala inversión — Arregla el dinero, arregla el mundo</title>
 <style>
 :root {
   --bg: #1c1c1c;
@@ -13,274 +13,632 @@
   --rule: #3a3a38;
   --verde: #FF7A18;
   --rojo: #8A8A86;
-  --rojo-fuerte: #FF1744;
   --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  font-size: 19px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  line-height: 1.75;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
-}
-
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 5rem 1.5rem 8rem;
-}
-
-.chapter-eyebrow {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-align: center;
-  margin-bottom: 1.2rem;
-}
-
-.chapter-eyebrow .dim {
-  color: var(--rojo);
-}
-
-.chapter-title {
-  font-size: 2.6rem;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.6rem;
-}
-
-.chapter-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--ink-soft);
-  margin-bottom: 4rem;
-}
-
-.ornament {
-  text-align: center;
-  color: var(--verde);
-  font-size: 1.2rem;
-  margin: 0 auto 3.5rem;
-  letter-spacing: 0.5em;
-}
-
-.prose p {
-  font-size: 1.12rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.prose p.lead {
-  font-size: 1.28rem;
-  line-height: 1.7;
-  color: var(--ink);
-  margin-bottom: 1.8rem;
-}
-
-.prose .lead::first-letter {
-  font-size: 3.6rem;
-  font-weight: 600;
-  float: left;
-  line-height: 0.82;
-  margin: 0.08em 0.12em -0.1em 0;
-  color: var(--verde);
-}
-
+html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
 .prose em { font-style: italic; }
 .prose strong { font-weight: 600; color: #fff; }
-
 .term-verde { color: var(--verde); font-style: italic; }
 .term-rojo { color: var(--rojo); font-style: italic; }
-
-.section-num {
-  display: block;
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--verde);
-  margin-bottom: 0.6rem;
-  margin-top: 3.5rem;
-}
-
-blockquote {
-  margin: 2.2rem 0;
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  border-left: 2px solid var(--verde);
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: 1.06rem;
-  line-height: 1.65;
-}
-
-blockquote .cite {
-  display: block;
-  margin-top: 0.6rem;
-  font-style: italic;
-  font-size: 0.86rem;
-  color: var(--ink-soft);
-  opacity: 0.8;
-}
-
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
 blockquote .cite::before { content: "— "; }
 .cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
 .cita-autor .texto { display: block; font-style: italic; }
 .cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
 .cita-autor .atribucion em { font-style: italic; }
-
-.profundizacion {
-  margin: 2.8rem 0;
-  padding: 1.6rem 1.8rem;
-  background: var(--surface);
-  border-radius: 6px;
-  border: 1px solid var(--rule);
-}
-
-.profundizacion .tag {
-  display: block;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 0.8rem;
-}
-
-.profundizacion p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  margin-bottom: 0.8rem;
-}
-
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
 .profundizacion p:last-child { margin-bottom: 0; }
-
-.pendiente {
-  margin: 2.5rem 0;
-  padding: 1.4rem 1.6rem;
-  border: 1px dashed var(--rule);
-  border-radius: 6px;
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: 0.98rem;
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  html { font-size: 17px; }
-  .page { padding: 3rem 1.2rem 5rem; }
-  .chapter-title { font-size: 2rem; }
-}
-
-/* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
-.nav-top {
-  max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0;
-}
-.nav-top a {
-  font-size: 0.85rem; color: var(--ink-soft); text-decoration: none;
-  letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s;
-}
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .nav-top a:hover { border-bottom-color: var(--verde); }
-.nav-foot {
-  max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0;
-  border-top: 1px solid var(--rule);
-  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-}
-.nav-foot a {
-  font-size: 0.9rem; color: var(--ink); text-decoration: none;
-  border-bottom: 1px solid transparent; transition: border-color 0.2s;
-}
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .nav-foot a:hover { border-bottom-color: var(--verde); }
 .nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
 .nav-foot .next::after { content: " →"; color: var(--ink-soft); }
 .nav-foot .idx { color: var(--ink-soft); }
 
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
 </style>
 </head>
 <body>
 <nav class="nav-top"><a href="index.html">← Índice</a></nav>
 
-
 <article class="page">
 
   <div class="chapter-eyebrow">Tercera pieza &middot; <span class="dim">gravedad alta</span></div>
-  <h1 class="chapter-title">La detección de la mala inversión</h1>
-  <p class="chapter-subtitle">Cómo una sociedad descubre que se equivocó —y cómo se la puede cegar—</p>
+  <h1 class="chapter-title"><span class="w" data-w="0">La</span> <span class="w" data-w="1">detección</span> <span class="w" data-w="2">de</span> <span class="w" data-w="3">la</span> <span class="w" data-w="4">mala</span> <span class="w" data-w="5">inversión</span></h1>
+  <p class="chapter-subtitle"><span class="w" data-w="6">Cómo</span> <span class="w" data-w="7">una</span> <span class="w" data-w="8">sociedad</span> <span class="w" data-w="9">descubre</span> <span class="w" data-w="10">que</span> <span class="w" data-w="11">se</span> <span class="w" data-w="12">equivocó</span> —<span class="w" data-w="13">y</span> <span class="w" data-w="14">cómo</span> <span class="w" data-w="15">se</span> <span class="w" data-w="16">la</span> <span class="w" data-w="17">puede</span> <span class="w" data-w="18">cegar</span>—</p>
 
   <div class="ornament">• • •</div>
 
   <div class="prose">
 
     <!-- ====== APERTURA: el hambre que avisa ====== -->
-    <p class="lead">Dejamos a la aldea en mitad de un error. Había bajado la tasa sin que nadie ahorrara, los pescadores habían abandonado el mar para levantar un astillero, y nosotros —que mirábamos desde afuera— sabíamos que ese astillero no se podía terminar, porque no había pescado guardado para alimentar a quienes lo construían. Pero los pescadores no lo sabían. Seguían trabajando, convencidos de que iban por buen camino. Y aquí aparece la pregunta que dejamos abierta: ¿cómo se enteran <em>ellos</em>? ¿Qué les avisa que se equivocaron?</p>
+    <p class="lead"><span class="w" data-w="19">Dejamos</span> <span class="w" data-w="20">a</span> <span class="w" data-w="21">la</span> <span class="w" data-w="22">aldea</span> <span class="w" data-w="23">en</span> <span class="w" data-w="24">mitad</span> <span class="w" data-w="25">de</span> <span class="w" data-w="26">un</span> <span class="w" data-w="27">error</span>. <span class="w" data-w="28">Había</span> <span class="w" data-w="29">bajado</span> <span class="w" data-w="30">la</span> <span class="w" data-w="31">tasa</span> <span class="w" data-w="32">sin</span> <span class="w" data-w="33">que</span> <span class="w" data-w="34">nadie</span> <span class="w" data-w="35">ahorrara</span>, <span class="w" data-w="36">los</span> <span class="w" data-w="37">pescadores</span> <span class="w" data-w="38">habían</span> <span class="w" data-w="39">abandonado</span> <span class="w" data-w="40">el</span> <span class="w" data-w="41">mar</span> <span class="w" data-w="42">para</span> <span class="w" data-w="43">levantar</span> <span class="w" data-w="44">un</span> <span class="w" data-w="45">astillero</span>, <span class="w" data-w="46">y</span> <span class="w" data-w="47">nosotros</span> —<span class="w" data-w="48">que</span> <span class="w" data-w="49">mirábamos</span> <span class="w" data-w="50">desde</span> <span class="w" data-w="51">afuera</span>— <span class="w" data-w="52">sabíamos</span> <span class="w" data-w="53">que</span> <span class="w" data-w="54">ese</span> <span class="w" data-w="55">astillero</span> <span class="w" data-w="56">no</span> <span class="w" data-w="57">se</span> <span class="w" data-w="58">podía</span> <span class="w" data-w="59">terminar</span>, <span class="w" data-w="60">porque</span> <span class="w" data-w="61">no</span> <span class="w" data-w="62">había</span> <span class="w" data-w="63">pescado</span> <span class="w" data-w="64">guardado</span> <span class="w" data-w="65">para</span> <span class="w" data-w="66">alimentar</span> <span class="w" data-w="67">a</span> <span class="w" data-w="68">quienes</span> <span class="w" data-w="69">lo</span> <span class="w" data-w="70">construían</span>. <span class="w" data-w="71">Pero</span> <span class="w" data-w="72">los</span> <span class="w" data-w="73">pescadores</span> <span class="w" data-w="74">no</span> <span class="w" data-w="75">lo</span> <span class="w" data-w="76">sabían</span>. <span class="w" data-w="77">Seguían</span> <span class="w" data-w="78">trabajando</span>, <span class="w" data-w="79">convencidos</span> <span class="w" data-w="80">de</span> <span class="w" data-w="81">que</span> <span class="w" data-w="82">iban</span> <span class="w" data-w="83">por</span> <span class="w" data-w="84">buen</span> <span class="w" data-w="85">camino</span>. <span class="w" data-w="86">Y</span> <span class="w" data-w="87">aquí</span> <span class="w" data-w="88">aparece</span> <span class="w" data-w="89">la</span> <span class="w" data-w="90">pregunta</span> <span class="w" data-w="91">que</span> <span class="w" data-w="92">dejamos</span> <span class="w" data-w="93">abierta</span>: ¿<span class="w" data-w="94">cómo</span> <span class="w" data-w="95">se</span> <span class="w" data-w="96">enteran</span> <em><span class="w" data-w="97">ellos</span></em>? ¿<span class="w" data-w="98">Qué</span> <span class="w" data-w="99">les</span> <span class="w" data-w="100">avisa</span> <span class="w" data-w="101">que</span> <span class="w" data-w="102">se</span> <span class="w" data-w="103">equivocaron</span>?</p>
 
-    <p>La respuesta es brutal en su sencillez: el hambre. Llega el día en que las reservas se agotan, no hay pescado que repartir, y el estómago vacío anuncia lo que ningún discurso habría hecho creer —que el astillero fue un error, que se dejó de pescar de más, que la aldea construyó algo que no podía sostener—. El hambre no opina ni discute: informa. Es el mensajero que trae, por fin, la verdad que la tasa falsa había ocultado.</p>
+    <p><span class="w" data-w="104">La</span> <span class="w" data-w="105">respuesta</span> <span class="w" data-w="106">es</span> <span class="w" data-w="107">brutal</span> <span class="w" data-w="108">en</span> <span class="w" data-w="109">su</span> <span class="w" data-w="110">sencillez</span>: <span class="w" data-w="111">el</span> <span class="w" data-w="112">hambre</span>. <span class="w" data-w="113">Llega</span> <span class="w" data-w="114">el</span> <span class="w" data-w="115">día</span> <span class="w" data-w="116">en</span> <span class="w" data-w="117">que</span> <span class="w" data-w="118">las</span> <span class="w" data-w="119">reservas</span> <span class="w" data-w="120">se</span> <span class="w" data-w="121">agotan</span>, <span class="w" data-w="122">no</span> <span class="w" data-w="123">hay</span> <span class="w" data-w="124">pescado</span> <span class="w" data-w="125">que</span> <span class="w" data-w="126">repartir</span>, <span class="w" data-w="127">y</span> <span class="w" data-w="128">el</span> <span class="w" data-w="129">estómago</span> <span class="w" data-w="130">vacío</span> <span class="w" data-w="131">anuncia</span> <span class="w" data-w="132">lo</span> <span class="w" data-w="133">que</span> <span class="w" data-w="134">ningún</span> <span class="w" data-w="135">discurso</span> <span class="w" data-w="136">habría</span> <span class="w" data-w="137">hecho</span> <span class="w" data-w="138">creer</span> —<span class="w" data-w="139">que</span> <span class="w" data-w="140">el</span> <span class="w" data-w="141">astillero</span> <span class="w" data-w="142">fue</span> <span class="w" data-w="143">un</span> <span class="w" data-w="144">error</span>, <span class="w" data-w="145">que</span> <span class="w" data-w="146">se</span> <span class="w" data-w="147">dejó</span> <span class="w" data-w="148">de</span> <span class="w" data-w="149">pescar</span> <span class="w" data-w="150">de</span> <span class="w" data-w="151">más</span>, <span class="w" data-w="152">que</span> <span class="w" data-w="153">la</span> <span class="w" data-w="154">aldea</span> <span class="w" data-w="155">construyó</span> <span class="w" data-w="156">algo</span> <span class="w" data-w="157">que</span> <span class="w" data-w="158">no</span> <span class="w" data-w="159">podía</span> <span class="w" data-w="160">sostener</span>—. <span class="w" data-w="161">El</span> <span class="w" data-w="162">hambre</span> <span class="w" data-w="163">no</span> <span class="w" data-w="164">opina</span> <span class="w" data-w="165">ni</span> <span class="w" data-w="166">discute</span>: <span class="w" data-w="167">informa</span>. <span class="w" data-w="168">Es</span> <span class="w" data-w="169">el</span> <span class="w" data-w="170">mensajero</span> <span class="w" data-w="171">que</span> <span class="w" data-w="172">trae</span>, <span class="w" data-w="173">por</span> <span class="w" data-w="174">fin</span>, <span class="w" data-w="175">la</span> <span class="w" data-w="176">verdad</span> <span class="w" data-w="177">que</span> <span class="w" data-w="178">la</span> <span class="w" data-w="179">tasa</span> <span class="w" data-w="180">falsa</span> <span class="w" data-w="181">había</span> <span class="w" data-w="182">ocultado</span>.</p>
 
-    <p>Fíjese en lo que el hambre <em>es</em>, en el fondo: una pérdida. La aldea invirtió esfuerzo —semanas de trabajo, redes sin tejer, pescado sin sacar— en algo que no rindió. El hambre es la forma en que esa pérdida se hace sentir, imposible de ignorar. Y esa es la idea de este capítulo: que las pérdidas no son solo un daño. Son <span class="term-verde">información</span> —la más valiosa que una economía produce—, porque son la única forma que tiene una sociedad de descubrir que se equivocó y corregir el rumbo.</p>
+    <p><span class="w" data-w="183">Fíjese</span> <span class="w" data-w="184">en</span> <span class="w" data-w="185">lo</span> <span class="w" data-w="186">que</span> <span class="w" data-w="187">el</span> <span class="w" data-w="188">hambre</span> <em><span class="w" data-w="189">es</span></em>, <span class="w" data-w="190">en</span> <span class="w" data-w="191">el</span> <span class="w" data-w="192">fondo</span>: <span class="w" data-w="193">una</span> <span class="w" data-w="194">pérdida</span>. <span class="w" data-w="195">La</span> <span class="w" data-w="196">aldea</span> <span class="w" data-w="197">invirtió</span> <span class="w" data-w="198">esfuerzo</span> —<span class="w" data-w="199">semanas</span> <span class="w" data-w="200">de</span> <span class="w" data-w="201">trabajo</span>, <span class="w" data-w="202">redes</span> <span class="w" data-w="203">sin</span> <span class="w" data-w="204">tejer</span>, <span class="w" data-w="205">pescado</span> <span class="w" data-w="206">sin</span> <span class="w" data-w="207">sacar</span>— <span class="w" data-w="208">en</span> <span class="w" data-w="209">algo</span> <span class="w" data-w="210">que</span> <span class="w" data-w="211">no</span> <span class="w" data-w="212">rindió</span>. <span class="w" data-w="213">El</span> <span class="w" data-w="214">hambre</span> <span class="w" data-w="215">es</span> <span class="w" data-w="216">la</span> <span class="w" data-w="217">forma</span> <span class="w" data-w="218">en</span> <span class="w" data-w="219">que</span> <span class="w" data-w="220">esa</span> <span class="w" data-w="221">pérdida</span> <span class="w" data-w="222">se</span> <span class="w" data-w="223">hace</span> <span class="w" data-w="224">sentir</span>, <span class="w" data-w="225">imposible</span> <span class="w" data-w="226">de</span> <span class="w" data-w="227">ignorar</span>. <span class="w" data-w="228">Y</span> <span class="w" data-w="229">esa</span> <span class="w" data-w="230">es</span> <span class="w" data-w="231">la</span> <span class="w" data-w="232">idea</span> <span class="w" data-w="233">de</span> <span class="w" data-w="234">este</span> <span class="w" data-w="235">capítulo</span>: <span class="w" data-w="236">que</span> <span class="w" data-w="237">las</span> <span class="w" data-w="238">pérdidas</span> <span class="w" data-w="239">no</span> <span class="w" data-w="240">son</span> <span class="w" data-w="241">solo</span> <span class="w" data-w="242">un</span> <span class="w" data-w="243">daño</span>. <span class="w" data-w="244">Son</span> <span class="term-verde"><span class="w" data-w="245">información</span></span> —<span class="w" data-w="246">la</span> <span class="w" data-w="247">más</span> <span class="w" data-w="248">valiosa</span> <span class="w" data-w="249">que</span> <span class="w" data-w="250">una</span> <span class="w" data-w="251">economía</span> <span class="w" data-w="252">produce</span>—, <span class="w" data-w="253">porque</span> <span class="w" data-w="254">son</span> <span class="w" data-w="255">la</span> <span class="w" data-w="256">única</span> <span class="w" data-w="257">forma</span> <span class="w" data-w="258">que</span> <span class="w" data-w="259">tiene</span> <span class="w" data-w="260">una</span> <span class="w" data-w="261">sociedad</span> <span class="w" data-w="262">de</span> <span class="w" data-w="263">descubrir</span> <span class="w" data-w="264">que</span> <span class="w" data-w="265">se</span> <span class="w" data-w="266">equivocó</span> <span class="w" data-w="267">y</span> <span class="w" data-w="268">corregir</span> <span class="w" data-w="269">el</span> <span class="w" data-w="270">rumbo</span>.</p>
 
-    <p>En el capítulo anterior vimos cómo nace una mala inversión: una señal falsa engaña a quien construye. Pero una mala inversión que nadie detecta se vuelve eterna —se sigue alimentando, se sigue agrandando, consumiendo recursos que harían falta en otra parte—. Tiene que haber un mecanismo que la descubra y la detenga. Ese mecanismo existe, y es tan importante como la señal que lo desató. Este capítulo trata de él: de cómo una sociedad se entera de sus errores. Y de cómo el dinero deshonesto puede, también aquí, romper el aviso.</p>
+    <p><span class="w" data-w="271">En</span> <span class="w" data-w="272">el</span> <span class="w" data-w="273">capítulo</span> <span class="w" data-w="274">anterior</span> <span class="w" data-w="275">vimos</span> <span class="w" data-w="276">cómo</span> <span class="w" data-w="277">nace</span> <span class="w" data-w="278">una</span> <span class="w" data-w="279">mala</span> <span class="w" data-w="280">inversión</span>: <span class="w" data-w="281">una</span> <span class="w" data-w="282">señal</span> <span class="w" data-w="283">falsa</span> <span class="w" data-w="284">engaña</span> <span class="w" data-w="285">a</span> <span class="w" data-w="286">quien</span> <span class="w" data-w="287">construye</span>. <span class="w" data-w="288">Pero</span> <span class="w" data-w="289">una</span> <span class="w" data-w="290">mala</span> <span class="w" data-w="291">inversión</span> <span class="w" data-w="292">que</span> <span class="w" data-w="293">nadie</span> <span class="w" data-w="294">detecta</span> <span class="w" data-w="295">se</span> <span class="w" data-w="296">vuelve</span> <span class="w" data-w="297">eterna</span> —<span class="w" data-w="298">se</span> <span class="w" data-w="299">sigue</span> <span class="w" data-w="300">alimentando</span>, <span class="w" data-w="301">se</span> <span class="w" data-w="302">sigue</span> <span class="w" data-w="303">agrandando</span>, <span class="w" data-w="304">consumiendo</span> <span class="w" data-w="305">recursos</span> <span class="w" data-w="306">que</span> <span class="w" data-w="307">harían</span> <span class="w" data-w="308">falta</span> <span class="w" data-w="309">en</span> <span class="w" data-w="310">otra</span> <span class="w" data-w="311">parte</span>—. <span class="w" data-w="312">Tiene</span> <span class="w" data-w="313">que</span> <span class="w" data-w="314">haber</span> <span class="w" data-w="315">un</span> <span class="w" data-w="316">mecanismo</span> <span class="w" data-w="317">que</span> <span class="w" data-w="318">la</span> <span class="w" data-w="319">descubra</span> <span class="w" data-w="320">y</span> <span class="w" data-w="321">la</span> <span class="w" data-w="322">detenga</span>. <span class="w" data-w="323">Ese</span> <span class="w" data-w="324">mecanismo</span> <span class="w" data-w="325">existe</span>, <span class="w" data-w="326">y</span> <span class="w" data-w="327">es</span> <span class="w" data-w="328">tan</span> <span class="w" data-w="329">importante</span> <span class="w" data-w="330">como</span> <span class="w" data-w="331">la</span> <span class="w" data-w="332">señal</span> <span class="w" data-w="333">que</span> <span class="w" data-w="334">lo</span> <span class="w" data-w="335">desató</span>. <span class="w" data-w="336">Este</span> <span class="w" data-w="337">capítulo</span> <span class="w" data-w="338">trata</span> <span class="w" data-w="339">de</span> <span class="w" data-w="340">él</span>: <span class="w" data-w="341">de</span> <span class="w" data-w="342">cómo</span> <span class="w" data-w="343">una</span> <span class="w" data-w="344">sociedad</span> <span class="w" data-w="345">se</span> <span class="w" data-w="346">entera</span> <span class="w" data-w="347">de</span> <span class="w" data-w="348">sus</span> <span class="w" data-w="349">errores</span>. <span class="w" data-w="350">Y</span> <span class="w" data-w="351">de</span> <span class="w" data-w="352">cómo</span> <span class="w" data-w="353">el</span> <span class="w" data-w="354">dinero</span> <span class="w" data-w="355">deshonesto</span> <span class="w" data-w="356">puede</span>, <span class="w" data-w="357">también</span> <span class="w" data-w="358">aquí</span>, <span class="w" data-w="359">romper</span> <span class="w" data-w="360">el</span> <span class="w" data-w="361">aviso</span>.</p>
 
     <!-- ====== LAS PÉRDIDAS COMO INFORMACIÓN (Mises) ====== -->
-    <p>Salgamos un momento de la aldea para verlo en la economía que usted conoce, la de empresas y dinero. Cuando alguien monta un negocio, está haciendo una apuesta sobre el futuro: cree que lo que produce valdrá, para los demás, más que los recursos que gasta en producirlo. Si acierta, gana. Si se equivoca —si gasta en cuero, mano de obra y máquinas para fabricar algo que nadie quiere lo suficiente—, pierde. Y esa pérdida no es un accidente molesto: es el sistema avisándole que esos recursos estaban mal empleados, que el cuero y el trabajo que consumió habrían servido más en otra parte. Mises lo expresó con una claridad que no ha sido superada:</p>
+    <p><span class="w" data-w="362">Salgamos</span> <span class="w" data-w="363">un</span> <span class="w" data-w="364">momento</span> <span class="w" data-w="365">de</span> <span class="w" data-w="366">la</span> <span class="w" data-w="367">aldea</span> <span class="w" data-w="368">para</span> <span class="w" data-w="369">verlo</span> <span class="w" data-w="370">en</span> <span class="w" data-w="371">la</span> <span class="w" data-w="372">economía</span> <span class="w" data-w="373">que</span> <span class="w" data-w="374">usted</span> <span class="w" data-w="375">conoce</span>, <span class="w" data-w="376">la</span> <span class="w" data-w="377">de</span> <span class="w" data-w="378">empresas</span> <span class="w" data-w="379">y</span> <span class="w" data-w="380">dinero</span>. <span class="w" data-w="381">Cuando</span> <span class="w" data-w="382">alguien</span> <span class="w" data-w="383">monta</span> <span class="w" data-w="384">un</span> <span class="w" data-w="385">negocio</span>, <span class="w" data-w="386">está</span> <span class="w" data-w="387">haciendo</span> <span class="w" data-w="388">una</span> <span class="w" data-w="389">apuesta</span> <span class="w" data-w="390">sobre</span> <span class="w" data-w="391">el</span> <span class="w" data-w="392">futuro</span>: <span class="w" data-w="393">cree</span> <span class="w" data-w="394">que</span> <span class="w" data-w="395">lo</span> <span class="w" data-w="396">que</span> <span class="w" data-w="397">produce</span> <span class="w" data-w="398">valdrá</span>, <span class="w" data-w="399">para</span> <span class="w" data-w="400">los</span> <span class="w" data-w="401">demás</span>, <span class="w" data-w="402">más</span> <span class="w" data-w="403">que</span> <span class="w" data-w="404">los</span> <span class="w" data-w="405">recursos</span> <span class="w" data-w="406">que</span> <span class="w" data-w="407">gasta</span> <span class="w" data-w="408">en</span> <span class="w" data-w="409">producirlo</span>. <span class="w" data-w="410">Si</span> <span class="w" data-w="411">acierta</span>, <span class="w" data-w="412">gana</span>. <span class="w" data-w="413">Si</span> <span class="w" data-w="414">se</span> <span class="w" data-w="415">equivoca</span> —<span class="w" data-w="416">si</span> <span class="w" data-w="417">gasta</span> <span class="w" data-w="418">en</span> <span class="w" data-w="419">cuero</span>, <span class="w" data-w="420">mano</span> <span class="w" data-w="421">de</span> <span class="w" data-w="422">obra</span> <span class="w" data-w="423">y</span> <span class="w" data-w="424">máquinas</span> <span class="w" data-w="425">para</span> <span class="w" data-w="426">fabricar</span> <span class="w" data-w="427">algo</span> <span class="w" data-w="428">que</span> <span class="w" data-w="429">nadie</span> <span class="w" data-w="430">quiere</span> <span class="w" data-w="431">lo</span> <span class="w" data-w="432">suficiente</span>—, <span class="w" data-w="433">pierde</span>. <span class="w" data-w="434">Y</span> <span class="w" data-w="435">esa</span> <span class="w" data-w="436">pérdida</span> <span class="w" data-w="437">no</span> <span class="w" data-w="438">es</span> <span class="w" data-w="439">un</span> <span class="w" data-w="440">accidente</span> <span class="w" data-w="441">molesto</span>: <span class="w" data-w="442">es</span> <span class="w" data-w="443">el</span> <span class="w" data-w="444">sistema</span> <span class="w" data-w="445">avisándole</span> <span class="w" data-w="446">que</span> <span class="w" data-w="447">esos</span> <span class="w" data-w="448">recursos</span> <span class="w" data-w="449">estaban</span> <span class="w" data-w="450">mal</span> <span class="w" data-w="451">empleados</span>, <span class="w" data-w="452">que</span> <span class="w" data-w="453">el</span> <span class="w" data-w="454">cuero</span> <span class="w" data-w="455">y</span> <span class="w" data-w="456">el</span> <span class="w" data-w="457">trabajo</span> <span class="w" data-w="458">que</span> <span class="w" data-w="459">consumió</span> <span class="w" data-w="460">habrían</span> <span class="w" data-w="461">servido</span> <span class="w" data-w="462">más</span> <span class="w" data-w="463">en</span> <span class="w" data-w="464">otra</span> <span class="w" data-w="465">parte</span>. <span class="w" data-w="466">Mises</span> <span class="w" data-w="467">lo</span> <span class="w" data-w="468">expresó</span> <span class="w" data-w="469">con</span> <span class="w" data-w="470">una</span> <span class="w" data-w="471">claridad</span> <span class="w" data-w="472">que</span> <span class="w" data-w="473">no</span> <span class="w" data-w="474">ha</span> <span class="w" data-w="475">sido</span> <span class="w" data-w="476">superada</span>:</p>
 
     <div class="cita-autor">
-      <span class="texto">"Las pérdidas y las ganancias son los resortes gracias a los cuales el imperio de los consumidores gobierna el mercado... es esa conducta la que hace que la propiedad de los medios de producción pase de las personas menos eficientes a las más eficientes."</span>
-      <span class="atribucion">Mises, <em>La acción humana</em>, cap. XV</span>
+      <span class="texto">"<span class="w" data-w="477">Las</span> <span class="w" data-w="478">pérdidas</span> <span class="w" data-w="479">y</span> <span class="w" data-w="480">las</span> <span class="w" data-w="481">ganancias</span> <span class="w" data-w="482">son</span> <span class="w" data-w="483">los</span> <span class="w" data-w="484">resortes</span> <span class="w" data-w="485">gracias</span> <span class="w" data-w="486">a</span> <span class="w" data-w="487">los</span> <span class="w" data-w="488">cuales</span> <span class="w" data-w="489">el</span> <span class="w" data-w="490">imperio</span> <span class="w" data-w="491">de</span> <span class="w" data-w="492">los</span> <span class="w" data-w="493">consumidores</span> <span class="w" data-w="494">gobierna</span> <span class="w" data-w="495">el</span> <span class="w" data-w="496">mercado</span>... <span class="w" data-w="497">es</span> <span class="w" data-w="498">esa</span> <span class="w" data-w="499">conducta</span> <span class="w" data-w="500">la</span> <span class="w" data-w="501">que</span> <span class="w" data-w="502">hace</span> <span class="w" data-w="503">que</span> <span class="w" data-w="504">la</span> <span class="w" data-w="505">propiedad</span> <span class="w" data-w="506">de</span> <span class="w" data-w="507">los</span> <span class="w" data-w="508">medios</span> <span class="w" data-w="509">de</span> <span class="w" data-w="510">producción</span> <span class="w" data-w="511">pase</span> <span class="w" data-w="512">de</span> <span class="w" data-w="513">las</span> <span class="w" data-w="514">personas</span> <span class="w" data-w="515">menos</span> <span class="w" data-w="516">eficientes</span> <span class="w" data-w="517">a</span> <span class="w" data-w="518">las</span> <span class="w" data-w="519">más</span> <span class="w" data-w="520">eficientes</span>."</span>
+      <span class="atribucion"><span class="w" data-w="521">Mises</span>, <em><span class="w" data-w="522">La</span> <span class="w" data-w="523">acción</span> <span class="w" data-w="524">humana</span></em>, <span class="w" data-w="525">cap</span>. <span class="w" data-w="526">XV</span></span>
     </div>
 
-    <p>Lea eso despacio, porque dice algo más profundo de lo que parece. Las pérdidas y ganancias no solo premian o castigan: <em>mueven los recursos</em>. El que acierta gana, y con la ganancia consigue más medios para seguir produciendo lo que la gente quiere. El que se equivoca pierde, y la pérdida le va quitando los recursos que estaba malgastando, para que pasen a manos de quien sabrá usarlos mejor. Es un mecanismo de corrección que funciona solo, sin que nadie lo dirija —la economía aprendiendo de sus errores, caso por caso—. Y Mises remató la idea con una frase que es, exactamente, el corazón de este capítulo:</p>
+    <p><span class="w" data-w="527">Lea</span> <span class="w" data-w="528">eso</span> <span class="w" data-w="529">despacio</span>, <span class="w" data-w="530">porque</span> <span class="w" data-w="531">dice</span> <span class="w" data-w="532">algo</span> <span class="w" data-w="533">más</span> <span class="w" data-w="534">profundo</span> <span class="w" data-w="535">de</span> <span class="w" data-w="536">lo</span> <span class="w" data-w="537">que</span> <span class="w" data-w="538">parece</span>. <span class="w" data-w="539">Las</span> <span class="w" data-w="540">pérdidas</span> <span class="w" data-w="541">y</span> <span class="w" data-w="542">ganancias</span> <span class="w" data-w="543">no</span> <span class="w" data-w="544">solo</span> <span class="w" data-w="545">premian</span> <span class="w" data-w="546">o</span> <span class="w" data-w="547">castigan</span>: <em><span class="w" data-w="548">mueven</span> <span class="w" data-w="549">los</span> <span class="w" data-w="550">recursos</span></em>. <span class="w" data-w="551">El</span> <span class="w" data-w="552">que</span> <span class="w" data-w="553">acierta</span> <span class="w" data-w="554">gana</span>, <span class="w" data-w="555">y</span> <span class="w" data-w="556">con</span> <span class="w" data-w="557">la</span> <span class="w" data-w="558">ganancia</span> <span class="w" data-w="559">consigue</span> <span class="w" data-w="560">más</span> <span class="w" data-w="561">medios</span> <span class="w" data-w="562">para</span> <span class="w" data-w="563">seguir</span> <span class="w" data-w="564">produciendo</span> <span class="w" data-w="565">lo</span> <span class="w" data-w="566">que</span> <span class="w" data-w="567">la</span> <span class="w" data-w="568">gente</span> <span class="w" data-w="569">quiere</span>. <span class="w" data-w="570">El</span> <span class="w" data-w="571">que</span> <span class="w" data-w="572">se</span> <span class="w" data-w="573">equivoca</span> <span class="w" data-w="574">pierde</span>, <span class="w" data-w="575">y</span> <span class="w" data-w="576">la</span> <span class="w" data-w="577">pérdida</span> <span class="w" data-w="578">le</span> <span class="w" data-w="579">va</span> <span class="w" data-w="580">quitando</span> <span class="w" data-w="581">los</span> <span class="w" data-w="582">recursos</span> <span class="w" data-w="583">que</span> <span class="w" data-w="584">estaba</span> <span class="w" data-w="585">malgastando</span>, <span class="w" data-w="586">para</span> <span class="w" data-w="587">que</span> <span class="w" data-w="588">pasen</span> <span class="w" data-w="589">a</span> <span class="w" data-w="590">manos</span> <span class="w" data-w="591">de</span> <span class="w" data-w="592">quien</span> <span class="w" data-w="593">sabrá</span> <span class="w" data-w="594">usarlos</span> <span class="w" data-w="595">mejor</span>. <span class="w" data-w="596">Es</span> <span class="w" data-w="597">un</span> <span class="w" data-w="598">mecanismo</span> <span class="w" data-w="599">de</span> <span class="w" data-w="600">corrección</span> <span class="w" data-w="601">que</span> <span class="w" data-w="602">funciona</span> <span class="w" data-w="603">solo</span>, <span class="w" data-w="604">sin</span> <span class="w" data-w="605">que</span> <span class="w" data-w="606">nadie</span> <span class="w" data-w="607">lo</span> <span class="w" data-w="608">dirija</span> —<span class="w" data-w="609">la</span> <span class="w" data-w="610">economía</span> <span class="w" data-w="611">aprendiendo</span> <span class="w" data-w="612">de</span> <span class="w" data-w="613">sus</span> <span class="w" data-w="614">errores</span>, <span class="w" data-w="615">caso</span> <span class="w" data-w="616">por</span> <span class="w" data-w="617">caso</span>—. <span class="w" data-w="618">Y</span> <span class="w" data-w="619">Mises</span> <span class="w" data-w="620">remató</span> <span class="w" data-w="621">la</span> <span class="w" data-w="622">idea</span> <span class="w" data-w="623">con</span> <span class="w" data-w="624">una</span> <span class="w" data-w="625">frase</span> <span class="w" data-w="626">que</span> <span class="w" data-w="627">es</span>, <span class="w" data-w="628">exactamente</span>, <span class="w" data-w="629">el</span> <span class="w" data-w="630">corazón</span> <span class="w" data-w="631">de</span> <span class="w" data-w="632">este</span> <span class="w" data-w="633">capítulo</span>:</p>
 
     <div class="cita-autor">
-      <span class="texto">"Si no hubiera ni pérdidas ni ganancias, los empresarios ignorarían las más urgentes necesidades de los consumidores."</span>
-      <span class="atribucion">Mises, <em>La acción humana</em>, cap. XV</span>
+      <span class="texto">"<span class="w" data-w="634">Si</span> <span class="w" data-w="635">no</span> <span class="w" data-w="636">hubiera</span> <span class="w" data-w="637">ni</span> <span class="w" data-w="638">pérdidas</span> <span class="w" data-w="639">ni</span> <span class="w" data-w="640">ganancias</span>, <span class="w" data-w="641">los</span> <span class="w" data-w="642">empresarios</span> <span class="w" data-w="643">ignorarían</span> <span class="w" data-w="644">las</span> <span class="w" data-w="645">más</span> <span class="w" data-w="646">urgentes</span> <span class="w" data-w="647">necesidades</span> <span class="w" data-w="648">de</span> <span class="w" data-w="649">los</span> <span class="w" data-w="650">consumidores</span>."</span>
+      <span class="atribucion"><span class="w" data-w="651">Mises</span>, <em><span class="w" data-w="652">La</span> <span class="w" data-w="653">acción</span> <span class="w" data-w="654">humana</span></em>, <span class="w" data-w="655">cap</span>. <span class="w" data-w="656">XV</span></span>
     </div>
 
-    <p>Sin pérdidas, nadie sabría que se equivocó. Esa es la función de la pérdida: es el hambre de la aldea, traducida al lenguaje del dinero. Le dice a quien invirtió mal —y a toda la sociedad que observa— "esto no servía, deténgase, mueva los recursos a otra parte". Una economía sin pérdidas sería como un cuerpo que no siente dolor: seguiría apoyándose en el hueso roto hasta destruirse, porque nada le avisaría del daño. El dolor es desagradable, pero es información que salva. La pérdida también.</p>
+    <p><span class="w" data-w="657">Sin</span> <span class="w" data-w="658">pérdidas</span>, <span class="w" data-w="659">nadie</span> <span class="w" data-w="660">sabría</span> <span class="w" data-w="661">que</span> <span class="w" data-w="662">se</span> <span class="w" data-w="663">equivocó</span>. <span class="w" data-w="664">Esa</span> <span class="w" data-w="665">es</span> <span class="w" data-w="666">la</span> <span class="w" data-w="667">función</span> <span class="w" data-w="668">de</span> <span class="w" data-w="669">la</span> <span class="w" data-w="670">pérdida</span>: <span class="w" data-w="671">es</span> <span class="w" data-w="672">el</span> <span class="w" data-w="673">hambre</span> <span class="w" data-w="674">de</span> <span class="w" data-w="675">la</span> <span class="w" data-w="676">aldea</span>, <span class="w" data-w="677">traducida</span> <span class="w" data-w="678">al</span> <span class="w" data-w="679">lenguaje</span> <span class="w" data-w="680">del</span> <span class="w" data-w="681">dinero</span>. <span class="w" data-w="682">Le</span> <span class="w" data-w="683">dice</span> <span class="w" data-w="684">a</span> <span class="w" data-w="685">quien</span> <span class="w" data-w="686">invirtió</span> <span class="w" data-w="687">mal</span> —<span class="w" data-w="688">y</span> <span class="w" data-w="689">a</span> <span class="w" data-w="690">toda</span> <span class="w" data-w="691">la</span> <span class="w" data-w="692">sociedad</span> <span class="w" data-w="693">que</span> <span class="w" data-w="694">observa</span>— "<span class="w" data-w="695">esto</span> <span class="w" data-w="696">no</span> <span class="w" data-w="697">servía</span>, <span class="w" data-w="698">deténgase</span>, <span class="w" data-w="699">mueva</span> <span class="w" data-w="700">los</span> <span class="w" data-w="701">recursos</span> <span class="w" data-w="702">a</span> <span class="w" data-w="703">otra</span> <span class="w" data-w="704">parte</span>". <span class="w" data-w="705">Una</span> <span class="w" data-w="706">economía</span> <span class="w" data-w="707">sin</span> <span class="w" data-w="708">pérdidas</span> <span class="w" data-w="709">sería</span> <span class="w" data-w="710">como</span> <span class="w" data-w="711">un</span> <span class="w" data-w="712">cuerpo</span> <span class="w" data-w="713">que</span> <span class="w" data-w="714">no</span> <span class="w" data-w="715">siente</span> <span class="w" data-w="716">dolor</span>: <span class="w" data-w="717">seguiría</span> <span class="w" data-w="718">apoyándose</span> <span class="w" data-w="719">en</span> <span class="w" data-w="720">el</span> <span class="w" data-w="721">hueso</span> <span class="w" data-w="722">roto</span> <span class="w" data-w="723">hasta</span> <span class="w" data-w="724">destruirse</span>, <span class="w" data-w="725">porque</span> <span class="w" data-w="726">nada</span> <span class="w" data-w="727">le</span> <span class="w" data-w="728">avisaría</span> <span class="w" data-w="729">del</span> <span class="w" data-w="730">daño</span>. <span class="w" data-w="731">El</span> <span class="w" data-w="732">dolor</span> <span class="w" data-w="733">es</span> <span class="w" data-w="734">desagradable</span>, <span class="w" data-w="735">pero</span> <span class="w" data-w="736">es</span> <span class="w" data-w="737">información</span> <span class="w" data-w="738">que</span> <span class="w" data-w="739">salva</span>. <span class="w" data-w="740">La</span> <span class="w" data-w="741">pérdida</span> <span class="w" data-w="742">también</span>.</p>
 
     <!-- ====== LA FALSIFICACIÓN: el narcótico ====== -->
-    <p>Y aquí llega la falsificación propia de este capítulo —distinta de la que ya vimos, y en cierto modo más perversa—. Porque hasta ahora el dinero deshonesto <em>creaba</em> el error, falsificando la tasa. Lo que hace ahora es algo peor: <span class="term-rojo">esconder el error una vez cometido</span>, silenciando la señal que lo delataría.</p>
+    <p><span class="w" data-w="743">Y</span> <span class="w" data-w="744">aquí</span> <span class="w" data-w="745">llega</span> <span class="w" data-w="746">la</span> <span class="w" data-w="747">falsificación</span> <span class="w" data-w="748">propia</span> <span class="w" data-w="749">de</span> <span class="w" data-w="750">este</span> <span class="w" data-w="751">capítulo</span> —<span class="w" data-w="752">distinta</span> <span class="w" data-w="753">de</span> <span class="w" data-w="754">la</span> <span class="w" data-w="755">que</span> <span class="w" data-w="756">ya</span> <span class="w" data-w="757">vimos</span>, <span class="w" data-w="758">y</span> <span class="w" data-w="759">en</span> <span class="w" data-w="760">cierto</span> <span class="w" data-w="761">modo</span> <span class="w" data-w="762">más</span> <span class="w" data-w="763">perversa</span>—. <span class="w" data-w="764">Porque</span> <span class="w" data-w="765">hasta</span> <span class="w" data-w="766">ahora</span> <span class="w" data-w="767">el</span> <span class="w" data-w="768">dinero</span> <span class="w" data-w="769">deshonesto</span> <em><span class="w" data-w="770">creaba</span></em> <span class="w" data-w="771">el</span> <span class="w" data-w="772">error</span>, <span class="w" data-w="773">falsificando</span> <span class="w" data-w="774">la</span> <span class="w" data-w="775">tasa</span>. <span class="w" data-w="776">Lo</span> <span class="w" data-w="777">que</span> <span class="w" data-w="778">hace</span> <span class="w" data-w="779">ahora</span> <span class="w" data-w="780">es</span> <span class="w" data-w="781">algo</span> <span class="w" data-w="782">peor</span>: <span class="term-rojo"><span class="w" data-w="783">esconder</span> <span class="w" data-w="784">el</span> <span class="w" data-w="785">error</span> <span class="w" data-w="786">una</span> <span class="w" data-w="787">vez</span> <span class="w" data-w="788">cometido</span></span>, <span class="w" data-w="789">silenciando</span> <span class="w" data-w="790">la</span> <span class="w" data-w="791">señal</span> <span class="w" data-w="792">que</span> <span class="w" data-w="793">lo</span> <span class="w" data-w="794">delataría</span>.</p>
 
-    <p>Volvamos a la aldea para verlo. La mala inversión ya está hecha: el astillero a medio construir, las reservas agotándose, el hambre asomando. El hambre está a punto de cumplir su función —avisar que hay que parar, abandonar el astillero, volver a pescar—. Pero imagine que, justo entonces, alguien aparece y reparte comida prestada para que nadie sienta el hambre. La aldea, aliviada, sigue construyendo el astillero. El aviso se silenció. Y el error, en lugar de corregirse, se agranda: ahora se hunden todavía más semanas, más trabajo, más recursos en algo que sigue sin poder terminarse. Cuando la comida prestada se acabe —porque tampoco esa era real—, el hambre volverá, pero peor, porque la aldea está aún más lejos del mar y más hundida en el astillero imposible.</p>
+    <p><span class="w" data-w="795">Volvamos</span> <span class="w" data-w="796">a</span> <span class="w" data-w="797">la</span> <span class="w" data-w="798">aldea</span> <span class="w" data-w="799">para</span> <span class="w" data-w="800">verlo</span>. <span class="w" data-w="801">La</span> <span class="w" data-w="802">mala</span> <span class="w" data-w="803">inversión</span> <span class="w" data-w="804">ya</span> <span class="w" data-w="805">está</span> <span class="w" data-w="806">hecha</span>: <span class="w" data-w="807">el</span> <span class="w" data-w="808">astillero</span> <span class="w" data-w="809">a</span> <span class="w" data-w="810">medio</span> <span class="w" data-w="811">construir</span>, <span class="w" data-w="812">las</span> <span class="w" data-w="813">reservas</span> <span class="w" data-w="814">agotándose</span>, <span class="w" data-w="815">el</span> <span class="w" data-w="816">hambre</span> <span class="w" data-w="817">asomando</span>. <span class="w" data-w="818">El</span> <span class="w" data-w="819">hambre</span> <span class="w" data-w="820">está</span> <span class="w" data-w="821">a</span> <span class="w" data-w="822">punto</span> <span class="w" data-w="823">de</span> <span class="w" data-w="824">cumplir</span> <span class="w" data-w="825">su</span> <span class="w" data-w="826">función</span> —<span class="w" data-w="827">avisar</span> <span class="w" data-w="828">que</span> <span class="w" data-w="829">hay</span> <span class="w" data-w="830">que</span> <span class="w" data-w="831">parar</span>, <span class="w" data-w="832">abandonar</span> <span class="w" data-w="833">el</span> <span class="w" data-w="834">astillero</span>, <span class="w" data-w="835">volver</span> <span class="w" data-w="836">a</span> <span class="w" data-w="837">pescar</span>—. <span class="w" data-w="838">Pero</span> <span class="w" data-w="839">imagine</span> <span class="w" data-w="840">que</span>, <span class="w" data-w="841">justo</span> <span class="w" data-w="842">entonces</span>, <span class="w" data-w="843">alguien</span> <span class="w" data-w="844">aparece</span> <span class="w" data-w="845">y</span> <span class="w" data-w="846">reparte</span> <span class="w" data-w="847">comida</span> <span class="w" data-w="848">prestada</span> <span class="w" data-w="849">para</span> <span class="w" data-w="850">que</span> <span class="w" data-w="851">nadie</span> <span class="w" data-w="852">sienta</span> <span class="w" data-w="853">el</span> <span class="w" data-w="854">hambre</span>. <span class="w" data-w="855">La</span> <span class="w" data-w="856">aldea</span>, <span class="w" data-w="857">aliviada</span>, <span class="w" data-w="858">sigue</span> <span class="w" data-w="859">construyendo</span> <span class="w" data-w="860">el</span> <span class="w" data-w="861">astillero</span>. <span class="w" data-w="862">El</span> <span class="w" data-w="863">aviso</span> <span class="w" data-w="864">se</span> <span class="w" data-w="865">silenció</span>. <span class="w" data-w="866">Y</span> <span class="w" data-w="867">el</span> <span class="w" data-w="868">error</span>, <span class="w" data-w="869">en</span> <span class="w" data-w="870">lugar</span> <span class="w" data-w="871">de</span> <span class="w" data-w="872">corregirse</span>, <span class="w" data-w="873">se</span> <span class="w" data-w="874">agranda</span>: <span class="w" data-w="875">ahora</span> <span class="w" data-w="876">se</span> <span class="w" data-w="877">hunden</span> <span class="w" data-w="878">todavía</span> <span class="w" data-w="879">más</span> <span class="w" data-w="880">semanas</span>, <span class="w" data-w="881">más</span> <span class="w" data-w="882">trabajo</span>, <span class="w" data-w="883">más</span> <span class="w" data-w="884">recursos</span> <span class="w" data-w="885">en</span> <span class="w" data-w="886">algo</span> <span class="w" data-w="887">que</span> <span class="w" data-w="888">sigue</span> <span class="w" data-w="889">sin</span> <span class="w" data-w="890">poder</span> <span class="w" data-w="891">terminarse</span>. <span class="w" data-w="892">Cuando</span> <span class="w" data-w="893">la</span> <span class="w" data-w="894">comida</span> <span class="w" data-w="895">prestada</span> <span class="w" data-w="896">se</span> <span class="w" data-w="897">acabe</span> —<span class="w" data-w="898">porque</span> <span class="w" data-w="899">tampoco</span> <span class="w" data-w="900">esa</span> <span class="w" data-w="901">era</span> <span class="w" data-w="902">real</span>—, <span class="w" data-w="903">el</span> <span class="w" data-w="904">hambre</span> <span class="w" data-w="905">volverá</span>, <span class="w" data-w="906">pero</span> <span class="w" data-w="907">peor</span>, <span class="w" data-w="908">porque</span> <span class="w" data-w="909">la</span> <span class="w" data-w="910">aldea</span> <span class="w" data-w="911">está</span> <span class="w" data-w="912">aún</span> <span class="w" data-w="913">más</span> <span class="w" data-w="914">lejos</span> <span class="w" data-w="915">del</span> <span class="w" data-w="916">mar</span> <span class="w" data-w="917">y</span> <span class="w" data-w="918">más</span> <span class="w" data-w="919">hundida</span> <span class="w" data-w="920">en</span> <span class="w" data-w="921">el</span> <span class="w" data-w="922">astillero</span> <span class="w" data-w="923">imposible</span>.</p>
 
-    <p>Eso es exactamente lo que el dinero deshonesto hace en la economía real. Cuando las malas inversiones del auge empiezan a revelarse —las empresas que no son rentables, los proyectos que no se sostienen—, las pérdidas deberían hacer su trabajo: quebrar lo inviable, liberar los recursos atrapados, corregir el rumbo. Pero el banco central puede impedirlo, inyectando más crédito barato: rescata a los bancos que prestaron mal, sostiene con dinero nuevo a las empresas que deberían cerrar, mantiene vivo lo que el mercado quería liquidar. La pérdida que iba a informar se tapa. El error que iba a corregirse se prolonga. Rothbard fue tajante sobre lo que esto significa:</p>
-
-    <div class="cita-autor">
-      <span class="texto">"Toda interferencia gubernamental en el proceso de depresión solamente lo prolonga... toda detención o desaceleración impide que el reajuste ocurra."</span>
-      <span class="atribucion">Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 12</span>
-    </div>
-
-    <p>Y fíjese en lo que hace posible esa anestesia, porque es la raíz de todo: el rescate se paga con dinero que se crea de la nada. Ahí está, otra vez, la línea que parte todo el libro. Con dinero duro —ese que nadie puede fabricar por decreto— no habría con qué financiar el rescate perpetuo: cuando una empresa quiebra, quiebra, porque no existe una fábrica de dinero que la sostenga indefinidamente. La señal de la pérdida suena y se obedece, porque nadie puede pagar para silenciarla. Solo cuando el dinero se puede crear de la nada aparece la posibilidad de tapar la pérdida con dinero nuevo —de comprarle silencio al mensajero—. La quiebra que sanea y el rescate que enferma no son dos políticas entre las que una sociedad elige libremente: la segunda solo está disponible si el dinero es de los que se imprimen. El dinero honesto no es que prefiera dejar caer a las empresas; es que no le da a nadie el poder de impedirlo a costa de todos.</p>
-
-    <p>Lo que para casi todos es "ayuda" —rescatar, estimular, evitar las quiebras— es, visto de cerca, lo contrario: la mano que tapa la boca del mensajero. Porque la quiebra, que asusta tanto, no es la enfermedad: es la curación. Es el momento en que los recursos atrapados en proyectos imposibles se liberan para volver a algo útil. Impedirla no salva nada —solo congela el error en su sitio, consumiendo recursos que harían falta en otra parte—. Rothbard lo dice sin rodeos: la depresión es</p>
+    <p><span class="w" data-w="924">Eso</span> <span class="w" data-w="925">es</span> <span class="w" data-w="926">exactamente</span> <span class="w" data-w="927">lo</span> <span class="w" data-w="928">que</span> <span class="w" data-w="929">el</span> <span class="w" data-w="930">dinero</span> <span class="w" data-w="931">deshonesto</span> <span class="w" data-w="932">hace</span> <span class="w" data-w="933">en</span> <span class="w" data-w="934">la</span> <span class="w" data-w="935">economía</span> <span class="w" data-w="936">real</span>. <span class="w" data-w="937">Cuando</span> <span class="w" data-w="938">las</span> <span class="w" data-w="939">malas</span> <span class="w" data-w="940">inversiones</span> <span class="w" data-w="941">del</span> <span class="w" data-w="942">auge</span> <span class="w" data-w="943">empiezan</span> <span class="w" data-w="944">a</span> <span class="w" data-w="945">revelarse</span> —<span class="w" data-w="946">las</span> <span class="w" data-w="947">empresas</span> <span class="w" data-w="948">que</span> <span class="w" data-w="949">no</span> <span class="w" data-w="950">son</span> <span class="w" data-w="951">rentables</span>, <span class="w" data-w="952">los</span> <span class="w" data-w="953">proyectos</span> <span class="w" data-w="954">que</span> <span class="w" data-w="955">no</span> <span class="w" data-w="956">se</span> <span class="w" data-w="957">sostienen</span>—, <span class="w" data-w="958">las</span> <span class="w" data-w="959">pérdidas</span> <span class="w" data-w="960">deberían</span> <span class="w" data-w="961">hacer</span> <span class="w" data-w="962">su</span> <span class="w" data-w="963">trabajo</span>: <span class="w" data-w="964">quebrar</span> <span class="w" data-w="965">lo</span> <span class="w" data-w="966">inviable</span>, <span class="w" data-w="967">liberar</span> <span class="w" data-w="968">los</span> <span class="w" data-w="969">recursos</span> <span class="w" data-w="970">atrapados</span>, <span class="w" data-w="971">corregir</span> <span class="w" data-w="972">el</span> <span class="w" data-w="973">rumbo</span>. <span class="w" data-w="974">Pero</span> <span class="w" data-w="975">el</span> <span class="w" data-w="976">banco</span> <span class="w" data-w="977">central</span> <span class="w" data-w="978">puede</span> <span class="w" data-w="979">impedirlo</span>, <span class="w" data-w="980">inyectando</span> <span class="w" data-w="981">más</span> <span class="w" data-w="982">crédito</span> <span class="w" data-w="983">barato</span>: <span class="w" data-w="984">rescata</span> <span class="w" data-w="985">a</span> <span class="w" data-w="986">los</span> <span class="w" data-w="987">bancos</span> <span class="w" data-w="988">que</span> <span class="w" data-w="989">prestaron</span> <span class="w" data-w="990">mal</span>, <span class="w" data-w="991">sostiene</span> <span class="w" data-w="992">con</span> <span class="w" data-w="993">dinero</span> <span class="w" data-w="994">nuevo</span> <span class="w" data-w="995">a</span> <span class="w" data-w="996">las</span> <span class="w" data-w="997">empresas</span> <span class="w" data-w="998">que</span> <span class="w" data-w="999">deberían</span> <span class="w" data-w="1000">cerrar</span>, <span class="w" data-w="1001">mantiene</span> <span class="w" data-w="1002">vivo</span> <span class="w" data-w="1003">lo</span> <span class="w" data-w="1004">que</span> <span class="w" data-w="1005">el</span> <span class="w" data-w="1006">mercado</span> <span class="w" data-w="1007">quería</span> <span class="w" data-w="1008">liquidar</span>. <span class="w" data-w="1009">La</span> <span class="w" data-w="1010">pérdida</span> <span class="w" data-w="1011">que</span> <span class="w" data-w="1012">iba</span> <span class="w" data-w="1013">a</span> <span class="w" data-w="1014">informar</span> <span class="w" data-w="1015">se</span> <span class="w" data-w="1016">tapa</span>. <span class="w" data-w="1017">El</span> <span class="w" data-w="1018">error</span> <span class="w" data-w="1019">que</span> <span class="w" data-w="1020">iba</span> <span class="w" data-w="1021">a</span> <span class="w" data-w="1022">corregirse</span> <span class="w" data-w="1023">se</span> <span class="w" data-w="1024">prolonga</span>. <span class="w" data-w="1025">Rothbard</span> <span class="w" data-w="1026">fue</span> <span class="w" data-w="1027">tajante</span> <span class="w" data-w="1028">sobre</span> <span class="w" data-w="1029">lo</span> <span class="w" data-w="1030">que</span> <span class="w" data-w="1031">esto</span> <span class="w" data-w="1032">significa</span>:</p>
 
     <div class="cita-autor">
-      <span class="texto">"un proceso doloroso pero ineludible mediante el cual el mercado se libera de los excesos y errores del auge y restaura el funcionamiento eficiente de la economía."</span>
-      <span class="atribucion">Rothbard, <em>Hacia una nueva libertad</em></span>
+      <span class="texto">"<span class="w" data-w="1033">Toda</span> <span class="w" data-w="1034">interferencia</span> <span class="w" data-w="1035">gubernamental</span> <span class="w" data-w="1036">en</span> <span class="w" data-w="1037">el</span> <span class="w" data-w="1038">proceso</span> <span class="w" data-w="1039">de</span> <span class="w" data-w="1040">depresión</span> <span class="w" data-w="1041">solamente</span> <span class="w" data-w="1042">lo</span> <span class="w" data-w="1043">prolonga</span>... <span class="w" data-w="1044">toda</span> <span class="w" data-w="1045">detención</span> <span class="w" data-w="1046">o</span> <span class="w" data-w="1047">desaceleración</span> <span class="w" data-w="1048">impide</span> <span class="w" data-w="1049">que</span> <span class="w" data-w="1050">el</span> <span class="w" data-w="1051">reajuste</span> <span class="w" data-w="1052">ocurra</span>."</span>
+      <span class="atribucion"><span class="w" data-w="1053">Rothbard</span>, <em><span class="w" data-w="1054">El</span> <span class="w" data-w="1055">hombre</span>, <span class="w" data-w="1056">la</span> <span class="w" data-w="1057">economía</span> <span class="w" data-w="1058">y</span> <span class="w" data-w="1059">el</span> <span class="w" data-w="1060">Estado</span></em>, <span class="w" data-w="1061">cap</span>. <span class="w" data-w="1062">12</span></span>
     </div>
 
-    <p>Hay una imagen que Rothbard rescató de los economistas del siglo XIX y que captura esto mejor que ninguna otra: la del <span class="term-rojo">narcótico</span>. El crédito nuevo que sostiene el auge actúa como una droga —alivia el dolor un rato, hace sentir que todo va bien, pero no cura nada; solo pospone el ajuste y agrava la enfermedad de fondo—. Cada dosis para evitar el dolor exige la siguiente, más grande. Y el día en que ya no se puede inyectar más, el derrumbe es mucho peor de lo que habría sido si se hubiera sentido el dolor a tiempo. Por eso el dinero deshonesto es doblemente dañino en este capítulo: primero creó el error falsificando la tasa, y ahora impide que se descubra, anestesiando la señal que lo delataba.</p>
+    <p><span class="w" data-w="1063">Y</span> <span class="w" data-w="1064">fíjese</span> <span class="w" data-w="1065">en</span> <span class="w" data-w="1066">lo</span> <span class="w" data-w="1067">que</span> <span class="w" data-w="1068">hace</span> <span class="w" data-w="1069">posible</span> <span class="w" data-w="1070">esa</span> <span class="w" data-w="1071">anestesia</span>, <span class="w" data-w="1072">porque</span> <span class="w" data-w="1073">es</span> <span class="w" data-w="1074">la</span> <span class="w" data-w="1075">raíz</span> <span class="w" data-w="1076">de</span> <span class="w" data-w="1077">todo</span>: <span class="w" data-w="1078">el</span> <span class="w" data-w="1079">rescate</span> <span class="w" data-w="1080">se</span> <span class="w" data-w="1081">paga</span> <span class="w" data-w="1082">con</span> <span class="w" data-w="1083">dinero</span> <span class="w" data-w="1084">que</span> <span class="w" data-w="1085">se</span> <span class="w" data-w="1086">crea</span> <span class="w" data-w="1087">de</span> <span class="w" data-w="1088">la</span> <span class="w" data-w="1089">nada</span>. <span class="w" data-w="1090">Ahí</span> <span class="w" data-w="1091">está</span>, <span class="w" data-w="1092">otra</span> <span class="w" data-w="1093">vez</span>, <span class="w" data-w="1094">la</span> <span class="w" data-w="1095">línea</span> <span class="w" data-w="1096">que</span> <span class="w" data-w="1097">parte</span> <span class="w" data-w="1098">todo</span> <span class="w" data-w="1099">el</span> <span class="w" data-w="1100">libro</span>. <span class="w" data-w="1101">Con</span> <span class="w" data-w="1102">dinero</span> <span class="w" data-w="1103">duro</span> —<span class="w" data-w="1104">ese</span> <span class="w" data-w="1105">que</span> <span class="w" data-w="1106">nadie</span> <span class="w" data-w="1107">puede</span> <span class="w" data-w="1108">fabricar</span> <span class="w" data-w="1109">por</span> <span class="w" data-w="1110">decreto</span>— <span class="w" data-w="1111">no</span> <span class="w" data-w="1112">habría</span> <span class="w" data-w="1113">con</span> <span class="w" data-w="1114">qué</span> <span class="w" data-w="1115">financiar</span> <span class="w" data-w="1116">el</span> <span class="w" data-w="1117">rescate</span> <span class="w" data-w="1118">perpetuo</span>: <span class="w" data-w="1119">cuando</span> <span class="w" data-w="1120">una</span> <span class="w" data-w="1121">empresa</span> <span class="w" data-w="1122">quiebra</span>, <span class="w" data-w="1123">quiebra</span>, <span class="w" data-w="1124">porque</span> <span class="w" data-w="1125">no</span> <span class="w" data-w="1126">existe</span> <span class="w" data-w="1127">una</span> <span class="w" data-w="1128">fábrica</span> <span class="w" data-w="1129">de</span> <span class="w" data-w="1130">dinero</span> <span class="w" data-w="1131">que</span> <span class="w" data-w="1132">la</span> <span class="w" data-w="1133">sostenga</span> <span class="w" data-w="1134">indefinidamente</span>. <span class="w" data-w="1135">La</span> <span class="w" data-w="1136">señal</span> <span class="w" data-w="1137">de</span> <span class="w" data-w="1138">la</span> <span class="w" data-w="1139">pérdida</span> <span class="w" data-w="1140">suena</span> <span class="w" data-w="1141">y</span> <span class="w" data-w="1142">se</span> <span class="w" data-w="1143">obedece</span>, <span class="w" data-w="1144">porque</span> <span class="w" data-w="1145">nadie</span> <span class="w" data-w="1146">puede</span> <span class="w" data-w="1147">pagar</span> <span class="w" data-w="1148">para</span> <span class="w" data-w="1149">silenciarla</span>. <span class="w" data-w="1150">Solo</span> <span class="w" data-w="1151">cuando</span> <span class="w" data-w="1152">el</span> <span class="w" data-w="1153">dinero</span> <span class="w" data-w="1154">se</span> <span class="w" data-w="1155">puede</span> <span class="w" data-w="1156">crear</span> <span class="w" data-w="1157">de</span> <span class="w" data-w="1158">la</span> <span class="w" data-w="1159">nada</span> <span class="w" data-w="1160">aparece</span> <span class="w" data-w="1161">la</span> <span class="w" data-w="1162">posibilidad</span> <span class="w" data-w="1163">de</span> <span class="w" data-w="1164">tapar</span> <span class="w" data-w="1165">la</span> <span class="w" data-w="1166">pérdida</span> <span class="w" data-w="1167">con</span> <span class="w" data-w="1168">dinero</span> <span class="w" data-w="1169">nuevo</span> —<span class="w" data-w="1170">de</span> <span class="w" data-w="1171">comprarle</span> <span class="w" data-w="1172">silencio</span> <span class="w" data-w="1173">al</span> <span class="w" data-w="1174">mensajero</span>—. <span class="w" data-w="1175">La</span> <span class="w" data-w="1176">quiebra</span> <span class="w" data-w="1177">que</span> <span class="w" data-w="1178">sanea</span> <span class="w" data-w="1179">y</span> <span class="w" data-w="1180">el</span> <span class="w" data-w="1181">rescate</span> <span class="w" data-w="1182">que</span> <span class="w" data-w="1183">enferma</span> <span class="w" data-w="1184">no</span> <span class="w" data-w="1185">son</span> <span class="w" data-w="1186">dos</span> <span class="w" data-w="1187">políticas</span> <span class="w" data-w="1188">entre</span> <span class="w" data-w="1189">las</span> <span class="w" data-w="1190">que</span> <span class="w" data-w="1191">una</span> <span class="w" data-w="1192">sociedad</span> <span class="w" data-w="1193">elige</span> <span class="w" data-w="1194">libremente</span>: <span class="w" data-w="1195">la</span> <span class="w" data-w="1196">segunda</span> <span class="w" data-w="1197">solo</span> <span class="w" data-w="1198">está</span> <span class="w" data-w="1199">disponible</span> <span class="w" data-w="1200">si</span> <span class="w" data-w="1201">el</span> <span class="w" data-w="1202">dinero</span> <span class="w" data-w="1203">es</span> <span class="w" data-w="1204">de</span> <span class="w" data-w="1205">los</span> <span class="w" data-w="1206">que</span> <span class="w" data-w="1207">se</span> <span class="w" data-w="1208">imprimen</span>. <span class="w" data-w="1209">El</span> <span class="w" data-w="1210">dinero</span> <span class="w" data-w="1211">honesto</span> <span class="w" data-w="1212">no</span> <span class="w" data-w="1213">es</span> <span class="w" data-w="1214">que</span> <span class="w" data-w="1215">prefiera</span> <span class="w" data-w="1216">dejar</span> <span class="w" data-w="1217">caer</span> <span class="w" data-w="1218">a</span> <span class="w" data-w="1219">las</span> <span class="w" data-w="1220">empresas</span>; <span class="w" data-w="1221">es</span> <span class="w" data-w="1222">que</span> <span class="w" data-w="1223">no</span> <span class="w" data-w="1224">le</span> <span class="w" data-w="1225">da</span> <span class="w" data-w="1226">a</span> <span class="w" data-w="1227">nadie</span> <span class="w" data-w="1228">el</span> <span class="w" data-w="1229">poder</span> <span class="w" data-w="1230">de</span> <span class="w" data-w="1231">impedirlo</span> <span class="w" data-w="1232">a</span> <span class="w" data-w="1233">costa</span> <span class="w" data-w="1234">de</span> <span class="w" data-w="1235">todos</span>.</p>
+
+    <p><span class="w" data-w="1236">Lo</span> <span class="w" data-w="1237">que</span> <span class="w" data-w="1238">para</span> <span class="w" data-w="1239">casi</span> <span class="w" data-w="1240">todos</span> <span class="w" data-w="1241">es</span> "<span class="w" data-w="1242">ayuda</span>" —<span class="w" data-w="1243">rescatar</span>, <span class="w" data-w="1244">estimular</span>, <span class="w" data-w="1245">evitar</span> <span class="w" data-w="1246">las</span> <span class="w" data-w="1247">quiebras</span>— <span class="w" data-w="1248">es</span>, <span class="w" data-w="1249">visto</span> <span class="w" data-w="1250">de</span> <span class="w" data-w="1251">cerca</span>, <span class="w" data-w="1252">lo</span> <span class="w" data-w="1253">contrario</span>: <span class="w" data-w="1254">la</span> <span class="w" data-w="1255">mano</span> <span class="w" data-w="1256">que</span> <span class="w" data-w="1257">tapa</span> <span class="w" data-w="1258">la</span> <span class="w" data-w="1259">boca</span> <span class="w" data-w="1260">del</span> <span class="w" data-w="1261">mensajero</span>. <span class="w" data-w="1262">Porque</span> <span class="w" data-w="1263">la</span> <span class="w" data-w="1264">quiebra</span>, <span class="w" data-w="1265">que</span> <span class="w" data-w="1266">asusta</span> <span class="w" data-w="1267">tanto</span>, <span class="w" data-w="1268">no</span> <span class="w" data-w="1269">es</span> <span class="w" data-w="1270">la</span> <span class="w" data-w="1271">enfermedad</span>: <span class="w" data-w="1272">es</span> <span class="w" data-w="1273">la</span> <span class="w" data-w="1274">curación</span>. <span class="w" data-w="1275">Es</span> <span class="w" data-w="1276">el</span> <span class="w" data-w="1277">momento</span> <span class="w" data-w="1278">en</span> <span class="w" data-w="1279">que</span> <span class="w" data-w="1280">los</span> <span class="w" data-w="1281">recursos</span> <span class="w" data-w="1282">atrapados</span> <span class="w" data-w="1283">en</span> <span class="w" data-w="1284">proyectos</span> <span class="w" data-w="1285">imposibles</span> <span class="w" data-w="1286">se</span> <span class="w" data-w="1287">liberan</span> <span class="w" data-w="1288">para</span> <span class="w" data-w="1289">volver</span> <span class="w" data-w="1290">a</span> <span class="w" data-w="1291">algo</span> <span class="w" data-w="1292">útil</span>. <span class="w" data-w="1293">Impedirla</span> <span class="w" data-w="1294">no</span> <span class="w" data-w="1295">salva</span> <span class="w" data-w="1296">nada</span> —<span class="w" data-w="1297">solo</span> <span class="w" data-w="1298">congela</span> <span class="w" data-w="1299">el</span> <span class="w" data-w="1300">error</span> <span class="w" data-w="1301">en</span> <span class="w" data-w="1302">su</span> <span class="w" data-w="1303">sitio</span>, <span class="w" data-w="1304">consumiendo</span> <span class="w" data-w="1305">recursos</span> <span class="w" data-w="1306">que</span> <span class="w" data-w="1307">harían</span> <span class="w" data-w="1308">falta</span> <span class="w" data-w="1309">en</span> <span class="w" data-w="1310">otra</span> <span class="w" data-w="1311">parte</span>—. <span class="w" data-w="1312">Rothbard</span> <span class="w" data-w="1313">lo</span> <span class="w" data-w="1314">dice</span> <span class="w" data-w="1315">sin</span> <span class="w" data-w="1316">rodeos</span>: <span class="w" data-w="1317">la</span> <span class="w" data-w="1318">depresión</span> <span class="w" data-w="1319">es</span></p>
+
+    <div class="cita-autor">
+      <span class="texto">"<span class="w" data-w="1320">un</span> <span class="w" data-w="1321">proceso</span> <span class="w" data-w="1322">doloroso</span> <span class="w" data-w="1323">pero</span> <span class="w" data-w="1324">ineludible</span> <span class="w" data-w="1325">mediante</span> <span class="w" data-w="1326">el</span> <span class="w" data-w="1327">cual</span> <span class="w" data-w="1328">el</span> <span class="w" data-w="1329">mercado</span> <span class="w" data-w="1330">se</span> <span class="w" data-w="1331">libera</span> <span class="w" data-w="1332">de</span> <span class="w" data-w="1333">los</span> <span class="w" data-w="1334">excesos</span> <span class="w" data-w="1335">y</span> <span class="w" data-w="1336">errores</span> <span class="w" data-w="1337">del</span> <span class="w" data-w="1338">auge</span> <span class="w" data-w="1339">y</span> <span class="w" data-w="1340">restaura</span> <span class="w" data-w="1341">el</span> <span class="w" data-w="1342">funcionamiento</span> <span class="w" data-w="1343">eficiente</span> <span class="w" data-w="1344">de</span> <span class="w" data-w="1345">la</span> <span class="w" data-w="1346">economía</span>."</span>
+      <span class="atribucion"><span class="w" data-w="1347">Rothbard</span>, <em><span class="w" data-w="1348">Hacia</span> <span class="w" data-w="1349">una</span> <span class="w" data-w="1350">nueva</span> <span class="w" data-w="1351">libertad</span></em></span>
+    </div>
+
+    <p><span class="w" data-w="1352">Hay</span> <span class="w" data-w="1353">una</span> <span class="w" data-w="1354">imagen</span> <span class="w" data-w="1355">que</span> <span class="w" data-w="1356">Rothbard</span> <span class="w" data-w="1357">rescató</span> <span class="w" data-w="1358">de</span> <span class="w" data-w="1359">los</span> <span class="w" data-w="1360">economistas</span> <span class="w" data-w="1361">del</span> <span class="w" data-w="1362">siglo</span> <span class="w" data-w="1363">XIX</span> <span class="w" data-w="1364">y</span> <span class="w" data-w="1365">que</span> <span class="w" data-w="1366">captura</span> <span class="w" data-w="1367">esto</span> <span class="w" data-w="1368">mejor</span> <span class="w" data-w="1369">que</span> <span class="w" data-w="1370">ninguna</span> <span class="w" data-w="1371">otra</span>: <span class="w" data-w="1372">la</span> <span class="w" data-w="1373">del</span> <span class="term-rojo"><span class="w" data-w="1374">narcótico</span></span>. <span class="w" data-w="1375">El</span> <span class="w" data-w="1376">crédito</span> <span class="w" data-w="1377">nuevo</span> <span class="w" data-w="1378">que</span> <span class="w" data-w="1379">sostiene</span> <span class="w" data-w="1380">el</span> <span class="w" data-w="1381">auge</span> <span class="w" data-w="1382">actúa</span> <span class="w" data-w="1383">como</span> <span class="w" data-w="1384">una</span> <span class="w" data-w="1385">droga</span> —<span class="w" data-w="1386">alivia</span> <span class="w" data-w="1387">el</span> <span class="w" data-w="1388">dolor</span> <span class="w" data-w="1389">un</span> <span class="w" data-w="1390">rato</span>, <span class="w" data-w="1391">hace</span> <span class="w" data-w="1392">sentir</span> <span class="w" data-w="1393">que</span> <span class="w" data-w="1394">todo</span> <span class="w" data-w="1395">va</span> <span class="w" data-w="1396">bien</span>, <span class="w" data-w="1397">pero</span> <span class="w" data-w="1398">no</span> <span class="w" data-w="1399">cura</span> <span class="w" data-w="1400">nada</span>; <span class="w" data-w="1401">solo</span> <span class="w" data-w="1402">pospone</span> <span class="w" data-w="1403">el</span> <span class="w" data-w="1404">ajuste</span> <span class="w" data-w="1405">y</span> <span class="w" data-w="1406">agrava</span> <span class="w" data-w="1407">la</span> <span class="w" data-w="1408">enfermedad</span> <span class="w" data-w="1409">de</span> <span class="w" data-w="1410">fondo</span>—. <span class="w" data-w="1411">Cada</span> <span class="w" data-w="1412">dosis</span> <span class="w" data-w="1413">para</span> <span class="w" data-w="1414">evitar</span> <span class="w" data-w="1415">el</span> <span class="w" data-w="1416">dolor</span> <span class="w" data-w="1417">exige</span> <span class="w" data-w="1418">la</span> <span class="w" data-w="1419">siguiente</span>, <span class="w" data-w="1420">más</span> <span class="w" data-w="1421">grande</span>. <span class="w" data-w="1422">Y</span> <span class="w" data-w="1423">el</span> <span class="w" data-w="1424">día</span> <span class="w" data-w="1425">en</span> <span class="w" data-w="1426">que</span> <span class="w" data-w="1427">ya</span> <span class="w" data-w="1428">no</span> <span class="w" data-w="1429">se</span> <span class="w" data-w="1430">puede</span> <span class="w" data-w="1431">inyectar</span> <span class="w" data-w="1432">más</span>, <span class="w" data-w="1433">el</span> <span class="w" data-w="1434">derrumbe</span> <span class="w" data-w="1435">es</span> <span class="w" data-w="1436">mucho</span> <span class="w" data-w="1437">peor</span> <span class="w" data-w="1438">de</span> <span class="w" data-w="1439">lo</span> <span class="w" data-w="1440">que</span> <span class="w" data-w="1441">habría</span> <span class="w" data-w="1442">sido</span> <span class="w" data-w="1443">si</span> <span class="w" data-w="1444">se</span> <span class="w" data-w="1445">hubiera</span> <span class="w" data-w="1446">sentido</span> <span class="w" data-w="1447">el</span> <span class="w" data-w="1448">dolor</span> <span class="w" data-w="1449">a</span> <span class="w" data-w="1450">tiempo</span>. <span class="w" data-w="1451">Por</span> <span class="w" data-w="1452">eso</span> <span class="w" data-w="1453">el</span> <span class="w" data-w="1454">dinero</span> <span class="w" data-w="1455">deshonesto</span> <span class="w" data-w="1456">es</span> <span class="w" data-w="1457">doblemente</span> <span class="w" data-w="1458">dañino</span> <span class="w" data-w="1459">en</span> <span class="w" data-w="1460">este</span> <span class="w" data-w="1461">capítulo</span>: <span class="w" data-w="1462">primero</span> <span class="w" data-w="1463">creó</span> <span class="w" data-w="1464">el</span> <span class="w" data-w="1465">error</span> <span class="w" data-w="1466">falsificando</span> <span class="w" data-w="1467">la</span> <span class="w" data-w="1468">tasa</span>, <span class="w" data-w="1469">y</span> <span class="w" data-w="1470">ahora</span> <span class="w" data-w="1471">impide</span> <span class="w" data-w="1472">que</span> <span class="w" data-w="1473">se</span> <span class="w" data-w="1474">descubra</span>, <span class="w" data-w="1475">anestesiando</span> <span class="w" data-w="1476">la</span> <span class="w" data-w="1477">señal</span> <span class="w" data-w="1478">que</span> <span class="w" data-w="1479">lo</span> <span class="w" data-w="1480">delataba</span>.</p>
 
     <!-- ====== CIERRE: arquetipo + puente ====== -->
-    <p>Recoja la forma de lo que acaba de ver, porque es la misma de siempre, ahora aplicada a una señal nueva. La causa sigue siendo la preferencia temporal de la sociedad; su consecuencia física, el ahorro real disponible. Pero la señal de este capítulo no es la tasa: son las <span class="term-verde">pérdidas y ganancias</span>, el mecanismo que detecta si los recursos se emplearon bien o mal. Cuando el dinero es honesto, esa señal funciona —las pérdidas avisan, los errores se corrigen, los recursos vuelven a buen uso—. Cuando el dinero se crea de la nada, la señal puede silenciarse: se rescata lo que debía quebrar, se sostiene lo que debía caer, y el error se vuelve crónico. Una sociedad que no puede sentir sus pérdidas es una sociedad que no puede corregir sus errores.</p>
+    <p><span class="w" data-w="1481">Recoja</span> <span class="w" data-w="1482">la</span> <span class="w" data-w="1483">forma</span> <span class="w" data-w="1484">de</span> <span class="w" data-w="1485">lo</span> <span class="w" data-w="1486">que</span> <span class="w" data-w="1487">acaba</span> <span class="w" data-w="1488">de</span> <span class="w" data-w="1489">ver</span>, <span class="w" data-w="1490">porque</span> <span class="w" data-w="1491">es</span> <span class="w" data-w="1492">la</span> <span class="w" data-w="1493">misma</span> <span class="w" data-w="1494">de</span> <span class="w" data-w="1495">siempre</span>, <span class="w" data-w="1496">ahora</span> <span class="w" data-w="1497">aplicada</span> <span class="w" data-w="1498">a</span> <span class="w" data-w="1499">una</span> <span class="w" data-w="1500">señal</span> <span class="w" data-w="1501">nueva</span>. <span class="w" data-w="1502">La</span> <span class="w" data-w="1503">causa</span> <span class="w" data-w="1504">sigue</span> <span class="w" data-w="1505">siendo</span> <span class="w" data-w="1506">la</span> <span class="w" data-w="1507">preferencia</span> <span class="w" data-w="1508">temporal</span> <span class="w" data-w="1509">de</span> <span class="w" data-w="1510">la</span> <span class="w" data-w="1511">sociedad</span>; <span class="w" data-w="1512">su</span> <span class="w" data-w="1513">consecuencia</span> <span class="w" data-w="1514">física</span>, <span class="w" data-w="1515">el</span> <span class="w" data-w="1516">ahorro</span> <span class="w" data-w="1517">real</span> <span class="w" data-w="1518">disponible</span>. <span class="w" data-w="1519">Pero</span> <span class="w" data-w="1520">la</span> <span class="w" data-w="1521">señal</span> <span class="w" data-w="1522">de</span> <span class="w" data-w="1523">este</span> <span class="w" data-w="1524">capítulo</span> <span class="w" data-w="1525">no</span> <span class="w" data-w="1526">es</span> <span class="w" data-w="1527">la</span> <span class="w" data-w="1528">tasa</span>: <span class="w" data-w="1529">son</span> <span class="w" data-w="1530">las</span> <span class="term-verde"><span class="w" data-w="1531">pérdidas</span> <span class="w" data-w="1532">y</span> <span class="w" data-w="1533">ganancias</span></span>, <span class="w" data-w="1534">el</span> <span class="w" data-w="1535">mecanismo</span> <span class="w" data-w="1536">que</span> <span class="w" data-w="1537">detecta</span> <span class="w" data-w="1538">si</span> <span class="w" data-w="1539">los</span> <span class="w" data-w="1540">recursos</span> <span class="w" data-w="1541">se</span> <span class="w" data-w="1542">emplearon</span> <span class="w" data-w="1543">bien</span> <span class="w" data-w="1544">o</span> <span class="w" data-w="1545">mal</span>. <span class="w" data-w="1546">Cuando</span> <span class="w" data-w="1547">el</span> <span class="w" data-w="1548">dinero</span> <span class="w" data-w="1549">es</span> <span class="w" data-w="1550">honesto</span>, <span class="w" data-w="1551">esa</span> <span class="w" data-w="1552">señal</span> <span class="w" data-w="1553">funciona</span> —<span class="w" data-w="1554">las</span> <span class="w" data-w="1555">pérdidas</span> <span class="w" data-w="1556">avisan</span>, <span class="w" data-w="1557">los</span> <span class="w" data-w="1558">errores</span> <span class="w" data-w="1559">se</span> <span class="w" data-w="1560">corrigen</span>, <span class="w" data-w="1561">los</span> <span class="w" data-w="1562">recursos</span> <span class="w" data-w="1563">vuelven</span> <span class="w" data-w="1564">a</span> <span class="w" data-w="1565">buen</span> <span class="w" data-w="1566">uso</span>—. <span class="w" data-w="1567">Cuando</span> <span class="w" data-w="1568">el</span> <span class="w" data-w="1569">dinero</span> <span class="w" data-w="1570">se</span> <span class="w" data-w="1571">crea</span> <span class="w" data-w="1572">de</span> <span class="w" data-w="1573">la</span> <span class="w" data-w="1574">nada</span>, <span class="w" data-w="1575">la</span> <span class="w" data-w="1576">señal</span> <span class="w" data-w="1577">puede</span> <span class="w" data-w="1578">silenciarse</span>: <span class="w" data-w="1579">se</span> <span class="w" data-w="1580">rescata</span> <span class="w" data-w="1581">lo</span> <span class="w" data-w="1582">que</span> <span class="w" data-w="1583">debía</span> <span class="w" data-w="1584">quebrar</span>, <span class="w" data-w="1585">se</span> <span class="w" data-w="1586">sostiene</span> <span class="w" data-w="1587">lo</span> <span class="w" data-w="1588">que</span> <span class="w" data-w="1589">debía</span> <span class="w" data-w="1590">caer</span>, <span class="w" data-w="1591">y</span> <span class="w" data-w="1592">el</span> <span class="w" data-w="1593">error</span> <span class="w" data-w="1594">se</span> <span class="w" data-w="1595">vuelve</span> <span class="w" data-w="1596">crónico</span>. <span class="w" data-w="1597">Una</span> <span class="w" data-w="1598">sociedad</span> <span class="w" data-w="1599">que</span> <span class="w" data-w="1600">no</span> <span class="w" data-w="1601">puede</span> <span class="w" data-w="1602">sentir</span> <span class="w" data-w="1603">sus</span> <span class="w" data-w="1604">pérdidas</span> <span class="w" data-w="1605">es</span> <span class="w" data-w="1606">una</span> <span class="w" data-w="1607">sociedad</span> <span class="w" data-w="1608">que</span> <span class="w" data-w="1609">no</span> <span class="w" data-w="1610">puede</span> <span class="w" data-w="1611">corregir</span> <span class="w" data-w="1612">sus</span> <span class="w" data-w="1613">errores</span>.</p>
 
-    <p>Hasta aquí hemos seguido el error en el tiempo: cómo nace (la tasa falsa), qué destruye (la estructura), cómo se detecta o se oculta (las pérdidas). Pero la falsificación del dinero no solo desordena el <em>cuándo</em> de la economía —qué se construye para hoy y qué para mañana—. También desordena el <em>quién</em>: quién recibe el dinero nuevo primero, y quién lo recibe cuando ya no vale lo mismo. Hay un reparto oculto en toda falsificación monetaria, una transferencia silenciosa de riqueza de unos a otros, y casi nadie la ve porque ocurre en el lenguaje mudo de los precios. Esa es la señal que sigue.</p>
+    <p><span class="w" data-w="1614">Hasta</span> <span class="w" data-w="1615">aquí</span> <span class="w" data-w="1616">hemos</span> <span class="w" data-w="1617">seguido</span> <span class="w" data-w="1618">el</span> <span class="w" data-w="1619">error</span> <span class="w" data-w="1620">en</span> <span class="w" data-w="1621">el</span> <span class="w" data-w="1622">tiempo</span>: <span class="w" data-w="1623">cómo</span> <span class="w" data-w="1624">nace</span> (<span class="w" data-w="1625">la</span> <span class="w" data-w="1626">tasa</span> <span class="w" data-w="1627">falsa</span>), <span class="w" data-w="1628">qué</span> <span class="w" data-w="1629">destruye</span> (<span class="w" data-w="1630">la</span> <span class="w" data-w="1631">estructura</span>), <span class="w" data-w="1632">cómo</span> <span class="w" data-w="1633">se</span> <span class="w" data-w="1634">detecta</span> <span class="w" data-w="1635">o</span> <span class="w" data-w="1636">se</span> <span class="w" data-w="1637">oculta</span> (<span class="w" data-w="1638">las</span> <span class="w" data-w="1639">pérdidas</span>). <span class="w" data-w="1640">Pero</span> <span class="w" data-w="1641">la</span> <span class="w" data-w="1642">falsificación</span> <span class="w" data-w="1643">del</span> <span class="w" data-w="1644">dinero</span> <span class="w" data-w="1645">no</span> <span class="w" data-w="1646">solo</span> <span class="w" data-w="1647">desordena</span> <span class="w" data-w="1648">el</span> <em><span class="w" data-w="1649">cuándo</span></em> <span class="w" data-w="1650">de</span> <span class="w" data-w="1651">la</span> <span class="w" data-w="1652">economía</span> —<span class="w" data-w="1653">qué</span> <span class="w" data-w="1654">se</span> <span class="w" data-w="1655">construye</span> <span class="w" data-w="1656">para</span> <span class="w" data-w="1657">hoy</span> <span class="w" data-w="1658">y</span> <span class="w" data-w="1659">qué</span> <span class="w" data-w="1660">para</span> <span class="w" data-w="1661">mañana</span>—. <span class="w" data-w="1662">También</span> <span class="w" data-w="1663">desordena</span> <span class="w" data-w="1664">el</span> <em><span class="w" data-w="1665">quién</span></em>: <span class="w" data-w="1666">quién</span> <span class="w" data-w="1667">recibe</span> <span class="w" data-w="1668">el</span> <span class="w" data-w="1669">dinero</span> <span class="w" data-w="1670">nuevo</span> <span class="w" data-w="1671">primero</span>, <span class="w" data-w="1672">y</span> <span class="w" data-w="1673">quién</span> <span class="w" data-w="1674">lo</span> <span class="w" data-w="1675">recibe</span> <span class="w" data-w="1676">cuando</span> <span class="w" data-w="1677">ya</span> <span class="w" data-w="1678">no</span> <span class="w" data-w="1679">vale</span> <span class="w" data-w="1680">lo</span> <span class="w" data-w="1681">mismo</span>. <span class="w" data-w="1682">Hay</span> <span class="w" data-w="1683">un</span> <span class="w" data-w="1684">reparto</span> <span class="w" data-w="1685">oculto</span> <span class="w" data-w="1686">en</span> <span class="w" data-w="1687">toda</span> <span class="w" data-w="1688">falsificación</span> <span class="w" data-w="1689">monetaria</span>, <span class="w" data-w="1690">una</span> <span class="w" data-w="1691">transferencia</span> <span class="w" data-w="1692">silenciosa</span> <span class="w" data-w="1693">de</span> <span class="w" data-w="1694">riqueza</span> <span class="w" data-w="1695">de</span> <span class="w" data-w="1696">unos</span> <span class="w" data-w="1697">a</span> <span class="w" data-w="1698">otros</span>, <span class="w" data-w="1699">y</span> <span class="w" data-w="1700">casi</span> <span class="w" data-w="1701">nadie</span> <span class="w" data-w="1702">la</span> <span class="w" data-w="1703">ve</span> <span class="w" data-w="1704">porque</span> <span class="w" data-w="1705">ocurre</span> <span class="w" data-w="1706">en</span> <span class="w" data-w="1707">el</span> <span class="w" data-w="1708">lenguaje</span> <span class="w" data-w="1709">mudo</span> <span class="w" data-w="1710">de</span> <span class="w" data-w="1711">los</span> <span class="w" data-w="1712">precios</span>. <span class="w" data-w="1713">Esa</span> <span class="w" data-w="1714">es</span> <span class="w" data-w="1715">la</span> <span class="w" data-w="1716">señal</span> <span class="w" data-w="1717">que</span> <span class="w" data-w="1718">sigue</span>.</p>
 
   </div>
+
 </article>
+
 <nav class="nav-foot"><a class="prev" href="asignacion-intertemporal.html">La asignación intertemporal</a><a class="idx" href="index.html">Índice</a><a class="next" href="precios-relativos.html">Los precios relativos</a></nav>
 
+<aside class="audio-pill" data-state="collapsed" data-duration="12:13" data-storage-key="deteccion-mala-inversion" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/deteccion-mala-inversion.mp3"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-resume-hint" aria-hidden="true"></div>
+  <div class="ap-meta">
+    <button class="ap-btn ap-skip ap-skip-back" type="button" aria-label="Retroceder 15 segundos" title="Retroceder 15 s (J)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 6V3L6 7l5 4V8c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H3c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/>
+        <text class="skip-label" x="11" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <button class="ap-btn ap-skip ap-skip-fwd" type="button" aria-label="Avanzar 15 segundos" title="Avanzar 15 s (L)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 6V3l5 4-5 4V8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/>
+        <text class="skip-label" x="13" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
+    <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
+        <path d="M19 18 V11.5 a3 3 0 0 0 -6 0 a3 3 0 0 0 3 3 a3 3 0 0 0 3 -3"/>
+        <line class="strike" x1="3" y1="20" x2="21" y2="4"/>
+      </svg>
+    </button>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción" title="Velocidad">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor" title="Minimizar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller v2 */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var skipBackBtn = pill.querySelector('.ap-skip-back');
+  var skipFwdBtn  = pill.querySelector('.ap-skip-fwd');
+  var karaokeBtn  = pill.querySelector('.ap-karaoke');
+  var hint        = pill.querySelector('.ap-resume-hint');
+  var STORAGE_KEY = pill.getAttribute('data-storage-key') || 'default';
+  var POS_KEY = 'audio-pill:pos:' + STORAGE_KEY;
+  var KARAOKE_KEY = 'audio-pill:karaoke';
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0, lastSaveAt = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  function safePlay(){
+    var p = a.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  function savePos(){
+    if (!a.duration || !isFinite(a.duration)) return;
+    var t = a.currentTime;
+    if (t > a.duration - 8) { try { localStorage.removeItem(POS_KEY); } catch(e){} return; }
+    if (t < 3) return;
+    try { localStorage.setItem(POS_KEY, String(Math.floor(t))); } catch(e){}
+  }
+  function loadPos(){
+    try { var v = localStorage.getItem(POS_KEY); var t = parseFloat(v); return isFinite(t) && t > 0 ? t : 0; }
+    catch(e){ return 0; }
+  }
+  function showResumeHint(s){
+    if (!hint) return;
+    hint.textContent = '↻ ' + fmt(s);
+    hint.classList.add('show');
+    setTimeout(function(){ hint.classList.remove('show'); }, 2200);
+  }
+  a.addEventListener('loadedmetadata', function(){
+    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
+    var saved = loadPos();
+    if (saved > 0 && saved < a.duration - 8) {
+      a.currentTime = saved;
+      showResumeHint(saved);
+    }
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime);
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+    if (!a.paused) {
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+      if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
+    }
+  });
+  a.addEventListener('pause', function(){ savePos(); });
+  window.addEventListener('beforeunload', savePos);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); try { localStorage.removeItem(POS_KEY); } catch(e){} });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) safePlay(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  function skip(secs){ if (!a.duration) return; a.currentTime = Math.max(0, Math.min(a.duration, a.currentTime + secs)); }
+  if (skipBackBtn) skipBackBtn.addEventListener('click', function(e){ e.stopPropagation(); skip(-15); });
+  if (skipFwdBtn)  skipFwdBtn.addEventListener('click',  function(e){ e.stopPropagation(); skip(+15); });
+  function applyKaraokePref(){
+    var off = false;
+    try { off = localStorage.getItem(KARAOKE_KEY) === 'off'; } catch(e){}
+    document.body.classList.toggle('karaoke-off', off);
+    if (karaokeBtn) {
+      karaokeBtn.classList.toggle('active', !off);
+      karaokeBtn.setAttribute('aria-pressed', String(!off));
+      karaokeBtn.setAttribute('aria-label', off ? 'Activar resaltado palabra por palabra' : 'Desactivar resaltado palabra por palabra');
+    }
+  }
+  applyKaraokePref();
+  if (karaokeBtn) karaokeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var current = document.body.classList.contains('karaoke-off');
+    try { localStorage.setItem(KARAOKE_KEY, current ? 'on' : 'off'); } catch(e){}
+    applyKaraokePref();
+  });
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!a.duration) return;
+      var r = tr.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      a.currentTime = pct * a.duration;
+    }
+    function onDown(e){
+      if (!a.duration) return;
+      dragging = true;
+      wasPlaying = !a.paused;
+      if (wasPlaying) a.pause();
+      tr.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      tr.classList.remove('dragging');
+      if (wasPlaying) { var p = a.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+    }
+    tr.addEventListener('mousedown', onDown);
+    tr.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
+  })();
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target && e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === ' ' && !(/^(BUTTON|A)$/.test(e.target.tagName))) {
+      if (!pill.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (a.paused) safePlay(); else a.pause();
+    } else if (k === 'j') { skip(-15); e.preventDefault(); }
+      else if (k === 'l') { skip(+15); e.preventDefault(); }
+      else if (k === 'k' && karaokeBtn) { karaokeBtn.click(); e.preventDefault(); }
+      else if (e.key === 'Escape' && pill.getAttribute('data-state') === 'expanded') { a.pause(); collapse(); }
+  });
+})();
+</script>
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/deteccion-mala-inversion.alignment.json';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+<script>
+/* Subrayado (highlights) — selecciona texto y aparece toolbar; se guarda en localStorage por capítulo */
+(function(){
+  var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
+  if (!Array.isArray(saved)) saved = [];
+  saved.forEach(function(idx){
+    var el = prose.querySelector('.w[data-w="'+idx+'"]');
+    if (el) el.classList.add('hl');
+  });
+
+  var toolbar = document.createElement('div');
+  toolbar.className = 'hl-toolbar';
+  toolbar.setAttribute('role', 'toolbar');
+  toolbar.setAttribute('aria-label', 'Acciones de subrayado');
+  document.body.appendChild(toolbar);
+
+  var selectedIdxs = [];
+
+  function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
+
+  function getSelectedWordIdxs(){
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.toString().trim() === '') return [];
+    var range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer) && !range.intersectsNode(prose)) return [];
+    var idxs = [];
+    var allWords = prose.querySelectorAll('.w');
+    for (var i = 0; i < allWords.length; i++){
+      if (range.intersectsNode(allWords[i])) {
+        var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
+        if (!isNaN(idx)) idxs.push(idx);
+      }
+    }
+    return idxs;
+  }
+
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
+
+  function apply(){
+    selectedIdxs.forEach(function(i){
+      var el = prose.querySelector('.w[data-w="'+i+'"]');
+      if (el) el.classList.add('hl');
+      if (saved.indexOf(i) === -1) saved.push(i);
+    });
+    save(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+  function remove(){
+    selectedIdxs.forEach(function(i){
+      var el = prose.querySelector('.w[data-w="'+i+'"]');
+      if (el) el.classList.remove('hl');
+      var k = saved.indexOf(i); if (k !== -1) saved.splice(k, 1);
+    });
+    save(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+
+  function showToolbar(x, y, anyHl){
+    toolbar.innerHTML = '';
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'hl-btn';
+    btn.textContent = anyHl ? 'Subrayar todo' : 'Subrayar';
+    btn.addEventListener('mousedown', function(e){ e.preventDefault(); });
+    btn.addEventListener('click', function(e){ e.stopPropagation(); apply(); });
+    toolbar.appendChild(btn);
+    if (anyHl) {
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
+      rm.textContent = 'Quitar';
+      rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); remove(); });
+      toolbar.appendChild(rm);
+    }
+    toolbar.classList.add('show');
+    var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
+    var vw = window.innerWidth;
+    var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
+    var top = Math.max(window.scrollY + 8, y - h - 8);
+    toolbar.style.left = left + 'px';
+    toolbar.style.top = top + 'px';
+  }
+
+  function onSelection(e){
+    if (e && e.target && toolbar.contains(e.target)) return;
+    if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
+    setTimeout(function(){
+      var idxs = getSelectedWordIdxs();
+      if (idxs.length === 0) { hideToolbar(); return; }
+      var sel = window.getSelection();
+      var range = sel.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0) { hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width / 2;
+      var y = rect.top + window.scrollY;
+      var anyHl = idxs.some(function(i){ return saved.indexOf(i) !== -1; });
+      selectedIdxs = idxs;
+      showToolbar(x, y, anyHl);
+    }, 10);
+  }
+
+  document.addEventListener('mouseup', onSelection);
+  document.addEventListener('touchend', onSelection);
+  document.addEventListener('mousedown', function(e){
+    if (toolbar.contains(e.target)) return;
+    hideToolbar();
+  });
+  window.addEventListener('scroll', hideToolbar, { passive: true });
+  window.addEventListener('resize', hideToolbar);
+})();
+</script>
 
 </body>
 </html>

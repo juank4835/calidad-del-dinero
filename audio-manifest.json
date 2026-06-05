@@ -81,6 +81,15 @@
       "words": 2130,
       "duration_seconds": 942.772245,
       "generated_at": "2026-06-04T23:17:37Z"
+    },
+    "deteccion-mala-inversion.html": {
+      "text_sha256": "dd7ab8f07818618a72dd65ea7d3c1c6d889d6e9f81f03b8d459045f1adec4051",
+      "chars": 9893,
+      "audio_path": "audio/deteccion-mala-inversion.mp3",
+      "alignment_path": "audio/deteccion-mala-inversion.alignment.json",
+      "words": 1719,
+      "duration_seconds": 733.609796,
+      "generated_at": "2026-06-05T07:00:15Z"
     }
   }
 }
