@@ -128,14 +128,14 @@
       "generated_at": "2026-06-05T09:05:33Z"
     },
     "asignacion-credito.html": {
-      "text_sha256": "3222f6025f77a642daf467895502fb003a11406b245421d03072c43376dfd1ac",
-      "chars": 16940,
+      "text_sha256": "fcd3459eedec3591f78f7c1beb0e111082c54eb7daea2fd099ad9fb0aafb1572",
+      "chars": 17734,
       "audio_path": "audio/asignacion-credito.mp3",
       "alignment_path": "audio/asignacion-credito.alignment.json",
-      "words": 3037,
-      "duration_seconds": 1243.702857,
-      "generated_at": "2026-06-05T18:14:58Z",
-      "note": "reescritura (hilo «dinero mágico»); 3 citas narradas (Rothbard, Mises, Rothbard) con referencia no-audio"
+      "words": 3183,
+      "duration_seconds": 1300.597551,
+      "generated_at": "2026-06-05T18:50:58Z",
+      "note": "reescritura: balanza riesgo↔rendimiento; 3 citas narradas con referencia no-audio"
     },
     "por-que-no-volver-al-oro.html": {
       "text_sha256": "a2e45c196b4b11e3b7bb3ed969c2dbfb6972e743bc9e659bc750e51b765193d3",
