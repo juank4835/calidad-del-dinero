@@ -76,41 +76,40 @@ CONTENT = [
     ]),
 ]
 
-# CSS extra para recuadros y cita (no existe en el esqueleto)
+# CSS extra para recuadros y cita. Usa EXACTAMENTE los tokens del libro:
+# serif (--font-body, heredado), caja igual a .cadena del índice (--surface +
+# borde 1px --rule + radio 8px), etiqueta pequeña en mayúsculas, cita como la
+# .bisagra (itálica centrada con filetes) y figcaption (itálica gris). Sin
+# sans-serif ni barras naranjas: nada que rompa la estética del resto.
 EXTRA_CSS = """
-/* ===== Recuadros (apartados de datos, no se narran) y cita destacada ===== */
+/* ===== Recuadros y cita (apartados, no se narran) — mismos tokens que .cadena del índice ===== */
 .prose .recuadro {
-  margin: 2.4rem 0; padding: 1.4rem 1.6rem;
-  background: var(--surface); border: 1px solid var(--rule);
-  border-left: 3px solid var(--verde); border-radius: 8px;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  margin: 2.6rem 0; padding: 1.5rem 1.7rem;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
 }
 .prose .recuadro .recuadro-tag {
-  display: block; font-size: 0.7rem; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--verde); margin-bottom: 0.9rem;
+  display: block; font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.9rem;
 }
 .prose .recuadro p {
-  font-size: 0.92rem; line-height: 1.62; color: var(--ink-soft); margin: 0 0 0.7rem;
+  font-size: 0.98rem; line-height: 1.7; color: var(--ink-soft); margin: 0 0 0.8rem;
 }
 .prose .recuadro p:last-child { margin-bottom: 0; }
 .prose .recuadro em { font-style: italic; color: var(--ink); }
-.prose .recuadro strong { color: var(--ink); font-weight: 600; }
+.prose .recuadro strong { font-weight: 600; color: var(--ink); }
 
 .prose .pull-quote {
-  margin: 2.8rem 0; padding: 0.2rem 0 0.2rem 1.6rem;
-  border-left: 3px solid var(--verde);
+  margin: 2.8rem 0; padding: 1.7rem 1rem; text-align: center;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
 }
 .prose .pull-quote p {
-  font-size: 1.24rem; font-style: italic; line-height: 1.5; color: var(--ink); margin: 0 0 0.8rem;
+  font-size: 1.12rem; font-style: italic; line-height: 1.6; color: var(--ink); margin: 0 0 0.9rem;
 }
 .prose .pull-quote cite {
-  display: block; font-style: normal; font-size: 0.84rem; letter-spacing: 0.02em;
-  color: var(--ink-soft); font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  display: block; font-style: italic; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft);
 }
-.prose .pull-quote cite em { font-style: italic; }
 @media (max-width: 640px) {
   .prose .recuadro { padding: 1.1rem 1.2rem; }
-  .prose .pull-quote p { font-size: 1.1rem; }
 }
 """
 
