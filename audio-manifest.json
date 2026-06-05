@@ -128,14 +128,14 @@
       "generated_at": "2026-06-05T09:05:33Z"
     },
     "asignacion-credito.html": {
-      "text_sha256": "22512adf81b85f9abc92a2fadd2ee89e7eb8846f8da8545c00b7f6bbb70eb6fa",
-      "chars": 16203,
+      "text_sha256": "3222f6025f77a642daf467895502fb003a11406b245421d03072c43376dfd1ac",
+      "chars": 16940,
       "audio_path": "audio/asignacion-credito.mp3",
       "alignment_path": "audio/asignacion-credito.alignment.json",
-      "words": 2931,
-      "duration_seconds": 1198.876735,
-      "generated_at": "2026-06-05T16:27:29Z",
-      "note": "texto reescrito completo; 2 citas (Mises, Rothbard) narradas con referencia bibliográfica no-audio"
+      "words": 3037,
+      "duration_seconds": 1243.702857,
+      "generated_at": "2026-06-05T18:14:58Z",
+      "note": "reescritura (hilo «dinero mágico»); 3 citas narradas (Rothbard, Mises, Rothbard) con referencia no-audio"
     },
     "por-que-no-volver-al-oro.html": {
       "text_sha256": "a2e45c196b4b11e3b7bb3ed969c2dbfb6972e743bc9e659bc750e51b765193d3",
