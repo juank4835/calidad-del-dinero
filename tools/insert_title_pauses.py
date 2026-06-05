@@ -93,7 +93,9 @@ def main():
         if add < MIN_INSERT_MS / 1000.0:
             print(f"  · w{last} '{words[last]['t']}' gap={gap*1000:.0f}ms ya OK, sin cambio")
             continue
-        t_ins = (end_t + nxt_s) / 2.0  # punto medio del silencio existente
+        # Cortar JUSTO en el onset de la siguiente palabra: así el título queda
+        # entero (no se recorta su cola) y la siguiente palabra entra completa.
+        t_ins = nxt_s
         bounds.append((last, t_ins, add))
         print(f"  + w{last} '{words[last]['t']}' gap={gap*1000:.0f}ms → +{add*1000:.0f}ms (corte @{t_ins:.2f}s)")
 

@@ -130,14 +130,14 @@ for sec_title, items in CONTENT:
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
         elif it[0] == "recuadro":
             _, label, paras = it
-            parts.append('\n    <aside class="recuadro no-audio">\n')
+            parts.append('\n    <aside class="recuadro">\n')
             parts.append(f'      <span class="recuadro-tag">{label}</span>\n')
             for pp in paras:
                 parts.append(f'      <p>{pp}</p>\n')
             parts.append('    </aside>\n\n')
         elif it[0] == "quote":
             _, qtext, cite = it
-            parts.append('\n    <blockquote class="pull-quote no-audio">\n')
+            parts.append('\n    <blockquote class="pull-quote">\n')
             parts.append(f'      <p>{qtext}</p>\n')
             parts.append(f'      <cite>{cite}</cite>\n')
             parts.append('    </blockquote>\n\n')

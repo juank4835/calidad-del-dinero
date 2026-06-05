@@ -33,7 +33,7 @@ def extract(html: str) -> str:
 
     # 3. introducir doble salto antes de cada elemento de bloque para
     #    preservar separación entre párrafos al despojar tags
-    for tag in ("p", "h1", "h2", "h3", "blockquote", "figcaption", "li", "div"):
+    for tag in ("p", "h1", "h2", "h3", "blockquote", "figcaption", "li", "div", "aside", "cite"):
         body = re.sub(
             rf"<{tag}\b[^>]*>", lambda _m, t=tag: f"\n\n[[{t}]]", body, flags=re.IGNORECASE
         )
