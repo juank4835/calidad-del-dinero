@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Y por qué no volver al oro? — Arregla el dinero, arregla el mundo</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #FF7A18;
+  --rojo: #8A8A86;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: #fff; }
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
+blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
+</style>
+</head>
+<body>
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+<article class="page">
+
+  <div class="chapter-eyebrow">Antes de seguir · La pregunta inevitable</div>
+  <h1 class="chapter-title">¿Y por qué no volver al oro?</h1>
+  <p class="chapter-subtitle">Por qué el dinero más honesto de la historia no alcanza</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+    <p class="lead">Llegamos a algo incómodo: el oro y Bitcoin son, los dos, dinero honesto —ninguno miente sobre su origen, ninguno se crea por decreto—. Y entonces la pregunta es inevitable, quizá ya la tiene en la punta de la lengua: si el oro es honesto, si funcionó durante milenios, ¿para qué Bitcoin? ¿Por qué no volver, sencillamente, al oro? En el capítulo de los tres regímenes prometí volver a una diferencia entre ambos que parecía práctica y resultaría ser de honestidad. Es hora. Y la mejor forma de responder no es con teoría: imagine que de verdad volvemos al oro, y veamos, situación por situación, qué gana y qué pierde.</p>
+
+    <span class="section-num">El café</span>
+    <p>Empecemos por lo más cotidiano. Vuelve el oro, y con él una regla escasa y firme para medir el valor —eso lo gana, y no es poco—. Ahora entre a una cafetería y pida un café. Llega el momento de pagar, y lo que tiene es oro: un café cuesta una fracción minúscula de un gramo. ¿Raspa una viruta del lingote sobre el mostrador? ¿Lleva una balanza de precisión para pesar lo que raspó? ¿Y el tendero, cómo sabe que eso que usted raspó es oro y no latón? El absurdo de la escena es el problema: el oro no se deja partir en pedazos lo bastante pequeños para la vida diaria.</p>
+    <p>Por eso, en la práctica, nadie pagó nunca el café con oro. Se pagó con un papel —un recibo que decía "vale por un gramo"— que sí se podía partir, contar y pasar de mano en mano. Para usar el oro en lo cotidiano hubo que dejar de usar el oro y empezar a usar algo que lo representara. Guarde ese detalle: para gastarlo, tuvo que interponer un papel entre usted y el metal. Volveremos a él.</p>
+
+    <span class="section-num">La huida</span>
+    <p>Pasemos a algo más grave que un café. Imagine que tiene que irse. No de vacaciones: irse. Le ha pasado a millones de latinoamericanos en una sola generación —los que salieron de Venezuela cuando el dinero ya no compraba nada, los que salieron de Cuba décadas atrás, los que en cualquier país han tenido que empezar de cero en otra parte—. Usted fue previsor: no guardó su riqueza en una moneda que se derrite, la guardó en oro, la regla que no se deprecia. Hizo lo correcto. Ahora tiene que cruzar una frontera con ella.</p>
+    <p>Y ahí el oro le falla, justo cuando más lo necesita. El oro es un cuerpo físico: pesa, se ve, se detecta. Para pasarlo tiene que llevarlo encima —y en una frontera, lo que se lleva encima se puede revisar, declarar, decomisar—. El que controla la salida controla su oro. Para evitarlo, solo le queda una salida: confiárselo a alguien que lo guarde o lo mueva por usted —un banco, un custodio del otro lado—. Otra vez, para proteger el oro, tuvo que ponerlo en manos de un tercero. Y un tercero es alguien en quien hay que confiar… y que puede fallar, congelar la cuenta, o entregar el oro a quien usted huía. Guarde también este detalle: para mover su oro a salvo, tuvo que entregárselo a alguien.</p>
+    <p>Y ni siquiera hace falta cruzar una frontera para que el oro le falle. Quédese en su casa, abra el computador, y trate de pagar algo en una tienda de otro país, o de enviarle dinero a alguien al otro lado del mundo. ¿Cómo mete el oro por el cable? No puede. El oro no viaja por internet —y la economía entera, hoy, viaja por internet—. Para participar, tendría que volver a lo de siempre: un intermediario que tenga su oro guardado y mueva, en su nombre, un saldo digital que lo representa. Otra vez el papel, ahora vuelto número en una pantalla; otra vez el tercero en quien hay que confiar.</p>
+    <p>Y esto no es un problema de comodidad —de no poder comprar en Amazon—. Es mucho más hondo. La riqueza de una sociedad nace de los intercambios: millones de personas que no se conocen, cada una haciendo lo que mejor sabe, comerciando entre sí. Mientras más intercambios fluyen, más se profundiza esa división del trabajo y más riqueza se crea. Un dinero que no puede moverse a la velocidad ni a la escala del mundo moderno no es solo incómodo: estrangula esos intercambios, y al estrangularlos, empobrece a todos. Volver al oro, en una era digital, sería amputar la circulación misma de la que vive la economía.</p>
+
+    <span class="section-num">La pureza</span>
+    <p>Hay una grieta más, y es la más silenciosa. Vuelva al lingote en su mano. ¿Cómo sabe que es oro? ¿Cómo lo sabe el que se lo vendió, el que se lo recibe, el que se lo guardará? A simple vista, un lingote de oro y un lingote de plomo bañado en oro son idénticos. Para estar seguro, alguien tiene que ensayarlo —perforarlo, pesarlo en agua, analizarlo con ácido o con rayos—. Es decir: para confiar en su propio oro, usted necesita a un experto que lo certifique. Y entonces ya no confía en el oro: confía en el experto. Cada vez que el oro cambia de manos, alguien tiene que volver a verificar, o todos tienen que confiar en el sello de alguien que lo verificó antes. La honestidad del oro existe —pero usted no la puede comprobar por sí mismo; tiene que delegar también eso.</p>
+
+    <span class="section-num">El tiempo</span>
+    <p>Y hay un costo más, el más silencioso de todos, porque no se ve hasta que se suma. Volver al oro significa volver a la fricción: ir a pagar, hacer fila, mover el metal o el papel que lo representa, esperar a que alguien lo cuente, lo pese, lo verifique. Cada pago de la luz, del agua, del arriendo, vuelto una diligencia. Y ese costo no se paga en dinero: se paga en tiempo —en horas de su vida que no vuelven—. Recuerde con qué empezó este libro: el tiempo, la paciencia, la disposición a esperar son la materia de todo lo que construimos. El tiempo es el único activo que de verdad no se puede fabricar ni recuperar. Un dinero que le devuelve fricción a cada intercambio le está cobrando en la moneda más cara que existe. El oro es escaso, sí; pero le hace derrochar lo único verdaderamente escaso, que son sus horas.</p>
+
+    <span class="section-num">Todas las grietas llevan al mismo lugar</span>
+    <p>Deténgase un momento y mire las escenas juntas. El café, la huida, el pago digital, la pureza, el tiempo: cada una parecía un inconveniente distinto, pero todas terminaron en el mismo punto. Para usar el oro —para dividirlo, moverlo, enviarlo, verificarlo— usted tuvo que entregárselo a un tercero. Y un dinero que tiene que vivir en manos de terceros termina, inevitablemente, concentrándose: en bóvedas, en bancos, en casas de custodia, en Estados. La centralización del oro no fue un accidente de la historia ni una maldad de alguien: fue su destino físico. El oro, por lo que es, tiende a juntarse donde alguien lo gestione.</p>
+    <p>Y eso lo cambia todo, porque ya sabemos qué pasa cuando el dinero honesto se concentra en pocas manos. De esas bóvedas llenas de oro nacieron los papeles que lo representaban; de esos papeles, la tentación de emitir más de los que había oro detrás; de esa tentación, el dinero que se crea de la nada. Volver al oro no es volver a un refugio seguro: es volver a la rampa que, por su propia naturaleza, nos deslizó hacia el dinero falso la primera vez. El oro no nos traicionó por mala suerte. Nos llevó al fiat porque sus grietas obligaban a delegar, y delegar es el primer paso de la falsificación.</p>
+
+    <span class="section-num">El dinero vuelve a ser lo que era</span>
+    <p>Y mientras el oro se hunde en sus bóvedas, el mundo va hacia el lado contrario. Cada año los intercambios son más rápidos, más globales, más automáticos. Ya hay sistemas que se pagan entre sí sin que nadie apriete un botón —suscripciones que se liquidan solas, servicios que cobran al instante, máquinas que le pagan a otras máquinas por lo que consumen—. En ese mundo, el dinero se despoja de todo lo accesorio y vuelve a ser lo que este libro ha dicho desde la primera página que siempre fue: información que viaja. Valor que se transmite de un punto a otro.</p>
+    <p>Y en esa forma pura, el oro no puede ni entrar. No hay manera de meter un gramo de oro por un cable, ni de que dos máquinas se pasen un lingote. El oro, en la era de la información, es un cuerpo demasiado pesado para un mundo que se volvió señal. Bitcoin, en cambio, es eso: información honesta que se transmite sin que nadie la toque, la pese, la guarde ni la apruebe. Verdad que viaja sin ruido y sin permiso. Lo que el oro solo podía ser delegando —en papeles, en custodios, en expertos—, Bitcoin lo es directamente.</p>
+    <p>Aquí está, por fin, la respuesta a la pregunta. No volvemos al oro porque el oro nos pone ante una elección falsa: ser honesto pero imposible de ejercer sin entregárselo a alguien, o ser práctico entregándoselo —y perder, en esa entrega, la honestidad—. Durante siglos esa fue la única disyuntiva, y la humanidad la resolvió mal: eligió la comodidad del papel, y el papel la llevó al fraude. Bitcoin es la primera vez que no hay que elegir. Es honesto y se puede ejercer sin permiso. Honesto y divisible, transportable, verificable por uno mismo, imposible de concentrar a la fuerza. No es un oro mejor. Es lo que el oro nunca pudo ser.</p>
+    <p>Y ahora que sabemos cuál es el dinero que dice la verdad —y por qué—, queda la pregunta más dura de todas. No la de qué dinero elegir, sino la de qué le ha hecho al mundo el dinero que elegimos: el que se crea de la nada, el que miente. A eso —a las huellas que la falsificación deja en el mundo real— dedicaremos lo que viene.</p>
+
+  </div>
+
+</article>
+
+<nav class="nav-foot"><a class="prev" href="auditabilidad.html">La auditabilidad del dinero</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+</body>
+</html>
