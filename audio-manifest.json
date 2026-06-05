@@ -99,6 +99,15 @@
       "words": 1570,
       "duration_seconds": 667.295057,
       "generated_at": "2026-06-05T07:19:56Z"
+    },
+    "predictibilidad-estructural.html": {
+      "text_sha256": "2690bb9d101ca89488659d8a9757b3070f739912a23249d940cc06d709f344fc",
+      "chars": 19658,
+      "audio_path": "audio/predictibilidad-estructural.mp3",
+      "alignment_path": "audio/predictibilidad-estructural.alignment.json",
+      "words": 3455,
+      "duration_seconds": 1419.219592,
+      "generated_at": "2026-06-05T07:39:45Z"
     }
   }
 }
