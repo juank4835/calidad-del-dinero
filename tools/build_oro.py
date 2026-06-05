@@ -99,14 +99,14 @@ EXTRA_CSS = """
 .prose .recuadro strong { font-weight: 600; color: var(--ink); }
 
 .prose .pull-quote {
-  margin: 2.8rem 0; padding: 1.7rem 1rem; text-align: center;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
 }
 .prose .pull-quote p {
-  font-size: 1.12rem; font-style: italic; line-height: 1.6; color: var(--ink); margin: 0 0 0.9rem;
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
 }
 .prose .pull-quote cite {
-  display: block; font-style: italic; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft);
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
 }
 @media (max-width: 640px) {
   .prose .recuadro { padding: 1.1rem 1.2rem; }

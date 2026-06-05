@@ -70,18 +70,19 @@ CONTENT = [
     'Hemos visto al dinero falso corromper señal tras señal: la tasa, la estructura productiva, las pérdidas, los precios, el cálculo a futuro, el ahorro guardado, y ahora el reparto del crédito. En todos los casos hubo algo que nos permitió ver el daño: pudimos rastrearlo, nombrarlo, seguir el hilo desde la fuente hasta la consecuencia. Pero eso fue posible solo porque, de algún modo, la información estaba ahí para quien supiera mirar. ¿Y si el propio dinero pudiera esconder sus movimientos? ¿Si fuera imposible saber cuánto se ha creado, o quién lo tiene, o si las cuentas cuadran? Esa es la pieza que sostiene a todas las demás —la posibilidad misma de auditar el dinero, de verificar que no nos engañan—, y es la que cierra este recorrido.',
 ]
 
-# CSS de la cita (mismos tokens del libro: como .bisagra del índice + figcaption)
+# CSS de la cita: bloque alineado a la izquierda, sobrio (filete fino gris,
+# cursiva serif, atribución gris). El tratamiento clásico de cita; NO centrado.
 EXTRA_CSS = """
-/* ===== Citas en bloque (apartados) — mismos tokens que la .bisagra del índice ===== */
+/* ===== Citas en bloque — alineadas a la izquierda, sobrias (filete fino) ===== */
 .prose .pull-quote {
-  margin: 2.8rem 0; padding: 1.7rem 1rem; text-align: center;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
 }
 .prose .pull-quote p {
-  font-size: 1.12rem; font-style: italic; line-height: 1.6; color: var(--ink); margin: 0 0 0.9rem;
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
 }
 .prose .pull-quote cite {
-  display: block; font-style: italic; font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft);
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
 }
 """
 
