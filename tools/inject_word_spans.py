@@ -95,6 +95,8 @@ def process_html(html: str) -> tuple[str, int]:
                        _stash, block, flags=re.DOTALL)
         block = re.sub(r'<blockquote\b[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</blockquote>',
                        _stash, block, flags=re.DOTALL)
+        block = re.sub(r'<cite\b[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</cite>',
+                       _stash, block, flags=re.DOTALL)
 
         inner, counter = wrap_words_in_block(block, counter)
 

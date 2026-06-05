@@ -28,6 +28,7 @@ def extract(html: str) -> str:
         # cajas marcadas no-audio (recuadros de datos, citas): se ven pero NO se narran
         r'<aside[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</aside>',
         r'<blockquote[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</blockquote>',
+        r'<cite[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</cite>',
     ]:
         body = re.sub(pat, "", body, flags=re.DOTALL | re.IGNORECASE)
 

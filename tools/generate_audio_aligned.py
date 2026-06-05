@@ -27,7 +27,7 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
-MAX_CHARS = 9500
+MAX_CHARS = 6000
 CTX_CHARS = 500
 
 
@@ -93,7 +93,7 @@ def tts_with_timestamps(text, voice_id, api_key, model, prev_text="", next_text=
         method="POST",
     )
     try:
-        with urllib.request.urlopen(req, timeout=600) as resp:
+        with urllib.request.urlopen(req, timeout=180) as resp:
             return json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
         raise SystemExit(f"ElevenLabs error {e.code}: {e.read().decode()}")
