@@ -90,6 +90,15 @@
       "words": 1719,
       "duration_seconds": 733.609796,
       "generated_at": "2026-06-05T07:00:15Z"
+    },
+    "precios-relativos.html": {
+      "text_sha256": "39c57aed7f8ffc43e21e9e1bc3dddf24ef1657b636fcf846d77280e8e62493a8",
+      "chars": 9118,
+      "audio_path": "audio/precios-relativos.mp3",
+      "alignment_path": "audio/precios-relativos.alignment.json",
+      "words": 1570,
+      "duration_seconds": 667.295057,
+      "generated_at": "2026-06-05T07:19:56Z"
     }
   }
 }
