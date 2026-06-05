@@ -166,13 +166,16 @@ def main():
     t_end = plan["cut_end_seconds"]
     prefix = work / "prefix.mp3"
     suffix = work / "suffix.mp3"
+    has_prefix = t_start > 0.05  # reemplazo al inicio del audio → sin prefix
     print(f"Cortando prefix [0, {t_start:.3f}] y suffix [{t_end:.3f}, end]...")
-    ffmpeg_extract(in_mp3, 0.0, t_start, prefix)
+    if has_prefix:
+        ffmpeg_extract(in_mp3, 0.0, t_start, prefix)
     ffmpeg_extract(in_mp3, t_end, None, suffix)
 
     # 3. concatenar
     print("Concatenando prefix + fragmento + suffix...")
-    ffmpeg_concat([prefix.resolve(), frag_norm.resolve(), suffix.resolve()], out_mp3)
+    parts = ([prefix.resolve()] if has_prefix else []) + [frag_norm.resolve(), suffix.resolve()]
+    ffmpeg_concat(parts, out_mp3)
     new_duration = ffmpeg_probe_duration(out_mp3)
     print(f"  audio final: {new_duration:.3f}s "
           f"(viejo: {plan['old_duration_seconds']:.3f}s)")
@@ -184,7 +187,7 @@ def main():
     end_idx = plan["old_end_idx"]
 
     # tiempos: prefix dura ~t_start (con cierta precisión de ffmpeg)
-    prefix_duration = ffmpeg_probe_duration(prefix)
+    prefix_duration = ffmpeg_probe_duration(prefix) if has_prefix else 0.0
     suffix_duration = ffmpeg_probe_duration(suffix)
     # offset para las palabras del fragmento: empiezan al final del prefix
     frag_offset = prefix_duration
