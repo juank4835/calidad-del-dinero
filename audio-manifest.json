@@ -126,6 +126,15 @@
       "words": 2420,
       "duration_seconds": 985.456327,
       "generated_at": "2026-06-05T08:34:19Z"
+    },
+    "auditabilidad.html": {
+      "text_sha256": "97437a6a306bf90a3f3e501db9bad9531cd94e4a3fd1bd1d90c87248b1cbf90e",
+      "chars": 10699,
+      "audio_path": "audio/auditabilidad.mp3",
+      "alignment_path": "audio/auditabilidad.alignment.json",
+      "words": 1862,
+      "duration_seconds": 775.745306,
+      "generated_at": "2026-06-05T09:05:33Z"
     }
   }
 }
