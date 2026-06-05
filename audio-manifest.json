@@ -142,8 +142,9 @@
       "audio_path": "audio/por-que-no-volver-al-oro.mp3",
       "alignment_path": "audio/por-que-no-volver-al-oro.alignment.json",
       "words": 2010,
-      "duration_seconds": 799.595102,
-      "generated_at": "2026-06-05T11:49:17Z"
+      "duration_seconds": 803.06102,
+      "generated_at": "2026-06-05T12:38:51Z",
+      "note": "pausas de 1s insertadas tras cada título (sin regenerar TTS)"
     }
   }
 }
