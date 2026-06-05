@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La discriminación bancaria — La calidad del dinero</title>
+<title>La discriminación bancaria — Arregla el dinero, arregla el mundo</title>
 <style>
 :root {
   --bg: #1c1c1c;
@@ -13,242 +13,628 @@
   --rule: #3a3a38;
   --verde: #FF7A18;
   --rojo: #8A8A86;
-  --rojo-fuerte: #FF1744;
   --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  font-size: 19px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  line-height: 1.75;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
-}
-
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 5rem 1.5rem 8rem;
-}
-
-.chapter-eyebrow {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-align: center;
-  margin-bottom: 1.2rem;
-}
-
-.chapter-title {
-  font-size: 2.6rem;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.6rem;
-}
-
-.chapter-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--ink-soft);
-  margin-bottom: 4rem;
-}
-
-.ornament {
-  text-align: center;
-  color: var(--verde);
-  font-size: 1.2rem;
-  margin: 0 auto 3.5rem;
-  letter-spacing: 0.5em;
-}
-
-.prose p {
-  font-size: 1.12rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.prose p.lead {
-  font-size: 1.28rem;
-  line-height: 1.7;
-  color: var(--ink);
-  margin-bottom: 1.8rem;
-}
-
-.prose .lead::first-letter {
-  font-size: 3.6rem;
-  font-weight: 600;
-  float: left;
-  line-height: 0.82;
-  margin: 0.08em 0.12em -0.1em 0;
-  color: var(--verde);
-}
-
+html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
 .prose em { font-style: italic; }
 .prose strong { font-weight: 600; color: #fff; }
-
 .term-verde { color: var(--verde); font-style: italic; }
 .term-rojo { color: var(--rojo); font-style: italic; }
-
-.section-num {
-  display: block;
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--verde);
-  margin-bottom: 0.6rem;
-  margin-top: 3.5rem;
-}
-
-blockquote {
-  margin: 2.2rem 0;
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  border-left: 2px solid var(--verde);
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: 1.06rem;
-  line-height: 1.65;
-}
-
-blockquote .cite {
-  display: block;
-  margin-top: 0.6rem;
-  font-style: italic;
-  font-size: 0.86rem;
-  color: var(--ink-soft);
-  opacity: 0.8;
-}
-
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
 blockquote .cite::before { content: "— "; }
 .cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
 .cita-autor .texto { display: block; font-style: italic; }
 .cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
 .cita-autor .atribucion em { font-style: italic; }
-
-.pendiente {
-  margin: 2.5rem 0;
-  padding: 1.4rem 1.6rem;
-  border: 1px dashed var(--rule);
-  border-radius: 6px;
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: 0.98rem;
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  html { font-size: 17px; }
-  .page { padding: 3rem 1.2rem 5rem; }
-  .chapter-title { font-size: 2rem; }
-}
-
-/* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
-.nav-top {
-  max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0;
-}
-.nav-top a {
-  font-size: 0.85rem; color: var(--ink-soft); text-decoration: none;
-  letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s;
-}
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .nav-top a:hover { border-bottom-color: var(--verde); }
-.nav-foot {
-  max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0;
-  border-top: 1px solid var(--rule);
-  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-}
-.nav-foot a {
-  font-size: 0.9rem; color: var(--ink); text-decoration: none;
-  border-bottom: 1px solid transparent; transition: border-color 0.2s;
-}
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .nav-foot a:hover { border-bottom-color: var(--verde); }
 .nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
 .nav-foot .next::after { content: " →"; color: var(--ink-soft); }
 .nav-foot .idx { color: var(--ink-soft); }
 
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
 </style>
 </head>
 <body>
 <nav class="nav-top"><a href="index.html">← Índice</a></nav>
 
-
 <article class="page">
 
   <div class="chapter-eyebrow">Séptima pieza · gravedad media</div>
-  <h1 class="chapter-title">La discriminación bancaria</h1>
-  <p class="chapter-subtitle">Quién recibe el crédito —y por qué casi nunca es usted</p>
+  <h1 class="chapter-title"><span class="w" data-w="0">La</span> <span class="w" data-w="1">discriminación</span> <span class="w" data-w="2">bancaria</span></h1>
+  <p class="chapter-subtitle"><span class="w" data-w="3">Quién</span> <span class="w" data-w="4">recibe</span> <span class="w" data-w="5">el</span> <span class="w" data-w="6">crédito</span> —<span class="w" data-w="7">y</span> <span class="w" data-w="8">por</span> <span class="w" data-w="9">qué</span> <span class="w" data-w="10">casi</span> <span class="w" data-w="11">nunca</span> <span class="w" data-w="12">es</span> <span class="w" data-w="13">usted</span></p>
 
   <div class="ornament">• • •</div>
 
   <div class="prose">
 
     <!-- ====== APERTURA: la fila del banco ====== -->
-    <p class="lead">Dos personas entran al banco el mismo día a pedir un crédito. La primera es una empresa grande, conocida, con cuentas abiertas en esa entidad desde hace años y un gerente que almuerza con el director. La segunda es Juan, con un proyecto sólido —ha hecho los números, el negocio se sostiene— pero sin más respaldo que su trabajo y una idea buena. Usted ya sabe cómo termina la historia: a la empresa le aprueban el crédito esa misma semana, a una tasa baja; a Juan le piden garantías que no tiene, le ofrecen una tasa más alta, o simplemente le dicen que no. Y aquí está lo que importa: no es porque el proyecto de Juan sea peor. Es porque Juan está lejos, y la empresa está cerca.</p>
+    <p class="lead"><span class="w" data-w="14">Dos</span> <span class="w" data-w="15">personas</span> <span class="w" data-w="16">entran</span> <span class="w" data-w="17">al</span> <span class="w" data-w="18">banco</span> <span class="w" data-w="19">el</span> <span class="w" data-w="20">mismo</span> <span class="w" data-w="21">día</span> <span class="w" data-w="22">a</span> <span class="w" data-w="23">pedir</span> <span class="w" data-w="24">un</span> <span class="w" data-w="25">crédito</span>. <span class="w" data-w="26">La</span> <span class="w" data-w="27">primera</span> <span class="w" data-w="28">es</span> <span class="w" data-w="29">una</span> <span class="w" data-w="30">empresa</span> <span class="w" data-w="31">grande</span>, <span class="w" data-w="32">conocida</span>, <span class="w" data-w="33">con</span> <span class="w" data-w="34">cuentas</span> <span class="w" data-w="35">abiertas</span> <span class="w" data-w="36">en</span> <span class="w" data-w="37">esa</span> <span class="w" data-w="38">entidad</span> <span class="w" data-w="39">desde</span> <span class="w" data-w="40">hace</span> <span class="w" data-w="41">años</span> <span class="w" data-w="42">y</span> <span class="w" data-w="43">un</span> <span class="w" data-w="44">gerente</span> <span class="w" data-w="45">que</span> <span class="w" data-w="46">almuerza</span> <span class="w" data-w="47">con</span> <span class="w" data-w="48">el</span> <span class="w" data-w="49">director</span>. <span class="w" data-w="50">La</span> <span class="w" data-w="51">segunda</span> <span class="w" data-w="52">es</span> <span class="w" data-w="53">Juan</span>, <span class="w" data-w="54">con</span> <span class="w" data-w="55">un</span> <span class="w" data-w="56">proyecto</span> <span class="w" data-w="57">sólido</span> —<span class="w" data-w="58">ha</span> <span class="w" data-w="59">hecho</span> <span class="w" data-w="60">los</span> <span class="w" data-w="61">números</span>, <span class="w" data-w="62">el</span> <span class="w" data-w="63">negocio</span> <span class="w" data-w="64">se</span> <span class="w" data-w="65">sostiene</span>— <span class="w" data-w="66">pero</span> <span class="w" data-w="67">sin</span> <span class="w" data-w="68">más</span> <span class="w" data-w="69">respaldo</span> <span class="w" data-w="70">que</span> <span class="w" data-w="71">su</span> <span class="w" data-w="72">trabajo</span> <span class="w" data-w="73">y</span> <span class="w" data-w="74">una</span> <span class="w" data-w="75">idea</span> <span class="w" data-w="76">buena</span>. <span class="w" data-w="77">Usted</span> <span class="w" data-w="78">ya</span> <span class="w" data-w="79">sabe</span> <span class="w" data-w="80">cómo</span> <span class="w" data-w="81">termina</span> <span class="w" data-w="82">la</span> <span class="w" data-w="83">historia</span>: <span class="w" data-w="84">a</span> <span class="w" data-w="85">la</span> <span class="w" data-w="86">empresa</span> <span class="w" data-w="87">le</span> <span class="w" data-w="88">aprueban</span> <span class="w" data-w="89">el</span> <span class="w" data-w="90">crédito</span> <span class="w" data-w="91">esa</span> <span class="w" data-w="92">misma</span> <span class="w" data-w="93">semana</span>, <span class="w" data-w="94">a</span> <span class="w" data-w="95">una</span> <span class="w" data-w="96">tasa</span> <span class="w" data-w="97">baja</span>; <span class="w" data-w="98">a</span> <span class="w" data-w="99">Juan</span> <span class="w" data-w="100">le</span> <span class="w" data-w="101">piden</span> <span class="w" data-w="102">garantías</span> <span class="w" data-w="103">que</span> <span class="w" data-w="104">no</span> <span class="w" data-w="105">tiene</span>, <span class="w" data-w="106">le</span> <span class="w" data-w="107">ofrecen</span> <span class="w" data-w="108">una</span> <span class="w" data-w="109">tasa</span> <span class="w" data-w="110">más</span> <span class="w" data-w="111">alta</span>, <span class="w" data-w="112">o</span> <span class="w" data-w="113">simplemente</span> <span class="w" data-w="114">le</span> <span class="w" data-w="115">dicen</span> <span class="w" data-w="116">que</span> <span class="w" data-w="117">no</span>. <span class="w" data-w="118">Y</span> <span class="w" data-w="119">aquí</span> <span class="w" data-w="120">está</span> <span class="w" data-w="121">lo</span> <span class="w" data-w="122">que</span> <span class="w" data-w="123">importa</span>: <span class="w" data-w="124">no</span> <span class="w" data-w="125">es</span> <span class="w" data-w="126">porque</span> <span class="w" data-w="127">el</span> <span class="w" data-w="128">proyecto</span> <span class="w" data-w="129">de</span> <span class="w" data-w="130">Juan</span> <span class="w" data-w="131">sea</span> <span class="w" data-w="132">peor</span>. <span class="w" data-w="133">Es</span> <span class="w" data-w="134">porque</span> <span class="w" data-w="135">Juan</span> <span class="w" data-w="136">está</span> <span class="w" data-w="137">lejos</span>, <span class="w" data-w="138">y</span> <span class="w" data-w="139">la</span> <span class="w" data-w="140">empresa</span> <span class="w" data-w="141">está</span> <span class="w" data-w="142">cerca</span>.</p>
 
-    <p>¿Cerca de qué? De la fuente del dinero. Y para entender qué significa eso —y por qué decide quién prospera y quién no en una economía entera— hay que mirar de frente algo que casi todos malentienden: de dónde sale, en realidad, el dinero que el banco presta.</p>
+    <p>¿<span class="w" data-w="143">Cerca</span> <span class="w" data-w="144">de</span> <span class="w" data-w="145">qué</span>? <span class="w" data-w="146">De</span> <span class="w" data-w="147">la</span> <span class="w" data-w="148">fuente</span> <span class="w" data-w="149">del</span> <span class="w" data-w="150">dinero</span>. <span class="w" data-w="151">Y</span> <span class="w" data-w="152">para</span> <span class="w" data-w="153">entender</span> <span class="w" data-w="154">qué</span> <span class="w" data-w="155">significa</span> <span class="w" data-w="156">eso</span> —<span class="w" data-w="157">y</span> <span class="w" data-w="158">por</span> <span class="w" data-w="159">qué</span> <span class="w" data-w="160">decide</span> <span class="w" data-w="161">quién</span> <span class="w" data-w="162">prospera</span> <span class="w" data-w="163">y</span> <span class="w" data-w="164">quién</span> <span class="w" data-w="165">no</span> <span class="w" data-w="166">en</span> <span class="w" data-w="167">una</span> <span class="w" data-w="168">economía</span> <span class="w" data-w="169">entera</span>— <span class="w" data-w="170">hay</span> <span class="w" data-w="171">que</span> <span class="w" data-w="172">mirar</span> <span class="w" data-w="173">de</span> <span class="w" data-w="174">frente</span> <span class="w" data-w="175">algo</span> <span class="w" data-w="176">que</span> <span class="w" data-w="177">casi</span> <span class="w" data-w="178">todos</span> <span class="w" data-w="179">malentienden</span>: <span class="w" data-w="180">de</span> <span class="w" data-w="181">dónde</span> <span class="w" data-w="182">sale</span>, <span class="w" data-w="183">en</span> <span class="w" data-w="184">realidad</span>, <span class="w" data-w="185">el</span> <span class="w" data-w="186">dinero</span> <span class="w" data-w="187">que</span> <span class="w" data-w="188">el</span> <span class="w" data-w="189">banco</span> <span class="w" data-w="190">presta</span>.</p>
 
     <!-- ====== QUIÉN CREA EL DINERO: los bancos comerciales ====== -->
-    <p>La creencia común es que el banco es un intermediario: recoge los ahorros de unos y se los presta a otros, como un puente entre el que guarda y el que necesita. Si así fuera, el banco solo podría prestar lo que alguien ahorró de verdad, y este capítulo no existiría. Pero no es así, y lo vimos al principio del libro: el banco no presta el ahorro que tiene; presta dinero que crea en el momento de prestar. Bajo reserva fraccionaria, por cada peso que de verdad guarda, presta varios que no existían hasta que firmó el préstamo. El banco comercial no mueve dinero ajeno: <span class="term-rojo">fabrica dinero nuevo</span>.</p>
+    <p><span class="w" data-w="191">La</span> <span class="w" data-w="192">creencia</span> <span class="w" data-w="193">común</span> <span class="w" data-w="194">es</span> <span class="w" data-w="195">que</span> <span class="w" data-w="196">el</span> <span class="w" data-w="197">banco</span> <span class="w" data-w="198">es</span> <span class="w" data-w="199">un</span> <span class="w" data-w="200">intermediario</span>: <span class="w" data-w="201">recoge</span> <span class="w" data-w="202">los</span> <span class="w" data-w="203">ahorros</span> <span class="w" data-w="204">de</span> <span class="w" data-w="205">unos</span> <span class="w" data-w="206">y</span> <span class="w" data-w="207">se</span> <span class="w" data-w="208">los</span> <span class="w" data-w="209">presta</span> <span class="w" data-w="210">a</span> <span class="w" data-w="211">otros</span>, <span class="w" data-w="212">como</span> <span class="w" data-w="213">un</span> <span class="w" data-w="214">puente</span> <span class="w" data-w="215">entre</span> <span class="w" data-w="216">el</span> <span class="w" data-w="217">que</span> <span class="w" data-w="218">guarda</span> <span class="w" data-w="219">y</span> <span class="w" data-w="220">el</span> <span class="w" data-w="221">que</span> <span class="w" data-w="222">necesita</span>. <span class="w" data-w="223">Si</span> <span class="w" data-w="224">así</span> <span class="w" data-w="225">fuera</span>, <span class="w" data-w="226">el</span> <span class="w" data-w="227">banco</span> <span class="w" data-w="228">solo</span> <span class="w" data-w="229">podría</span> <span class="w" data-w="230">prestar</span> <span class="w" data-w="231">lo</span> <span class="w" data-w="232">que</span> <span class="w" data-w="233">alguien</span> <span class="w" data-w="234">ahorró</span> <span class="w" data-w="235">de</span> <span class="w" data-w="236">verdad</span>, <span class="w" data-w="237">y</span> <span class="w" data-w="238">este</span> <span class="w" data-w="239">capítulo</span> <span class="w" data-w="240">no</span> <span class="w" data-w="241">existiría</span>. <span class="w" data-w="242">Pero</span> <span class="w" data-w="243">no</span> <span class="w" data-w="244">es</span> <span class="w" data-w="245">así</span>, <span class="w" data-w="246">y</span> <span class="w" data-w="247">lo</span> <span class="w" data-w="248">vimos</span> <span class="w" data-w="249">al</span> <span class="w" data-w="250">principio</span> <span class="w" data-w="251">del</span> <span class="w" data-w="252">libro</span>: <span class="w" data-w="253">el</span> <span class="w" data-w="254">banco</span> <span class="w" data-w="255">no</span> <span class="w" data-w="256">presta</span> <span class="w" data-w="257">el</span> <span class="w" data-w="258">ahorro</span> <span class="w" data-w="259">que</span> <span class="w" data-w="260">tiene</span>; <span class="w" data-w="261">presta</span> <span class="w" data-w="262">dinero</span> <span class="w" data-w="263">que</span> <span class="w" data-w="264">crea</span> <span class="w" data-w="265">en</span> <span class="w" data-w="266">el</span> <span class="w" data-w="267">momento</span> <span class="w" data-w="268">de</span> <span class="w" data-w="269">prestar</span>. <span class="w" data-w="270">Bajo</span> <span class="w" data-w="271">reserva</span> <span class="w" data-w="272">fraccionaria</span>, <span class="w" data-w="273">por</span> <span class="w" data-w="274">cada</span> <span class="w" data-w="275">peso</span> <span class="w" data-w="276">que</span> <span class="w" data-w="277">de</span> <span class="w" data-w="278">verdad</span> <span class="w" data-w="279">guarda</span>, <span class="w" data-w="280">presta</span> <span class="w" data-w="281">varios</span> <span class="w" data-w="282">que</span> <span class="w" data-w="283">no</span> <span class="w" data-w="284">existían</span> <span class="w" data-w="285">hasta</span> <span class="w" data-w="286">que</span> <span class="w" data-w="287">firmó</span> <span class="w" data-w="288">el</span> <span class="w" data-w="289">préstamo</span>. <span class="w" data-w="290">El</span> <span class="w" data-w="291">banco</span> <span class="w" data-w="292">comercial</span> <span class="w" data-w="293">no</span> <span class="w" data-w="294">mueve</span> <span class="w" data-w="295">dinero</span> <span class="w" data-w="296">ajeno</span>: <span class="term-rojo"><span class="w" data-w="297">fabrica</span> <span class="w" data-w="298">dinero</span> <span class="w" data-w="299">nuevo</span></span>.</p>
 
-    <p>Esto cambia por completo quién es el protagonista de esta historia. Solemos imaginar que la fábrica del dinero es el banco central —el edificio imponente, el comité, la imprenta—. Y es verdad que el banco central está en el origen: pone la base, respalda el sistema, rescata a quien tropieza, coordina a todos para que inflen al mismo ritmo. Pero el que de verdad crea la mayor parte del dinero nuevo, el que lo fabrica peso a peso cada vez que aprueba un préstamo, es el banco comercial —el de la esquina, el de la fila donde están Juan y la empresa—. El banco central habilita y respalda; los bancos comerciales fabrican. Están enchufados a él —por eso pueden crear sin miedo, sabiendo que si fallan habrá quien los sostenga—, pero son ellos los que están en la cabeza de la cadena: la mano que abre el grifo del dinero nuevo, y que decide hacia dónde corre.</p>
+    <p><span class="w" data-w="300">Esto</span> <span class="w" data-w="301">cambia</span> <span class="w" data-w="302">por</span> <span class="w" data-w="303">completo</span> <span class="w" data-w="304">quién</span> <span class="w" data-w="305">es</span> <span class="w" data-w="306">el</span> <span class="w" data-w="307">protagonista</span> <span class="w" data-w="308">de</span> <span class="w" data-w="309">esta</span> <span class="w" data-w="310">historia</span>. <span class="w" data-w="311">Solemos</span> <span class="w" data-w="312">imaginar</span> <span class="w" data-w="313">que</span> <span class="w" data-w="314">la</span> <span class="w" data-w="315">fábrica</span> <span class="w" data-w="316">del</span> <span class="w" data-w="317">dinero</span> <span class="w" data-w="318">es</span> <span class="w" data-w="319">el</span> <span class="w" data-w="320">banco</span> <span class="w" data-w="321">central</span> —<span class="w" data-w="322">el</span> <span class="w" data-w="323">edificio</span> <span class="w" data-w="324">imponente</span>, <span class="w" data-w="325">el</span> <span class="w" data-w="326">comité</span>, <span class="w" data-w="327">la</span> <span class="w" data-w="328">imprenta</span>—. <span class="w" data-w="329">Y</span> <span class="w" data-w="330">es</span> <span class="w" data-w="331">verdad</span> <span class="w" data-w="332">que</span> <span class="w" data-w="333">el</span> <span class="w" data-w="334">banco</span> <span class="w" data-w="335">central</span> <span class="w" data-w="336">está</span> <span class="w" data-w="337">en</span> <span class="w" data-w="338">el</span> <span class="w" data-w="339">origen</span>: <span class="w" data-w="340">pone</span> <span class="w" data-w="341">la</span> <span class="w" data-w="342">base</span>, <span class="w" data-w="343">respalda</span> <span class="w" data-w="344">el</span> <span class="w" data-w="345">sistema</span>, <span class="w" data-w="346">rescata</span> <span class="w" data-w="347">a</span> <span class="w" data-w="348">quien</span> <span class="w" data-w="349">tropieza</span>, <span class="w" data-w="350">coordina</span> <span class="w" data-w="351">a</span> <span class="w" data-w="352">todos</span> <span class="w" data-w="353">para</span> <span class="w" data-w="354">que</span> <span class="w" data-w="355">inflen</span> <span class="w" data-w="356">al</span> <span class="w" data-w="357">mismo</span> <span class="w" data-w="358">ritmo</span>. <span class="w" data-w="359">Pero</span> <span class="w" data-w="360">el</span> <span class="w" data-w="361">que</span> <span class="w" data-w="362">de</span> <span class="w" data-w="363">verdad</span> <span class="w" data-w="364">crea</span> <span class="w" data-w="365">la</span> <span class="w" data-w="366">mayor</span> <span class="w" data-w="367">parte</span> <span class="w" data-w="368">del</span> <span class="w" data-w="369">dinero</span> <span class="w" data-w="370">nuevo</span>, <span class="w" data-w="371">el</span> <span class="w" data-w="372">que</span> <span class="w" data-w="373">lo</span> <span class="w" data-w="374">fabrica</span> <span class="w" data-w="375">peso</span> <span class="w" data-w="376">a</span> <span class="w" data-w="377">peso</span> <span class="w" data-w="378">cada</span> <span class="w" data-w="379">vez</span> <span class="w" data-w="380">que</span> <span class="w" data-w="381">aprueba</span> <span class="w" data-w="382">un</span> <span class="w" data-w="383">préstamo</span>, <span class="w" data-w="384">es</span> <span class="w" data-w="385">el</span> <span class="w" data-w="386">banco</span> <span class="w" data-w="387">comercial</span> —<span class="w" data-w="388">el</span> <span class="w" data-w="389">de</span> <span class="w" data-w="390">la</span> <span class="w" data-w="391">esquina</span>, <span class="w" data-w="392">el</span> <span class="w" data-w="393">de</span> <span class="w" data-w="394">la</span> <span class="w" data-w="395">fila</span> <span class="w" data-w="396">donde</span> <span class="w" data-w="397">están</span> <span class="w" data-w="398">Juan</span> <span class="w" data-w="399">y</span> <span class="w" data-w="400">la</span> <span class="w" data-w="401">empresa</span>—. <span class="w" data-w="402">El</span> <span class="w" data-w="403">banco</span> <span class="w" data-w="404">central</span> <span class="w" data-w="405">habilita</span> <span class="w" data-w="406">y</span> <span class="w" data-w="407">respalda</span>; <span class="w" data-w="408">los</span> <span class="w" data-w="409">bancos</span> <span class="w" data-w="410">comerciales</span> <span class="w" data-w="411">fabrican</span>. <span class="w" data-w="412">Están</span> <span class="w" data-w="413">enchufados</span> <span class="w" data-w="414">a</span> <span class="w" data-w="415">él</span> —<span class="w" data-w="416">por</span> <span class="w" data-w="417">eso</span> <span class="w" data-w="418">pueden</span> <span class="w" data-w="419">crear</span> <span class="w" data-w="420">sin</span> <span class="w" data-w="421">miedo</span>, <span class="w" data-w="422">sabiendo</span> <span class="w" data-w="423">que</span> <span class="w" data-w="424">si</span> <span class="w" data-w="425">fallan</span> <span class="w" data-w="426">habrá</span> <span class="w" data-w="427">quien</span> <span class="w" data-w="428">los</span> <span class="w" data-w="429">sostenga</span>—, <span class="w" data-w="430">pero</span> <span class="w" data-w="431">son</span> <span class="w" data-w="432">ellos</span> <span class="w" data-w="433">los</span> <span class="w" data-w="434">que</span> <span class="w" data-w="435">están</span> <span class="w" data-w="436">en</span> <span class="w" data-w="437">la</span> <span class="w" data-w="438">cabeza</span> <span class="w" data-w="439">de</span> <span class="w" data-w="440">la</span> <span class="w" data-w="441">cadena</span>: <span class="w" data-w="442">la</span> <span class="w" data-w="443">mano</span> <span class="w" data-w="444">que</span> <span class="w" data-w="445">abre</span> <span class="w" data-w="446">el</span> <span class="w" data-w="447">grifo</span> <span class="w" data-w="448">del</span> <span class="w" data-w="449">dinero</span> <span class="w" data-w="450">nuevo</span>, <span class="w" data-w="451">y</span> <span class="w" data-w="452">que</span> <span class="w" data-w="453">decide</span> <span class="w" data-w="454">hacia</span> <span class="w" data-w="455">dónde</span> <span class="w" data-w="456">corre</span>.</p>
 
-    <p>Y ese "hacia dónde" es todo el asunto. Porque si el banco solo prestara ahorro real —dinero que alguien produjo y guardó—, tendría que ser cuidadoso: ese dinero es escaso, hay que dirigirlo al mejor proyecto, al que de verdad rinda, porque equivocarse cuesta. Pero cuando el dinero se crea de la nada, esa disciplina se afloja. No está repartiendo un recurso escaso que le costó reunir; está repartiendo algo que fabrica con la firma. Y entonces la pregunta de a quién prestarle deja de responderse por el mérito del proyecto y empieza a responderse por otra cosa: por la cercanía.</p>
+    <p><span class="w" data-w="457">Y</span> <span class="w" data-w="458">ese</span> "<span class="w" data-w="459">hacia</span> <span class="w" data-w="460">dónde</span>" <span class="w" data-w="461">es</span> <span class="w" data-w="462">todo</span> <span class="w" data-w="463">el</span> <span class="w" data-w="464">asunto</span>. <span class="w" data-w="465">Porque</span> <span class="w" data-w="466">si</span> <span class="w" data-w="467">el</span> <span class="w" data-w="468">banco</span> <span class="w" data-w="469">solo</span> <span class="w" data-w="470">prestara</span> <span class="w" data-w="471">ahorro</span> <span class="w" data-w="472">real</span> —<span class="w" data-w="473">dinero</span> <span class="w" data-w="474">que</span> <span class="w" data-w="475">alguien</span> <span class="w" data-w="476">produjo</span> <span class="w" data-w="477">y</span> <span class="w" data-w="478">guardó</span>—, <span class="w" data-w="479">tendría</span> <span class="w" data-w="480">que</span> <span class="w" data-w="481">ser</span> <span class="w" data-w="482">cuidadoso</span>: <span class="w" data-w="483">ese</span> <span class="w" data-w="484">dinero</span> <span class="w" data-w="485">es</span> <span class="w" data-w="486">escaso</span>, <span class="w" data-w="487">hay</span> <span class="w" data-w="488">que</span> <span class="w" data-w="489">dirigirlo</span> <span class="w" data-w="490">al</span> <span class="w" data-w="491">mejor</span> <span class="w" data-w="492">proyecto</span>, <span class="w" data-w="493">al</span> <span class="w" data-w="494">que</span> <span class="w" data-w="495">de</span> <span class="w" data-w="496">verdad</span> <span class="w" data-w="497">rinda</span>, <span class="w" data-w="498">porque</span> <span class="w" data-w="499">equivocarse</span> <span class="w" data-w="500">cuesta</span>. <span class="w" data-w="501">Pero</span> <span class="w" data-w="502">cuando</span> <span class="w" data-w="503">el</span> <span class="w" data-w="504">dinero</span> <span class="w" data-w="505">se</span> <span class="w" data-w="506">crea</span> <span class="w" data-w="507">de</span> <span class="w" data-w="508">la</span> <span class="w" data-w="509">nada</span>, <span class="w" data-w="510">esa</span> <span class="w" data-w="511">disciplina</span> <span class="w" data-w="512">se</span> <span class="w" data-w="513">afloja</span>. <span class="w" data-w="514">No</span> <span class="w" data-w="515">está</span> <span class="w" data-w="516">repartiendo</span> <span class="w" data-w="517">un</span> <span class="w" data-w="518">recurso</span> <span class="w" data-w="519">escaso</span> <span class="w" data-w="520">que</span> <span class="w" data-w="521">le</span> <span class="w" data-w="522">costó</span> <span class="w" data-w="523">reunir</span>; <span class="w" data-w="524">está</span> <span class="w" data-w="525">repartiendo</span> <span class="w" data-w="526">algo</span> <span class="w" data-w="527">que</span> <span class="w" data-w="528">fabrica</span> <span class="w" data-w="529">con</span> <span class="w" data-w="530">la</span> <span class="w" data-w="531">firma</span>. <span class="w" data-w="532">Y</span> <span class="w" data-w="533">entonces</span> <span class="w" data-w="534">la</span> <span class="w" data-w="535">pregunta</span> <span class="w" data-w="536">de</span> <span class="w" data-w="537">a</span> <span class="w" data-w="538">quién</span> <span class="w" data-w="539">prestarle</span> <span class="w" data-w="540">deja</span> <span class="w" data-w="541">de</span> <span class="w" data-w="542">responderse</span> <span class="w" data-w="543">por</span> <span class="w" data-w="544">el</span> <span class="w" data-w="545">mérito</span> <span class="w" data-w="546">del</span> <span class="w" data-w="547">proyecto</span> <span class="w" data-w="548">y</span> <span class="w" data-w="549">empieza</span> <span class="w" data-w="550">a</span> <span class="w" data-w="551">responderse</span> <span class="w" data-w="552">por</span> <span class="w" data-w="553">otra</span> <span class="w" data-w="554">cosa</span>: <span class="w" data-w="555">por</span> <span class="w" data-w="556">la</span> <span class="w" data-w="557">cercanía</span>.</p>
 
     <!-- ====== LA SEÑAL: hacia dónde fluye el crédito ====== -->
-    <p>Detengámonos en lo que está en juego, porque es una señal más, de las que venimos siguiendo todo el libro. El crédito, bien entendido, es una de las señales más importantes de una economía: dice <span class="term-verde">hacia dónde debe fluir el capital</span> —qué proyectos merecen recursos, cuáles no—. En un sistema honesto, donde solo se presta lo ahorrado, esa señal funciona: el ahorro fluye hacia quien promete devolverlo con el mayor rendimiento, es decir, hacia donde será más productivo. El crédito dirige el capital de la sociedad hacia sus mejores usos, como una brújula que apunta al proyecto que más vale la pena. No importa si usted tiene padrinos: importa si su proyecto es bueno.</p>
+    <p><span class="w" data-w="558">Detengámonos</span> <span class="w" data-w="559">en</span> <span class="w" data-w="560">lo</span> <span class="w" data-w="561">que</span> <span class="w" data-w="562">está</span> <span class="w" data-w="563">en</span> <span class="w" data-w="564">juego</span>, <span class="w" data-w="565">porque</span> <span class="w" data-w="566">es</span> <span class="w" data-w="567">una</span> <span class="w" data-w="568">señal</span> <span class="w" data-w="569">más</span>, <span class="w" data-w="570">de</span> <span class="w" data-w="571">las</span> <span class="w" data-w="572">que</span> <span class="w" data-w="573">venimos</span> <span class="w" data-w="574">siguiendo</span> <span class="w" data-w="575">todo</span> <span class="w" data-w="576">el</span> <span class="w" data-w="577">libro</span>. <span class="w" data-w="578">El</span> <span class="w" data-w="579">crédito</span>, <span class="w" data-w="580">bien</span> <span class="w" data-w="581">entendido</span>, <span class="w" data-w="582">es</span> <span class="w" data-w="583">una</span> <span class="w" data-w="584">de</span> <span class="w" data-w="585">las</span> <span class="w" data-w="586">señales</span> <span class="w" data-w="587">más</span> <span class="w" data-w="588">importantes</span> <span class="w" data-w="589">de</span> <span class="w" data-w="590">una</span> <span class="w" data-w="591">economía</span>: <span class="w" data-w="592">dice</span> <span class="term-verde"><span class="w" data-w="593">hacia</span> <span class="w" data-w="594">dónde</span> <span class="w" data-w="595">debe</span> <span class="w" data-w="596">fluir</span> <span class="w" data-w="597">el</span> <span class="w" data-w="598">capital</span></span> —<span class="w" data-w="599">qué</span> <span class="w" data-w="600">proyectos</span> <span class="w" data-w="601">merecen</span> <span class="w" data-w="602">recursos</span>, <span class="w" data-w="603">cuáles</span> <span class="w" data-w="604">no</span>—. <span class="w" data-w="605">En</span> <span class="w" data-w="606">un</span> <span class="w" data-w="607">sistema</span> <span class="w" data-w="608">honesto</span>, <span class="w" data-w="609">donde</span> <span class="w" data-w="610">solo</span> <span class="w" data-w="611">se</span> <span class="w" data-w="612">presta</span> <span class="w" data-w="613">lo</span> <span class="w" data-w="614">ahorrado</span>, <span class="w" data-w="615">esa</span> <span class="w" data-w="616">señal</span> <span class="w" data-w="617">funciona</span>: <span class="w" data-w="618">el</span> <span class="w" data-w="619">ahorro</span> <span class="w" data-w="620">fluye</span> <span class="w" data-w="621">hacia</span> <span class="w" data-w="622">quien</span> <span class="w" data-w="623">promete</span> <span class="w" data-w="624">devolverlo</span> <span class="w" data-w="625">con</span> <span class="w" data-w="626">el</span> <span class="w" data-w="627">mayor</span> <span class="w" data-w="628">rendimiento</span>, <span class="w" data-w="629">es</span> <span class="w" data-w="630">decir</span>, <span class="w" data-w="631">hacia</span> <span class="w" data-w="632">donde</span> <span class="w" data-w="633">será</span> <span class="w" data-w="634">más</span> <span class="w" data-w="635">productivo</span>. <span class="w" data-w="636">El</span> <span class="w" data-w="637">crédito</span> <span class="w" data-w="638">dirige</span> <span class="w" data-w="639">el</span> <span class="w" data-w="640">capital</span> <span class="w" data-w="641">de</span> <span class="w" data-w="642">la</span> <span class="w" data-w="643">sociedad</span> <span class="w" data-w="644">hacia</span> <span class="w" data-w="645">sus</span> <span class="w" data-w="646">mejores</span> <span class="w" data-w="647">usos</span>, <span class="w" data-w="648">como</span> <span class="w" data-w="649">una</span> <span class="w" data-w="650">brújula</span> <span class="w" data-w="651">que</span> <span class="w" data-w="652">apunta</span> <span class="w" data-w="653">al</span> <span class="w" data-w="654">proyecto</span> <span class="w" data-w="655">que</span> <span class="w" data-w="656">más</span> <span class="w" data-w="657">vale</span> <span class="w" data-w="658">la</span> <span class="w" data-w="659">pena</span>. <span class="w" data-w="660">No</span> <span class="w" data-w="661">importa</span> <span class="w" data-w="662">si</span> <span class="w" data-w="663">usted</span> <span class="w" data-w="664">tiene</span> <span class="w" data-w="665">padrinos</span>: <span class="w" data-w="666">importa</span> <span class="w" data-w="667">si</span> <span class="w" data-w="668">su</span> <span class="w" data-w="669">proyecto</span> <span class="w" data-w="670">es</span> <span class="w" data-w="671">bueno</span>.</p>
 
-    <p>Cuando el dinero se crea de la nada, esa brújula se desvía. El crédito ya no fluye hacia el mejor proyecto, sino hacia el más cercano a quien fabrica el dinero. La señal que debía decir "este negocio es productivo" pasa a decir "este cliente es de los nuestros". Y los de afuera —los Juanes, los que tienen buenas ideas pero no padrinos— quedan compitiendo en desventaja contra los de adentro, no porque sus proyectos sean peores, sino porque no están enchufados a la fuente. Rothbard lo dijo sin rodeos, nombrando a los beneficiarios:</p>
+    <p><span class="w" data-w="672">Cuando</span> <span class="w" data-w="673">el</span> <span class="w" data-w="674">dinero</span> <span class="w" data-w="675">se</span> <span class="w" data-w="676">crea</span> <span class="w" data-w="677">de</span> <span class="w" data-w="678">la</span> <span class="w" data-w="679">nada</span>, <span class="w" data-w="680">esa</span> <span class="w" data-w="681">brújula</span> <span class="w" data-w="682">se</span> <span class="w" data-w="683">desvía</span>. <span class="w" data-w="684">El</span> <span class="w" data-w="685">crédito</span> <span class="w" data-w="686">ya</span> <span class="w" data-w="687">no</span> <span class="w" data-w="688">fluye</span> <span class="w" data-w="689">hacia</span> <span class="w" data-w="690">el</span> <span class="w" data-w="691">mejor</span> <span class="w" data-w="692">proyecto</span>, <span class="w" data-w="693">sino</span> <span class="w" data-w="694">hacia</span> <span class="w" data-w="695">el</span> <span class="w" data-w="696">más</span> <span class="w" data-w="697">cercano</span> <span class="w" data-w="698">a</span> <span class="w" data-w="699">quien</span> <span class="w" data-w="700">fabrica</span> <span class="w" data-w="701">el</span> <span class="w" data-w="702">dinero</span>. <span class="w" data-w="703">La</span> <span class="w" data-w="704">señal</span> <span class="w" data-w="705">que</span> <span class="w" data-w="706">debía</span> <span class="w" data-w="707">decir</span> "<span class="w" data-w="708">este</span> <span class="w" data-w="709">negocio</span> <span class="w" data-w="710">es</span> <span class="w" data-w="711">productivo</span>" <span class="w" data-w="712">pasa</span> <span class="w" data-w="713">a</span> <span class="w" data-w="714">decir</span> "<span class="w" data-w="715">este</span> <span class="w" data-w="716">cliente</span> <span class="w" data-w="717">es</span> <span class="w" data-w="718">de</span> <span class="w" data-w="719">los</span> <span class="w" data-w="720">nuestros</span>". <span class="w" data-w="721">Y</span> <span class="w" data-w="722">los</span> <span class="w" data-w="723">de</span> <span class="w" data-w="724">afuera</span> —<span class="w" data-w="725">los</span> <span class="w" data-w="726">Juanes</span>, <span class="w" data-w="727">los</span> <span class="w" data-w="728">que</span> <span class="w" data-w="729">tienen</span> <span class="w" data-w="730">buenas</span> <span class="w" data-w="731">ideas</span> <span class="w" data-w="732">pero</span> <span class="w" data-w="733">no</span> <span class="w" data-w="734">padrinos</span>— <span class="w" data-w="735">quedan</span> <span class="w" data-w="736">compitiendo</span> <span class="w" data-w="737">en</span> <span class="w" data-w="738">desventaja</span> <span class="w" data-w="739">contra</span> <span class="w" data-w="740">los</span> <span class="w" data-w="741">de</span> <span class="w" data-w="742">adentro</span>, <span class="w" data-w="743">no</span> <span class="w" data-w="744">porque</span> <span class="w" data-w="745">sus</span> <span class="w" data-w="746">proyectos</span> <span class="w" data-w="747">sean</span> <span class="w" data-w="748">peores</span>, <span class="w" data-w="749">sino</span> <span class="w" data-w="750">porque</span> <span class="w" data-w="751">no</span> <span class="w" data-w="752">están</span> <span class="w" data-w="753">enchufados</span> <span class="w" data-w="754">a</span> <span class="w" data-w="755">la</span> <span class="w" data-w="756">fuente</span>. <span class="w" data-w="757">Rothbard</span> <span class="w" data-w="758">lo</span> <span class="w" data-w="759">dijo</span> <span class="w" data-w="760">sin</span> <span class="w" data-w="761">rodeos</span>, <span class="w" data-w="762">nombrando</span> <span class="w" data-w="763">a</span> <span class="w" data-w="764">los</span> <span class="w" data-w="765">beneficiarios</span>:</p>
 
     <div class="cita-autor">
-      <span class="texto">"Los prestatarios del banco, comerciantes o consumidores —su clientela—, se benefician con el nuevo dinero, ya que son quienes primero lo reciben."</span>
-      <span class="atribucion">Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 12</span>
+      <span class="texto">"<span class="w" data-w="766">Los</span> <span class="w" data-w="767">prestatarios</span> <span class="w" data-w="768">del</span> <span class="w" data-w="769">banco</span>, <span class="w" data-w="770">comerciantes</span> <span class="w" data-w="771">o</span> <span class="w" data-w="772">consumidores</span> —<span class="w" data-w="773">su</span> <span class="w" data-w="774">clientela</span>—, <span class="w" data-w="775">se</span> <span class="w" data-w="776">benefician</span> <span class="w" data-w="777">con</span> <span class="w" data-w="778">el</span> <span class="w" data-w="779">nuevo</span> <span class="w" data-w="780">dinero</span>, <span class="w" data-w="781">ya</span> <span class="w" data-w="782">que</span> <span class="w" data-w="783">son</span> <span class="w" data-w="784">quienes</span> <span class="w" data-w="785">primero</span> <span class="w" data-w="786">lo</span> <span class="w" data-w="787">reciben</span>."</span>
+      <span class="atribucion"><span class="w" data-w="788">Rothbard</span>, <em><span class="w" data-w="789">El</span> <span class="w" data-w="790">hombre</span>, <span class="w" data-w="791">la</span> <span class="w" data-w="792">economía</span> <span class="w" data-w="793">y</span> <span class="w" data-w="794">el</span> <span class="w" data-w="795">Estado</span></em>, <span class="w" data-w="796">cap</span>. <span class="w" data-w="797">12</span></span>
     </div>
 
-    <p>Su clientela: los de adentro. No el mejor proyecto, sino el cliente conocido. Y fíjese en la doble ventaja del que está cerca, porque es la misma carrera que ya vimos con los precios: no solo recibe el crédito —recibe el dinero <em>nuevo</em>, cuando todavía conserva su valor, antes de que los precios suban—. El de adentro recibe dinero fresco y barato para comprar el mundo a precios de ayer; el de afuera, si acaso recibe algo, lo recibe tarde, caro, y devaluado. La discriminación bancaria y el reparto desigual del dinero nuevo son, en el fondo, la misma injusticia mirada en el momento del préstamo.</p>
+    <p><span class="w" data-w="798">Su</span> <span class="w" data-w="799">clientela</span>: <span class="w" data-w="800">los</span> <span class="w" data-w="801">de</span> <span class="w" data-w="802">adentro</span>. <span class="w" data-w="803">No</span> <span class="w" data-w="804">el</span> <span class="w" data-w="805">mejor</span> <span class="w" data-w="806">proyecto</span>, <span class="w" data-w="807">sino</span> <span class="w" data-w="808">el</span> <span class="w" data-w="809">cliente</span> <span class="w" data-w="810">conocido</span>. <span class="w" data-w="811">Y</span> <span class="w" data-w="812">fíjese</span> <span class="w" data-w="813">en</span> <span class="w" data-w="814">la</span> <span class="w" data-w="815">doble</span> <span class="w" data-w="816">ventaja</span> <span class="w" data-w="817">del</span> <span class="w" data-w="818">que</span> <span class="w" data-w="819">está</span> <span class="w" data-w="820">cerca</span>, <span class="w" data-w="821">porque</span> <span class="w" data-w="822">es</span> <span class="w" data-w="823">la</span> <span class="w" data-w="824">misma</span> <span class="w" data-w="825">carrera</span> <span class="w" data-w="826">que</span> <span class="w" data-w="827">ya</span> <span class="w" data-w="828">vimos</span> <span class="w" data-w="829">con</span> <span class="w" data-w="830">los</span> <span class="w" data-w="831">precios</span>: <span class="w" data-w="832">no</span> <span class="w" data-w="833">solo</span> <span class="w" data-w="834">recibe</span> <span class="w" data-w="835">el</span> <span class="w" data-w="836">crédito</span> —<span class="w" data-w="837">recibe</span> <span class="w" data-w="838">el</span> <span class="w" data-w="839">dinero</span> <em><span class="w" data-w="840">nuevo</span></em>, <span class="w" data-w="841">cuando</span> <span class="w" data-w="842">todavía</span> <span class="w" data-w="843">conserva</span> <span class="w" data-w="844">su</span> <span class="w" data-w="845">valor</span>, <span class="w" data-w="846">antes</span> <span class="w" data-w="847">de</span> <span class="w" data-w="848">que</span> <span class="w" data-w="849">los</span> <span class="w" data-w="850">precios</span> <span class="w" data-w="851">suban</span>—. <span class="w" data-w="852">El</span> <span class="w" data-w="853">de</span> <span class="w" data-w="854">adentro</span> <span class="w" data-w="855">recibe</span> <span class="w" data-w="856">dinero</span> <span class="w" data-w="857">fresco</span> <span class="w" data-w="858">y</span> <span class="w" data-w="859">barato</span> <span class="w" data-w="860">para</span> <span class="w" data-w="861">comprar</span> <span class="w" data-w="862">el</span> <span class="w" data-w="863">mundo</span> <span class="w" data-w="864">a</span> <span class="w" data-w="865">precios</span> <span class="w" data-w="866">de</span> <span class="w" data-w="867">ayer</span>; <span class="w" data-w="868">el</span> <span class="w" data-w="869">de</span> <span class="w" data-w="870">afuera</span>, <span class="w" data-w="871">si</span> <span class="w" data-w="872">acaso</span> <span class="w" data-w="873">recibe</span> <span class="w" data-w="874">algo</span>, <span class="w" data-w="875">lo</span> <span class="w" data-w="876">recibe</span> <span class="w" data-w="877">tarde</span>, <span class="w" data-w="878">caro</span>, <span class="w" data-w="879">y</span> <span class="w" data-w="880">devaluado</span>. <span class="w" data-w="881">La</span> <span class="w" data-w="882">discriminación</span> <span class="w" data-w="883">bancaria</span> <span class="w" data-w="884">y</span> <span class="w" data-w="885">el</span> <span class="w" data-w="886">reparto</span> <span class="w" data-w="887">desigual</span> <span class="w" data-w="888">del</span> <span class="w" data-w="889">dinero</span> <span class="w" data-w="890">nuevo</span> <span class="w" data-w="891">son</span>, <span class="w" data-w="892">en</span> <span class="w" data-w="893">el</span> <span class="w" data-w="894">fondo</span>, <span class="w" data-w="895">la</span> <span class="w" data-w="896">misma</span> <span class="w" data-w="897">injusticia</span> <span class="w" data-w="898">mirada</span> <span class="w" data-w="899">en</span> <span class="w" data-w="900">el</span> <span class="w" data-w="901">momento</span> <span class="w" data-w="902">del</span> <span class="w" data-w="903">préstamo</span>.</p>
 
     <!-- ====== LA OBJECIÓN DEL RIESGO ====== -->
-    <p>Aquí, si usted tiene buen ojo —o algo de formación financiera—, va a levantar la mano con la objeción más seria que admite este capítulo. "Un momento. ¿No es simplemente que prestarle a la empresa grande es menos riesgoso? Ella tiene activos, historial, con qué responder; Juan es un desconocido con una idea. Cualquier banco prudente prefiere al cliente seguro. Eso no es privilegio: es buena gestión del riesgo." La objeción es legítima, y hay que concederla de entrada: evaluar el riesgo es sensato, y un banco honesto también le prestaría con más cuidado a quien no tiene cómo responder. Si la historia se acabara ahí, no habría de qué quejarse.</p>
+    <p><span class="w" data-w="904">Aquí</span>, <span class="w" data-w="905">si</span> <span class="w" data-w="906">usted</span> <span class="w" data-w="907">tiene</span> <span class="w" data-w="908">buen</span> <span class="w" data-w="909">ojo</span> —<span class="w" data-w="910">o</span> <span class="w" data-w="911">algo</span> <span class="w" data-w="912">de</span> <span class="w" data-w="913">formación</span> <span class="w" data-w="914">financiera</span>—, <span class="w" data-w="915">va</span> <span class="w" data-w="916">a</span> <span class="w" data-w="917">levantar</span> <span class="w" data-w="918">la</span> <span class="w" data-w="919">mano</span> <span class="w" data-w="920">con</span> <span class="w" data-w="921">la</span> <span class="w" data-w="922">objeción</span> <span class="w" data-w="923">más</span> <span class="w" data-w="924">seria</span> <span class="w" data-w="925">que</span> <span class="w" data-w="926">admite</span> <span class="w" data-w="927">este</span> <span class="w" data-w="928">capítulo</span>. "<span class="w" data-w="929">Un</span> <span class="w" data-w="930">momento</span>. ¿<span class="w" data-w="931">No</span> <span class="w" data-w="932">es</span> <span class="w" data-w="933">simplemente</span> <span class="w" data-w="934">que</span> <span class="w" data-w="935">prestarle</span> <span class="w" data-w="936">a</span> <span class="w" data-w="937">la</span> <span class="w" data-w="938">empresa</span> <span class="w" data-w="939">grande</span> <span class="w" data-w="940">es</span> <span class="w" data-w="941">menos</span> <span class="w" data-w="942">riesgoso</span>? <span class="w" data-w="943">Ella</span> <span class="w" data-w="944">tiene</span> <span class="w" data-w="945">activos</span>, <span class="w" data-w="946">historial</span>, <span class="w" data-w="947">con</span> <span class="w" data-w="948">qué</span> <span class="w" data-w="949">responder</span>; <span class="w" data-w="950">Juan</span> <span class="w" data-w="951">es</span> <span class="w" data-w="952">un</span> <span class="w" data-w="953">desconocido</span> <span class="w" data-w="954">con</span> <span class="w" data-w="955">una</span> <span class="w" data-w="956">idea</span>. <span class="w" data-w="957">Cualquier</span> <span class="w" data-w="958">banco</span> <span class="w" data-w="959">prudente</span> <span class="w" data-w="960">prefiere</span> <span class="w" data-w="961">al</span> <span class="w" data-w="962">cliente</span> <span class="w" data-w="963">seguro</span>. <span class="w" data-w="964">Eso</span> <span class="w" data-w="965">no</span> <span class="w" data-w="966">es</span> <span class="w" data-w="967">privilegio</span>: <span class="w" data-w="968">es</span> <span class="w" data-w="969">buena</span> <span class="w" data-w="970">gestión</span> <span class="w" data-w="971">del</span> <span class="w" data-w="972">riesgo</span>." <span class="w" data-w="973">La</span> <span class="w" data-w="974">objeción</span> <span class="w" data-w="975">es</span> <span class="w" data-w="976">legítima</span>, <span class="w" data-w="977">y</span> <span class="w" data-w="978">hay</span> <span class="w" data-w="979">que</span> <span class="w" data-w="980">concederla</span> <span class="w" data-w="981">de</span> <span class="w" data-w="982">entrada</span>: <span class="w" data-w="983">evaluar</span> <span class="w" data-w="984">el</span> <span class="w" data-w="985">riesgo</span> <span class="w" data-w="986">es</span> <span class="w" data-w="987">sensato</span>, <span class="w" data-w="988">y</span> <span class="w" data-w="989">un</span> <span class="w" data-w="990">banco</span> <span class="w" data-w="991">honesto</span> <span class="w" data-w="992">también</span> <span class="w" data-w="993">le</span> <span class="w" data-w="994">prestaría</span> <span class="w" data-w="995">con</span> <span class="w" data-w="996">más</span> <span class="w" data-w="997">cuidado</span> <span class="w" data-w="998">a</span> <span class="w" data-w="999">quien</span> <span class="w" data-w="1000">no</span> <span class="w" data-w="1001">tiene</span> <span class="w" data-w="1002">cómo</span> <span class="w" data-w="1003">responder</span>. <span class="w" data-w="1004">Si</span> <span class="w" data-w="1005">la</span> <span class="w" data-w="1006">historia</span> <span class="w" data-w="1007">se</span> <span class="w" data-w="1008">acabara</span> <span class="w" data-w="1009">ahí</span>, <span class="w" data-w="1010">no</span> <span class="w" data-w="1011">habría</span> <span class="w" data-w="1012">de</span> <span class="w" data-w="1013">qué</span> <span class="w" data-w="1014">quejarse</span>.</p>
 
-    <p>Pero la historia no se acaba ahí, y lo que la objeción pasa por alto es lo decisivo: <em>el dinero creado de la nada no elimina la evaluación del riesgo, pero corrompe el incentivo a hacerla bien</em>. Mire por qué, y verá que el argumento se da vuelta.</p>
+    <p><span class="w" data-w="1015">Pero</span> <span class="w" data-w="1016">la</span> <span class="w" data-w="1017">historia</span> <span class="w" data-w="1018">no</span> <span class="w" data-w="1019">se</span> <span class="w" data-w="1020">acaba</span> <span class="w" data-w="1021">ahí</span>, <span class="w" data-w="1022">y</span> <span class="w" data-w="1023">lo</span> <span class="w" data-w="1024">que</span> <span class="w" data-w="1025">la</span> <span class="w" data-w="1026">objeción</span> <span class="w" data-w="1027">pasa</span> <span class="w" data-w="1028">por</span> <span class="w" data-w="1029">alto</span> <span class="w" data-w="1030">es</span> <span class="w" data-w="1031">lo</span> <span class="w" data-w="1032">decisivo</span>: <em><span class="w" data-w="1033">el</span> <span class="w" data-w="1034">dinero</span> <span class="w" data-w="1035">creado</span> <span class="w" data-w="1036">de</span> <span class="w" data-w="1037">la</span> <span class="w" data-w="1038">nada</span> <span class="w" data-w="1039">no</span> <span class="w" data-w="1040">elimina</span> <span class="w" data-w="1041">la</span> <span class="w" data-w="1042">evaluación</span> <span class="w" data-w="1043">del</span> <span class="w" data-w="1044">riesgo</span>, <span class="w" data-w="1045">pero</span> <span class="w" data-w="1046">corrompe</span> <span class="w" data-w="1047">el</span> <span class="w" data-w="1048">incentivo</span> <span class="w" data-w="1049">a</span> <span class="w" data-w="1050">hacerla</span> <span class="w" data-w="1051">bien</span></em>. <span class="w" data-w="1052">Mire</span> <span class="w" data-w="1053">por</span> <span class="w" data-w="1054">qué</span>, <span class="w" data-w="1055">y</span> <span class="w" data-w="1056">verá</span> <span class="w" data-w="1057">que</span> <span class="w" data-w="1058">el</span> <span class="w" data-w="1059">argumento</span> <span class="w" data-w="1060">se</span> <span class="w" data-w="1061">da</span> <span class="w" data-w="1062">vuelta</span>.</p>
 
-    <p>Conviene apoyarse aquí en una distinción que popularizó Milton Friedman —que no era de esta tradición, sino más bien un adversario de ella, lo que vuelve aún más revelador que su esquema ilumine tan bien el problema—. Friedman observó que hay cuatro maneras de gastar dinero, y que el cuidado con que se gasta depende de dos cosas: de quién es el dinero, y para quién es lo que se compra. Cuando uno gasta <em>su</em> dinero en <em>sí mismo</em>, cuida las dos puntas: que sea bueno y que no cueste de más. Cuando gasta su dinero en otro —un regalo—, cuida el precio pero afloja en la calidad. Cuando gasta el dinero de otro en sí mismo —una cena con cuenta ajena—, cuida la calidad pero no el precio. Y cuando gasta <em>el dinero de otro en un tercero</em>, no cuida ninguna de las dos: ni el precio, porque no es suyo, ni la calidad, porque no es para él. Es el cuadrante de la indiferencia total —y es, ni más ni menos, cómo se gasta el dinero de los impuestos: no es de quien lo gasta ni va a parar a él, así que poco importa en qué se gaste o si rinde—.</p>
+    <p><span class="w" data-w="1063">Conviene</span> <span class="w" data-w="1064">apoyarse</span> <span class="w" data-w="1065">aquí</span> <span class="w" data-w="1066">en</span> <span class="w" data-w="1067">una</span> <span class="w" data-w="1068">distinción</span> <span class="w" data-w="1069">que</span> <span class="w" data-w="1070">popularizó</span> <span class="w" data-w="1071">Milton</span> <span class="w" data-w="1072">Friedman</span> —<span class="w" data-w="1073">que</span> <span class="w" data-w="1074">no</span> <span class="w" data-w="1075">era</span> <span class="w" data-w="1076">de</span> <span class="w" data-w="1077">esta</span> <span class="w" data-w="1078">tradición</span>, <span class="w" data-w="1079">sino</span> <span class="w" data-w="1080">más</span> <span class="w" data-w="1081">bien</span> <span class="w" data-w="1082">un</span> <span class="w" data-w="1083">adversario</span> <span class="w" data-w="1084">de</span> <span class="w" data-w="1085">ella</span>, <span class="w" data-w="1086">lo</span> <span class="w" data-w="1087">que</span> <span class="w" data-w="1088">vuelve</span> <span class="w" data-w="1089">aún</span> <span class="w" data-w="1090">más</span> <span class="w" data-w="1091">revelador</span> <span class="w" data-w="1092">que</span> <span class="w" data-w="1093">su</span> <span class="w" data-w="1094">esquema</span> <span class="w" data-w="1095">ilumine</span> <span class="w" data-w="1096">tan</span> <span class="w" data-w="1097">bien</span> <span class="w" data-w="1098">el</span> <span class="w" data-w="1099">problema</span>—. <span class="w" data-w="1100">Friedman</span> <span class="w" data-w="1101">observó</span> <span class="w" data-w="1102">que</span> <span class="w" data-w="1103">hay</span> <span class="w" data-w="1104">cuatro</span> <span class="w" data-w="1105">maneras</span> <span class="w" data-w="1106">de</span> <span class="w" data-w="1107">gastar</span> <span class="w" data-w="1108">dinero</span>, <span class="w" data-w="1109">y</span> <span class="w" data-w="1110">que</span> <span class="w" data-w="1111">el</span> <span class="w" data-w="1112">cuidado</span> <span class="w" data-w="1113">con</span> <span class="w" data-w="1114">que</span> <span class="w" data-w="1115">se</span> <span class="w" data-w="1116">gasta</span> <span class="w" data-w="1117">depende</span> <span class="w" data-w="1118">de</span> <span class="w" data-w="1119">dos</span> <span class="w" data-w="1120">cosas</span>: <span class="w" data-w="1121">de</span> <span class="w" data-w="1122">quién</span> <span class="w" data-w="1123">es</span> <span class="w" data-w="1124">el</span> <span class="w" data-w="1125">dinero</span>, <span class="w" data-w="1126">y</span> <span class="w" data-w="1127">para</span> <span class="w" data-w="1128">quién</span> <span class="w" data-w="1129">es</span> <span class="w" data-w="1130">lo</span> <span class="w" data-w="1131">que</span> <span class="w" data-w="1132">se</span> <span class="w" data-w="1133">compra</span>. <span class="w" data-w="1134">Cuando</span> <span class="w" data-w="1135">uno</span> <span class="w" data-w="1136">gasta</span> <em><span class="w" data-w="1137">su</span></em> <span class="w" data-w="1138">dinero</span> <span class="w" data-w="1139">en</span> <em><span class="w" data-w="1140">sí</span> <span class="w" data-w="1141">mismo</span></em>, <span class="w" data-w="1142">cuida</span> <span class="w" data-w="1143">las</span> <span class="w" data-w="1144">dos</span> <span class="w" data-w="1145">puntas</span>: <span class="w" data-w="1146">que</span> <span class="w" data-w="1147">sea</span> <span class="w" data-w="1148">bueno</span> <span class="w" data-w="1149">y</span> <span class="w" data-w="1150">que</span> <span class="w" data-w="1151">no</span> <span class="w" data-w="1152">cueste</span> <span class="w" data-w="1153">de</span> <span class="w" data-w="1154">más</span>. <span class="w" data-w="1155">Cuando</span> <span class="w" data-w="1156">gasta</span> <span class="w" data-w="1157">su</span> <span class="w" data-w="1158">dinero</span> <span class="w" data-w="1159">en</span> <span class="w" data-w="1160">otro</span> —<span class="w" data-w="1161">un</span> <span class="w" data-w="1162">regalo</span>—, <span class="w" data-w="1163">cuida</span> <span class="w" data-w="1164">el</span> <span class="w" data-w="1165">precio</span> <span class="w" data-w="1166">pero</span> <span class="w" data-w="1167">afloja</span> <span class="w" data-w="1168">en</span> <span class="w" data-w="1169">la</span> <span class="w" data-w="1170">calidad</span>. <span class="w" data-w="1171">Cuando</span> <span class="w" data-w="1172">gasta</span> <span class="w" data-w="1173">el</span> <span class="w" data-w="1174">dinero</span> <span class="w" data-w="1175">de</span> <span class="w" data-w="1176">otro</span> <span class="w" data-w="1177">en</span> <span class="w" data-w="1178">sí</span> <span class="w" data-w="1179">mismo</span> —<span class="w" data-w="1180">una</span> <span class="w" data-w="1181">cena</span> <span class="w" data-w="1182">con</span> <span class="w" data-w="1183">cuenta</span> <span class="w" data-w="1184">ajena</span>—, <span class="w" data-w="1185">cuida</span> <span class="w" data-w="1186">la</span> <span class="w" data-w="1187">calidad</span> <span class="w" data-w="1188">pero</span> <span class="w" data-w="1189">no</span> <span class="w" data-w="1190">el</span> <span class="w" data-w="1191">precio</span>. <span class="w" data-w="1192">Y</span> <span class="w" data-w="1193">cuando</span> <span class="w" data-w="1194">gasta</span> <em><span class="w" data-w="1195">el</span> <span class="w" data-w="1196">dinero</span> <span class="w" data-w="1197">de</span> <span class="w" data-w="1198">otro</span> <span class="w" data-w="1199">en</span> <span class="w" data-w="1200">un</span> <span class="w" data-w="1201">tercero</span></em>, <span class="w" data-w="1202">no</span> <span class="w" data-w="1203">cuida</span> <span class="w" data-w="1204">ninguna</span> <span class="w" data-w="1205">de</span> <span class="w" data-w="1206">las</span> <span class="w" data-w="1207">dos</span>: <span class="w" data-w="1208">ni</span> <span class="w" data-w="1209">el</span> <span class="w" data-w="1210">precio</span>, <span class="w" data-w="1211">porque</span> <span class="w" data-w="1212">no</span> <span class="w" data-w="1213">es</span> <span class="w" data-w="1214">suyo</span>, <span class="w" data-w="1215">ni</span> <span class="w" data-w="1216">la</span> <span class="w" data-w="1217">calidad</span>, <span class="w" data-w="1218">porque</span> <span class="w" data-w="1219">no</span> <span class="w" data-w="1220">es</span> <span class="w" data-w="1221">para</span> <span class="w" data-w="1222">él</span>. <span class="w" data-w="1223">Es</span> <span class="w" data-w="1224">el</span> <span class="w" data-w="1225">cuadrante</span> <span class="w" data-w="1226">de</span> <span class="w" data-w="1227">la</span> <span class="w" data-w="1228">indiferencia</span> <span class="w" data-w="1229">total</span> —<span class="w" data-w="1230">y</span> <span class="w" data-w="1231">es</span>, <span class="w" data-w="1232">ni</span> <span class="w" data-w="1233">más</span> <span class="w" data-w="1234">ni</span> <span class="w" data-w="1235">menos</span>, <span class="w" data-w="1236">cómo</span> <span class="w" data-w="1237">se</span> <span class="w" data-w="1238">gasta</span> <span class="w" data-w="1239">el</span> <span class="w" data-w="1240">dinero</span> <span class="w" data-w="1241">de</span> <span class="w" data-w="1242">los</span> <span class="w" data-w="1243">impuestos</span>: <span class="w" data-w="1244">no</span> <span class="w" data-w="1245">es</span> <span class="w" data-w="1246">de</span> <span class="w" data-w="1247">quien</span> <span class="w" data-w="1248">lo</span> <span class="w" data-w="1249">gasta</span> <span class="w" data-w="1250">ni</span> <span class="w" data-w="1251">va</span> <span class="w" data-w="1252">a</span> <span class="w" data-w="1253">parar</span> <span class="w" data-w="1254">a</span> <span class="w" data-w="1255">él</span>, <span class="w" data-w="1256">así</span> <span class="w" data-w="1257">que</span> <span class="w" data-w="1258">poco</span> <span class="w" data-w="1259">importa</span> <span class="w" data-w="1260">en</span> <span class="w" data-w="1261">qué</span> <span class="w" data-w="1262">se</span> <span class="w" data-w="1263">gaste</span> <span class="w" data-w="1264">o</span> <span class="w" data-w="1265">si</span> <span class="w" data-w="1266">rinde</span>—.</p>
 
-    <p>Guarde esa cuarta casilla, porque es exactamente donde está parado el banco que presta dinero creado de la nada. Hágase la pregunta incómoda: ¿de quién es el dinero que reparte, y para quién es? No es suyo —lo fabricó con la firma, no lo ahorró—. Y no es para él —es para el cliente—. Dinero que no es suyo, prestado a un tercero: el cuadrante cuatro, el de la indiferencia. Por eso el incentivo está roto de raíz. No es que el banquero sea malo o perezoso por carácter; es que está estructuralmente en la posición de quien gasta lo ajeno en otro, y en esa posición —Friedman lo vio con claridad— a nadie le importa demasiado si el capital se dirige bien o mal.</p>
+    <p><span class="w" data-w="1267">Guarde</span> <span class="w" data-w="1268">esa</span> <span class="w" data-w="1269">cuarta</span> <span class="w" data-w="1270">casilla</span>, <span class="w" data-w="1271">porque</span> <span class="w" data-w="1272">es</span> <span class="w" data-w="1273">exactamente</span> <span class="w" data-w="1274">donde</span> <span class="w" data-w="1275">está</span> <span class="w" data-w="1276">parado</span> <span class="w" data-w="1277">el</span> <span class="w" data-w="1278">banco</span> <span class="w" data-w="1279">que</span> <span class="w" data-w="1280">presta</span> <span class="w" data-w="1281">dinero</span> <span class="w" data-w="1282">creado</span> <span class="w" data-w="1283">de</span> <span class="w" data-w="1284">la</span> <span class="w" data-w="1285">nada</span>. <span class="w" data-w="1286">Hágase</span> <span class="w" data-w="1287">la</span> <span class="w" data-w="1288">pregunta</span> <span class="w" data-w="1289">incómoda</span>: ¿<span class="w" data-w="1290">de</span> <span class="w" data-w="1291">quién</span> <span class="w" data-w="1292">es</span> <span class="w" data-w="1293">el</span> <span class="w" data-w="1294">dinero</span> <span class="w" data-w="1295">que</span> <span class="w" data-w="1296">reparte</span>, <span class="w" data-w="1297">y</span> <span class="w" data-w="1298">para</span> <span class="w" data-w="1299">quién</span> <span class="w" data-w="1300">es</span>? <span class="w" data-w="1301">No</span> <span class="w" data-w="1302">es</span> <span class="w" data-w="1303">suyo</span> —<span class="w" data-w="1304">lo</span> <span class="w" data-w="1305">fabricó</span> <span class="w" data-w="1306">con</span> <span class="w" data-w="1307">la</span> <span class="w" data-w="1308">firma</span>, <span class="w" data-w="1309">no</span> <span class="w" data-w="1310">lo</span> <span class="w" data-w="1311">ahorró</span>—. <span class="w" data-w="1312">Y</span> <span class="w" data-w="1313">no</span> <span class="w" data-w="1314">es</span> <span class="w" data-w="1315">para</span> <span class="w" data-w="1316">él</span> —<span class="w" data-w="1317">es</span> <span class="w" data-w="1318">para</span> <span class="w" data-w="1319">el</span> <span class="w" data-w="1320">cliente</span>—. <span class="w" data-w="1321">Dinero</span> <span class="w" data-w="1322">que</span> <span class="w" data-w="1323">no</span> <span class="w" data-w="1324">es</span> <span class="w" data-w="1325">suyo</span>, <span class="w" data-w="1326">prestado</span> <span class="w" data-w="1327">a</span> <span class="w" data-w="1328">un</span> <span class="w" data-w="1329">tercero</span>: <span class="w" data-w="1330">el</span> <span class="w" data-w="1331">cuadrante</span> <span class="w" data-w="1332">cuatro</span>, <span class="w" data-w="1333">el</span> <span class="w" data-w="1334">de</span> <span class="w" data-w="1335">la</span> <span class="w" data-w="1336">indiferencia</span>. <span class="w" data-w="1337">Por</span> <span class="w" data-w="1338">eso</span> <span class="w" data-w="1339">el</span> <span class="w" data-w="1340">incentivo</span> <span class="w" data-w="1341">está</span> <span class="w" data-w="1342">roto</span> <span class="w" data-w="1343">de</span> <span class="w" data-w="1344">raíz</span>. <span class="w" data-w="1345">No</span> <span class="w" data-w="1346">es</span> <span class="w" data-w="1347">que</span> <span class="w" data-w="1348">el</span> <span class="w" data-w="1349">banquero</span> <span class="w" data-w="1350">sea</span> <span class="w" data-w="1351">malo</span> <span class="w" data-w="1352">o</span> <span class="w" data-w="1353">perezoso</span> <span class="w" data-w="1354">por</span> <span class="w" data-w="1355">carácter</span>; <span class="w" data-w="1356">es</span> <span class="w" data-w="1357">que</span> <span class="w" data-w="1358">está</span> <span class="w" data-w="1359">estructuralmente</span> <span class="w" data-w="1360">en</span> <span class="w" data-w="1361">la</span> <span class="w" data-w="1362">posición</span> <span class="w" data-w="1363">de</span> <span class="w" data-w="1364">quien</span> <span class="w" data-w="1365">gasta</span> <span class="w" data-w="1366">lo</span> <span class="w" data-w="1367">ajeno</span> <span class="w" data-w="1368">en</span> <span class="w" data-w="1369">otro</span>, <span class="w" data-w="1370">y</span> <span class="w" data-w="1371">en</span> <span class="w" data-w="1372">esa</span> <span class="w" data-w="1373">posición</span> —<span class="w" data-w="1374">Friedman</span> <span class="w" data-w="1375">lo</span> <span class="w" data-w="1376">vio</span> <span class="w" data-w="1377">con</span> <span class="w" data-w="1378">claridad</span>— <span class="w" data-w="1379">a</span> <span class="w" data-w="1380">nadie</span> <span class="w" data-w="1381">le</span> <span class="w" data-w="1382">importa</span> <span class="w" data-w="1383">demasiado</span> <span class="w" data-w="1384">si</span> <span class="w" data-w="1385">el</span> <span class="w" data-w="1386">capital</span> <span class="w" data-w="1387">se</span> <span class="w" data-w="1388">dirige</span> <span class="w" data-w="1389">bien</span> <span class="w" data-w="1390">o</span> <span class="w" data-w="1391">mal</span>.</p>
 
-    <p>Y ahora sí, vea cómo eso destroza la evaluación del riesgo. Cuando alguien presta su propio ahorro, lo cuida como propio —si el proyecto fracasa, pierde él, y por eso escarba, pregunta, exige, busca de verdad si el negocio rinde—. Pero el banco comercial enchufado al banco central no arriesga lo suyo: si las cosas se tuercen, hay un prestamista de última instancia que lo respalda, hay rescates, hay seguro de depósitos. <span class="term-rojo">Juega con red</span>. Es la cuarta casilla otra vez: ni el dinero es suyo ni la pérdida será del todo suya. Y quien juega con red no evalúa el riesgo como quien se juega el patrimonio: lo evalúa con pereza. Entonces "prestarle al de siempre" no es la conclusión de un análisis cuidadoso del riesgo: es el atajo cómodo de quien no necesita ser cuidadoso. La objeción supone un banquero prudente que arriesga lo propio; pero el dinero que se crea de la nada produce justo lo contrario —un banquero que reparte lo de todos y, por eso mismo, no se molesta en mirar bien—.</p>
+    <p><span class="w" data-w="1392">Y</span> <span class="w" data-w="1393">ahora</span> <span class="w" data-w="1394">sí</span>, <span class="w" data-w="1395">vea</span> <span class="w" data-w="1396">cómo</span> <span class="w" data-w="1397">eso</span> <span class="w" data-w="1398">destroza</span> <span class="w" data-w="1399">la</span> <span class="w" data-w="1400">evaluación</span> <span class="w" data-w="1401">del</span> <span class="w" data-w="1402">riesgo</span>. <span class="w" data-w="1403">Cuando</span> <span class="w" data-w="1404">alguien</span> <span class="w" data-w="1405">presta</span> <span class="w" data-w="1406">su</span> <span class="w" data-w="1407">propio</span> <span class="w" data-w="1408">ahorro</span>, <span class="w" data-w="1409">lo</span> <span class="w" data-w="1410">cuida</span> <span class="w" data-w="1411">como</span> <span class="w" data-w="1412">propio</span> —<span class="w" data-w="1413">si</span> <span class="w" data-w="1414">el</span> <span class="w" data-w="1415">proyecto</span> <span class="w" data-w="1416">fracasa</span>, <span class="w" data-w="1417">pierde</span> <span class="w" data-w="1418">él</span>, <span class="w" data-w="1419">y</span> <span class="w" data-w="1420">por</span> <span class="w" data-w="1421">eso</span> <span class="w" data-w="1422">escarba</span>, <span class="w" data-w="1423">pregunta</span>, <span class="w" data-w="1424">exige</span>, <span class="w" data-w="1425">busca</span> <span class="w" data-w="1426">de</span> <span class="w" data-w="1427">verdad</span> <span class="w" data-w="1428">si</span> <span class="w" data-w="1429">el</span> <span class="w" data-w="1430">negocio</span> <span class="w" data-w="1431">rinde</span>—. <span class="w" data-w="1432">Pero</span> <span class="w" data-w="1433">el</span> <span class="w" data-w="1434">banco</span> <span class="w" data-w="1435">comercial</span> <span class="w" data-w="1436">enchufado</span> <span class="w" data-w="1437">al</span> <span class="w" data-w="1438">banco</span> <span class="w" data-w="1439">central</span> <span class="w" data-w="1440">no</span> <span class="w" data-w="1441">arriesga</span> <span class="w" data-w="1442">lo</span> <span class="w" data-w="1443">suyo</span>: <span class="w" data-w="1444">si</span> <span class="w" data-w="1445">las</span> <span class="w" data-w="1446">cosas</span> <span class="w" data-w="1447">se</span> <span class="w" data-w="1448">tuercen</span>, <span class="w" data-w="1449">hay</span> <span class="w" data-w="1450">un</span> <span class="w" data-w="1451">prestamista</span> <span class="w" data-w="1452">de</span> <span class="w" data-w="1453">última</span> <span class="w" data-w="1454">instancia</span> <span class="w" data-w="1455">que</span> <span class="w" data-w="1456">lo</span> <span class="w" data-w="1457">respalda</span>, <span class="w" data-w="1458">hay</span> <span class="w" data-w="1459">rescates</span>, <span class="w" data-w="1460">hay</span> <span class="w" data-w="1461">seguro</span> <span class="w" data-w="1462">de</span> <span class="w" data-w="1463">depósitos</span>. <span class="term-rojo"><span class="w" data-w="1464">Juega</span> <span class="w" data-w="1465">con</span> <span class="w" data-w="1466">red</span></span>. <span class="w" data-w="1467">Es</span> <span class="w" data-w="1468">la</span> <span class="w" data-w="1469">cuarta</span> <span class="w" data-w="1470">casilla</span> <span class="w" data-w="1471">otra</span> <span class="w" data-w="1472">vez</span>: <span class="w" data-w="1473">ni</span> <span class="w" data-w="1474">el</span> <span class="w" data-w="1475">dinero</span> <span class="w" data-w="1476">es</span> <span class="w" data-w="1477">suyo</span> <span class="w" data-w="1478">ni</span> <span class="w" data-w="1479">la</span> <span class="w" data-w="1480">pérdida</span> <span class="w" data-w="1481">será</span> <span class="w" data-w="1482">del</span> <span class="w" data-w="1483">todo</span> <span class="w" data-w="1484">suya</span>. <span class="w" data-w="1485">Y</span> <span class="w" data-w="1486">quien</span> <span class="w" data-w="1487">juega</span> <span class="w" data-w="1488">con</span> <span class="w" data-w="1489">red</span> <span class="w" data-w="1490">no</span> <span class="w" data-w="1491">evalúa</span> <span class="w" data-w="1492">el</span> <span class="w" data-w="1493">riesgo</span> <span class="w" data-w="1494">como</span> <span class="w" data-w="1495">quien</span> <span class="w" data-w="1496">se</span> <span class="w" data-w="1497">juega</span> <span class="w" data-w="1498">el</span> <span class="w" data-w="1499">patrimonio</span>: <span class="w" data-w="1500">lo</span> <span class="w" data-w="1501">evalúa</span> <span class="w" data-w="1502">con</span> <span class="w" data-w="1503">pereza</span>. <span class="w" data-w="1504">Entonces</span> "<span class="w" data-w="1505">prestarle</span> <span class="w" data-w="1506">al</span> <span class="w" data-w="1507">de</span> <span class="w" data-w="1508">siempre</span>" <span class="w" data-w="1509">no</span> <span class="w" data-w="1510">es</span> <span class="w" data-w="1511">la</span> <span class="w" data-w="1512">conclusión</span> <span class="w" data-w="1513">de</span> <span class="w" data-w="1514">un</span> <span class="w" data-w="1515">análisis</span> <span class="w" data-w="1516">cuidadoso</span> <span class="w" data-w="1517">del</span> <span class="w" data-w="1518">riesgo</span>: <span class="w" data-w="1519">es</span> <span class="w" data-w="1520">el</span> <span class="w" data-w="1521">atajo</span> <span class="w" data-w="1522">cómodo</span> <span class="w" data-w="1523">de</span> <span class="w" data-w="1524">quien</span> <span class="w" data-w="1525">no</span> <span class="w" data-w="1526">necesita</span> <span class="w" data-w="1527">ser</span> <span class="w" data-w="1528">cuidadoso</span>. <span class="w" data-w="1529">La</span> <span class="w" data-w="1530">objeción</span> <span class="w" data-w="1531">supone</span> <span class="w" data-w="1532">un</span> <span class="w" data-w="1533">banquero</span> <span class="w" data-w="1534">prudente</span> <span class="w" data-w="1535">que</span> <span class="w" data-w="1536">arriesga</span> <span class="w" data-w="1537">lo</span> <span class="w" data-w="1538">propio</span>; <span class="w" data-w="1539">pero</span> <span class="w" data-w="1540">el</span> <span class="w" data-w="1541">dinero</span> <span class="w" data-w="1542">que</span> <span class="w" data-w="1543">se</span> <span class="w" data-w="1544">crea</span> <span class="w" data-w="1545">de</span> <span class="w" data-w="1546">la</span> <span class="w" data-w="1547">nada</span> <span class="w" data-w="1548">produce</span> <span class="w" data-w="1549">justo</span> <span class="w" data-w="1550">lo</span> <span class="w" data-w="1551">contrario</span> —<span class="w" data-w="1552">un</span> <span class="w" data-w="1553">banquero</span> <span class="w" data-w="1554">que</span> <span class="w" data-w="1555">reparte</span> <span class="w" data-w="1556">lo</span> <span class="w" data-w="1557">de</span> <span class="w" data-w="1558">todos</span> <span class="w" data-w="1559">y</span>, <span class="w" data-w="1560">por</span> <span class="w" data-w="1561">eso</span> <span class="w" data-w="1562">mismo</span>, <span class="w" data-w="1563">no</span> <span class="w" data-w="1564">se</span> <span class="w" data-w="1565">molesta</span> <span class="w" data-w="1566">en</span> <span class="w" data-w="1567">mirar</span> <span class="w" data-w="1568">bien</span>—.</p>
 
-    <p>Y ahí está la vuelta completa: con dinero honesto, el banco <em>también</em> evaluaría el riesgo —pero arriesgando un ahorro real y escaso, tendría un incentivo feroz a descubrir si el proyecto de Juan, aun siendo menos conocido, rinde lo suficiente para valer la pena—. Buscaría el mejor proyecto ajustado por su riesgo, porque equivocarse le costaría lo suyo. El dinero creado de la nada apaga ese incentivo: como no le duele perder y siempre puede fabricar más, le sale más barato prestarle al conocido que tomarse el trabajo de evaluar al desconocido. No es que el privilegio reemplace la evaluación del riesgo; es que <span class="term-rojo">elimina el incentivo a evaluarlo con honestidad</span>. Juan no pierde porque su proyecto sea malo: pierde porque, en un sistema donde al banco no le duele equivocarse, nadie tiene razones para averiguar si su proyecto es bueno.</p>
+    <p><span class="w" data-w="1569">Y</span> <span class="w" data-w="1570">ahí</span> <span class="w" data-w="1571">está</span> <span class="w" data-w="1572">la</span> <span class="w" data-w="1573">vuelta</span> <span class="w" data-w="1574">completa</span>: <span class="w" data-w="1575">con</span> <span class="w" data-w="1576">dinero</span> <span class="w" data-w="1577">honesto</span>, <span class="w" data-w="1578">el</span> <span class="w" data-w="1579">banco</span> <em><span class="w" data-w="1580">también</span></em> <span class="w" data-w="1581">evaluaría</span> <span class="w" data-w="1582">el</span> <span class="w" data-w="1583">riesgo</span> —<span class="w" data-w="1584">pero</span> <span class="w" data-w="1585">arriesgando</span> <span class="w" data-w="1586">un</span> <span class="w" data-w="1587">ahorro</span> <span class="w" data-w="1588">real</span> <span class="w" data-w="1589">y</span> <span class="w" data-w="1590">escaso</span>, <span class="w" data-w="1591">tendría</span> <span class="w" data-w="1592">un</span> <span class="w" data-w="1593">incentivo</span> <span class="w" data-w="1594">feroz</span> <span class="w" data-w="1595">a</span> <span class="w" data-w="1596">descubrir</span> <span class="w" data-w="1597">si</span> <span class="w" data-w="1598">el</span> <span class="w" data-w="1599">proyecto</span> <span class="w" data-w="1600">de</span> <span class="w" data-w="1601">Juan</span>, <span class="w" data-w="1602">aun</span> <span class="w" data-w="1603">siendo</span> <span class="w" data-w="1604">menos</span> <span class="w" data-w="1605">conocido</span>, <span class="w" data-w="1606">rinde</span> <span class="w" data-w="1607">lo</span> <span class="w" data-w="1608">suficiente</span> <span class="w" data-w="1609">para</span> <span class="w" data-w="1610">valer</span> <span class="w" data-w="1611">la</span> <span class="w" data-w="1612">pena</span>—. <span class="w" data-w="1613">Buscaría</span> <span class="w" data-w="1614">el</span> <span class="w" data-w="1615">mejor</span> <span class="w" data-w="1616">proyecto</span> <span class="w" data-w="1617">ajustado</span> <span class="w" data-w="1618">por</span> <span class="w" data-w="1619">su</span> <span class="w" data-w="1620">riesgo</span>, <span class="w" data-w="1621">porque</span> <span class="w" data-w="1622">equivocarse</span> <span class="w" data-w="1623">le</span> <span class="w" data-w="1624">costaría</span> <span class="w" data-w="1625">lo</span> <span class="w" data-w="1626">suyo</span>. <span class="w" data-w="1627">El</span> <span class="w" data-w="1628">dinero</span> <span class="w" data-w="1629">creado</span> <span class="w" data-w="1630">de</span> <span class="w" data-w="1631">la</span> <span class="w" data-w="1632">nada</span> <span class="w" data-w="1633">apaga</span> <span class="w" data-w="1634">ese</span> <span class="w" data-w="1635">incentivo</span>: <span class="w" data-w="1636">como</span> <span class="w" data-w="1637">no</span> <span class="w" data-w="1638">le</span> <span class="w" data-w="1639">duele</span> <span class="w" data-w="1640">perder</span> <span class="w" data-w="1641">y</span> <span class="w" data-w="1642">siempre</span> <span class="w" data-w="1643">puede</span> <span class="w" data-w="1644">fabricar</span> <span class="w" data-w="1645">más</span>, <span class="w" data-w="1646">le</span> <span class="w" data-w="1647">sale</span> <span class="w" data-w="1648">más</span> <span class="w" data-w="1649">barato</span> <span class="w" data-w="1650">prestarle</span> <span class="w" data-w="1651">al</span> <span class="w" data-w="1652">conocido</span> <span class="w" data-w="1653">que</span> <span class="w" data-w="1654">tomarse</span> <span class="w" data-w="1655">el</span> <span class="w" data-w="1656">trabajo</span> <span class="w" data-w="1657">de</span> <span class="w" data-w="1658">evaluar</span> <span class="w" data-w="1659">al</span> <span class="w" data-w="1660">desconocido</span>. <span class="w" data-w="1661">No</span> <span class="w" data-w="1662">es</span> <span class="w" data-w="1663">que</span> <span class="w" data-w="1664">el</span> <span class="w" data-w="1665">privilegio</span> <span class="w" data-w="1666">reemplace</span> <span class="w" data-w="1667">la</span> <span class="w" data-w="1668">evaluación</span> <span class="w" data-w="1669">del</span> <span class="w" data-w="1670">riesgo</span>; <span class="w" data-w="1671">es</span> <span class="w" data-w="1672">que</span> <span class="term-rojo"><span class="w" data-w="1673">elimina</span> <span class="w" data-w="1674">el</span> <span class="w" data-w="1675">incentivo</span> <span class="w" data-w="1676">a</span> <span class="w" data-w="1677">evaluarlo</span> <span class="w" data-w="1678">con</span> <span class="w" data-w="1679">honestidad</span></span>. <span class="w" data-w="1680">Juan</span> <span class="w" data-w="1681">no</span> <span class="w" data-w="1682">pierde</span> <span class="w" data-w="1683">porque</span> <span class="w" data-w="1684">su</span> <span class="w" data-w="1685">proyecto</span> <span class="w" data-w="1686">sea</span> <span class="w" data-w="1687">malo</span>: <span class="w" data-w="1688">pierde</span> <span class="w" data-w="1689">porque</span>, <span class="w" data-w="1690">en</span> <span class="w" data-w="1691">un</span> <span class="w" data-w="1692">sistema</span> <span class="w" data-w="1693">donde</span> <span class="w" data-w="1694">al</span> <span class="w" data-w="1695">banco</span> <span class="w" data-w="1696">no</span> <span class="w" data-w="1697">le</span> <span class="w" data-w="1698">duele</span> <span class="w" data-w="1699">equivocarse</span>, <span class="w" data-w="1700">nadie</span> <span class="w" data-w="1701">tiene</span> <span class="w" data-w="1702">razones</span> <span class="w" data-w="1703">para</span> <span class="w" data-w="1704">averiguar</span> <span class="w" data-w="1705">si</span> <span class="w" data-w="1706">su</span> <span class="w" data-w="1707">proyecto</span> <span class="w" data-w="1708">es</span> <span class="w" data-w="1709">bueno</span>.</p>
 
-    <p>Hay todavía una vuelta de tuerca, por si quedara duda. ¿De dónde salieron los activos que vuelven "tan segura" a la empresa grande? En buena parte, de haber estado cerca del dinero nuevo antes: compró barato, con crédito previo, lo que hoy vale más y le sirve de colateral. Su menor riesgo no es un dato caído del cielo —es, en parte, el premio acumulado de privilegios anteriores—. El sistema fabrica el colateral que luego invoca para justificar prestarle más al mismo. De modo que "es menos riesgoso" no siempre describe un mérito: a veces describe la ventaja heredada de quien lleva tiempo cerca del grifo.</p>
+    <p><span class="w" data-w="1710">Hay</span> <span class="w" data-w="1711">todavía</span> <span class="w" data-w="1712">una</span> <span class="w" data-w="1713">vuelta</span> <span class="w" data-w="1714">de</span> <span class="w" data-w="1715">tuerca</span>, <span class="w" data-w="1716">por</span> <span class="w" data-w="1717">si</span> <span class="w" data-w="1718">quedara</span> <span class="w" data-w="1719">duda</span>. ¿<span class="w" data-w="1720">De</span> <span class="w" data-w="1721">dónde</span> <span class="w" data-w="1722">salieron</span> <span class="w" data-w="1723">los</span> <span class="w" data-w="1724">activos</span> <span class="w" data-w="1725">que</span> <span class="w" data-w="1726">vuelven</span> "<span class="w" data-w="1727">tan</span> <span class="w" data-w="1728">segura</span>" <span class="w" data-w="1729">a</span> <span class="w" data-w="1730">la</span> <span class="w" data-w="1731">empresa</span> <span class="w" data-w="1732">grande</span>? <span class="w" data-w="1733">En</span> <span class="w" data-w="1734">buena</span> <span class="w" data-w="1735">parte</span>, <span class="w" data-w="1736">de</span> <span class="w" data-w="1737">haber</span> <span class="w" data-w="1738">estado</span> <span class="w" data-w="1739">cerca</span> <span class="w" data-w="1740">del</span> <span class="w" data-w="1741">dinero</span> <span class="w" data-w="1742">nuevo</span> <span class="w" data-w="1743">antes</span>: <span class="w" data-w="1744">compró</span> <span class="w" data-w="1745">barato</span>, <span class="w" data-w="1746">con</span> <span class="w" data-w="1747">crédito</span> <span class="w" data-w="1748">previo</span>, <span class="w" data-w="1749">lo</span> <span class="w" data-w="1750">que</span> <span class="w" data-w="1751">hoy</span> <span class="w" data-w="1752">vale</span> <span class="w" data-w="1753">más</span> <span class="w" data-w="1754">y</span> <span class="w" data-w="1755">le</span> <span class="w" data-w="1756">sirve</span> <span class="w" data-w="1757">de</span> <span class="w" data-w="1758">colateral</span>. <span class="w" data-w="1759">Su</span> <span class="w" data-w="1760">menor</span> <span class="w" data-w="1761">riesgo</span> <span class="w" data-w="1762">no</span> <span class="w" data-w="1763">es</span> <span class="w" data-w="1764">un</span> <span class="w" data-w="1765">dato</span> <span class="w" data-w="1766">caído</span> <span class="w" data-w="1767">del</span> <span class="w" data-w="1768">cielo</span> —<span class="w" data-w="1769">es</span>, <span class="w" data-w="1770">en</span> <span class="w" data-w="1771">parte</span>, <span class="w" data-w="1772">el</span> <span class="w" data-w="1773">premio</span> <span class="w" data-w="1774">acumulado</span> <span class="w" data-w="1775">de</span> <span class="w" data-w="1776">privilegios</span> <span class="w" data-w="1777">anteriores</span>—. <span class="w" data-w="1778">El</span> <span class="w" data-w="1779">sistema</span> <span class="w" data-w="1780">fabrica</span> <span class="w" data-w="1781">el</span> <span class="w" data-w="1782">colateral</span> <span class="w" data-w="1783">que</span> <span class="w" data-w="1784">luego</span> <span class="w" data-w="1785">invoca</span> <span class="w" data-w="1786">para</span> <span class="w" data-w="1787">justificar</span> <span class="w" data-w="1788">prestarle</span> <span class="w" data-w="1789">más</span> <span class="w" data-w="1790">al</span> <span class="w" data-w="1791">mismo</span>. <span class="w" data-w="1792">De</span> <span class="w" data-w="1793">modo</span> <span class="w" data-w="1794">que</span> "<span class="w" data-w="1795">es</span> <span class="w" data-w="1796">menos</span> <span class="w" data-w="1797">riesgoso</span>" <span class="w" data-w="1798">no</span> <span class="w" data-w="1799">siempre</span> <span class="w" data-w="1800">describe</span> <span class="w" data-w="1801">un</span> <span class="w" data-w="1802">mérito</span>: <span class="w" data-w="1803">a</span> <span class="w" data-w="1804">veces</span> <span class="w" data-w="1805">describe</span> <span class="w" data-w="1806">la</span> <span class="w" data-w="1807">ventaja</span> <span class="w" data-w="1808">heredada</span> <span class="w" data-w="1809">de</span> <span class="w" data-w="1810">quien</span> <span class="w" data-w="1811">lleva</span> <span class="w" data-w="1812">tiempo</span> <span class="w" data-w="1813">cerca</span> <span class="w" data-w="1814">del</span> <span class="w" data-w="1815">grifo</span>.</p>
 
     <!-- ====== EL EFECTO ACUMULATIVO ====== -->
-    <p>Y esto no es un episodio aislado: es un sesgo que se repite en cada ciclo de crédito, año tras año, y por eso sus efectos se acumulan. Cada vez que se crea dinero nuevo, los de adentro reciben primero y se afianzan; los de afuera quedan un paso atrás. El que ya tenía acceso al crédito barato crece, compra, se expande; el que no, se queda. Con el tiempo, la economía no se organiza según quién produce mejor, sino según quién estuvo más cerca de la fuente del dinero. <span class="term-rojo">El capital deja de fluir hacia el mérito y fluye hacia el privilegio</span> —y como el privilegio, una vez ganado, compra más privilegio, la distancia entre los de adentro y los de afuera se ensancha sola—. No es que el sistema falle en repartir bien: es que reparte exactamente según la cercanía al grifo, y lo hace una y otra vez, hasta que la estructura entera de la economía lleva impresa la huella de quién tenía acceso al dinero nuevo y quién no.</p>
+    <p><span class="w" data-w="1816">Y</span> <span class="w" data-w="1817">esto</span> <span class="w" data-w="1818">no</span> <span class="w" data-w="1819">es</span> <span class="w" data-w="1820">un</span> <span class="w" data-w="1821">episodio</span> <span class="w" data-w="1822">aislado</span>: <span class="w" data-w="1823">es</span> <span class="w" data-w="1824">un</span> <span class="w" data-w="1825">sesgo</span> <span class="w" data-w="1826">que</span> <span class="w" data-w="1827">se</span> <span class="w" data-w="1828">repite</span> <span class="w" data-w="1829">en</span> <span class="w" data-w="1830">cada</span> <span class="w" data-w="1831">ciclo</span> <span class="w" data-w="1832">de</span> <span class="w" data-w="1833">crédito</span>, <span class="w" data-w="1834">año</span> <span class="w" data-w="1835">tras</span> <span class="w" data-w="1836">año</span>, <span class="w" data-w="1837">y</span> <span class="w" data-w="1838">por</span> <span class="w" data-w="1839">eso</span> <span class="w" data-w="1840">sus</span> <span class="w" data-w="1841">efectos</span> <span class="w" data-w="1842">se</span> <span class="w" data-w="1843">acumulan</span>. <span class="w" data-w="1844">Cada</span> <span class="w" data-w="1845">vez</span> <span class="w" data-w="1846">que</span> <span class="w" data-w="1847">se</span> <span class="w" data-w="1848">crea</span> <span class="w" data-w="1849">dinero</span> <span class="w" data-w="1850">nuevo</span>, <span class="w" data-w="1851">los</span> <span class="w" data-w="1852">de</span> <span class="w" data-w="1853">adentro</span> <span class="w" data-w="1854">reciben</span> <span class="w" data-w="1855">primero</span> <span class="w" data-w="1856">y</span> <span class="w" data-w="1857">se</span> <span class="w" data-w="1858">afianzan</span>; <span class="w" data-w="1859">los</span> <span class="w" data-w="1860">de</span> <span class="w" data-w="1861">afuera</span> <span class="w" data-w="1862">quedan</span> <span class="w" data-w="1863">un</span> <span class="w" data-w="1864">paso</span> <span class="w" data-w="1865">atrás</span>. <span class="w" data-w="1866">El</span> <span class="w" data-w="1867">que</span> <span class="w" data-w="1868">ya</span> <span class="w" data-w="1869">tenía</span> <span class="w" data-w="1870">acceso</span> <span class="w" data-w="1871">al</span> <span class="w" data-w="1872">crédito</span> <span class="w" data-w="1873">barato</span> <span class="w" data-w="1874">crece</span>, <span class="w" data-w="1875">compra</span>, <span class="w" data-w="1876">se</span> <span class="w" data-w="1877">expande</span>; <span class="w" data-w="1878">el</span> <span class="w" data-w="1879">que</span> <span class="w" data-w="1880">no</span>, <span class="w" data-w="1881">se</span> <span class="w" data-w="1882">queda</span>. <span class="w" data-w="1883">Con</span> <span class="w" data-w="1884">el</span> <span class="w" data-w="1885">tiempo</span>, <span class="w" data-w="1886">la</span> <span class="w" data-w="1887">economía</span> <span class="w" data-w="1888">no</span> <span class="w" data-w="1889">se</span> <span class="w" data-w="1890">organiza</span> <span class="w" data-w="1891">según</span> <span class="w" data-w="1892">quién</span> <span class="w" data-w="1893">produce</span> <span class="w" data-w="1894">mejor</span>, <span class="w" data-w="1895">sino</span> <span class="w" data-w="1896">según</span> <span class="w" data-w="1897">quién</span> <span class="w" data-w="1898">estuvo</span> <span class="w" data-w="1899">más</span> <span class="w" data-w="1900">cerca</span> <span class="w" data-w="1901">de</span> <span class="w" data-w="1902">la</span> <span class="w" data-w="1903">fuente</span> <span class="w" data-w="1904">del</span> <span class="w" data-w="1905">dinero</span>. <span class="term-rojo"><span class="w" data-w="1906">El</span> <span class="w" data-w="1907">capital</span> <span class="w" data-w="1908">deja</span> <span class="w" data-w="1909">de</span> <span class="w" data-w="1910">fluir</span> <span class="w" data-w="1911">hacia</span> <span class="w" data-w="1912">el</span> <span class="w" data-w="1913">mérito</span> <span class="w" data-w="1914">y</span> <span class="w" data-w="1915">fluye</span> <span class="w" data-w="1916">hacia</span> <span class="w" data-w="1917">el</span> <span class="w" data-w="1918">privilegio</span></span> —<span class="w" data-w="1919">y</span> <span class="w" data-w="1920">como</span> <span class="w" data-w="1921">el</span> <span class="w" data-w="1922">privilegio</span>, <span class="w" data-w="1923">una</span> <span class="w" data-w="1924">vez</span> <span class="w" data-w="1925">ganado</span>, <span class="w" data-w="1926">compra</span> <span class="w" data-w="1927">más</span> <span class="w" data-w="1928">privilegio</span>, <span class="w" data-w="1929">la</span> <span class="w" data-w="1930">distancia</span> <span class="w" data-w="1931">entre</span> <span class="w" data-w="1932">los</span> <span class="w" data-w="1933">de</span> <span class="w" data-w="1934">adentro</span> <span class="w" data-w="1935">y</span> <span class="w" data-w="1936">los</span> <span class="w" data-w="1937">de</span> <span class="w" data-w="1938">afuera</span> <span class="w" data-w="1939">se</span> <span class="w" data-w="1940">ensancha</span> <span class="w" data-w="1941">sola</span>—. <span class="w" data-w="1942">No</span> <span class="w" data-w="1943">es</span> <span class="w" data-w="1944">que</span> <span class="w" data-w="1945">el</span> <span class="w" data-w="1946">sistema</span> <span class="w" data-w="1947">falle</span> <span class="w" data-w="1948">en</span> <span class="w" data-w="1949">repartir</span> <span class="w" data-w="1950">bien</span>: <span class="w" data-w="1951">es</span> <span class="w" data-w="1952">que</span> <span class="w" data-w="1953">reparte</span> <span class="w" data-w="1954">exactamente</span> <span class="w" data-w="1955">según</span> <span class="w" data-w="1956">la</span> <span class="w" data-w="1957">cercanía</span> <span class="w" data-w="1958">al</span> <span class="w" data-w="1959">grifo</span>, <span class="w" data-w="1960">y</span> <span class="w" data-w="1961">lo</span> <span class="w" data-w="1962">hace</span> <span class="w" data-w="1963">una</span> <span class="w" data-w="1964">y</span> <span class="w" data-w="1965">otra</span> <span class="w" data-w="1966">vez</span>, <span class="w" data-w="1967">hasta</span> <span class="w" data-w="1968">que</span> <span class="w" data-w="1969">la</span> <span class="w" data-w="1970">estructura</span> <span class="w" data-w="1971">entera</span> <span class="w" data-w="1972">de</span> <span class="w" data-w="1973">la</span> <span class="w" data-w="1974">economía</span> <span class="w" data-w="1975">lleva</span> <span class="w" data-w="1976">impresa</span> <span class="w" data-w="1977">la</span> <span class="w" data-w="1978">huella</span> <span class="w" data-w="1979">de</span> <span class="w" data-w="1980">quién</span> <span class="w" data-w="1981">tenía</span> <span class="w" data-w="1982">acceso</span> <span class="w" data-w="1983">al</span> <span class="w" data-w="1984">dinero</span> <span class="w" data-w="1985">nuevo</span> <span class="w" data-w="1986">y</span> <span class="w" data-w="1987">quién</span> <span class="w" data-w="1988">no</span>.</p>
 
     <!-- ====== EL BINARIO / SUSTRATO ====== -->
-    <p>Y como siempre, todo esto depende de una sola cosa. Con dinero honesto —el que no se puede crear de la nada— el banco no tiene un grifo que abrir: solo puede prestar lo que alguien ahorró de verdad, y eso lo obliga a la disciplina. Cada préstamo arriesga un ahorro real, suyo o de sus depositantes, así que conviene dirigirlo al mejor proyecto, no al amigo. La cercanía no da ninguna ventaja, porque no hay dinero nuevo que repartir antes que nadie: hay un ahorro escaso que hay que colocar bien. El crédito vuelve a fluir hacia el mérito, porque es la única forma de no perder. La discriminación bancaria no es un abuso que un buen banquero evitaría por decencia: es una posibilidad que solo existe cuando se puede fabricar dinero. Quítele al banco el grifo, y la fila del comienzo se ordena sola por la calidad de los proyectos, no por la cercanía de los clientes.</p>
+    <p><span class="w" data-w="1989">Y</span> <span class="w" data-w="1990">como</span> <span class="w" data-w="1991">siempre</span>, <span class="w" data-w="1992">todo</span> <span class="w" data-w="1993">esto</span> <span class="w" data-w="1994">depende</span> <span class="w" data-w="1995">de</span> <span class="w" data-w="1996">una</span> <span class="w" data-w="1997">sola</span> <span class="w" data-w="1998">cosa</span>. <span class="w" data-w="1999">Con</span> <span class="w" data-w="2000">dinero</span> <span class="w" data-w="2001">honesto</span> —<span class="w" data-w="2002">el</span> <span class="w" data-w="2003">que</span> <span class="w" data-w="2004">no</span> <span class="w" data-w="2005">se</span> <span class="w" data-w="2006">puede</span> <span class="w" data-w="2007">crear</span> <span class="w" data-w="2008">de</span> <span class="w" data-w="2009">la</span> <span class="w" data-w="2010">nada</span>— <span class="w" data-w="2011">el</span> <span class="w" data-w="2012">banco</span> <span class="w" data-w="2013">no</span> <span class="w" data-w="2014">tiene</span> <span class="w" data-w="2015">un</span> <span class="w" data-w="2016">grifo</span> <span class="w" data-w="2017">que</span> <span class="w" data-w="2018">abrir</span>: <span class="w" data-w="2019">solo</span> <span class="w" data-w="2020">puede</span> <span class="w" data-w="2021">prestar</span> <span class="w" data-w="2022">lo</span> <span class="w" data-w="2023">que</span> <span class="w" data-w="2024">alguien</span> <span class="w" data-w="2025">ahorró</span> <span class="w" data-w="2026">de</span> <span class="w" data-w="2027">verdad</span>, <span class="w" data-w="2028">y</span> <span class="w" data-w="2029">eso</span> <span class="w" data-w="2030">lo</span> <span class="w" data-w="2031">obliga</span> <span class="w" data-w="2032">a</span> <span class="w" data-w="2033">la</span> <span class="w" data-w="2034">disciplina</span>. <span class="w" data-w="2035">Cada</span> <span class="w" data-w="2036">préstamo</span> <span class="w" data-w="2037">arriesga</span> <span class="w" data-w="2038">un</span> <span class="w" data-w="2039">ahorro</span> <span class="w" data-w="2040">real</span>, <span class="w" data-w="2041">suyo</span> <span class="w" data-w="2042">o</span> <span class="w" data-w="2043">de</span> <span class="w" data-w="2044">sus</span> <span class="w" data-w="2045">depositantes</span>, <span class="w" data-w="2046">así</span> <span class="w" data-w="2047">que</span> <span class="w" data-w="2048">conviene</span> <span class="w" data-w="2049">dirigirlo</span> <span class="w" data-w="2050">al</span> <span class="w" data-w="2051">mejor</span> <span class="w" data-w="2052">proyecto</span>, <span class="w" data-w="2053">no</span> <span class="w" data-w="2054">al</span> <span class="w" data-w="2055">amigo</span>. <span class="w" data-w="2056">La</span> <span class="w" data-w="2057">cercanía</span> <span class="w" data-w="2058">no</span> <span class="w" data-w="2059">da</span> <span class="w" data-w="2060">ninguna</span> <span class="w" data-w="2061">ventaja</span>, <span class="w" data-w="2062">porque</span> <span class="w" data-w="2063">no</span> <span class="w" data-w="2064">hay</span> <span class="w" data-w="2065">dinero</span> <span class="w" data-w="2066">nuevo</span> <span class="w" data-w="2067">que</span> <span class="w" data-w="2068">repartir</span> <span class="w" data-w="2069">antes</span> <span class="w" data-w="2070">que</span> <span class="w" data-w="2071">nadie</span>: <span class="w" data-w="2072">hay</span> <span class="w" data-w="2073">un</span> <span class="w" data-w="2074">ahorro</span> <span class="w" data-w="2075">escaso</span> <span class="w" data-w="2076">que</span> <span class="w" data-w="2077">hay</span> <span class="w" data-w="2078">que</span> <span class="w" data-w="2079">colocar</span> <span class="w" data-w="2080">bien</span>. <span class="w" data-w="2081">El</span> <span class="w" data-w="2082">crédito</span> <span class="w" data-w="2083">vuelve</span> <span class="w" data-w="2084">a</span> <span class="w" data-w="2085">fluir</span> <span class="w" data-w="2086">hacia</span> <span class="w" data-w="2087">el</span> <span class="w" data-w="2088">mérito</span>, <span class="w" data-w="2089">porque</span> <span class="w" data-w="2090">es</span> <span class="w" data-w="2091">la</span> <span class="w" data-w="2092">única</span> <span class="w" data-w="2093">forma</span> <span class="w" data-w="2094">de</span> <span class="w" data-w="2095">no</span> <span class="w" data-w="2096">perder</span>. <span class="w" data-w="2097">La</span> <span class="w" data-w="2098">discriminación</span> <span class="w" data-w="2099">bancaria</span> <span class="w" data-w="2100">no</span> <span class="w" data-w="2101">es</span> <span class="w" data-w="2102">un</span> <span class="w" data-w="2103">abuso</span> <span class="w" data-w="2104">que</span> <span class="w" data-w="2105">un</span> <span class="w" data-w="2106">buen</span> <span class="w" data-w="2107">banquero</span> <span class="w" data-w="2108">evitaría</span> <span class="w" data-w="2109">por</span> <span class="w" data-w="2110">decencia</span>: <span class="w" data-w="2111">es</span> <span class="w" data-w="2112">una</span> <span class="w" data-w="2113">posibilidad</span> <span class="w" data-w="2114">que</span> <span class="w" data-w="2115">solo</span> <span class="w" data-w="2116">existe</span> <span class="w" data-w="2117">cuando</span> <span class="w" data-w="2118">se</span> <span class="w" data-w="2119">puede</span> <span class="w" data-w="2120">fabricar</span> <span class="w" data-w="2121">dinero</span>. <span class="w" data-w="2122">Quítele</span> <span class="w" data-w="2123">al</span> <span class="w" data-w="2124">banco</span> <span class="w" data-w="2125">el</span> <span class="w" data-w="2126">grifo</span>, <span class="w" data-w="2127">y</span> <span class="w" data-w="2128">la</span> <span class="w" data-w="2129">fila</span> <span class="w" data-w="2130">del</span> <span class="w" data-w="2131">comienzo</span> <span class="w" data-w="2132">se</span> <span class="w" data-w="2133">ordena</span> <span class="w" data-w="2134">sola</span> <span class="w" data-w="2135">por</span> <span class="w" data-w="2136">la</span> <span class="w" data-w="2137">calidad</span> <span class="w" data-w="2138">de</span> <span class="w" data-w="2139">los</span> <span class="w" data-w="2140">proyectos</span>, <span class="w" data-w="2141">no</span> <span class="w" data-w="2142">por</span> <span class="w" data-w="2143">la</span> <span class="w" data-w="2144">cercanía</span> <span class="w" data-w="2145">de</span> <span class="w" data-w="2146">los</span> <span class="w" data-w="2147">clientes</span>.</p>
 
     <!-- ====== CIERRE: arquetipo + puente ====== -->
-    <p>Recoja la forma, que es la de siempre. La causa sigue siendo la misma raíz de todo el libro: el ahorro real, lo que una sociedad de verdad guardó para invertir. La señal de este capítulo es el crédito —hacia dónde fluye el capital—. El que la lee es el banco, que decide a quién prestar. Y el desenlace depende del dinero: si es honesto, el crédito fluye al mérito y la sociedad invierte en lo que de verdad rinde; si se crea de la nada, el crédito fluye al privilegio, y la economía se reorganiza alrededor de quién está cerca de la fuente, no de quién produce mejor. Una sociedad que reparte el crédito por cercanía termina premiando a los enchufados y castigando a los capaces —y lo hace en silencio, préstamo a préstamo, hasta que parece el orden natural de las cosas—.</p>
+    <p><span class="w" data-w="2148">Recoja</span> <span class="w" data-w="2149">la</span> <span class="w" data-w="2150">forma</span>, <span class="w" data-w="2151">que</span> <span class="w" data-w="2152">es</span> <span class="w" data-w="2153">la</span> <span class="w" data-w="2154">de</span> <span class="w" data-w="2155">siempre</span>. <span class="w" data-w="2156">La</span> <span class="w" data-w="2157">causa</span> <span class="w" data-w="2158">sigue</span> <span class="w" data-w="2159">siendo</span> <span class="w" data-w="2160">la</span> <span class="w" data-w="2161">misma</span> <span class="w" data-w="2162">raíz</span> <span class="w" data-w="2163">de</span> <span class="w" data-w="2164">todo</span> <span class="w" data-w="2165">el</span> <span class="w" data-w="2166">libro</span>: <span class="w" data-w="2167">el</span> <span class="w" data-w="2168">ahorro</span> <span class="w" data-w="2169">real</span>, <span class="w" data-w="2170">lo</span> <span class="w" data-w="2171">que</span> <span class="w" data-w="2172">una</span> <span class="w" data-w="2173">sociedad</span> <span class="w" data-w="2174">de</span> <span class="w" data-w="2175">verdad</span> <span class="w" data-w="2176">guardó</span> <span class="w" data-w="2177">para</span> <span class="w" data-w="2178">invertir</span>. <span class="w" data-w="2179">La</span> <span class="w" data-w="2180">señal</span> <span class="w" data-w="2181">de</span> <span class="w" data-w="2182">este</span> <span class="w" data-w="2183">capítulo</span> <span class="w" data-w="2184">es</span> <span class="w" data-w="2185">el</span> <span class="w" data-w="2186">crédito</span> —<span class="w" data-w="2187">hacia</span> <span class="w" data-w="2188">dónde</span> <span class="w" data-w="2189">fluye</span> <span class="w" data-w="2190">el</span> <span class="w" data-w="2191">capital</span>—. <span class="w" data-w="2192">El</span> <span class="w" data-w="2193">que</span> <span class="w" data-w="2194">la</span> <span class="w" data-w="2195">lee</span> <span class="w" data-w="2196">es</span> <span class="w" data-w="2197">el</span> <span class="w" data-w="2198">banco</span>, <span class="w" data-w="2199">que</span> <span class="w" data-w="2200">decide</span> <span class="w" data-w="2201">a</span> <span class="w" data-w="2202">quién</span> <span class="w" data-w="2203">prestar</span>. <span class="w" data-w="2204">Y</span> <span class="w" data-w="2205">el</span> <span class="w" data-w="2206">desenlace</span> <span class="w" data-w="2207">depende</span> <span class="w" data-w="2208">del</span> <span class="w" data-w="2209">dinero</span>: <span class="w" data-w="2210">si</span> <span class="w" data-w="2211">es</span> <span class="w" data-w="2212">honesto</span>, <span class="w" data-w="2213">el</span> <span class="w" data-w="2214">crédito</span> <span class="w" data-w="2215">fluye</span> <span class="w" data-w="2216">al</span> <span class="w" data-w="2217">mérito</span> <span class="w" data-w="2218">y</span> <span class="w" data-w="2219">la</span> <span class="w" data-w="2220">sociedad</span> <span class="w" data-w="2221">invierte</span> <span class="w" data-w="2222">en</span> <span class="w" data-w="2223">lo</span> <span class="w" data-w="2224">que</span> <span class="w" data-w="2225">de</span> <span class="w" data-w="2226">verdad</span> <span class="w" data-w="2227">rinde</span>; <span class="w" data-w="2228">si</span> <span class="w" data-w="2229">se</span> <span class="w" data-w="2230">crea</span> <span class="w" data-w="2231">de</span> <span class="w" data-w="2232">la</span> <span class="w" data-w="2233">nada</span>, <span class="w" data-w="2234">el</span> <span class="w" data-w="2235">crédito</span> <span class="w" data-w="2236">fluye</span> <span class="w" data-w="2237">al</span> <span class="w" data-w="2238">privilegio</span>, <span class="w" data-w="2239">y</span> <span class="w" data-w="2240">la</span> <span class="w" data-w="2241">economía</span> <span class="w" data-w="2242">se</span> <span class="w" data-w="2243">reorganiza</span> <span class="w" data-w="2244">alrededor</span> <span class="w" data-w="2245">de</span> <span class="w" data-w="2246">quién</span> <span class="w" data-w="2247">está</span> <span class="w" data-w="2248">cerca</span> <span class="w" data-w="2249">de</span> <span class="w" data-w="2250">la</span> <span class="w" data-w="2251">fuente</span>, <span class="w" data-w="2252">no</span> <span class="w" data-w="2253">de</span> <span class="w" data-w="2254">quién</span> <span class="w" data-w="2255">produce</span> <span class="w" data-w="2256">mejor</span>. <span class="w" data-w="2257">Una</span> <span class="w" data-w="2258">sociedad</span> <span class="w" data-w="2259">que</span> <span class="w" data-w="2260">reparte</span> <span class="w" data-w="2261">el</span> <span class="w" data-w="2262">crédito</span> <span class="w" data-w="2263">por</span> <span class="w" data-w="2264">cercanía</span> <span class="w" data-w="2265">termina</span> <span class="w" data-w="2266">premiando</span> <span class="w" data-w="2267">a</span> <span class="w" data-w="2268">los</span> <span class="w" data-w="2269">enchufados</span> <span class="w" data-w="2270">y</span> <span class="w" data-w="2271">castigando</span> <span class="w" data-w="2272">a</span> <span class="w" data-w="2273">los</span> <span class="w" data-w="2274">capaces</span> —<span class="w" data-w="2275">y</span> <span class="w" data-w="2276">lo</span> <span class="w" data-w="2277">hace</span> <span class="w" data-w="2278">en</span> <span class="w" data-w="2279">silencio</span>, <span class="w" data-w="2280">préstamo</span> <span class="w" data-w="2281">a</span> <span class="w" data-w="2282">préstamo</span>, <span class="w" data-w="2283">hasta</span> <span class="w" data-w="2284">que</span> <span class="w" data-w="2285">parece</span> <span class="w" data-w="2286">el</span> <span class="w" data-w="2287">orden</span> <span class="w" data-w="2288">natural</span> <span class="w" data-w="2289">de</span> <span class="w" data-w="2290">las</span> <span class="w" data-w="2291">cosas</span>—.</p>
 
-    <p>Hemos visto al dinero falso corromper señal tras señal: la tasa, la estructura productiva, las pérdidas, los precios, el cálculo a futuro, el ahorro guardado, y ahora el reparto del crédito. En todos los casos hubo algo que nos permitió ver el daño: pudimos rastrearlo, nombrarlo, seguir el hilo desde la fuente hasta la consecuencia. Pero eso fue posible solo porque, de algún modo, la información estaba ahí para quien supiera mirar. ¿Y si el propio dinero pudiera esconder sus movimientos? ¿Si fuera imposible saber cuánto se ha creado, o quién lo tiene, o si las cuentas cuadran? Esa es la pieza que sostiene a todas las demás —la posibilidad misma de auditar el dinero, de verificar que no nos engañan—, y es la que cierra este recorrido.</p>
+    <p><span class="w" data-w="2292">Hemos</span> <span class="w" data-w="2293">visto</span> <span class="w" data-w="2294">al</span> <span class="w" data-w="2295">dinero</span> <span class="w" data-w="2296">falso</span> <span class="w" data-w="2297">corromper</span> <span class="w" data-w="2298">señal</span> <span class="w" data-w="2299">tras</span> <span class="w" data-w="2300">señal</span>: <span class="w" data-w="2301">la</span> <span class="w" data-w="2302">tasa</span>, <span class="w" data-w="2303">la</span> <span class="w" data-w="2304">estructura</span> <span class="w" data-w="2305">productiva</span>, <span class="w" data-w="2306">las</span> <span class="w" data-w="2307">pérdidas</span>, <span class="w" data-w="2308">los</span> <span class="w" data-w="2309">precios</span>, <span class="w" data-w="2310">el</span> <span class="w" data-w="2311">cálculo</span> <span class="w" data-w="2312">a</span> <span class="w" data-w="2313">futuro</span>, <span class="w" data-w="2314">el</span> <span class="w" data-w="2315">ahorro</span> <span class="w" data-w="2316">guardado</span>, <span class="w" data-w="2317">y</span> <span class="w" data-w="2318">ahora</span> <span class="w" data-w="2319">el</span> <span class="w" data-w="2320">reparto</span> <span class="w" data-w="2321">del</span> <span class="w" data-w="2322">crédito</span>. <span class="w" data-w="2323">En</span> <span class="w" data-w="2324">todos</span> <span class="w" data-w="2325">los</span> <span class="w" data-w="2326">casos</span> <span class="w" data-w="2327">hubo</span> <span class="w" data-w="2328">algo</span> <span class="w" data-w="2329">que</span> <span class="w" data-w="2330">nos</span> <span class="w" data-w="2331">permitió</span> <span class="w" data-w="2332">ver</span> <span class="w" data-w="2333">el</span> <span class="w" data-w="2334">daño</span>: <span class="w" data-w="2335">pudimos</span> <span class="w" data-w="2336">rastrearlo</span>, <span class="w" data-w="2337">nombrarlo</span>, <span class="w" data-w="2338">seguir</span> <span class="w" data-w="2339">el</span> <span class="w" data-w="2340">hilo</span> <span class="w" data-w="2341">desde</span> <span class="w" data-w="2342">la</span> <span class="w" data-w="2343">fuente</span> <span class="w" data-w="2344">hasta</span> <span class="w" data-w="2345">la</span> <span class="w" data-w="2346">consecuencia</span>. <span class="w" data-w="2347">Pero</span> <span class="w" data-w="2348">eso</span> <span class="w" data-w="2349">fue</span> <span class="w" data-w="2350">posible</span> <span class="w" data-w="2351">solo</span> <span class="w" data-w="2352">porque</span>, <span class="w" data-w="2353">de</span> <span class="w" data-w="2354">algún</span> <span class="w" data-w="2355">modo</span>, <span class="w" data-w="2356">la</span> <span class="w" data-w="2357">información</span> <span class="w" data-w="2358">estaba</span> <span class="w" data-w="2359">ahí</span> <span class="w" data-w="2360">para</span> <span class="w" data-w="2361">quien</span> <span class="w" data-w="2362">supiera</span> <span class="w" data-w="2363">mirar</span>. ¿<span class="w" data-w="2364">Y</span> <span class="w" data-w="2365">si</span> <span class="w" data-w="2366">el</span> <span class="w" data-w="2367">propio</span> <span class="w" data-w="2368">dinero</span> <span class="w" data-w="2369">pudiera</span> <span class="w" data-w="2370">esconder</span> <span class="w" data-w="2371">sus</span> <span class="w" data-w="2372">movimientos</span>? ¿<span class="w" data-w="2373">Si</span> <span class="w" data-w="2374">fuera</span> <span class="w" data-w="2375">imposible</span> <span class="w" data-w="2376">saber</span> <span class="w" data-w="2377">cuánto</span> <span class="w" data-w="2378">se</span> <span class="w" data-w="2379">ha</span> <span class="w" data-w="2380">creado</span>, <span class="w" data-w="2381">o</span> <span class="w" data-w="2382">quién</span> <span class="w" data-w="2383">lo</span> <span class="w" data-w="2384">tiene</span>, <span class="w" data-w="2385">o</span> <span class="w" data-w="2386">si</span> <span class="w" data-w="2387">las</span> <span class="w" data-w="2388">cuentas</span> <span class="w" data-w="2389">cuadran</span>? <span class="w" data-w="2390">Esa</span> <span class="w" data-w="2391">es</span> <span class="w" data-w="2392">la</span> <span class="w" data-w="2393">pieza</span> <span class="w" data-w="2394">que</span> <span class="w" data-w="2395">sostiene</span> <span class="w" data-w="2396">a</span> <span class="w" data-w="2397">todas</span> <span class="w" data-w="2398">las</span> <span class="w" data-w="2399">demás</span> —<span class="w" data-w="2400">la</span> <span class="w" data-w="2401">posibilidad</span> <span class="w" data-w="2402">misma</span> <span class="w" data-w="2403">de</span> <span class="w" data-w="2404">auditar</span> <span class="w" data-w="2405">el</span> <span class="w" data-w="2406">dinero</span>, <span class="w" data-w="2407">de</span> <span class="w" data-w="2408">verificar</span> <span class="w" data-w="2409">que</span> <span class="w" data-w="2410">no</span> <span class="w" data-w="2411">nos</span> <span class="w" data-w="2412">engañan</span>—, <span class="w" data-w="2413">y</span> <span class="w" data-w="2414">es</span> <span class="w" data-w="2415">la</span> <span class="w" data-w="2416">que</span> <span class="w" data-w="2417">cierra</span> <span class="w" data-w="2418">este</span> <span class="w" data-w="2419">recorrido</span>.</p>
 
   </div>
 
-
 </article>
+
 <nav class="nav-foot"><a class="prev" href="poder-adquisitivo.html">El poder adquisitivo del dinero</a><a class="idx" href="index.html">Índice</a><a class="next" href="auditabilidad.html">La auditabilidad del dinero</a></nav>
 
+<aside class="audio-pill" data-state="collapsed" data-duration="16:25" data-storage-key="discriminacion-bancaria" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/discriminacion-bancaria.mp3"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-resume-hint" aria-hidden="true"></div>
+  <div class="ap-meta">
+    <button class="ap-btn ap-skip ap-skip-back" type="button" aria-label="Retroceder 15 segundos" title="Retroceder 15 s (J)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 6V3L6 7l5 4V8c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H3c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/>
+        <text class="skip-label" x="11" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <button class="ap-btn ap-skip ap-skip-fwd" type="button" aria-label="Avanzar 15 segundos" title="Avanzar 15 s (L)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 6V3l5 4-5 4V8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/>
+        <text class="skip-label" x="13" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
+    <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
+        <path d="M19 18 V11.5 a3 3 0 0 0 -6 0 a3 3 0 0 0 3 3 a3 3 0 0 0 3 -3"/>
+        <line class="strike" x1="3" y1="20" x2="21" y2="4"/>
+      </svg>
+    </button>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción" title="Velocidad">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor" title="Minimizar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller v2 */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var skipBackBtn = pill.querySelector('.ap-skip-back');
+  var skipFwdBtn  = pill.querySelector('.ap-skip-fwd');
+  var karaokeBtn  = pill.querySelector('.ap-karaoke');
+  var hint        = pill.querySelector('.ap-resume-hint');
+  var STORAGE_KEY = pill.getAttribute('data-storage-key') || 'default';
+  var POS_KEY = 'audio-pill:pos:' + STORAGE_KEY;
+  var KARAOKE_KEY = 'audio-pill:karaoke';
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0, lastSaveAt = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  function safePlay(){
+    var p = a.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  function savePos(){
+    if (!a.duration || !isFinite(a.duration)) return;
+    var t = a.currentTime;
+    if (t > a.duration - 8) { try { localStorage.removeItem(POS_KEY); } catch(e){} return; }
+    if (t < 3) return;
+    try { localStorage.setItem(POS_KEY, String(Math.floor(t))); } catch(e){}
+  }
+  function loadPos(){
+    try { var v = localStorage.getItem(POS_KEY); var t = parseFloat(v); return isFinite(t) && t > 0 ? t : 0; }
+    catch(e){ return 0; }
+  }
+  function showResumeHint(s){
+    if (!hint) return;
+    hint.textContent = '↻ ' + fmt(s);
+    hint.classList.add('show');
+    setTimeout(function(){ hint.classList.remove('show'); }, 2200);
+  }
+  a.addEventListener('loadedmetadata', function(){
+    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
+    var saved = loadPos();
+    if (saved > 0 && saved < a.duration - 8) {
+      a.currentTime = saved;
+      showResumeHint(saved);
+    }
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime);
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+    if (!a.paused) {
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+      if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
+    }
+  });
+  a.addEventListener('pause', function(){ savePos(); });
+  window.addEventListener('beforeunload', savePos);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); try { localStorage.removeItem(POS_KEY); } catch(e){} });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) safePlay(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  function skip(secs){ if (!a.duration) return; a.currentTime = Math.max(0, Math.min(a.duration, a.currentTime + secs)); }
+  if (skipBackBtn) skipBackBtn.addEventListener('click', function(e){ e.stopPropagation(); skip(-15); });
+  if (skipFwdBtn)  skipFwdBtn.addEventListener('click',  function(e){ e.stopPropagation(); skip(+15); });
+  function applyKaraokePref(){
+    var off = false;
+    try { off = localStorage.getItem(KARAOKE_KEY) === 'off'; } catch(e){}
+    document.body.classList.toggle('karaoke-off', off);
+    if (karaokeBtn) {
+      karaokeBtn.classList.toggle('active', !off);
+      karaokeBtn.setAttribute('aria-pressed', String(!off));
+      karaokeBtn.setAttribute('aria-label', off ? 'Activar resaltado palabra por palabra' : 'Desactivar resaltado palabra por palabra');
+    }
+  }
+  applyKaraokePref();
+  if (karaokeBtn) karaokeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var current = document.body.classList.contains('karaoke-off');
+    try { localStorage.setItem(KARAOKE_KEY, current ? 'on' : 'off'); } catch(e){}
+    applyKaraokePref();
+  });
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!a.duration) return;
+      var r = tr.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      a.currentTime = pct * a.duration;
+    }
+    function onDown(e){
+      if (!a.duration) return;
+      dragging = true;
+      wasPlaying = !a.paused;
+      if (wasPlaying) a.pause();
+      tr.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      tr.classList.remove('dragging');
+      if (wasPlaying) { var p = a.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+    }
+    tr.addEventListener('mousedown', onDown);
+    tr.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
+  })();
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target && e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === ' ' && !(/^(BUTTON|A)$/.test(e.target.tagName))) {
+      if (!pill.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (a.paused) safePlay(); else a.pause();
+    } else if (k === 'j') { skip(-15); e.preventDefault(); }
+      else if (k === 'l') { skip(+15); e.preventDefault(); }
+      else if (k === 'k' && karaokeBtn) { karaokeBtn.click(); e.preventDefault(); }
+      else if (e.key === 'Escape' && pill.getAttribute('data-state') === 'expanded') { a.pause(); collapse(); }
+  });
+})();
+</script>
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/discriminacion-bancaria.alignment.json';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+<script>
+/* Subrayado (highlights) — selecciona texto y aparece toolbar; se guarda en localStorage por capítulo */
+(function(){
+  var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
+  if (!Array.isArray(saved)) saved = [];
+  saved.forEach(function(idx){
+    var el = prose.querySelector('.w[data-w="'+idx+'"]');
+    if (el) el.classList.add('hl');
+  });
+
+  var toolbar = document.createElement('div');
+  toolbar.className = 'hl-toolbar';
+  toolbar.setAttribute('role', 'toolbar');
+  toolbar.setAttribute('aria-label', 'Acciones de subrayado');
+  document.body.appendChild(toolbar);
+
+  var selectedIdxs = [];
+
+  function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
+
+  function getSelectedWordIdxs(){
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.toString().trim() === '') return [];
+    var range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer) && !range.intersectsNode(prose)) return [];
+    var idxs = [];
+    var allWords = prose.querySelectorAll('.w');
+    for (var i = 0; i < allWords.length; i++){
+      if (range.intersectsNode(allWords[i])) {
+        var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
+        if (!isNaN(idx)) idxs.push(idx);
+      }
+    }
+    return idxs;
+  }
+
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
+
+  function apply(){
+    selectedIdxs.forEach(function(i){
+      var el = prose.querySelector('.w[data-w="'+i+'"]');
+      if (el) el.classList.add('hl');
+      if (saved.indexOf(i) === -1) saved.push(i);
+    });
+    save(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+  function remove(){
+    selectedIdxs.forEach(function(i){
+      var el = prose.querySelector('.w[data-w="'+i+'"]');
+      if (el) el.classList.remove('hl');
+      var k = saved.indexOf(i); if (k !== -1) saved.splice(k, 1);
+    });
+    save(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+
+  function showToolbar(x, y, anyHl){
+    toolbar.innerHTML = '';
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'hl-btn';
+    btn.textContent = anyHl ? 'Subrayar todo' : 'Subrayar';
+    btn.addEventListener('mousedown', function(e){ e.preventDefault(); });
+    btn.addEventListener('click', function(e){ e.stopPropagation(); apply(); });
+    toolbar.appendChild(btn);
+    if (anyHl) {
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
+      rm.textContent = 'Quitar';
+      rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); remove(); });
+      toolbar.appendChild(rm);
+    }
+    toolbar.classList.add('show');
+    var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
+    var vw = window.innerWidth;
+    var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
+    var top = Math.max(window.scrollY + 8, y - h - 8);
+    toolbar.style.left = left + 'px';
+    toolbar.style.top = top + 'px';
+  }
+
+  function onSelection(e){
+    if (e && e.target && toolbar.contains(e.target)) return;
+    if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
+    setTimeout(function(){
+      var idxs = getSelectedWordIdxs();
+      if (idxs.length === 0) { hideToolbar(); return; }
+      var sel = window.getSelection();
+      var range = sel.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0) { hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width / 2;
+      var y = rect.top + window.scrollY;
+      var anyHl = idxs.some(function(i){ return saved.indexOf(i) !== -1; });
+      selectedIdxs = idxs;
+      showToolbar(x, y, anyHl);
+    }, 10);
+  }
+
+  document.addEventListener('mouseup', onSelection);
+  document.addEventListener('touchend', onSelection);
+  document.addEventListener('mousedown', function(e){
+    if (toolbar.contains(e.target)) return;
+    hideToolbar();
+  });
+  window.addEventListener('scroll', hideToolbar, { passive: true });
+  window.addEventListener('resize', hideToolbar);
+})();
+</script>
 
 </body>
 </html>

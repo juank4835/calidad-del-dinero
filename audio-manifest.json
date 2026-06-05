@@ -117,6 +117,15 @@
       "words": 1963,
       "duration_seconds": 790.060408,
       "generated_at": "2026-06-05T08:10:34Z"
+    },
+    "discriminacion-bancaria.html": {
+      "text_sha256": "9fe06620a3aee54b86881ee07003b51d7b0523854ef788306dde92af72af6baf",
+      "chars": 13765,
+      "audio_path": "audio/discriminacion-bancaria.mp3",
+      "alignment_path": "audio/discriminacion-bancaria.alignment.json",
+      "words": 2420,
+      "duration_seconds": 985.456327,
+      "generated_at": "2026-06-05T08:34:19Z"
     }
   }
 }
