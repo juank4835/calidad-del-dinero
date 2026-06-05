@@ -114,7 +114,7 @@ EXTRA_CSS = """
 """
 
 # ---- Construir el HTML del article ----
-parts = ['<article class="page">\n',
+parts = ['<article class="page" id="contenido" tabindex="-1">\n',
          f'\n  <div class="chapter-eyebrow">{EYEBROW}</div>\n',
          f'  <h1 class="chapter-title">{TITLE}</h1>\n',
          f'  <p class="chapter-subtitle">{SUBTITLE}</p>\n',
@@ -150,7 +150,7 @@ out = sk
 out = re.sub(r'<title>.*?</title>',
              '<title>¿Y por qué no volver al oro? — Arregla el dinero, arregla el mundo</title>',
              out, count=1, flags=re.DOTALL)
-out = re.sub(r'<article class="page">.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
+out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
 # nav-foot: prev=auditabilidad, sin next (deforestación aún no existe)
 new_nav = '<nav class="nav-foot"><a class="prev" href="auditabilidad.html">La auditabilidad del dinero</a><a class="idx" href="index.html">Índice</a><span></span></nav>'
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)

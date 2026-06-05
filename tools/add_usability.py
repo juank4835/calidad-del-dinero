@@ -26,8 +26,8 @@ HEAD_SCRIPT = (
 
 CSS = """
 /* ===== usabilidad-v1 ===== */
-:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#3b3026; --ink-soft:#7c6f5c; --rule:#d6c9ab; }
-:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#232220; --ink-soft:#6a655d; --rule:#e2ddd3; }
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
 :root[data-theme="sepia"] body::before,
 :root[data-theme="claro"] body::before{ opacity:.5; }
 
@@ -199,6 +199,9 @@ def patch(html: str) -> str:
     html = html.replace("</style>", CSS + "</style>", 1)
     html = html.replace('<article class="page">',
                         '<article class="page" id="contenido" tabindex="-1">', 1)
+    # el índice usa <div class="page"> en vez de <article>
+    html = html.replace('<div class="page">',
+                        '<div class="page" id="contenido" tabindex="-1">', 1)
     html = html.replace("<body>", "<body>\n" + BODY_TOP, 1)
     html = html.replace("</body>", JS + "</body>", 1)
     return html
