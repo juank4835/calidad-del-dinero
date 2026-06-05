@@ -142,9 +142,9 @@
       "audio_path": "audio/por-que-no-volver-al-oro.mp3",
       "alignment_path": "audio/por-que-no-volver-al-oro.alignment.json",
       "words": 2880,
-      "duration_seconds": 1179.844286,
-      "generated_at": "2026-06-05T14:09:30Z",
-      "note": "recuadros y cita AHORA narrados (cajas con karaoke); pausas 1.2s tras títulos, corte en onset siguiente"
+      "duration_seconds": 1180.297075,
+      "generated_at": "2026-06-05T14:24:52Z",
+      "note": "recuadros+cita narrados; «La huida» regenerada con punto (entonación de cierre) + pausa 1.2s vía splice"
     }
   }
 }
