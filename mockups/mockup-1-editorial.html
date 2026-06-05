@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 1 — Editorial Premium</title>
+<style>
+:root {
+  --bg: #18130d;            /* cálido casi negro */
+  --bg-elev: #1f1a13;
+  --ink: #f0e8da;
+  --ink-soft: #a89c87;
+  --ink-faint: #6b6253;
+  --rule: #2f2820;
+  --verde: #FF7A18;
+  --gold: #c89c47;          /* dorado vintage para acentos editoriales */
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --sans: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 19px; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--ink); font-family: var(--serif); line-height: 1.7; }
+
+/* Barra de progreso de lectura del LIBRO entero (no del cap) */
+.reading-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--rule); z-index: 100;
+}
+.reading-progress::after {
+  content: ""; display: block; height: 100%; width: 22%;
+  background: var(--verde);
+}
+
+/* Barra superior con player + meta */
+.topbar {
+  position: fixed; top: 3px; left: 0; right: 0; height: 56px;
+  background: rgba(24,19,13,0.95); backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 0 2rem; z-index: 90;
+}
+.topbar .breadcrumb { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--ink-soft); }
+.topbar .breadcrumb b { color: var(--ink); font-weight: 500; }
+.topbar .audio-mini { display: flex; align-items: center; gap: 0.7rem; margin-left: auto; }
+.topbar .audio-mini button {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--gold);
+  background: transparent; color: var(--gold); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.topbar .audio-mini svg { width: 11px; height: 11px; fill: currentColor; }
+.topbar .audio-mini .time {
+  font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.topbar .tools { display: flex; gap: 0.5rem; }
+.topbar .tools button {
+  background: transparent; border: none; color: var(--ink-soft); cursor: pointer;
+  padding: 0.4rem; border-radius: 4px; font-family: var(--sans); font-size: 0.85rem;
+}
+.topbar .tools button:hover { color: var(--ink); background: var(--bg-elev); }
+
+/* Sidebar con TOC */
+.sidebar {
+  position: fixed; top: 59px; bottom: 0; left: 0; width: 280px;
+  background: var(--bg); border-right: 1px solid var(--rule);
+  padding: 2.5rem 1.5rem; overflow-y: auto; z-index: 80;
+}
+.sidebar h2 {
+  font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.4rem;
+}
+.sidebar ol { list-style: none; counter-reset: ch; }
+.sidebar li {
+  counter-increment: ch; margin-bottom: 0.55rem;
+  padding-left: 2.2rem; position: relative; font-size: 0.94rem; color: var(--ink-soft);
+  cursor: pointer; transition: color 0.15s;
+}
+.sidebar li::before {
+  content: counter(ch, decimal-leading-zero);
+  position: absolute; left: 0; top: 0.1em;
+  font-family: var(--sans); font-size: 0.72rem; font-variant-numeric: tabular-nums;
+  color: var(--ink-faint); letter-spacing: 0.05em;
+}
+.sidebar li.active { color: var(--gold); }
+.sidebar li.active::before { color: var(--gold); }
+.sidebar li:hover { color: var(--ink); }
+.sidebar .block-tit {
+  font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-faint);
+  margin: 2rem 0 0.9rem; padding-top: 1rem; border-top: 1px solid var(--rule);
+}
+
+/* Layout principal */
+.page { max-width: 720px; margin: 0 auto; padding: 11rem 2rem 5rem; padding-left: 320px; }
+
+/* Eyebrow + título grande */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.eyebrow::before, .eyebrow::after {
+  content: ""; flex: 1; height: 1px; background: var(--gold); opacity: 0.5;
+}
+.title {
+  font-size: 3.2rem; line-height: 1.08; letter-spacing: -0.02em;
+  font-weight: 400; margin-bottom: 1.2rem; color: var(--ink);
+  text-align: center;
+}
+.subtitle {
+  text-align: center; font-style: italic; color: var(--ink-soft);
+  font-size: 1.15rem; max-width: 36rem; margin: 0 auto 4rem; line-height: 1.5;
+}
+
+/* Drop cap más grande, dorado */
+.lead::first-letter {
+  font-size: 5.2rem; font-weight: 600; float: left;
+  line-height: 0.85; margin: 0.1em 0.12em -0.1em 0; color: var(--gold);
+  font-family: var(--serif);
+}
+.lead { font-size: 1.26rem; line-height: 1.65; margin-bottom: 2rem; }
+.prose p { font-size: 1.13rem; line-height: 1.8; margin-bottom: 1.6rem; }
+
+/* Ornamento entre secciones */
+.ornament {
+  text-align: center; margin: 3rem 0; color: var(--gold);
+  font-size: 1rem; letter-spacing: 0.8em;
+}
+
+/* Para móvil: collapse sidebar */
+@media (max-width: 980px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .page { padding-left: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="reading-progress"></div>
+
+<div class="topbar">
+  <div class="breadcrumb">Arregla el dinero, arregla el mundo · <b>Cap. 1</b></div>
+  <div class="audio-mini">
+    <button aria-label="Reproducir"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <span class="time">3:24 / 14:20</span>
+  </div>
+  <div class="tools">
+    <button>Aa</button>
+    <button>Tema</button>
+    <button>Notas</button>
+  </div>
+</div>
+
+<aside class="sidebar">
+  <h2>Bloque I · Fundamentos</h2>
+  <ol>
+    <li class="active">El dinero como sistema que transmite información</li>
+    <li>El criterio de evaluación</li>
+    <li>Los tres regímenes</li>
+  </ol>
+  <h2 class="block-tit">Bloque II · Conceptos previos</h2>
+  <ol>
+    <li>La preferencia temporal</li>
+    <li>El ahorro real</li>
+    <li>Cuándo un precio dice la verdad</li>
+  </ol>
+  <h2 class="block-tit">Bloque III · La anatomía</h2>
+  <ol>
+    <li>La tasa de interés</li>
+    <li>La asignación intertemporal</li>
+    <li>La detección de la mala inversión</li>
+  </ol>
+</aside>
+
+<article class="page">
+  <div class="eyebrow">Capítulo Uno</div>
+  <h1 class="title">El dinero como sistema que transmite información</h1>
+  <p class="subtitle">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+
+  <div class="prose">
+    <p class="lead">Mañana, cuando usted despierte, en su ciudad habrá pan fresco. Habrá leche en las tiendas, gasolina en las bombas, electricidad en los enchufes, café que viajó desde una montaña a miles de kilómetros. Nadie lo organizó. No hay una oficina central que cada noche calcule cuántas barras de pan necesitará la ciudad y le ordene a los panaderos hornearlas. Y sin embargo, casi siempre, hay justo lo suficiente —ni montañas de pan pudriéndose, ni filas de gente sin nada que comprar—.</p>
+
+    <p>Detengámonos en esto, porque de tan cotidiano se ha vuelto invisible, y es una de las cosas más asombrosas que hace una sociedad. Millones de personas que no se conocen, que no se hablan, que no comparten ni idioma ni país, coordinan cada día sus esfuerzos con una precisión que ninguna autoridad podría dictar.</p>
+
+    <div class="ornament">· · ·</div>
+
+    <p>La respuesta es: nadie, y a la vez, algo. No hay una persona dándoles órdenes. Pero hay un sistema que les transmite, a cada uno, exactamente la información que necesita para decidir qué hacer —cuánto sembrar, qué producir, dónde llevarlo, a qué precio venderlo—.</p>
+  </div>
+</article>
+
+</body>
+</html>

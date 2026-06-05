@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B — Cálido / papel</title>
+<style>
+:root {
+  --bg: #15110b;            /* marrón casi negro, cálido */
+  --bg2: #1c1710;
+  --surface: #221c14;
+  --ink: #ede4d3;           /* crema */
+  --ink-soft: #a8997f;
+  --ink-faint: #6d6048;
+  --rule: #362d20;
+  --verde: #FF7A18;
+  --gold: #cda349;          /* dorado para ornamentos */
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 20px; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--serif);
+  line-height: 1.8; font-feature-settings: 'kern' 1,'liga' 1,'onum' 1;
+  background-image: radial-gradient(ellipse at top, var(--bg2) 0%, var(--bg) 70%);
+  background-attachment: fixed;
+}
+.page { max-width: 660px; margin: 0 auto; padding: 5.5rem 1.7rem 9rem; }
+
+.eyebrow {
+  font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 1.8rem;
+}
+.title {
+  font-size: 2.6rem; line-height: 1.14; letter-spacing: -0.01em; font-weight: 400;
+  text-align: center; margin-bottom: 1rem; color: #f6efe0;
+}
+.subtitle {
+  text-align: center; font-style: italic; color: var(--ink-soft);
+  font-size: 1.16rem; max-width: 30rem; margin: 0 auto; line-height: 1.5;
+}
+/* Ornamento dorado tipo libro antiguo */
+.orn {
+  text-align: center; margin: 3rem auto 4rem; color: var(--gold);
+  font-size: 1.4rem; letter-spacing: 0.4em;
+}
+.orn::before { content: "❧"; }
+
+.prose p { font-size: 1.13rem; line-height: 1.85; margin-bottom: 1.7rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.62; }
+.prose .lead::first-letter {
+  font-size: 5rem; font-weight: 600; float: left; line-height: 0.76;
+  margin: 0.06em 0.13em -0.06em 0; color: var(--gold); font-family: var(--serif);
+}
+.prose em { font-style: italic; color: #f6efe0; }
+
+/* Cita con marco dorado sutil */
+.quote {
+  margin: 3rem 0; padding: 1.8rem 2rem; background: var(--surface);
+  border-radius: 2px; border-top: 2px solid var(--gold); border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.quote .q-text { font-size: 1.14rem; font-style: italic; line-height: 1.6; color: var(--ink); display: block; }
+.quote .q-attr { display: block; margin-top: 1rem; text-align: right; font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); letter-spacing: 0.03em; }
+.quote .q-attr em { font-style: italic; }
+
+.audio-pill {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100;
+  display: flex; align-items: center; background: rgba(34,28,20,0.94);
+  border: 1px solid var(--rule); border-radius: 28px;
+  box-shadow: 0 12px 36px -14px rgba(0,0,0,0.8); height: 48px; padding: 4px;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+.audio-pill .pp { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); border: none; display: flex; align-items: center; justify-content: center; }
+.audio-pill .pp svg { width: 15px; height: 15px; fill: #15110b; margin-left: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="eyebrow">Bloque I · Fundamentos · Capítulo I</div>
+  <h1 class="title">El dinero como sistema que transmite información</h1>
+  <p class="subtitle">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+  <div class="orn"></div>
+
+  <div class="prose">
+    <p class="lead">Mañana, cuando usted despierte, en su ciudad habrá pan fresco. Habrá leche en las tiendas, gasolina en las bombas, electricidad en los enchufes, café que viajó desde una montaña a miles de kilómetros. Nadie lo organizó. Y sin embargo, casi siempre, hay justo lo suficiente —ni montañas de pan pudriéndose, ni filas de gente sin nada que comprar—.</p>
+
+    <p>Detengámonos en esto, porque de tan cotidiano se ha vuelto invisible, y es una de las cosas más asombrosas que hace una sociedad. Millones de personas que no se conocen, que no se hablan, que no comparten ni idioma ni país, coordinan cada día sus esfuerzos con una precisión que ninguna autoridad podría dictar.</p>
+
+    <p>La respuesta es: nadie, y a la vez, <em>algo</em>. No hay una persona dándoles órdenes. Pero hay un sistema que les transmite, a cada uno, exactamente la información que necesita para decidir qué hacer. No es una idea nueva. Friedrich Hayek la formuló hace casi un siglo:</p>
+
+    <div class="quote">
+      <span class="q-text">Es más que una metáfora el describir el sistema de precios como una especie de maquinaria para registrar el cambio, o un sistema de telecomunicaciones que permite a los productores individuales observar solamente el movimiento de unos pocos indicadores.</span>
+      <span class="q-attr">Hayek, <em>El uso del conocimiento en la sociedad</em> (1945)</span>
+    </div>
+
+    <p>Un sistema de telecomunicaciones: esa es la idea exacta. El precio le transmite a cada quien la señal que necesita para actuar, sin que nadie tenga que entender el sistema entero ni conocer la causa de lo que ocurre lejos.</p>
+  </div>
+</div>
+
+<div class="audio-pill"><div class="pp"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</body>
+</html>

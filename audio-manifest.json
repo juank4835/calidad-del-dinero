@@ -118,15 +118,6 @@
       "duration_seconds": 790.060408,
       "generated_at": "2026-06-05T08:10:34Z"
     },
-    "discriminacion-bancaria.html": {
-      "text_sha256": "68cb32741c8295878a04163f9b14744f5c8bfc821bbe001f4c92c1e89d5d1073",
-      "chars": 13765,
-      "audio_path": "audio/discriminacion-bancaria.mp3",
-      "alignment_path": "audio/discriminacion-bancaria.alignment.json",
-      "words": 2421,
-      "duration_seconds": 986.161633,
-      "generated_at": "2026-06-05T09:17:05Z"
-    },
     "auditabilidad.html": {
       "text_sha256": "97437a6a306bf90a3f3e501db9bad9531cd94e4a3fd1bd1d90c87248b1cbf90e",
       "chars": 10699,
@@ -135,6 +126,15 @@
       "words": 1862,
       "duration_seconds": 775.745306,
       "generated_at": "2026-06-05T09:05:33Z"
+    },
+    "asignacion-credito.html": {
+      "text_sha256": "68cb32741c8295878a04163f9b14744f5c8bfc821bbe001f4c92c1e89d5d1073",
+      "chars": 13765,
+      "audio_path": "audio/asignacion-credito.mp3",
+      "alignment_path": "audio/asignacion-credito.alignment.json",
+      "words": 2421,
+      "duration_seconds": 986.161633,
+      "generated_at": "2026-06-05T09:17:05Z"
     }
   }
 }

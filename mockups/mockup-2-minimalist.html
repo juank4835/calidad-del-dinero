@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="sepia">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 2 — Minimalist Focus</title>
+<style>
+:root {
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+[data-theme="dark"] {
+  --bg: #1a1a1a; --ink: #e8e2d6; --ink-soft: #8a8478;
+  --rule: #2e2e2e; --accent: #FF7A18;
+}
+[data-theme="sepia"] {
+  --bg: #f3ecd9; --ink: #2e2a23; --ink-soft: #6e6757;
+  --rule: #d8cfb6; --accent: #b8511e;
+}
+[data-theme="light"] {
+  --bg: #fafafa; --ink: #1a1a1a; --ink-soft: #6e6e6e;
+  --rule: #e6e6e6; --accent: #c8541b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; transition: background 0.3s; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--serif);
+  line-height: 1.75; transition: background 0.3s, color 0.3s;
+  font-size: var(--fs, 19px);
+}
+
+/* Barra superior flotante minimal */
+.bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.5rem; z-index: 50;
+  background: linear-gradient(to bottom, var(--bg), transparent);
+}
+.bar .home {
+  font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft);
+  text-decoration: none; letter-spacing: 0.04em;
+}
+.bar .home::before { content: "← "; }
+.bar .controls { display: flex; gap: 0.4rem; }
+.bar button {
+  background: transparent; border: 1px solid var(--rule); color: var(--ink-soft);
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  font-family: var(--sans); font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.bar button:hover { border-color: var(--accent); color: var(--accent); }
+.bar button svg { width: 13px; height: 13px; fill: currentColor; }
+
+/* Panel de ajustes (oculto por default, se muestra con click) */
+.settings {
+  position: fixed; top: 60px; right: 1rem; z-index: 60;
+  background: var(--bg); border: 1px solid var(--rule); border-radius: 8px;
+  padding: 1.2rem 1.4rem; min-width: 220px;
+  box-shadow: 0 12px 32px -8px rgba(0,0,0,0.25);
+  font-family: var(--sans);
+}
+.settings h3 { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.settings .row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; }
+.settings .row > span { font-size: 0.85rem; }
+.settings .themes { display: flex; gap: 0.4rem; }
+.settings .themes button {
+  border: 1px solid var(--rule); padding: 0.3rem 0.7rem; border-radius: 4px;
+  background: transparent; color: var(--ink-soft); cursor: pointer;
+  font-family: inherit; font-size: 0.75rem; letter-spacing: 0.05em;
+}
+.settings .themes button.active { background: var(--accent); color: white; border-color: var(--accent); }
+.settings .size { display: flex; gap: 0.3rem; }
+.settings .size button { width: 28px; height: 28px; border-radius: 4px; border: 1px solid var(--rule); background: transparent; color: var(--ink-soft); cursor: pointer; font-family: serif; font-size: 0.9rem; }
+.settings .size button.big { font-size: 1.15rem; font-weight: 600; }
+
+/* Audio mini-player en bottom right, casi invisible hasta que se necesita */
+.audio-mini {
+  position: fixed; bottom: 1.2rem; right: 1.2rem;
+  background: var(--bg); border: 1px solid var(--rule); border-radius: 24px;
+  padding: 0.35rem 0.9rem 0.35rem 0.35rem;
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft);
+  z-index: 50; box-shadow: 0 6px 20px -6px rgba(0,0,0,0.2);
+}
+.audio-mini button {
+  width: 32px; height: 32px; border-radius: 50%; border: none;
+  background: var(--accent); color: white; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.audio-mini svg { width: 11px; height: 11px; fill: currentColor; margin-left: 1px; }
+
+/* Layout — texto puro y centrado */
+.page { max-width: 680px; margin: 0 auto; padding: 7rem 1.5rem 8rem; }
+
+.kicker { font-family: var(--sans); font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); text-align: center; margin-bottom: 1.5rem; }
+.title { font-size: 2.4rem; line-height: 1.18; letter-spacing: -0.015em; font-weight: 400; text-align: center; margin-bottom: 0.7rem; }
+.subtitle { text-align: center; font-style: italic; color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 4rem; max-width: 32rem; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+.lead { font-size: 1.22rem; line-height: 1.7; margin-bottom: 1.7rem; }
+.lead::first-letter { font-size: 3rem; font-weight: 500; float: left; line-height: 0.9; margin: 0.06em 0.12em -0.05em 0; color: var(--accent); }
+.prose p { font-size: 1.1rem; line-height: 1.85; margin-bottom: 1.6rem; }
+
+.sep { width: 60px; height: 1px; background: var(--rule); margin: 2.5rem auto; }
+
+footer.cap-end {
+  text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft);
+}
+footer.cap-end a {
+  display: inline-block; margin: 1rem 0 0; padding: 0.7rem 1.4rem;
+  border: 1px solid var(--rule); border-radius: 24px; color: var(--ink);
+  text-decoration: none; font-family: inherit; font-size: 0.9rem;
+  transition: all 0.15s;
+}
+footer.cap-end a:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="#" class="home">Índice</a>
+  <div class="controls">
+    <button title="Tamaño de letra"><svg viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4z"/></svg></button>
+    <button title="Tema">☾</button>
+    <button title="Subrayados">▢</button>
+  </div>
+</div>
+
+<div class="settings">
+  <h3>Tema</h3>
+  <div class="themes">
+    <button>Claro</button>
+    <button class="active">Sepia</button>
+    <button>Oscuro</button>
+  </div>
+  <div class="row" style="margin-top: 1rem;">
+    <span>Tamaño</span>
+    <div class="size">
+      <button>A</button>
+      <button class="big">A</button>
+    </div>
+  </div>
+</div>
+
+<article class="page">
+  <div class="kicker">Bloque I · Capítulo Uno</div>
+  <h1 class="title">El dinero como sistema que transmite información</h1>
+  <p class="subtitle">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+
+  <div class="prose">
+    <p class="lead">Mañana, cuando usted despierte, en su ciudad habrá pan fresco. Habrá leche en las tiendas, gasolina en las bombas, electricidad en los enchufes, café que viajó desde una montaña a miles de kilómetros. Nadie lo organizó. No hay una oficina central que cada noche calcule cuántas barras de pan necesitará la ciudad y le ordene a los panaderos hornearlas. Y sin embargo, casi siempre, hay justo lo suficiente —ni montañas de pan pudriéndose, ni filas de gente sin nada que comprar—.</p>
+
+    <p>Detengámonos en esto, porque de tan cotidiano se ha vuelto invisible, y es una de las cosas más asombrosas que hace una sociedad. Millones de personas que no se conocen, que no se hablan, que no comparten ni idioma ni país, coordinan cada día sus esfuerzos con una precisión que ninguna autoridad podría dictar.</p>
+
+    <div class="sep"></div>
+
+    <p>La respuesta es: nadie, y a la vez, algo. No hay una persona dándoles órdenes. Pero hay un sistema que les transmite, a cada uno, exactamente la información que necesita para decidir qué hacer.</p>
+  </div>
+
+  <footer class="cap-end">
+    Capítulo 1 de 14 — has leído ~22% del libro
+    <br>
+    <a href="#">Continúa con el capítulo 2 →</a>
+  </footer>
+</article>
+
+<div class="audio-mini">
+  <button><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+  <span>14:20</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A — Editorial refinado</title>
+<style>
+:root {
+  --bg: #1a1a1a;
+  --surface: #242424;
+  --ink: #ece8e1;
+  --ink-soft: #97928a;
+  --ink-faint: #615d56;
+  --rule: #323230;
+  --verde: #FF7A18;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --sans: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 20px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: var(--bg); color: var(--ink); font-family: var(--serif); line-height: 1.78; font-feature-settings: 'kern' 1,'liga' 1,'onum' 1; }
+.page { max-width: 680px; margin: 0 auto; padding: 6rem 1.6rem 9rem; }
+
+/* Eyebrow con filete */
+.eyebrow {
+  font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--verde); text-align: center;
+  margin-bottom: 2.2rem;
+}
+/* Número de capítulo romano grande y tenue */
+.chap-numeral {
+  font-family: var(--serif); font-size: 5rem; line-height: 1; text-align: center;
+  color: var(--ink-faint); font-weight: 400; margin-bottom: 1rem; opacity: 0.5;
+}
+.title {
+  font-size: 2.7rem; line-height: 1.13; letter-spacing: -0.018em; font-weight: 500;
+  text-align: center; margin-bottom: 1rem;
+}
+.subtitle {
+  text-align: center; font-style: italic; color: var(--ink-soft);
+  font-size: 1.18rem; max-width: 30rem; margin: 0 auto 1rem; line-height: 1.5;
+}
+/* Filete ornamental bajo el subtítulo */
+.rule-orn {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  margin: 2.5rem auto 4rem; color: var(--verde);
+}
+.rule-orn::before, .rule-orn::after {
+  content: ""; width: 60px; height: 1px; background: var(--rule);
+}
+.rule-orn span { font-size: 0.8rem; letter-spacing: 0.3em; }
+
+.prose p { font-size: 1.12rem; line-height: 1.82; margin-bottom: 1.7rem; text-align: justify; hyphens: auto; }
+.prose p.lead { font-size: 1.3rem; line-height: 1.6; text-align: left; }
+/* Drop cap refinado: serif, alineado a baseline */
+.prose .lead::first-letter {
+  font-size: 4.6rem; font-weight: 500; float: left; line-height: 0.72;
+  margin: 0.08em 0.14em -0.05em 0; color: var(--verde); font-family: var(--serif);
+}
+.prose em { font-style: italic; }
+
+/* Cita de autor — rediseño elegante con comilla grande */
+.quote {
+  margin: 3rem 0; padding: 0 0 0 2.4rem; position: relative;
+}
+.quote::before {
+  content: "\\201C"; position: absolute; left: -0.1rem; top: -0.8rem;
+  font-size: 4rem; color: var(--verde); opacity: 0.5; font-family: Georgia, serif; line-height: 1;
+}
+.quote .q-text {
+  font-size: 1.18rem; font-style: italic; line-height: 1.6; color: var(--ink);
+}
+.quote .q-attr {
+  display: block; margin-top: 1rem; font-family: var(--sans);
+  font-size: 0.82rem; letter-spacing: 0.04em; color: var(--ink-soft); font-style: normal;
+}
+.quote .q-attr::before { content: "— "; color: var(--verde); }
+.quote .q-attr em { font-style: italic; }
+
+/* Pill flotante (igual que el real) */
+.audio-pill {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100;
+  display: flex; align-items: center; background: rgba(36,36,36,0.92);
+  border: 1px solid var(--rule); border-radius: 28px;
+  box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75); height: 48px; padding: 4px;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+.audio-pill .pp { width: 40px; height: 40px; border-radius: 50%; background: var(--verde); border: none; display: flex; align-items: center; justify-content: center; }
+.audio-pill .pp svg { width: 15px; height: 15px; fill: #fff; margin-left: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="eyebrow">Bloque I · Fundamentos</div>
+  <div class="chap-numeral">I</div>
+  <h1 class="title">El dinero como sistema que transmite información</h1>
+  <p class="subtitle">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+  <div class="rule-orn"><span>✦</span></div>
+
+  <div class="prose">
+    <p class="lead">Mañana, cuando usted despierte, en su ciudad habrá pan fresco. Habrá leche en las tiendas, gasolina en las bombas, electricidad en los enchufes, café que viajó desde una montaña a miles de kilómetros. Nadie lo organizó. Y sin embargo, casi siempre, hay justo lo suficiente —ni montañas de pan pudriéndose, ni filas de gente sin nada que comprar—.</p>
+
+    <p>Detengámonos en esto, porque de tan cotidiano se ha vuelto invisible, y es una de las cosas más asombrosas que hace una sociedad. Millones de personas que no se conocen, que no se hablan, que no comparten ni idioma ni país, coordinan cada día sus esfuerzos con una precisión que ninguna autoridad podría dictar.</p>
+
+    <p>La respuesta es: nadie, y a la vez, <em>algo</em>. No hay una persona dándoles órdenes. Pero hay un sistema que les transmite, a cada uno, exactamente la información que necesita para decidir qué hacer. No es una idea nueva. Friedrich Hayek la formuló hace casi un siglo:</p>
+
+    <div class="quote">
+      <span class="q-text">Es más que una metáfora el describir el sistema de precios como una especie de maquinaria para registrar el cambio, o un sistema de telecomunicaciones que permite a los productores individuales observar solamente el movimiento de unos pocos indicadores.</span>
+      <span class="q-attr">Hayek, <em>El uso del conocimiento en la sociedad</em> (1945)</span>
+    </div>
+
+    <p>Un sistema de telecomunicaciones: esa es la idea exacta. El precio le transmite a cada quien la señal que necesita para actuar, sin que nadie tenga que entender el sistema entero ni conocer la causa de lo que ocurre lejos.</p>
+  </div>
+</div>
+
+<div class="audio-pill"><div class="pp"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</body>
+</html>

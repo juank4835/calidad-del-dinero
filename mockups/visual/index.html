@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mejoras visuales del capítulo</title>
+<style>
+:root { --bg:#131312; --elev:#1c1c1b; --ink:#ebe9e4; --soft:#8c8783; --rule:#2a2927; --acc:#FF7A18;
+  --serif:'Iowan Old Style',Palatino,Georgia,serif; --sans:'Inter',system-ui,sans-serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--ink); font-family:var(--sans); padding:4rem 2rem; line-height:1.6; }
+.wrap { max-width:1000px; margin:0 auto; }
+h1 { font-family:var(--serif); font-size:2.2rem; font-weight:400; margin-bottom:0.5rem; }
+.lede { color:var(--soft); margin-bottom:3rem; max-width:44rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.4rem; }
+.card { background:var(--elev); border:1px solid var(--rule); border-radius:10px; padding:1.5rem; display:flex; flex-direction:column; gap:0.8rem; transition:border-color .15s, transform .15s; }
+.card:hover { border-color:var(--acc); transform:translateY(-2px); }
+.card .tag { font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--acc); }
+.card h2 { font-family:var(--serif); font-size:1.4rem; font-weight:400; line-height:1.15; }
+.card p { font-size:0.9rem; color:var(--soft); line-height:1.6; }
+.card ul { list-style:none; font-size:0.82rem; color:var(--soft); margin-top:0.2rem; }
+.card li { padding:0.12rem 0 0.12rem 1.1rem; position:relative; }
+.card li::before { content:"·"; position:absolute; left:0.3rem; color:var(--acc); font-weight:bold; }
+.card a { margin-top:auto; padding-top:0.6rem; color:var(--acc); text-decoration:none; font-size:0.9rem; }
+.card a::after { content:" →"; }
+footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--rule); color:var(--soft); font-size:0.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Mejoras visuales del capítulo</h1>
+  <p class="lede">Tres tratamientos estéticos sobre el formato actual (el de la pastilla flotante, el que ya tienes). Misma estructura, distinta piel: tipografía, color, citas, ornamentos y jerarquía. No cambian la funcionalidad — el audio, el karaoke y el subrayado siguen igual. Mira los tres y dime cuál te late, o qué combinar.</p>
+
+  <div class="grid">
+    <div class="card">
+      <span class="tag">Opción A</span>
+      <h2>Editorial refinado</h2>
+      <p>El formato actual, pero pulido como una revista literaria. Mismo fondo oscuro neutro, foco en la tipografía y el ritmo.</p>
+      <ul>
+        <li>Numeral romano grande y tenue del capítulo</li>
+        <li>Filete ornamental ✦ bajo el subtítulo</li>
+        <li>Citas con comilla decorativa grande, sin caja</li>
+        <li>Texto justificado con guionado</li>
+        <li>Drop cap serif afinado</li>
+      </ul>
+      <a href="A-editorial-refinado.html">Ver opción A</a>
+    </div>
+
+    <div class="card">
+      <span class="tag">Opción B</span>
+      <h2>Cálido / papel</h2>
+      <p>Sensación de libro impreso premium. Fondo marrón cálido en vez de gris neutro, acentos dorados junto al naranja.</p>
+      <ul>
+        <li>Fondo cálido con degradado sutil tipo pergamino</li>
+        <li>Dorado para ornamentos y drop cap</li>
+        <li>Ornamento ❧ entre título y texto</li>
+        <li>Citas con marco dorado superior</li>
+        <li>Crema cálido para el texto, no blanco frío</li>
+      </ul>
+      <a href="B-calido-papel.html">Ver opción B</a>
+    </div>
+
+    <div class="card">
+      <span class="tag">Opción C</span>
+      <h2>Moderno / limpio</h2>
+      <p>Publicación digital contemporánea (estilo Aeon, The Atlantic). Más aire, contraste de pesos, metadata útil.</p>
+      <ul>
+        <li>Título sans grande y pesado, contraste con serif del cuerpo</li>
+        <li>«14 min de lectura · 14:20 en audio» como dato útil</li>
+        <li>Barra de progreso de lectura arriba</li>
+        <li>Citas con barra lateral fina, sin caja</li>
+        <li>Sin drop cap; jerarquía por tamaño y peso</li>
+      </ul>
+      <a href="C-moderno-limpio.html">Ver opción C</a>
+    </div>
+  </div>
+
+  <footer>
+    Mockups estáticos (sin audio funcional, solo para ver la estética). Viven en mockups/visual/ y no van al sitio. Cuando elijas, lo aplico al capítulo real conservando todo lo que ya funciona.
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C — Moderno / limpio</title>
+<style>
+:root {
+  --bg: #161618;
+  --surface: #1f1f22;
+  --ink: #f2f0ec;
+  --ink-soft: #908b86;
+  --ink-faint: #5a5650;
+  --rule: #2b2b2e;
+  --verde: #FF7A18;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --sans: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 20px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: var(--bg); color: var(--ink); font-family: var(--serif); line-height: 1.8; }
+
+/* Barra de progreso de lectura arriba */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; background: transparent; z-index: 90; }
+.progress::after { content: ""; display: block; height: 100%; width: 30%; background: var(--verde); }
+
+.page { max-width: 700px; margin: 0 auto; padding: 7rem 1.6rem 9rem; }
+
+/* Header con metadata en sans, jerarquía marcada */
+.meta-row {
+  display: flex; align-items: center; gap: 0.8rem; justify-content: center;
+  font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-faint); margin-bottom: 2.5rem;
+}
+.meta-row .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--verde); }
+.meta-row .num { color: var(--verde); }
+
+.title {
+  font-size: 3rem; line-height: 1.08; letter-spacing: -0.025em; font-weight: 600;
+  margin-bottom: 1.2rem; max-width: 16ch;
+}
+.subtitle {
+  font-family: var(--sans); font-size: 1.05rem; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.5; margin-bottom: 3.5rem; max-width: 34rem;
+}
+.meta-time {
+  font-family: var(--sans); font-size: 0.8rem; color: var(--ink-faint);
+  letter-spacing: 0.04em; padding-bottom: 2.5rem; border-bottom: 1px solid var(--rule);
+  margin-bottom: 3rem;
+}
+.meta-time b { color: var(--ink-soft); font-weight: 500; }
+
+.prose p { font-size: 1.14rem; line-height: 1.85; margin-bottom: 1.8rem; }
+.prose p.lead { font-size: 1.32rem; line-height: 1.62; color: #fff; }
+/* Sin drop cap; en su lugar la primera frase destaca */
+.prose em { font-style: italic; }
+
+/* Cita con barra lateral fina, muy limpia */
+.quote {
+  margin: 3.2rem 0; padding-left: 1.6rem; border-left: 2px solid var(--verde);
+}
+.quote .q-text { font-size: 1.3rem; line-height: 1.5; color: #fff; font-weight: 400; letter-spacing: -0.01em; display: block; }
+.quote .q-attr { display: block; margin-top: 1.1rem; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-soft); letter-spacing: 0.04em; }
+.quote .q-attr em { font-style: italic; }
+
+.audio-pill {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100;
+  display: flex; align-items: center; background: rgba(31,31,34,0.92);
+  border: 1px solid var(--rule); border-radius: 28px;
+  box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75); height: 48px; padding: 4px;
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+}
+.audio-pill .pp { width: 40px; height: 40px; border-radius: 50%; background: var(--verde); border: none; display: flex; align-items: center; justify-content: center; }
+.audio-pill .pp svg { width: 15px; height: 15px; fill: #fff; margin-left: 2px; }
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<div class="page">
+  <div class="meta-row"><span class="num">Capítulo 1</span><span class="dot"></span><span>Bloque I · Fundamentos</span></div>
+  <h1 class="title">El dinero como sistema que transmite información</h1>
+  <p class="subtitle">Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene</p>
+  <div class="meta-time"><b>14 min</b> de lectura · <b>14:20</b> en audio</div>
+
+  <div class="prose">
+    <p class="lead">Mañana, cuando usted despierte, en su ciudad habrá pan fresco. Habrá leche en las tiendas, gasolina en las bombas, electricidad en los enchufes, café que viajó desde una montaña a miles de kilómetros. Nadie lo organizó. Y sin embargo, casi siempre, hay justo lo suficiente —ni montañas de pan pudriéndose, ni filas de gente sin nada que comprar—.</p>
+
+    <p>Detengámonos en esto, porque de tan cotidiano se ha vuelto invisible, y es una de las cosas más asombrosas que hace una sociedad. Millones de personas que no se conocen, que no se hablan, que no comparten ni idioma ni país, coordinan cada día sus esfuerzos con una precisión que ninguna autoridad podría dictar.</p>
+
+    <p>La respuesta es: nadie, y a la vez, <em>algo</em>. No hay una persona dándoles órdenes. Pero hay un sistema que les transmite, a cada uno, exactamente la información que necesita para decidir qué hacer. No es una idea nueva. Friedrich Hayek la formuló hace casi un siglo:</p>
+
+    <div class="quote">
+      <span class="q-text">Es más que una metáfora el describir el sistema de precios como una especie de maquinaria para registrar el cambio, o un sistema de telecomunicaciones.</span>
+      <span class="q-attr">Hayek, <em>El uso del conocimiento en la sociedad</em> (1945)</span>
+    </div>
+
+    <p>Un sistema de telecomunicaciones: esa es la idea exacta. El precio le transmite a cada quien la señal que necesita para actuar, sin que nadie tenga que entender el sistema entero ni conocer la causa de lo que ocurre lejos.</p>
+  </div>
+</div>
+
+<div class="audio-pill"><div class="pp"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+</body>
+</html>
