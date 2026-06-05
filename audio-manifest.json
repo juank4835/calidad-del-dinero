@@ -108,6 +108,15 @@
       "words": 3455,
       "duration_seconds": 1419.219592,
       "generated_at": "2026-06-05T07:39:45Z"
+    },
+    "poder-adquisitivo.html": {
+      "text_sha256": "0864fa3701fc2e531d93ebbb0300b4f741a740502445aaf3bd2b6cfed841ad56",
+      "chars": 10898,
+      "audio_path": "audio/poder-adquisitivo.mp3",
+      "alignment_path": "audio/poder-adquisitivo.alignment.json",
+      "words": 1963,
+      "duration_seconds": 790.060408,
+      "generated_at": "2026-06-05T08:10:34Z"
     }
   }
 }

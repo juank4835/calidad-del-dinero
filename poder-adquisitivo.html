@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El poder adquisitivo del dinero — La calidad del dinero</title>
+<title>El poder adquisitivo del dinero — Arregla el dinero, arregla el mundo</title>
 <style>
 :root {
   --bg: #1c1c1c;
@@ -13,272 +13,632 @@
   --rule: #3a3a38;
   --verde: #FF7A18;
   --rojo: #8A8A86;
-  --rojo-fuerte: #FF1744;
   --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-html {
-  font-size: 19px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  line-height: 1.75;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
-}
-
-.page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 5rem 1.5rem 8rem;
-}
-
-.chapter-eyebrow {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  text-align: center;
-  margin-bottom: 1.2rem;
-}
-
-.chapter-title {
-  font-size: 2.6rem;
-  font-weight: 400;
-  text-align: center;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.6rem;
-}
-
-.chapter-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--ink-soft);
-  margin-bottom: 4rem;
-}
-
-.ornament {
-  text-align: center;
-  color: var(--verde);
-  font-size: 1.2rem;
-  margin: 0 auto 3.5rem;
-  letter-spacing: 0.5em;
-}
-
-.prose p {
-  font-size: 1.12rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.prose p.lead {
-  font-size: 1.28rem;
-  line-height: 1.7;
-  color: var(--ink);
-  margin-bottom: 1.8rem;
-}
-
-.prose .lead::first-letter {
-  font-size: 3.6rem;
-  font-weight: 600;
-  float: left;
-  line-height: 0.82;
-  margin: 0.08em 0.12em -0.1em 0;
-  color: var(--verde);
-}
-
+html { font-size: 19px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
 .prose em { font-style: italic; }
 .prose strong { font-weight: 600; color: #fff; }
-
 .term-verde { color: var(--verde); font-style: italic; }
 .term-rojo { color: var(--rojo); font-style: italic; }
-
-.section-num {
-  display: block;
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--verde);
-  margin-bottom: 0.6rem;
-  margin-top: 3.5rem;
-}
-
-blockquote {
-  margin: 2.2rem 0;
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  border-left: 2px solid var(--verde);
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: 1.06rem;
-  line-height: 1.65;
-}
-
-blockquote .cite {
-  display: block;
-  margin-top: 0.6rem;
-  font-style: italic;
-  font-size: 0.86rem;
-  color: var(--ink-soft);
-  opacity: 0.8;
-}
-
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
 blockquote .cite::before { content: "— "; }
 .cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
 .cita-autor .texto { display: block; font-style: italic; }
 .cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
 .cita-autor .atribucion em { font-style: italic; }
-
-.profundizacion {
-  margin: 2.8rem 0;
-  padding: 1.6rem 1.8rem;
-  background: var(--surface);
-  border-radius: 6px;
-  border: 1px solid var(--rule);
-}
-
-.profundizacion .tag {
-  display: block;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 0.8rem;
-}
-
-.profundizacion p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--ink-soft);
-  margin-bottom: 0.8rem;
-}
-
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
 .profundizacion p:last-child { margin-bottom: 0; }
-
-.pendiente {
-  margin: 2.5rem 0;
-  padding: 1.4rem 1.6rem;
-  border: 1px dashed var(--rule);
-  border-radius: 6px;
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: 0.98rem;
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  html { font-size: 17px; }
-  .page { padding: 3rem 1.2rem 5rem; }
-  .chapter-title { font-size: 2rem; }
-}
-
-/* ====== NAVEGACIÓN ENTRE PÁGINAS ====== */
-.nav-top {
-  max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0;
-}
-.nav-top a {
-  font-size: 0.85rem; color: var(--ink-soft); text-decoration: none;
-  letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s;
-}
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .nav-top a:hover { border-bottom-color: var(--verde); }
-.nav-foot {
-  max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0;
-  border-top: 1px solid var(--rule);
-  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-}
-.nav-foot a {
-  font-size: 0.9rem; color: var(--ink); text-decoration: none;
-  border-bottom: 1px solid transparent; transition: border-color 0.2s;
-}
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .nav-foot a:hover { border-bottom-color: var(--verde); }
 .nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
 .nav-foot .next::after { content: " →"; color: var(--ink-soft); }
 .nav-foot .idx { color: var(--ink-soft); }
 
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: 17px; } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
 </style>
 </head>
 <body>
 <nav class="nav-top"><a href="index.html">← Índice</a></nav>
 
-
 <article class="page">
 
   <div class="chapter-eyebrow">Sexta pieza · gravedad media</div>
-  <h1 class="chapter-title">El poder adquisitivo del dinero</h1>
-  <p class="chapter-subtitle">El saqueo que no deja huellas</p>
+  <h1 class="chapter-title"><span class="w" data-w="0">El</span> <span class="w" data-w="1">poder</span> <span class="w" data-w="2">adquisitivo</span> <span class="w" data-w="3">del</span> <span class="w" data-w="4">dinero</span></h1>
+  <p class="chapter-subtitle"><span class="w" data-w="5">El</span> <span class="w" data-w="6">saqueo</span> <span class="w" data-w="7">que</span> <span class="w" data-w="8">no</span> <span class="w" data-w="9">deja</span> <span class="w" data-w="10">huellas</span></p>
 
   <div class="ornament">• • •</div>
 
   <div class="prose">
 
     <!-- ====== MOVIMIENTO 1 · APERTURA: la abuela y los ahorros de una vida ====== -->
-    <p class="lead">Tal vez usted conozca esta historia, porque en América Latina casi todos la conocemos. Una persona trabaja toda su vida —cuarenta, cincuenta años de levantarse temprano—, y va guardando. No despilfarra: ahorra, con la disciplina de quien sabe lo que cuesta cada peso. Guarda pensando en la vejez, en dejarles algo a los hijos, en no ser una carga. Y un día, ya viejo, va a contar lo que juntó en toda una vida de esfuerzo… y descubre que no alcanza para casi nada. El número en la libreta es grande, más grande que nunca. Pero lo que ese número compra se ha encogido hasta volverse casi nada.</p>
+    <p class="lead"><span class="w" data-w="11">Tal</span> <span class="w" data-w="12">vez</span> <span class="w" data-w="13">usted</span> <span class="w" data-w="14">conozca</span> <span class="w" data-w="15">esta</span> <span class="w" data-w="16">historia</span>, <span class="w" data-w="17">porque</span> <span class="w" data-w="18">en</span> <span class="w" data-w="19">América</span> <span class="w" data-w="20">Latina</span> <span class="w" data-w="21">casi</span> <span class="w" data-w="22">todos</span> <span class="w" data-w="23">la</span> <span class="w" data-w="24">conocemos</span>. <span class="w" data-w="25">Una</span> <span class="w" data-w="26">persona</span> <span class="w" data-w="27">trabaja</span> <span class="w" data-w="28">toda</span> <span class="w" data-w="29">su</span> <span class="w" data-w="30">vida</span> —<span class="w" data-w="31">cuarenta</span>, <span class="w" data-w="32">cincuenta</span> <span class="w" data-w="33">años</span> <span class="w" data-w="34">de</span> <span class="w" data-w="35">levantarse</span> <span class="w" data-w="36">temprano</span>—, <span class="w" data-w="37">y</span> <span class="w" data-w="38">va</span> <span class="w" data-w="39">guardando</span>. <span class="w" data-w="40">No</span> <span class="w" data-w="41">despilfarra</span>: <span class="w" data-w="42">ahorra</span>, <span class="w" data-w="43">con</span> <span class="w" data-w="44">la</span> <span class="w" data-w="45">disciplina</span> <span class="w" data-w="46">de</span> <span class="w" data-w="47">quien</span> <span class="w" data-w="48">sabe</span> <span class="w" data-w="49">lo</span> <span class="w" data-w="50">que</span> <span class="w" data-w="51">cuesta</span> <span class="w" data-w="52">cada</span> <span class="w" data-w="53">peso</span>. <span class="w" data-w="54">Guarda</span> <span class="w" data-w="55">pensando</span> <span class="w" data-w="56">en</span> <span class="w" data-w="57">la</span> <span class="w" data-w="58">vejez</span>, <span class="w" data-w="59">en</span> <span class="w" data-w="60">dejarles</span> <span class="w" data-w="61">algo</span> <span class="w" data-w="62">a</span> <span class="w" data-w="63">los</span> <span class="w" data-w="64">hijos</span>, <span class="w" data-w="65">en</span> <span class="w" data-w="66">no</span> <span class="w" data-w="67">ser</span> <span class="w" data-w="68">una</span> <span class="w" data-w="69">carga</span>. <span class="w" data-w="70">Y</span> <span class="w" data-w="71">un</span> <span class="w" data-w="72">día</span>, <span class="w" data-w="73">ya</span> <span class="w" data-w="74">viejo</span>, <span class="w" data-w="75">va</span> <span class="w" data-w="76">a</span> <span class="w" data-w="77">contar</span> <span class="w" data-w="78">lo</span> <span class="w" data-w="79">que</span> <span class="w" data-w="80">juntó</span> <span class="w" data-w="81">en</span> <span class="w" data-w="82">toda</span> <span class="w" data-w="83">una</span> <span class="w" data-w="84">vida</span> <span class="w" data-w="85">de</span> <span class="w" data-w="86">esfuerzo</span>… <span class="w" data-w="87">y</span> <span class="w" data-w="88">descubre</span> <span class="w" data-w="89">que</span> <span class="w" data-w="90">no</span> <span class="w" data-w="91">alcanza</span> <span class="w" data-w="92">para</span> <span class="w" data-w="93">casi</span> <span class="w" data-w="94">nada</span>. <span class="w" data-w="95">El</span> <span class="w" data-w="96">número</span> <span class="w" data-w="97">en</span> <span class="w" data-w="98">la</span> <span class="w" data-w="99">libreta</span> <span class="w" data-w="100">es</span> <span class="w" data-w="101">grande</span>, <span class="w" data-w="102">más</span> <span class="w" data-w="103">grande</span> <span class="w" data-w="104">que</span> <span class="w" data-w="105">nunca</span>. <span class="w" data-w="106">Pero</span> <span class="w" data-w="107">lo</span> <span class="w" data-w="108">que</span> <span class="w" data-w="109">ese</span> <span class="w" data-w="110">número</span> <span class="w" data-w="111">compra</span> <span class="w" data-w="112">se</span> <span class="w" data-w="113">ha</span> <span class="w" data-w="114">encogido</span> <span class="w" data-w="115">hasta</span> <span class="w" data-w="116">volverse</span> <span class="w" data-w="117">casi</span> <span class="w" data-w="118">nada</span>.</p>
 
-    <p>Lo desconcertante es que esa persona no hizo nada malo. No perdió el dinero, no se lo robaron de la casa, no lo apostó. Hizo exactamente lo que se supone que uno debe hacer: trabajar y ahorrar. Y aun así, el fruto de toda una vida se evaporó mientras estaba guardado, quieto, donde debía estar seguro. ¿Cómo se esfuma una vida de trabajo sin que nadie meta la mano en el bolsillo, sin un ladrón, sin un robo que denunciar?</p>
+    <p><span class="w" data-w="119">Lo</span> <span class="w" data-w="120">desconcertante</span> <span class="w" data-w="121">es</span> <span class="w" data-w="122">que</span> <span class="w" data-w="123">esa</span> <span class="w" data-w="124">persona</span> <span class="w" data-w="125">no</span> <span class="w" data-w="126">hizo</span> <span class="w" data-w="127">nada</span> <span class="w" data-w="128">malo</span>. <span class="w" data-w="129">No</span> <span class="w" data-w="130">perdió</span> <span class="w" data-w="131">el</span> <span class="w" data-w="132">dinero</span>, <span class="w" data-w="133">no</span> <span class="w" data-w="134">se</span> <span class="w" data-w="135">lo</span> <span class="w" data-w="136">robaron</span> <span class="w" data-w="137">de</span> <span class="w" data-w="138">la</span> <span class="w" data-w="139">casa</span>, <span class="w" data-w="140">no</span> <span class="w" data-w="141">lo</span> <span class="w" data-w="142">apostó</span>. <span class="w" data-w="143">Hizo</span> <span class="w" data-w="144">exactamente</span> <span class="w" data-w="145">lo</span> <span class="w" data-w="146">que</span> <span class="w" data-w="147">se</span> <span class="w" data-w="148">supone</span> <span class="w" data-w="149">que</span> <span class="w" data-w="150">uno</span> <span class="w" data-w="151">debe</span> <span class="w" data-w="152">hacer</span>: <span class="w" data-w="153">trabajar</span> <span class="w" data-w="154">y</span> <span class="w" data-w="155">ahorrar</span>. <span class="w" data-w="156">Y</span> <span class="w" data-w="157">aun</span> <span class="w" data-w="158">así</span>, <span class="w" data-w="159">el</span> <span class="w" data-w="160">fruto</span> <span class="w" data-w="161">de</span> <span class="w" data-w="162">toda</span> <span class="w" data-w="163">una</span> <span class="w" data-w="164">vida</span> <span class="w" data-w="165">se</span> <span class="w" data-w="166">evaporó</span> <span class="w" data-w="167">mientras</span> <span class="w" data-w="168">estaba</span> <span class="w" data-w="169">guardado</span>, <span class="w" data-w="170">quieto</span>, <span class="w" data-w="171">donde</span> <span class="w" data-w="172">debía</span> <span class="w" data-w="173">estar</span> <span class="w" data-w="174">seguro</span>. ¿<span class="w" data-w="175">Cómo</span> <span class="w" data-w="176">se</span> <span class="w" data-w="177">esfuma</span> <span class="w" data-w="178">una</span> <span class="w" data-w="179">vida</span> <span class="w" data-w="180">de</span> <span class="w" data-w="181">trabajo</span> <span class="w" data-w="182">sin</span> <span class="w" data-w="183">que</span> <span class="w" data-w="184">nadie</span> <span class="w" data-w="185">meta</span> <span class="w" data-w="186">la</span> <span class="w" data-w="187">mano</span> <span class="w" data-w="188">en</span> <span class="w" data-w="189">el</span> <span class="w" data-w="190">bolsillo</span>, <span class="w" data-w="191">sin</span> <span class="w" data-w="192">un</span> <span class="w" data-w="193">ladrón</span>, <span class="w" data-w="194">sin</span> <span class="w" data-w="195">un</span> <span class="w" data-w="196">robo</span> <span class="w" data-w="197">que</span> <span class="w" data-w="198">denunciar</span>?</p>
 
-    <p>Esa es la pregunta de este capítulo. Y la respuesta es la pieza del dinero que el ciudadano de a pie siente más de cerca —la única que no necesita que nadie se la explique, porque la vive—: si el dinero conserva, o no, el valor de lo que uno mete en él.</p>
+    <p><span class="w" data-w="199">Esa</span> <span class="w" data-w="200">es</span> <span class="w" data-w="201">la</span> <span class="w" data-w="202">pregunta</span> <span class="w" data-w="203">de</span> <span class="w" data-w="204">este</span> <span class="w" data-w="205">capítulo</span>. <span class="w" data-w="206">Y</span> <span class="w" data-w="207">la</span> <span class="w" data-w="208">respuesta</span> <span class="w" data-w="209">es</span> <span class="w" data-w="210">la</span> <span class="w" data-w="211">pieza</span> <span class="w" data-w="212">del</span> <span class="w" data-w="213">dinero</span> <span class="w" data-w="214">que</span> <span class="w" data-w="215">el</span> <span class="w" data-w="216">ciudadano</span> <span class="w" data-w="217">de</span> <span class="w" data-w="218">a</span> <span class="w" data-w="219">pie</span> <span class="w" data-w="220">siente</span> <span class="w" data-w="221">más</span> <span class="w" data-w="222">de</span> <span class="w" data-w="223">cerca</span> —<span class="w" data-w="224">la</span> <span class="w" data-w="225">única</span> <span class="w" data-w="226">que</span> <span class="w" data-w="227">no</span> <span class="w" data-w="228">necesita</span> <span class="w" data-w="229">que</span> <span class="w" data-w="230">nadie</span> <span class="w" data-w="231">se</span> <span class="w" data-w="232">la</span> <span class="w" data-w="233">explique</span>, <span class="w" data-w="234">porque</span> <span class="w" data-w="235">la</span> <span class="w" data-w="236">vive</span>—: <span class="w" data-w="237">si</span> <span class="w" data-w="238">el</span> <span class="w" data-w="239">dinero</span> <span class="w" data-w="240">conserva</span>, <span class="w" data-w="241">o</span> <span class="w" data-w="242">no</span>, <span class="w" data-w="243">el</span> <span class="w" data-w="244">valor</span> <span class="w" data-w="245">de</span> <span class="w" data-w="246">lo</span> <span class="w" data-w="247">que</span> <span class="w" data-w="248">uno</span> <span class="w" data-w="249">mete</span> <span class="w" data-w="250">en</span> <span class="w" data-w="251">él</span>.</p>
 
     <!-- ====== MOVIMIENTO 2 · LA SEÑAL: el poder adquisitivo ====== -->
-    <p>Pongámosle nombre a lo que esa persona perdió. No perdió pesos —los pesos siguen ahí, en la libreta, más numerosos que nunca—. Perdió <span class="term-verde">poder adquisitivo</span>: la capacidad de su dinero para comprar cosas reales. Y esa es la medida que de verdad importa, porque a nadie le sirve el dinero por el dinero mismo; le sirve por lo que puede cambiar por él —un techo, comida, la educación de un hijo, descanso al final de la vida—. El poder adquisitivo es eso: cuánto mundo real cabe dentro de lo que usted tiene guardado.</p>
+    <p><span class="w" data-w="252">Pongámosle</span> <span class="w" data-w="253">nombre</span> <span class="w" data-w="254">a</span> <span class="w" data-w="255">lo</span> <span class="w" data-w="256">que</span> <span class="w" data-w="257">esa</span> <span class="w" data-w="258">persona</span> <span class="w" data-w="259">perdió</span>. <span class="w" data-w="260">No</span> <span class="w" data-w="261">perdió</span> <span class="w" data-w="262">pesos</span> —<span class="w" data-w="263">los</span> <span class="w" data-w="264">pesos</span> <span class="w" data-w="265">siguen</span> <span class="w" data-w="266">ahí</span>, <span class="w" data-w="267">en</span> <span class="w" data-w="268">la</span> <span class="w" data-w="269">libreta</span>, <span class="w" data-w="270">más</span> <span class="w" data-w="271">numerosos</span> <span class="w" data-w="272">que</span> <span class="w" data-w="273">nunca</span>—. <span class="w" data-w="274">Perdió</span> <span class="term-verde"><span class="w" data-w="275">poder</span> <span class="w" data-w="276">adquisitivo</span></span>: <span class="w" data-w="277">la</span> <span class="w" data-w="278">capacidad</span> <span class="w" data-w="279">de</span> <span class="w" data-w="280">su</span> <span class="w" data-w="281">dinero</span> <span class="w" data-w="282">para</span> <span class="w" data-w="283">comprar</span> <span class="w" data-w="284">cosas</span> <span class="w" data-w="285">reales</span>. <span class="w" data-w="286">Y</span> <span class="w" data-w="287">esa</span> <span class="w" data-w="288">es</span> <span class="w" data-w="289">la</span> <span class="w" data-w="290">medida</span> <span class="w" data-w="291">que</span> <span class="w" data-w="292">de</span> <span class="w" data-w="293">verdad</span> <span class="w" data-w="294">importa</span>, <span class="w" data-w="295">porque</span> <span class="w" data-w="296">a</span> <span class="w" data-w="297">nadie</span> <span class="w" data-w="298">le</span> <span class="w" data-w="299">sirve</span> <span class="w" data-w="300">el</span> <span class="w" data-w="301">dinero</span> <span class="w" data-w="302">por</span> <span class="w" data-w="303">el</span> <span class="w" data-w="304">dinero</span> <span class="w" data-w="305">mismo</span>; <span class="w" data-w="306">le</span> <span class="w" data-w="307">sirve</span> <span class="w" data-w="308">por</span> <span class="w" data-w="309">lo</span> <span class="w" data-w="310">que</span> <span class="w" data-w="311">puede</span> <span class="w" data-w="312">cambiar</span> <span class="w" data-w="313">por</span> <span class="w" data-w="314">él</span> —<span class="w" data-w="315">un</span> <span class="w" data-w="316">techo</span>, <span class="w" data-w="317">comida</span>, <span class="w" data-w="318">la</span> <span class="w" data-w="319">educación</span> <span class="w" data-w="320">de</span> <span class="w" data-w="321">un</span> <span class="w" data-w="322">hijo</span>, <span class="w" data-w="323">descanso</span> <span class="w" data-w="324">al</span> <span class="w" data-w="325">final</span> <span class="w" data-w="326">de</span> <span class="w" data-w="327">la</span> <span class="w" data-w="328">vida</span>—. <span class="w" data-w="329">El</span> <span class="w" data-w="330">poder</span> <span class="w" data-w="331">adquisitivo</span> <span class="w" data-w="332">es</span> <span class="w" data-w="333">eso</span>: <span class="w" data-w="334">cuánto</span> <span class="w" data-w="335">mundo</span> <span class="w" data-w="336">real</span> <span class="w" data-w="337">cabe</span> <span class="w" data-w="338">dentro</span> <span class="w" data-w="339">de</span> <span class="w" data-w="340">lo</span> <span class="w" data-w="341">que</span> <span class="w" data-w="342">usted</span> <span class="w" data-w="343">tiene</span> <span class="w" data-w="344">guardado</span>.</p>
 
-    <p>Es, si quiere, la otra cara de la pieza anterior. Allá nos preguntábamos si la unidad de medida conservaría su tamaño hacia el futuro, para poder planear. Aquí la pregunta es más inmediata: lo que usted ya guardó, ¿sigue valiendo lo que valía? No mira hacia el futuro que quiere construir, sino hacia el pasado que ya construyó y puso a salvo.</p>
+    <p><span class="w" data-w="345">Es</span>, <span class="w" data-w="346">si</span> <span class="w" data-w="347">quiere</span>, <span class="w" data-w="348">la</span> <span class="w" data-w="349">otra</span> <span class="w" data-w="350">cara</span> <span class="w" data-w="351">de</span> <span class="w" data-w="352">la</span> <span class="w" data-w="353">pieza</span> <span class="w" data-w="354">anterior</span>. <span class="w" data-w="355">Allá</span> <span class="w" data-w="356">nos</span> <span class="w" data-w="357">preguntábamos</span> <span class="w" data-w="358">si</span> <span class="w" data-w="359">la</span> <span class="w" data-w="360">unidad</span> <span class="w" data-w="361">de</span> <span class="w" data-w="362">medida</span> <span class="w" data-w="363">conservaría</span> <span class="w" data-w="364">su</span> <span class="w" data-w="365">tamaño</span> <span class="w" data-w="366">hacia</span> <span class="w" data-w="367">el</span> <span class="w" data-w="368">futuro</span>, <span class="w" data-w="369">para</span> <span class="w" data-w="370">poder</span> <span class="w" data-w="371">planear</span>. <span class="w" data-w="372">Aquí</span> <span class="w" data-w="373">la</span> <span class="w" data-w="374">pregunta</span> <span class="w" data-w="375">es</span> <span class="w" data-w="376">más</span> <span class="w" data-w="377">inmediata</span>: <span class="w" data-w="378">lo</span> <span class="w" data-w="379">que</span> <span class="w" data-w="380">usted</span> <span class="w" data-w="381">ya</span> <span class="w" data-w="382">guardó</span>, ¿<span class="w" data-w="383">sigue</span> <span class="w" data-w="384">valiendo</span> <span class="w" data-w="385">lo</span> <span class="w" data-w="386">que</span> <span class="w" data-w="387">valía</span>? <span class="w" data-w="388">No</span> <span class="w" data-w="389">mira</span> <span class="w" data-w="390">hacia</span> <span class="w" data-w="391">el</span> <span class="w" data-w="392">futuro</span> <span class="w" data-w="393">que</span> <span class="w" data-w="394">quiere</span> <span class="w" data-w="395">construir</span>, <span class="w" data-w="396">sino</span> <span class="w" data-w="397">hacia</span> <span class="w" data-w="398">el</span> <span class="w" data-w="399">pasado</span> <span class="w" data-w="400">que</span> <span class="w" data-w="401">ya</span> <span class="w" data-w="402">construyó</span> <span class="w" data-w="403">y</span> <span class="w" data-w="404">puso</span> <span class="w" data-w="405">a</span> <span class="w" data-w="406">salvo</span>.</p>
 
-    <p>Y conviene ver con claridad qué es lo que se mide, porque es fácil confundirse. El poder adquisitivo no se mide en el número —ese puede crecer y crecer mientras lo que compra se desploma—. Se mide en cosas: cuántos panes, cuántos litros de leche, cuántos metros de techo compra una unidad de su dinero. Cuando ese poder baja, usted es más pobre, aunque el número de su cuenta sea idéntico o mayor. La riqueza nunca estuvo en los números: estuvo siempre en lo que los números pueden comprar.</p>
+    <p><span class="w" data-w="407">Y</span> <span class="w" data-w="408">conviene</span> <span class="w" data-w="409">ver</span> <span class="w" data-w="410">con</span> <span class="w" data-w="411">claridad</span> <span class="w" data-w="412">qué</span> <span class="w" data-w="413">es</span> <span class="w" data-w="414">lo</span> <span class="w" data-w="415">que</span> <span class="w" data-w="416">se</span> <span class="w" data-w="417">mide</span>, <span class="w" data-w="418">porque</span> <span class="w" data-w="419">es</span> <span class="w" data-w="420">fácil</span> <span class="w" data-w="421">confundirse</span>. <span class="w" data-w="422">El</span> <span class="w" data-w="423">poder</span> <span class="w" data-w="424">adquisitivo</span> <span class="w" data-w="425">no</span> <span class="w" data-w="426">se</span> <span class="w" data-w="427">mide</span> <span class="w" data-w="428">en</span> <span class="w" data-w="429">el</span> <span class="w" data-w="430">número</span> —<span class="w" data-w="431">ese</span> <span class="w" data-w="432">puede</span> <span class="w" data-w="433">crecer</span> <span class="w" data-w="434">y</span> <span class="w" data-w="435">crecer</span> <span class="w" data-w="436">mientras</span> <span class="w" data-w="437">lo</span> <span class="w" data-w="438">que</span> <span class="w" data-w="439">compra</span> <span class="w" data-w="440">se</span> <span class="w" data-w="441">desploma</span>—. <span class="w" data-w="442">Se</span> <span class="w" data-w="443">mide</span> <span class="w" data-w="444">en</span> <span class="w" data-w="445">cosas</span>: <span class="w" data-w="446">cuántos</span> <span class="w" data-w="447">panes</span>, <span class="w" data-w="448">cuántos</span> <span class="w" data-w="449">litros</span> <span class="w" data-w="450">de</span> <span class="w" data-w="451">leche</span>, <span class="w" data-w="452">cuántos</span> <span class="w" data-w="453">metros</span> <span class="w" data-w="454">de</span> <span class="w" data-w="455">techo</span> <span class="w" data-w="456">compra</span> <span class="w" data-w="457">una</span> <span class="w" data-w="458">unidad</span> <span class="w" data-w="459">de</span> <span class="w" data-w="460">su</span> <span class="w" data-w="461">dinero</span>. <span class="w" data-w="462">Cuando</span> <span class="w" data-w="463">ese</span> <span class="w" data-w="464">poder</span> <span class="w" data-w="465">baja</span>, <span class="w" data-w="466">usted</span> <span class="w" data-w="467">es</span> <span class="w" data-w="468">más</span> <span class="w" data-w="469">pobre</span>, <span class="w" data-w="470">aunque</span> <span class="w" data-w="471">el</span> <span class="w" data-w="472">número</span> <span class="w" data-w="473">de</span> <span class="w" data-w="474">su</span> <span class="w" data-w="475">cuenta</span> <span class="w" data-w="476">sea</span> <span class="w" data-w="477">idéntico</span> <span class="w" data-w="478">o</span> <span class="w" data-w="479">mayor</span>. <span class="w" data-w="480">La</span> <span class="w" data-w="481">riqueza</span> <span class="w" data-w="482">nunca</span> <span class="w" data-w="483">estuvo</span> <span class="w" data-w="484">en</span> <span class="w" data-w="485">los</span> <span class="w" data-w="486">números</span>: <span class="w" data-w="487">estuvo</span> <span class="w" data-w="488">siempre</span> <span class="w" data-w="489">en</span> <span class="w" data-w="490">lo</span> <span class="w" data-w="491">que</span> <span class="w" data-w="492">los</span> <span class="w" data-w="493">números</span> <span class="w" data-w="494">pueden</span> <span class="w" data-w="495">comprar</span>.</p>
 
     <!-- ====== MOVIMIENTO 3 · LA FALSIFICACIÓN: el saqueo silencioso ====== -->
-    <p>Entonces, ¿qué le pasó a la persona que ahorró toda una vida? No le subieron los precios por arte de magia. Pasó algo más concreto, y lo venimos viendo desde el principio del libro: mientras ella guardaba, alguien estuvo creando dinero nuevo de la nada. Y cada unidad nueva que aparece no añade riqueza —no hay más panes, ni más techos, ni más trabajo en el mundo por el hecho de imprimir—; lo único que hace es repartir el mismo valor entre más unidades. <span class="term-rojo">Cada peso nuevo que se crea le resta un poco de valor a todos los pesos que ya existían</span> —incluidos los que ella tenía guardados—. Su dinero no se movió de la cuenta; pero el valor se le fue saliendo por debajo, diluido por cada unidad que se fabricó mientras dormía.</p>
+    <p><span class="w" data-w="496">Entonces</span>, ¿<span class="w" data-w="497">qué</span> <span class="w" data-w="498">le</span> <span class="w" data-w="499">pasó</span> <span class="w" data-w="500">a</span> <span class="w" data-w="501">la</span> <span class="w" data-w="502">persona</span> <span class="w" data-w="503">que</span> <span class="w" data-w="504">ahorró</span> <span class="w" data-w="505">toda</span> <span class="w" data-w="506">una</span> <span class="w" data-w="507">vida</span>? <span class="w" data-w="508">No</span> <span class="w" data-w="509">le</span> <span class="w" data-w="510">subieron</span> <span class="w" data-w="511">los</span> <span class="w" data-w="512">precios</span> <span class="w" data-w="513">por</span> <span class="w" data-w="514">arte</span> <span class="w" data-w="515">de</span> <span class="w" data-w="516">magia</span>. <span class="w" data-w="517">Pasó</span> <span class="w" data-w="518">algo</span> <span class="w" data-w="519">más</span> <span class="w" data-w="520">concreto</span>, <span class="w" data-w="521">y</span> <span class="w" data-w="522">lo</span> <span class="w" data-w="523">venimos</span> <span class="w" data-w="524">viendo</span> <span class="w" data-w="525">desde</span> <span class="w" data-w="526">el</span> <span class="w" data-w="527">principio</span> <span class="w" data-w="528">del</span> <span class="w" data-w="529">libro</span>: <span class="w" data-w="530">mientras</span> <span class="w" data-w="531">ella</span> <span class="w" data-w="532">guardaba</span>, <span class="w" data-w="533">alguien</span> <span class="w" data-w="534">estuvo</span> <span class="w" data-w="535">creando</span> <span class="w" data-w="536">dinero</span> <span class="w" data-w="537">nuevo</span> <span class="w" data-w="538">de</span> <span class="w" data-w="539">la</span> <span class="w" data-w="540">nada</span>. <span class="w" data-w="541">Y</span> <span class="w" data-w="542">cada</span> <span class="w" data-w="543">unidad</span> <span class="w" data-w="544">nueva</span> <span class="w" data-w="545">que</span> <span class="w" data-w="546">aparece</span> <span class="w" data-w="547">no</span> <span class="w" data-w="548">añade</span> <span class="w" data-w="549">riqueza</span> —<span class="w" data-w="550">no</span> <span class="w" data-w="551">hay</span> <span class="w" data-w="552">más</span> <span class="w" data-w="553">panes</span>, <span class="w" data-w="554">ni</span> <span class="w" data-w="555">más</span> <span class="w" data-w="556">techos</span>, <span class="w" data-w="557">ni</span> <span class="w" data-w="558">más</span> <span class="w" data-w="559">trabajo</span> <span class="w" data-w="560">en</span> <span class="w" data-w="561">el</span> <span class="w" data-w="562">mundo</span> <span class="w" data-w="563">por</span> <span class="w" data-w="564">el</span> <span class="w" data-w="565">hecho</span> <span class="w" data-w="566">de</span> <span class="w" data-w="567">imprimir</span>—; <span class="w" data-w="568">lo</span> <span class="w" data-w="569">único</span> <span class="w" data-w="570">que</span> <span class="w" data-w="571">hace</span> <span class="w" data-w="572">es</span> <span class="w" data-w="573">repartir</span> <span class="w" data-w="574">el</span> <span class="w" data-w="575">mismo</span> <span class="w" data-w="576">valor</span> <span class="w" data-w="577">entre</span> <span class="w" data-w="578">más</span> <span class="w" data-w="579">unidades</span>. <span class="term-rojo"><span class="w" data-w="580">Cada</span> <span class="w" data-w="581">peso</span> <span class="w" data-w="582">nuevo</span> <span class="w" data-w="583">que</span> <span class="w" data-w="584">se</span> <span class="w" data-w="585">crea</span> <span class="w" data-w="586">le</span> <span class="w" data-w="587">resta</span> <span class="w" data-w="588">un</span> <span class="w" data-w="589">poco</span> <span class="w" data-w="590">de</span> <span class="w" data-w="591">valor</span> <span class="w" data-w="592">a</span> <span class="w" data-w="593">todos</span> <span class="w" data-w="594">los</span> <span class="w" data-w="595">pesos</span> <span class="w" data-w="596">que</span> <span class="w" data-w="597">ya</span> <span class="w" data-w="598">existían</span></span> —<span class="w" data-w="599">incluidos</span> <span class="w" data-w="600">los</span> <span class="w" data-w="601">que</span> <span class="w" data-w="602">ella</span> <span class="w" data-w="603">tenía</span> <span class="w" data-w="604">guardados</span>—. <span class="w" data-w="605">Su</span> <span class="w" data-w="606">dinero</span> <span class="w" data-w="607">no</span> <span class="w" data-w="608">se</span> <span class="w" data-w="609">movió</span> <span class="w" data-w="610">de</span> <span class="w" data-w="611">la</span> <span class="w" data-w="612">cuenta</span>; <span class="w" data-w="613">pero</span> <span class="w" data-w="614">el</span> <span class="w" data-w="615">valor</span> <span class="w" data-w="616">se</span> <span class="w" data-w="617">le</span> <span class="w" data-w="618">fue</span> <span class="w" data-w="619">saliendo</span> <span class="w" data-w="620">por</span> <span class="w" data-w="621">debajo</span>, <span class="w" data-w="622">diluido</span> <span class="w" data-w="623">por</span> <span class="w" data-w="624">cada</span> <span class="w" data-w="625">unidad</span> <span class="w" data-w="626">que</span> <span class="w" data-w="627">se</span> <span class="w" data-w="628">fabricó</span> <span class="w" data-w="629">mientras</span> <span class="w" data-w="630">dormía</span>.</p>
 
-    <p>Es importante ver por qué esto solo puede pasar con cierto tipo de dinero. Con dinero honesto —ese que nadie puede crear por decreto— lo que usted guarda se queda quieto en valor, o incluso vale más con el tiempo: si la sociedad produce más cosas y la cantidad de dinero no se infla, cada unidad compra más, no menos. Ahorrar, bajo dinero honesto, es guardar el fruto del trabajo tal cual, sin que se derrita. Pero con dinero que se crea de la nada, ahorrar es llenar un balde que tiene una fuga en el fondo: usted echa agua —trabaja, guarda—, y el nivel baja igual, porque alguien, en otra parte, abrió un agujero que usted no ve ni controla. Y fíjese bien dónde está el saqueo: no en que le saquen agua del balde, sino en que agrandan el balde —crean más unidades— y su agua, la misma de siempre, ahora llena una fracción menor.</p>
+    <p><span class="w" data-w="631">Es</span> <span class="w" data-w="632">importante</span> <span class="w" data-w="633">ver</span> <span class="w" data-w="634">por</span> <span class="w" data-w="635">qué</span> <span class="w" data-w="636">esto</span> <span class="w" data-w="637">solo</span> <span class="w" data-w="638">puede</span> <span class="w" data-w="639">pasar</span> <span class="w" data-w="640">con</span> <span class="w" data-w="641">cierto</span> <span class="w" data-w="642">tipo</span> <span class="w" data-w="643">de</span> <span class="w" data-w="644">dinero</span>. <span class="w" data-w="645">Con</span> <span class="w" data-w="646">dinero</span> <span class="w" data-w="647">honesto</span> —<span class="w" data-w="648">ese</span> <span class="w" data-w="649">que</span> <span class="w" data-w="650">nadie</span> <span class="w" data-w="651">puede</span> <span class="w" data-w="652">crear</span> <span class="w" data-w="653">por</span> <span class="w" data-w="654">decreto</span>— <span class="w" data-w="655">lo</span> <span class="w" data-w="656">que</span> <span class="w" data-w="657">usted</span> <span class="w" data-w="658">guarda</span> <span class="w" data-w="659">se</span> <span class="w" data-w="660">queda</span> <span class="w" data-w="661">quieto</span> <span class="w" data-w="662">en</span> <span class="w" data-w="663">valor</span>, <span class="w" data-w="664">o</span> <span class="w" data-w="665">incluso</span> <span class="w" data-w="666">vale</span> <span class="w" data-w="667">más</span> <span class="w" data-w="668">con</span> <span class="w" data-w="669">el</span> <span class="w" data-w="670">tiempo</span>: <span class="w" data-w="671">si</span> <span class="w" data-w="672">la</span> <span class="w" data-w="673">sociedad</span> <span class="w" data-w="674">produce</span> <span class="w" data-w="675">más</span> <span class="w" data-w="676">cosas</span> <span class="w" data-w="677">y</span> <span class="w" data-w="678">la</span> <span class="w" data-w="679">cantidad</span> <span class="w" data-w="680">de</span> <span class="w" data-w="681">dinero</span> <span class="w" data-w="682">no</span> <span class="w" data-w="683">se</span> <span class="w" data-w="684">infla</span>, <span class="w" data-w="685">cada</span> <span class="w" data-w="686">unidad</span> <span class="w" data-w="687">compra</span> <span class="w" data-w="688">más</span>, <span class="w" data-w="689">no</span> <span class="w" data-w="690">menos</span>. <span class="w" data-w="691">Ahorrar</span>, <span class="w" data-w="692">bajo</span> <span class="w" data-w="693">dinero</span> <span class="w" data-w="694">honesto</span>, <span class="w" data-w="695">es</span> <span class="w" data-w="696">guardar</span> <span class="w" data-w="697">el</span> <span class="w" data-w="698">fruto</span> <span class="w" data-w="699">del</span> <span class="w" data-w="700">trabajo</span> <span class="w" data-w="701">tal</span> <span class="w" data-w="702">cual</span>, <span class="w" data-w="703">sin</span> <span class="w" data-w="704">que</span> <span class="w" data-w="705">se</span> <span class="w" data-w="706">derrita</span>. <span class="w" data-w="707">Pero</span> <span class="w" data-w="708">con</span> <span class="w" data-w="709">dinero</span> <span class="w" data-w="710">que</span> <span class="w" data-w="711">se</span> <span class="w" data-w="712">crea</span> <span class="w" data-w="713">de</span> <span class="w" data-w="714">la</span> <span class="w" data-w="715">nada</span>, <span class="w" data-w="716">ahorrar</span> <span class="w" data-w="717">es</span> <span class="w" data-w="718">llenar</span> <span class="w" data-w="719">un</span> <span class="w" data-w="720">balde</span> <span class="w" data-w="721">que</span> <span class="w" data-w="722">tiene</span> <span class="w" data-w="723">una</span> <span class="w" data-w="724">fuga</span> <span class="w" data-w="725">en</span> <span class="w" data-w="726">el</span> <span class="w" data-w="727">fondo</span>: <span class="w" data-w="728">usted</span> <span class="w" data-w="729">echa</span> <span class="w" data-w="730">agua</span> —<span class="w" data-w="731">trabaja</span>, <span class="w" data-w="732">guarda</span>—, <span class="w" data-w="733">y</span> <span class="w" data-w="734">el</span> <span class="w" data-w="735">nivel</span> <span class="w" data-w="736">baja</span> <span class="w" data-w="737">igual</span>, <span class="w" data-w="738">porque</span> <span class="w" data-w="739">alguien</span>, <span class="w" data-w="740">en</span> <span class="w" data-w="741">otra</span> <span class="w" data-w="742">parte</span>, <span class="w" data-w="743">abrió</span> <span class="w" data-w="744">un</span> <span class="w" data-w="745">agujero</span> <span class="w" data-w="746">que</span> <span class="w" data-w="747">usted</span> <span class="w" data-w="748">no</span> <span class="w" data-w="749">ve</span> <span class="w" data-w="750">ni</span> <span class="w" data-w="751">controla</span>. <span class="w" data-w="752">Y</span> <span class="w" data-w="753">fíjese</span> <span class="w" data-w="754">bien</span> <span class="w" data-w="755">dónde</span> <span class="w" data-w="756">está</span> <span class="w" data-w="757">el</span> <span class="w" data-w="758">saqueo</span>: <span class="w" data-w="759">no</span> <span class="w" data-w="760">en</span> <span class="w" data-w="761">que</span> <span class="w" data-w="762">le</span> <span class="w" data-w="763">saquen</span> <span class="w" data-w="764">agua</span> <span class="w" data-w="765">del</span> <span class="w" data-w="766">balde</span>, <span class="w" data-w="767">sino</span> <span class="w" data-w="768">en</span> <span class="w" data-w="769">que</span> <span class="w" data-w="770">agrandan</span> <span class="w" data-w="771">el</span> <span class="w" data-w="772">balde</span> —<span class="w" data-w="773">crean</span> <span class="w" data-w="774">más</span> <span class="w" data-w="775">unidades</span>— <span class="w" data-w="776">y</span> <span class="w" data-w="777">su</span> <span class="w" data-w="778">agua</span>, <span class="w" data-w="779">la</span> <span class="w" data-w="780">misma</span> <span class="w" data-w="781">de</span> <span class="w" data-w="782">siempre</span>, <span class="w" data-w="783">ahora</span> <span class="w" data-w="784">llena</span> <span class="w" data-w="785">una</span> <span class="w" data-w="786">fracción</span> <span class="w" data-w="787">menor</span>.</p>
 
-    <p>Y aquí está lo que vuelve este saqueo distinto de cualquier otro: <span class="term-rojo">es un robo que no deja huellas</span>. Cuando suben un impuesto, usted lo ve: hay una ley, un debate, un porcentaje con nombre, alguien a quien reclamarle. Cuando le roban la casa, hay un delito, una víctima, una denuncia. Pero cuando le diluyen el ahorro creando dinero, no hay ley que usted haya votado, no hay una cifra que le hayan cobrado, no hay un culpable señalado, no hay siquiera un momento exacto en que ocurrió —fue gota a gota, todos los días, durante años—. Por eso es el saqueo perfecto: empobrece a millones sin que ninguno pueda señalar el instante en que le quitaron algo. Es un impuesto que nadie aprobó, que no aparece en ninguna factura, y que recae con más fuerza sobre quien menos puede defenderse: el que ahorra en efectivo, el que no tiene cómo poner su dinero a salvo, el viejo de nuestra historia.</p>
+    <p><span class="w" data-w="788">Y</span> <span class="w" data-w="789">aquí</span> <span class="w" data-w="790">está</span> <span class="w" data-w="791">lo</span> <span class="w" data-w="792">que</span> <span class="w" data-w="793">vuelve</span> <span class="w" data-w="794">este</span> <span class="w" data-w="795">saqueo</span> <span class="w" data-w="796">distinto</span> <span class="w" data-w="797">de</span> <span class="w" data-w="798">cualquier</span> <span class="w" data-w="799">otro</span>: <span class="term-rojo"><span class="w" data-w="800">es</span> <span class="w" data-w="801">un</span> <span class="w" data-w="802">robo</span> <span class="w" data-w="803">que</span> <span class="w" data-w="804">no</span> <span class="w" data-w="805">deja</span> <span class="w" data-w="806">huellas</span></span>. <span class="w" data-w="807">Cuando</span> <span class="w" data-w="808">suben</span> <span class="w" data-w="809">un</span> <span class="w" data-w="810">impuesto</span>, <span class="w" data-w="811">usted</span> <span class="w" data-w="812">lo</span> <span class="w" data-w="813">ve</span>: <span class="w" data-w="814">hay</span> <span class="w" data-w="815">una</span> <span class="w" data-w="816">ley</span>, <span class="w" data-w="817">un</span> <span class="w" data-w="818">debate</span>, <span class="w" data-w="819">un</span> <span class="w" data-w="820">porcentaje</span> <span class="w" data-w="821">con</span> <span class="w" data-w="822">nombre</span>, <span class="w" data-w="823">alguien</span> <span class="w" data-w="824">a</span> <span class="w" data-w="825">quien</span> <span class="w" data-w="826">reclamarle</span>. <span class="w" data-w="827">Cuando</span> <span class="w" data-w="828">le</span> <span class="w" data-w="829">roban</span> <span class="w" data-w="830">la</span> <span class="w" data-w="831">casa</span>, <span class="w" data-w="832">hay</span> <span class="w" data-w="833">un</span> <span class="w" data-w="834">delito</span>, <span class="w" data-w="835">una</span> <span class="w" data-w="836">víctima</span>, <span class="w" data-w="837">una</span> <span class="w" data-w="838">denuncia</span>. <span class="w" data-w="839">Pero</span> <span class="w" data-w="840">cuando</span> <span class="w" data-w="841">le</span> <span class="w" data-w="842">diluyen</span> <span class="w" data-w="843">el</span> <span class="w" data-w="844">ahorro</span> <span class="w" data-w="845">creando</span> <span class="w" data-w="846">dinero</span>, <span class="w" data-w="847">no</span> <span class="w" data-w="848">hay</span> <span class="w" data-w="849">ley</span> <span class="w" data-w="850">que</span> <span class="w" data-w="851">usted</span> <span class="w" data-w="852">haya</span> <span class="w" data-w="853">votado</span>, <span class="w" data-w="854">no</span> <span class="w" data-w="855">hay</span> <span class="w" data-w="856">una</span> <span class="w" data-w="857">cifra</span> <span class="w" data-w="858">que</span> <span class="w" data-w="859">le</span> <span class="w" data-w="860">hayan</span> <span class="w" data-w="861">cobrado</span>, <span class="w" data-w="862">no</span> <span class="w" data-w="863">hay</span> <span class="w" data-w="864">un</span> <span class="w" data-w="865">culpable</span> <span class="w" data-w="866">señalado</span>, <span class="w" data-w="867">no</span> <span class="w" data-w="868">hay</span> <span class="w" data-w="869">siquiera</span> <span class="w" data-w="870">un</span> <span class="w" data-w="871">momento</span> <span class="w" data-w="872">exacto</span> <span class="w" data-w="873">en</span> <span class="w" data-w="874">que</span> <span class="w" data-w="875">ocurrió</span> —<span class="w" data-w="876">fue</span> <span class="w" data-w="877">gota</span> <span class="w" data-w="878">a</span> <span class="w" data-w="879">gota</span>, <span class="w" data-w="880">todos</span> <span class="w" data-w="881">los</span> <span class="w" data-w="882">días</span>, <span class="w" data-w="883">durante</span> <span class="w" data-w="884">años</span>—. <span class="w" data-w="885">Por</span> <span class="w" data-w="886">eso</span> <span class="w" data-w="887">es</span> <span class="w" data-w="888">el</span> <span class="w" data-w="889">saqueo</span> <span class="w" data-w="890">perfecto</span>: <span class="w" data-w="891">empobrece</span> <span class="w" data-w="892">a</span> <span class="w" data-w="893">millones</span> <span class="w" data-w="894">sin</span> <span class="w" data-w="895">que</span> <span class="w" data-w="896">ninguno</span> <span class="w" data-w="897">pueda</span> <span class="w" data-w="898">señalar</span> <span class="w" data-w="899">el</span> <span class="w" data-w="900">instante</span> <span class="w" data-w="901">en</span> <span class="w" data-w="902">que</span> <span class="w" data-w="903">le</span> <span class="w" data-w="904">quitaron</span> <span class="w" data-w="905">algo</span>. <span class="w" data-w="906">Es</span> <span class="w" data-w="907">un</span> <span class="w" data-w="908">impuesto</span> <span class="w" data-w="909">que</span> <span class="w" data-w="910">nadie</span> <span class="w" data-w="911">aprobó</span>, <span class="w" data-w="912">que</span> <span class="w" data-w="913">no</span> <span class="w" data-w="914">aparece</span> <span class="w" data-w="915">en</span> <span class="w" data-w="916">ninguna</span> <span class="w" data-w="917">factura</span>, <span class="w" data-w="918">y</span> <span class="w" data-w="919">que</span> <span class="w" data-w="920">recae</span> <span class="w" data-w="921">con</span> <span class="w" data-w="922">más</span> <span class="w" data-w="923">fuerza</span> <span class="w" data-w="924">sobre</span> <span class="w" data-w="925">quien</span> <span class="w" data-w="926">menos</span> <span class="w" data-w="927">puede</span> <span class="w" data-w="928">defenderse</span>: <span class="w" data-w="929">el</span> <span class="w" data-w="930">que</span> <span class="w" data-w="931">ahorra</span> <span class="w" data-w="932">en</span> <span class="w" data-w="933">efectivo</span>, <span class="w" data-w="934">el</span> <span class="w" data-w="935">que</span> <span class="w" data-w="936">no</span> <span class="w" data-w="937">tiene</span> <span class="w" data-w="938">cómo</span> <span class="w" data-w="939">poner</span> <span class="w" data-w="940">su</span> <span class="w" data-w="941">dinero</span> <span class="w" data-w="942">a</span> <span class="w" data-w="943">salvo</span>, <span class="w" data-w="944">el</span> <span class="w" data-w="945">viejo</span> <span class="w" data-w="946">de</span> <span class="w" data-w="947">nuestra</span> <span class="w" data-w="948">historia</span>.</p>
 
-    <p>No es una metáfora llamarlo impuesto. Es, literalmente, la forma de recaudar más antigua y más cómoda para quien manda, porque no requiere aprobar nada ni dar la cara. Rothbard lo nombra sin eufemismos —y señala quién termina pagándolo—:</p>
+    <p><span class="w" data-w="949">No</span> <span class="w" data-w="950">es</span> <span class="w" data-w="951">una</span> <span class="w" data-w="952">metáfora</span> <span class="w" data-w="953">llamarlo</span> <span class="w" data-w="954">impuesto</span>. <span class="w" data-w="955">Es</span>, <span class="w" data-w="956">literalmente</span>, <span class="w" data-w="957">la</span> <span class="w" data-w="958">forma</span> <span class="w" data-w="959">de</span> <span class="w" data-w="960">recaudar</span> <span class="w" data-w="961">más</span> <span class="w" data-w="962">antigua</span> <span class="w" data-w="963">y</span> <span class="w" data-w="964">más</span> <span class="w" data-w="965">cómoda</span> <span class="w" data-w="966">para</span> <span class="w" data-w="967">quien</span> <span class="w" data-w="968">manda</span>, <span class="w" data-w="969">porque</span> <span class="w" data-w="970">no</span> <span class="w" data-w="971">requiere</span> <span class="w" data-w="972">aprobar</span> <span class="w" data-w="973">nada</span> <span class="w" data-w="974">ni</span> <span class="w" data-w="975">dar</span> <span class="w" data-w="976">la</span> <span class="w" data-w="977">cara</span>. <span class="w" data-w="978">Rothbard</span> <span class="w" data-w="979">lo</span> <span class="w" data-w="980">nombra</span> <span class="w" data-w="981">sin</span> <span class="w" data-w="982">eufemismos</span> —<span class="w" data-w="983">y</span> <span class="w" data-w="984">señala</span> <span class="w" data-w="985">quién</span> <span class="w" data-w="986">termina</span> <span class="w" data-w="987">pagándolo</span>—:</p>
 
     <div class="cita-autor">
-      <span class="texto">"El impacto de la inflación es especialmente grave sobre los grupos de ingreso relativamente 'fijo', cuyas pérdidas terminan después de un período largo o no terminan nunca."</span>
-      <span class="atribucion">Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 12</span>
+      <span class="texto">"<span class="w" data-w="988">El</span> <span class="w" data-w="989">impacto</span> <span class="w" data-w="990">de</span> <span class="w" data-w="991">la</span> <span class="w" data-w="992">inflación</span> <span class="w" data-w="993">es</span> <span class="w" data-w="994">especialmente</span> <span class="w" data-w="995">grave</span> <span class="w" data-w="996">sobre</span> <span class="w" data-w="997">los</span> <span class="w" data-w="998">grupos</span> <span class="w" data-w="999">de</span> <span class="w" data-w="1000">ingreso</span> <span class="w" data-w="1001">relativamente</span> '<span class="w" data-w="1002">fijo</span>', <span class="w" data-w="1003">cuyas</span> <span class="w" data-w="1004">pérdidas</span> <span class="w" data-w="1005">terminan</span> <span class="w" data-w="1006">después</span> <span class="w" data-w="1007">de</span> <span class="w" data-w="1008">un</span> <span class="w" data-w="1009">período</span> <span class="w" data-w="1010">largo</span> <span class="w" data-w="1011">o</span> <span class="w" data-w="1012">no</span> <span class="w" data-w="1013">terminan</span> <span class="w" data-w="1014">nunca</span>."</span>
+      <span class="atribucion"><span class="w" data-w="1015">Rothbard</span>, <em><span class="w" data-w="1016">El</span> <span class="w" data-w="1017">hombre</span>, <span class="w" data-w="1018">la</span> <span class="w" data-w="1019">economía</span> <span class="w" data-w="1020">y</span> <span class="w" data-w="1021">el</span> <span class="w" data-w="1022">Estado</span></em>, <span class="w" data-w="1023">cap</span>. <span class="w" data-w="1024">12</span></span>
     </div>
 
-    <p>Los grupos de ingreso fijo: los pensionados, los que viven de una renta, los que ahorraron en efectivo para la vejez. El viejo de nuestra historia no es una excepción desafortunada —es el blanco estructural de este impuesto que nadie votó—.</p>
+    <p><span class="w" data-w="1025">Los</span> <span class="w" data-w="1026">grupos</span> <span class="w" data-w="1027">de</span> <span class="w" data-w="1028">ingreso</span> <span class="w" data-w="1029">fijo</span>: <span class="w" data-w="1030">los</span> <span class="w" data-w="1031">pensionados</span>, <span class="w" data-w="1032">los</span> <span class="w" data-w="1033">que</span> <span class="w" data-w="1034">viven</span> <span class="w" data-w="1035">de</span> <span class="w" data-w="1036">una</span> <span class="w" data-w="1037">renta</span>, <span class="w" data-w="1038">los</span> <span class="w" data-w="1039">que</span> <span class="w" data-w="1040">ahorraron</span> <span class="w" data-w="1041">en</span> <span class="w" data-w="1042">efectivo</span> <span class="w" data-w="1043">para</span> <span class="w" data-w="1044">la</span> <span class="w" data-w="1045">vejez</span>. <span class="w" data-w="1046">El</span> <span class="w" data-w="1047">viejo</span> <span class="w" data-w="1048">de</span> <span class="w" data-w="1049">nuestra</span> <span class="w" data-w="1050">historia</span> <span class="w" data-w="1051">no</span> <span class="w" data-w="1052">es</span> <span class="w" data-w="1053">una</span> <span class="w" data-w="1054">excepción</span> <span class="w" data-w="1055">desafortunada</span> —<span class="w" data-w="1056">es</span> <span class="w" data-w="1057">el</span> <span class="w" data-w="1058">blanco</span> <span class="w" data-w="1059">estructural</span> <span class="w" data-w="1060">de</span> <span class="w" data-w="1061">este</span> <span class="w" data-w="1062">impuesto</span> <span class="w" data-w="1063">que</span> <span class="w" data-w="1064">nadie</span> <span class="w" data-w="1065">votó</span>—.</p>
 
     <!-- ====== MOVIMIENTO 4 · LA INVERSIÓN DE LA VIRTUD (comprimido) ====== -->
-    <p>Hay una consecuencia de esto que va más hondo que el robo mismo. Piense en lo que el dinero que se diluye le enseña a la gente: que ahorrar es de tontos, que guardar el fruto del trabajo es verlo derretirse, que el prudente —el que se aguanta, el que posterga, el que junta para el futuro— es castigado, mientras el que gasta todo de inmediato al menos no pierde. El dinero malo invierte el premio y el castigo: vuelve insensato lo que siempre fue sensato. Rothbard lo dijo en una línea:</p>
+    <p><span class="w" data-w="1066">Hay</span> <span class="w" data-w="1067">una</span> <span class="w" data-w="1068">consecuencia</span> <span class="w" data-w="1069">de</span> <span class="w" data-w="1070">esto</span> <span class="w" data-w="1071">que</span> <span class="w" data-w="1072">va</span> <span class="w" data-w="1073">más</span> <span class="w" data-w="1074">hondo</span> <span class="w" data-w="1075">que</span> <span class="w" data-w="1076">el</span> <span class="w" data-w="1077">robo</span> <span class="w" data-w="1078">mismo</span>. <span class="w" data-w="1079">Piense</span> <span class="w" data-w="1080">en</span> <span class="w" data-w="1081">lo</span> <span class="w" data-w="1082">que</span> <span class="w" data-w="1083">el</span> <span class="w" data-w="1084">dinero</span> <span class="w" data-w="1085">que</span> <span class="w" data-w="1086">se</span> <span class="w" data-w="1087">diluye</span> <span class="w" data-w="1088">le</span> <span class="w" data-w="1089">enseña</span> <span class="w" data-w="1090">a</span> <span class="w" data-w="1091">la</span> <span class="w" data-w="1092">gente</span>: <span class="w" data-w="1093">que</span> <span class="w" data-w="1094">ahorrar</span> <span class="w" data-w="1095">es</span> <span class="w" data-w="1096">de</span> <span class="w" data-w="1097">tontos</span>, <span class="w" data-w="1098">que</span> <span class="w" data-w="1099">guardar</span> <span class="w" data-w="1100">el</span> <span class="w" data-w="1101">fruto</span> <span class="w" data-w="1102">del</span> <span class="w" data-w="1103">trabajo</span> <span class="w" data-w="1104">es</span> <span class="w" data-w="1105">verlo</span> <span class="w" data-w="1106">derretirse</span>, <span class="w" data-w="1107">que</span> <span class="w" data-w="1108">el</span> <span class="w" data-w="1109">prudente</span> —<span class="w" data-w="1110">el</span> <span class="w" data-w="1111">que</span> <span class="w" data-w="1112">se</span> <span class="w" data-w="1113">aguanta</span>, <span class="w" data-w="1114">el</span> <span class="w" data-w="1115">que</span> <span class="w" data-w="1116">posterga</span>, <span class="w" data-w="1117">el</span> <span class="w" data-w="1118">que</span> <span class="w" data-w="1119">junta</span> <span class="w" data-w="1120">para</span> <span class="w" data-w="1121">el</span> <span class="w" data-w="1122">futuro</span>— <span class="w" data-w="1123">es</span> <span class="w" data-w="1124">castigado</span>, <span class="w" data-w="1125">mientras</span> <span class="w" data-w="1126">el</span> <span class="w" data-w="1127">que</span> <span class="w" data-w="1128">gasta</span> <span class="w" data-w="1129">todo</span> <span class="w" data-w="1130">de</span> <span class="w" data-w="1131">inmediato</span> <span class="w" data-w="1132">al</span> <span class="w" data-w="1133">menos</span> <span class="w" data-w="1134">no</span> <span class="w" data-w="1135">pierde</span>. <span class="w" data-w="1136">El</span> <span class="w" data-w="1137">dinero</span> <span class="w" data-w="1138">malo</span> <span class="w" data-w="1139">invierte</span> <span class="w" data-w="1140">el</span> <span class="w" data-w="1141">premio</span> <span class="w" data-w="1142">y</span> <span class="w" data-w="1143">el</span> <span class="w" data-w="1144">castigo</span>: <span class="w" data-w="1145">vuelve</span> <span class="w" data-w="1146">insensato</span> <span class="w" data-w="1147">lo</span> <span class="w" data-w="1148">que</span> <span class="w" data-w="1149">siempre</span> <span class="w" data-w="1150">fue</span> <span class="w" data-w="1151">sensato</span>. <span class="w" data-w="1152">Rothbard</span> <span class="w" data-w="1153">lo</span> <span class="w" data-w="1154">dijo</span> <span class="w" data-w="1155">en</span> <span class="w" data-w="1156">una</span> <span class="w" data-w="1157">línea</span>:</p>
 
     <div class="cita-autor">
-      <span class="texto">"La inflación penaliza la austeridad y favorece el endeudamiento... El incentivo, entonces, es endeudarse y pagar después en vez de ahorrar y prestar."</span>
-      <span class="atribucion">Rothbard, <em>¿Qué ha hecho el gobierno de nuestro dinero?</em></span>
+      <span class="texto">"<span class="w" data-w="1158">La</span> <span class="w" data-w="1159">inflación</span> <span class="w" data-w="1160">penaliza</span> <span class="w" data-w="1161">la</span> <span class="w" data-w="1162">austeridad</span> <span class="w" data-w="1163">y</span> <span class="w" data-w="1164">favorece</span> <span class="w" data-w="1165">el</span> <span class="w" data-w="1166">endeudamiento</span>... <span class="w" data-w="1167">El</span> <span class="w" data-w="1168">incentivo</span>, <span class="w" data-w="1169">entonces</span>, <span class="w" data-w="1170">es</span> <span class="w" data-w="1171">endeudarse</span> <span class="w" data-w="1172">y</span> <span class="w" data-w="1173">pagar</span> <span class="w" data-w="1174">después</span> <span class="w" data-w="1175">en</span> <span class="w" data-w="1176">vez</span> <span class="w" data-w="1177">de</span> <span class="w" data-w="1178">ahorrar</span> <span class="w" data-w="1179">y</span> <span class="w" data-w="1180">prestar</span>."</span>
+      <span class="atribucion"><span class="w" data-w="1181">Rothbard</span>, <em>¿<span class="w" data-w="1182">Qué</span> <span class="w" data-w="1183">ha</span> <span class="w" data-w="1184">hecho</span> <span class="w" data-w="1185">el</span> <span class="w" data-w="1186">gobierno</span> <span class="w" data-w="1187">de</span> <span class="w" data-w="1188">nuestro</span> <span class="w" data-w="1189">dinero</span>?</em></span>
     </div>
 
-    <p>Y la gente no es tonta: aprende. Si guardar pierde, la respuesta racional es no guardar —gastar ya, mientras el dinero todavía compra, o lanzarse a inversiones cada vez más arriesgadas, no por audacia sino por defensa—. La virtud del ahorro, que cualquiera podía practicar, se vuelve un lujo de expertos: bajo dinero honesto el camino seguro de una familia común era trabajar, guardar, esperar; bajo dinero que se diluye, ese camino se cierra.</p>
+    <p><span class="w" data-w="1190">Y</span> <span class="w" data-w="1191">la</span> <span class="w" data-w="1192">gente</span> <span class="w" data-w="1193">no</span> <span class="w" data-w="1194">es</span> <span class="w" data-w="1195">tonta</span>: <span class="w" data-w="1196">aprende</span>. <span class="w" data-w="1197">Si</span> <span class="w" data-w="1198">guardar</span> <span class="w" data-w="1199">pierde</span>, <span class="w" data-w="1200">la</span> <span class="w" data-w="1201">respuesta</span> <span class="w" data-w="1202">racional</span> <span class="w" data-w="1203">es</span> <span class="w" data-w="1204">no</span> <span class="w" data-w="1205">guardar</span> —<span class="w" data-w="1206">gastar</span> <span class="w" data-w="1207">ya</span>, <span class="w" data-w="1208">mientras</span> <span class="w" data-w="1209">el</span> <span class="w" data-w="1210">dinero</span> <span class="w" data-w="1211">todavía</span> <span class="w" data-w="1212">compra</span>, <span class="w" data-w="1213">o</span> <span class="w" data-w="1214">lanzarse</span> <span class="w" data-w="1215">a</span> <span class="w" data-w="1216">inversiones</span> <span class="w" data-w="1217">cada</span> <span class="w" data-w="1218">vez</span> <span class="w" data-w="1219">más</span> <span class="w" data-w="1220">arriesgadas</span>, <span class="w" data-w="1221">no</span> <span class="w" data-w="1222">por</span> <span class="w" data-w="1223">audacia</span> <span class="w" data-w="1224">sino</span> <span class="w" data-w="1225">por</span> <span class="w" data-w="1226">defensa</span>—. <span class="w" data-w="1227">La</span> <span class="w" data-w="1228">virtud</span> <span class="w" data-w="1229">del</span> <span class="w" data-w="1230">ahorro</span>, <span class="w" data-w="1231">que</span> <span class="w" data-w="1232">cualquiera</span> <span class="w" data-w="1233">podía</span> <span class="w" data-w="1234">practicar</span>, <span class="w" data-w="1235">se</span> <span class="w" data-w="1236">vuelve</span> <span class="w" data-w="1237">un</span> <span class="w" data-w="1238">lujo</span> <span class="w" data-w="1239">de</span> <span class="w" data-w="1240">expertos</span>: <span class="w" data-w="1241">bajo</span> <span class="w" data-w="1242">dinero</span> <span class="w" data-w="1243">honesto</span> <span class="w" data-w="1244">el</span> <span class="w" data-w="1245">camino</span> <span class="w" data-w="1246">seguro</span> <span class="w" data-w="1247">de</span> <span class="w" data-w="1248">una</span> <span class="w" data-w="1249">familia</span> <span class="w" data-w="1250">común</span> <span class="w" data-w="1251">era</span> <span class="w" data-w="1252">trabajar</span>, <span class="w" data-w="1253">guardar</span>, <span class="w" data-w="1254">esperar</span>; <span class="w" data-w="1255">bajo</span> <span class="w" data-w="1256">dinero</span> <span class="w" data-w="1257">que</span> <span class="w" data-w="1258">se</span> <span class="w" data-w="1259">diluye</span>, <span class="w" data-w="1260">ese</span> <span class="w" data-w="1261">camino</span> <span class="w" data-w="1262">se</span> <span class="w" data-w="1263">cierra</span>.</p>
 
-    <p>Es la inversión completa: un buen dinero premia la paciencia y hace del ahorro el camino natural de cualquiera; un dinero que se diluye premia la impaciencia y empuja a todos a vivir el corto plazo. No es solo que le roben a usted sus ahorros: es que le enseñan a usted, y a todos, a no ahorrar. Y eso —lo que el dinero malo le hace, a la larga, a la paciencia de un pueblo entero— es quizá la consecuencia más honda de todas; pero tiene su propio lugar más adelante en el libro. Por ahora basta con ver que el saqueo no termina en el bolsillo: también toca el carácter.</p>
+    <p><span class="w" data-w="1264">Es</span> <span class="w" data-w="1265">la</span> <span class="w" data-w="1266">inversión</span> <span class="w" data-w="1267">completa</span>: <span class="w" data-w="1268">un</span> <span class="w" data-w="1269">buen</span> <span class="w" data-w="1270">dinero</span> <span class="w" data-w="1271">premia</span> <span class="w" data-w="1272">la</span> <span class="w" data-w="1273">paciencia</span> <span class="w" data-w="1274">y</span> <span class="w" data-w="1275">hace</span> <span class="w" data-w="1276">del</span> <span class="w" data-w="1277">ahorro</span> <span class="w" data-w="1278">el</span> <span class="w" data-w="1279">camino</span> <span class="w" data-w="1280">natural</span> <span class="w" data-w="1281">de</span> <span class="w" data-w="1282">cualquiera</span>; <span class="w" data-w="1283">un</span> <span class="w" data-w="1284">dinero</span> <span class="w" data-w="1285">que</span> <span class="w" data-w="1286">se</span> <span class="w" data-w="1287">diluye</span> <span class="w" data-w="1288">premia</span> <span class="w" data-w="1289">la</span> <span class="w" data-w="1290">impaciencia</span> <span class="w" data-w="1291">y</span> <span class="w" data-w="1292">empuja</span> <span class="w" data-w="1293">a</span> <span class="w" data-w="1294">todos</span> <span class="w" data-w="1295">a</span> <span class="w" data-w="1296">vivir</span> <span class="w" data-w="1297">el</span> <span class="w" data-w="1298">corto</span> <span class="w" data-w="1299">plazo</span>. <span class="w" data-w="1300">No</span> <span class="w" data-w="1301">es</span> <span class="w" data-w="1302">solo</span> <span class="w" data-w="1303">que</span> <span class="w" data-w="1304">le</span> <span class="w" data-w="1305">roben</span> <span class="w" data-w="1306">a</span> <span class="w" data-w="1307">usted</span> <span class="w" data-w="1308">sus</span> <span class="w" data-w="1309">ahorros</span>: <span class="w" data-w="1310">es</span> <span class="w" data-w="1311">que</span> <span class="w" data-w="1312">le</span> <span class="w" data-w="1313">enseñan</span> <span class="w" data-w="1314">a</span> <span class="w" data-w="1315">usted</span>, <span class="w" data-w="1316">y</span> <span class="w" data-w="1317">a</span> <span class="w" data-w="1318">todos</span>, <span class="w" data-w="1319">a</span> <span class="w" data-w="1320">no</span> <span class="w" data-w="1321">ahorrar</span>. <span class="w" data-w="1322">Y</span> <span class="w" data-w="1323">eso</span> —<span class="w" data-w="1324">lo</span> <span class="w" data-w="1325">que</span> <span class="w" data-w="1326">el</span> <span class="w" data-w="1327">dinero</span> <span class="w" data-w="1328">malo</span> <span class="w" data-w="1329">le</span> <span class="w" data-w="1330">hace</span>, <span class="w" data-w="1331">a</span> <span class="w" data-w="1332">la</span> <span class="w" data-w="1333">larga</span>, <span class="w" data-w="1334">a</span> <span class="w" data-w="1335">la</span> <span class="w" data-w="1336">paciencia</span> <span class="w" data-w="1337">de</span> <span class="w" data-w="1338">un</span> <span class="w" data-w="1339">pueblo</span> <span class="w" data-w="1340">entero</span>— <span class="w" data-w="1341">es</span> <span class="w" data-w="1342">quizá</span> <span class="w" data-w="1343">la</span> <span class="w" data-w="1344">consecuencia</span> <span class="w" data-w="1345">más</span> <span class="w" data-w="1346">honda</span> <span class="w" data-w="1347">de</span> <span class="w" data-w="1348">todas</span>; <span class="w" data-w="1349">pero</span> <span class="w" data-w="1350">tiene</span> <span class="w" data-w="1351">su</span> <span class="w" data-w="1352">propio</span> <span class="w" data-w="1353">lugar</span> <span class="w" data-w="1354">más</span> <span class="w" data-w="1355">adelante</span> <span class="w" data-w="1356">en</span> <span class="w" data-w="1357">el</span> <span class="w" data-w="1358">libro</span>. <span class="w" data-w="1359">Por</span> <span class="w" data-w="1360">ahora</span> <span class="w" data-w="1361">basta</span> <span class="w" data-w="1362">con</span> <span class="w" data-w="1363">ver</span> <span class="w" data-w="1364">que</span> <span class="w" data-w="1365">el</span> <span class="w" data-w="1366">saqueo</span> <span class="w" data-w="1367">no</span> <span class="w" data-w="1368">termina</span> <span class="w" data-w="1369">en</span> <span class="w" data-w="1370">el</span> <span class="w" data-w="1371">bolsillo</span>: <span class="w" data-w="1372">también</span> <span class="w" data-w="1373">toca</span> <span class="w" data-w="1374">el</span> <span class="w" data-w="1375">carácter</span>.</p>
 
     <!-- ====== MOVIMIENTO 5 · LOS TRES REGÍMENES: oro y Bitcoin juntos frente al fiat ====== -->
-    <p>Y ahora la pregunta de siempre: ¿de qué depende que el dinero conserve el valor de lo que usted guarda, o se lo diluya? Depende, como todo en este libro, de si se puede crear de la nada. El dinero fiat puede —y por eso diluye—: cada unidad nueva que el comité decide imprimir es un poco de valor que sale, sin aviso, de todo lo que ya estaba guardado. Es el único de los tres regímenes que saquea por esta vía, y lo hace por diseño.</p>
+    <p><span class="w" data-w="1376">Y</span> <span class="w" data-w="1377">ahora</span> <span class="w" data-w="1378">la</span> <span class="w" data-w="1379">pregunta</span> <span class="w" data-w="1380">de</span> <span class="w" data-w="1381">siempre</span>: ¿<span class="w" data-w="1382">de</span> <span class="w" data-w="1383">qué</span> <span class="w" data-w="1384">depende</span> <span class="w" data-w="1385">que</span> <span class="w" data-w="1386">el</span> <span class="w" data-w="1387">dinero</span> <span class="w" data-w="1388">conserve</span> <span class="w" data-w="1389">el</span> <span class="w" data-w="1390">valor</span> <span class="w" data-w="1391">de</span> <span class="w" data-w="1392">lo</span> <span class="w" data-w="1393">que</span> <span class="w" data-w="1394">usted</span> <span class="w" data-w="1395">guarda</span>, <span class="w" data-w="1396">o</span> <span class="w" data-w="1397">se</span> <span class="w" data-w="1398">lo</span> <span class="w" data-w="1399">diluya</span>? <span class="w" data-w="1400">Depende</span>, <span class="w" data-w="1401">como</span> <span class="w" data-w="1402">todo</span> <span class="w" data-w="1403">en</span> <span class="w" data-w="1404">este</span> <span class="w" data-w="1405">libro</span>, <span class="w" data-w="1406">de</span> <span class="w" data-w="1407">si</span> <span class="w" data-w="1408">se</span> <span class="w" data-w="1409">puede</span> <span class="w" data-w="1410">crear</span> <span class="w" data-w="1411">de</span> <span class="w" data-w="1412">la</span> <span class="w" data-w="1413">nada</span>. <span class="w" data-w="1414">El</span> <span class="w" data-w="1415">dinero</span> <span class="w" data-w="1416">fiat</span> <span class="w" data-w="1417">puede</span> —<span class="w" data-w="1418">y</span> <span class="w" data-w="1419">por</span> <span class="w" data-w="1420">eso</span> <span class="w" data-w="1421">diluye</span>—: <span class="w" data-w="1422">cada</span> <span class="w" data-w="1423">unidad</span> <span class="w" data-w="1424">nueva</span> <span class="w" data-w="1425">que</span> <span class="w" data-w="1426">el</span> <span class="w" data-w="1427">comité</span> <span class="w" data-w="1428">decide</span> <span class="w" data-w="1429">imprimir</span> <span class="w" data-w="1430">es</span> <span class="w" data-w="1431">un</span> <span class="w" data-w="1432">poco</span> <span class="w" data-w="1433">de</span> <span class="w" data-w="1434">valor</span> <span class="w" data-w="1435">que</span> <span class="w" data-w="1436">sale</span>, <span class="w" data-w="1437">sin</span> <span class="w" data-w="1438">aviso</span>, <span class="w" data-w="1439">de</span> <span class="w" data-w="1440">todo</span> <span class="w" data-w="1441">lo</span> <span class="w" data-w="1442">que</span> <span class="w" data-w="1443">ya</span> <span class="w" data-w="1444">estaba</span> <span class="w" data-w="1445">guardado</span>. <span class="w" data-w="1446">Es</span> <span class="w" data-w="1447">el</span> <span class="w" data-w="1448">único</span> <span class="w" data-w="1449">de</span> <span class="w" data-w="1450">los</span> <span class="w" data-w="1451">tres</span> <span class="w" data-w="1452">regímenes</span> <span class="w" data-w="1453">que</span> <span class="w" data-w="1454">saquea</span> <span class="w" data-w="1455">por</span> <span class="w" data-w="1456">esta</span> <span class="w" data-w="1457">vía</span>, <span class="w" data-w="1458">y</span> <span class="w" data-w="1459">lo</span> <span class="w" data-w="1460">hace</span> <span class="w" data-w="1461">por</span> <span class="w" data-w="1462">diseño</span>.</p>
 
-    <p>Frente a él, los dos dineros honestos se comportan igual, y por eso aquí vuelven a ir del brazo. Ni el oro ni Bitcoin se pueden crear por decreto, y por eso ninguno de los dos diluye lo que usted guarda: lo que ahorra en ellos conserva su valor, porque nadie puede fabricar unidades nuevas para licuar las suyas. En la pieza anterior —la predecibilidad— los separamos, porque mirando al futuro no son idénticos. Pero en esta, la de preservar el valor de lo ya guardado frente a la dilución, están del mismo lado: los dos protegen el fruto del trabajo, mientras que el fiat lo derrite. Lo que ahorró aquella persona se habría salvado en cualquiera de los dos; lo que la arruinó fue el único de los tres que se puede imprimir.</p>
+    <p><span class="w" data-w="1463">Frente</span> <span class="w" data-w="1464">a</span> <span class="w" data-w="1465">él</span>, <span class="w" data-w="1466">los</span> <span class="w" data-w="1467">dos</span> <span class="w" data-w="1468">dineros</span> <span class="w" data-w="1469">honestos</span> <span class="w" data-w="1470">se</span> <span class="w" data-w="1471">comportan</span> <span class="w" data-w="1472">igual</span>, <span class="w" data-w="1473">y</span> <span class="w" data-w="1474">por</span> <span class="w" data-w="1475">eso</span> <span class="w" data-w="1476">aquí</span> <span class="w" data-w="1477">vuelven</span> <span class="w" data-w="1478">a</span> <span class="w" data-w="1479">ir</span> <span class="w" data-w="1480">del</span> <span class="w" data-w="1481">brazo</span>. <span class="w" data-w="1482">Ni</span> <span class="w" data-w="1483">el</span> <span class="w" data-w="1484">oro</span> <span class="w" data-w="1485">ni</span> <span class="w" data-w="1486">Bitcoin</span> <span class="w" data-w="1487">se</span> <span class="w" data-w="1488">pueden</span> <span class="w" data-w="1489">crear</span> <span class="w" data-w="1490">por</span> <span class="w" data-w="1491">decreto</span>, <span class="w" data-w="1492">y</span> <span class="w" data-w="1493">por</span> <span class="w" data-w="1494">eso</span> <span class="w" data-w="1495">ninguno</span> <span class="w" data-w="1496">de</span> <span class="w" data-w="1497">los</span> <span class="w" data-w="1498">dos</span> <span class="w" data-w="1499">diluye</span> <span class="w" data-w="1500">lo</span> <span class="w" data-w="1501">que</span> <span class="w" data-w="1502">usted</span> <span class="w" data-w="1503">guarda</span>: <span class="w" data-w="1504">lo</span> <span class="w" data-w="1505">que</span> <span class="w" data-w="1506">ahorra</span> <span class="w" data-w="1507">en</span> <span class="w" data-w="1508">ellos</span> <span class="w" data-w="1509">conserva</span> <span class="w" data-w="1510">su</span> <span class="w" data-w="1511">valor</span>, <span class="w" data-w="1512">porque</span> <span class="w" data-w="1513">nadie</span> <span class="w" data-w="1514">puede</span> <span class="w" data-w="1515">fabricar</span> <span class="w" data-w="1516">unidades</span> <span class="w" data-w="1517">nuevas</span> <span class="w" data-w="1518">para</span> <span class="w" data-w="1519">licuar</span> <span class="w" data-w="1520">las</span> <span class="w" data-w="1521">suyas</span>. <span class="w" data-w="1522">En</span> <span class="w" data-w="1523">la</span> <span class="w" data-w="1524">pieza</span> <span class="w" data-w="1525">anterior</span> —<span class="w" data-w="1526">la</span> <span class="w" data-w="1527">predecibilidad</span>— <span class="w" data-w="1528">los</span> <span class="w" data-w="1529">separamos</span>, <span class="w" data-w="1530">porque</span> <span class="w" data-w="1531">mirando</span> <span class="w" data-w="1532">al</span> <span class="w" data-w="1533">futuro</span> <span class="w" data-w="1534">no</span> <span class="w" data-w="1535">son</span> <span class="w" data-w="1536">idénticos</span>. <span class="w" data-w="1537">Pero</span> <span class="w" data-w="1538">en</span> <span class="w" data-w="1539">esta</span>, <span class="w" data-w="1540">la</span> <span class="w" data-w="1541">de</span> <span class="w" data-w="1542">preservar</span> <span class="w" data-w="1543">el</span> <span class="w" data-w="1544">valor</span> <span class="w" data-w="1545">de</span> <span class="w" data-w="1546">lo</span> <span class="w" data-w="1547">ya</span> <span class="w" data-w="1548">guardado</span> <span class="w" data-w="1549">frente</span> <span class="w" data-w="1550">a</span> <span class="w" data-w="1551">la</span> <span class="w" data-w="1552">dilución</span>, <span class="w" data-w="1553">están</span> <span class="w" data-w="1554">del</span> <span class="w" data-w="1555">mismo</span> <span class="w" data-w="1556">lado</span>: <span class="w" data-w="1557">los</span> <span class="w" data-w="1558">dos</span> <span class="w" data-w="1559">protegen</span> <span class="w" data-w="1560">el</span> <span class="w" data-w="1561">fruto</span> <span class="w" data-w="1562">del</span> <span class="w" data-w="1563">trabajo</span>, <span class="w" data-w="1564">mientras</span> <span class="w" data-w="1565">que</span> <span class="w" data-w="1566">el</span> <span class="w" data-w="1567">fiat</span> <span class="w" data-w="1568">lo</span> <span class="w" data-w="1569">derrite</span>. <span class="w" data-w="1570">Lo</span> <span class="w" data-w="1571">que</span> <span class="w" data-w="1572">ahorró</span> <span class="w" data-w="1573">aquella</span> <span class="w" data-w="1574">persona</span> <span class="w" data-w="1575">se</span> <span class="w" data-w="1576">habría</span> <span class="w" data-w="1577">salvado</span> <span class="w" data-w="1578">en</span> <span class="w" data-w="1579">cualquiera</span> <span class="w" data-w="1580">de</span> <span class="w" data-w="1581">los</span> <span class="w" data-w="1582">dos</span>; <span class="w" data-w="1583">lo</span> <span class="w" data-w="1584">que</span> <span class="w" data-w="1585">la</span> <span class="w" data-w="1586">arruinó</span> <span class="w" data-w="1587">fue</span> <span class="w" data-w="1588">el</span> <span class="w" data-w="1589">único</span> <span class="w" data-w="1590">de</span> <span class="w" data-w="1591">los</span> <span class="w" data-w="1592">tres</span> <span class="w" data-w="1593">que</span> <span class="w" data-w="1594">se</span> <span class="w" data-w="1595">puede</span> <span class="w" data-w="1596">imprimir</span>.</p>
 
     <!-- ====== MOVIMIENTO 6 · CIERRE: arquetipo + remate + puente a discriminación bancaria ====== -->
-    <p>Recoja la forma, que es la de siempre. La causa es la misma de todo el libro: el trabajo guardado, el ahorro de quien prefirió esperar. La señal de este capítulo es el poder adquisitivo —cuánto vale, en cosas reales, lo que usted tiene—. La lectura es tan directa que no necesita teoría: usted abre la billetera y ve qué alcanza. Y el desenlace depende, como siempre, del dinero: si es honesto, lo guardado se conserva y el trabajo de una vida sigue siendo el trabajo de una vida; si se puede crear de la nada, lo guardado se diluye y el trabajo de una vida se evapora sin que nadie lo toque.</p>
+    <p><span class="w" data-w="1597">Recoja</span> <span class="w" data-w="1598">la</span> <span class="w" data-w="1599">forma</span>, <span class="w" data-w="1600">que</span> <span class="w" data-w="1601">es</span> <span class="w" data-w="1602">la</span> <span class="w" data-w="1603">de</span> <span class="w" data-w="1604">siempre</span>. <span class="w" data-w="1605">La</span> <span class="w" data-w="1606">causa</span> <span class="w" data-w="1607">es</span> <span class="w" data-w="1608">la</span> <span class="w" data-w="1609">misma</span> <span class="w" data-w="1610">de</span> <span class="w" data-w="1611">todo</span> <span class="w" data-w="1612">el</span> <span class="w" data-w="1613">libro</span>: <span class="w" data-w="1614">el</span> <span class="w" data-w="1615">trabajo</span> <span class="w" data-w="1616">guardado</span>, <span class="w" data-w="1617">el</span> <span class="w" data-w="1618">ahorro</span> <span class="w" data-w="1619">de</span> <span class="w" data-w="1620">quien</span> <span class="w" data-w="1621">prefirió</span> <span class="w" data-w="1622">esperar</span>. <span class="w" data-w="1623">La</span> <span class="w" data-w="1624">señal</span> <span class="w" data-w="1625">de</span> <span class="w" data-w="1626">este</span> <span class="w" data-w="1627">capítulo</span> <span class="w" data-w="1628">es</span> <span class="w" data-w="1629">el</span> <span class="w" data-w="1630">poder</span> <span class="w" data-w="1631">adquisitivo</span> —<span class="w" data-w="1632">cuánto</span> <span class="w" data-w="1633">vale</span>, <span class="w" data-w="1634">en</span> <span class="w" data-w="1635">cosas</span> <span class="w" data-w="1636">reales</span>, <span class="w" data-w="1637">lo</span> <span class="w" data-w="1638">que</span> <span class="w" data-w="1639">usted</span> <span class="w" data-w="1640">tiene</span>—. <span class="w" data-w="1641">La</span> <span class="w" data-w="1642">lectura</span> <span class="w" data-w="1643">es</span> <span class="w" data-w="1644">tan</span> <span class="w" data-w="1645">directa</span> <span class="w" data-w="1646">que</span> <span class="w" data-w="1647">no</span> <span class="w" data-w="1648">necesita</span> <span class="w" data-w="1649">teoría</span>: <span class="w" data-w="1650">usted</span> <span class="w" data-w="1651">abre</span> <span class="w" data-w="1652">la</span> <span class="w" data-w="1653">billetera</span> <span class="w" data-w="1654">y</span> <span class="w" data-w="1655">ve</span> <span class="w" data-w="1656">qué</span> <span class="w" data-w="1657">alcanza</span>. <span class="w" data-w="1658">Y</span> <span class="w" data-w="1659">el</span> <span class="w" data-w="1660">desenlace</span> <span class="w" data-w="1661">depende</span>, <span class="w" data-w="1662">como</span> <span class="w" data-w="1663">siempre</span>, <span class="w" data-w="1664">del</span> <span class="w" data-w="1665">dinero</span>: <span class="w" data-w="1666">si</span> <span class="w" data-w="1667">es</span> <span class="w" data-w="1668">honesto</span>, <span class="w" data-w="1669">lo</span> <span class="w" data-w="1670">guardado</span> <span class="w" data-w="1671">se</span> <span class="w" data-w="1672">conserva</span> <span class="w" data-w="1673">y</span> <span class="w" data-w="1674">el</span> <span class="w" data-w="1675">trabajo</span> <span class="w" data-w="1676">de</span> <span class="w" data-w="1677">una</span> <span class="w" data-w="1678">vida</span> <span class="w" data-w="1679">sigue</span> <span class="w" data-w="1680">siendo</span> <span class="w" data-w="1681">el</span> <span class="w" data-w="1682">trabajo</span> <span class="w" data-w="1683">de</span> <span class="w" data-w="1684">una</span> <span class="w" data-w="1685">vida</span>; <span class="w" data-w="1686">si</span> <span class="w" data-w="1687">se</span> <span class="w" data-w="1688">puede</span> <span class="w" data-w="1689">crear</span> <span class="w" data-w="1690">de</span> <span class="w" data-w="1691">la</span> <span class="w" data-w="1692">nada</span>, <span class="w" data-w="1693">lo</span> <span class="w" data-w="1694">guardado</span> <span class="w" data-w="1695">se</span> <span class="w" data-w="1696">diluye</span> <span class="w" data-w="1697">y</span> <span class="w" data-w="1698">el</span> <span class="w" data-w="1699">trabajo</span> <span class="w" data-w="1700">de</span> <span class="w" data-w="1701">una</span> <span class="w" data-w="1702">vida</span> <span class="w" data-w="1703">se</span> <span class="w" data-w="1704">evapora</span> <span class="w" data-w="1705">sin</span> <span class="w" data-w="1706">que</span> <span class="w" data-w="1707">nadie</span> <span class="w" data-w="1708">lo</span> <span class="w" data-w="1709">toque</span>.</p>
 
-    <p>De todas las piezas que hemos recorrido, esta es la que cualquiera puede comprobar sin saber una palabra de economía: basta con haber visto a un abuelo contar lo que juntó, o con recordar lo que costaba el pan hace diez años. Y por eso mismo es la más reveladora. <span class="term-verde">Un dinero honesto es el único que le devuelve, intacto, el trabajo que usted le confió</span> —no se lo multiplica por arte de magia, pero tampoco se lo roba en silencio—. Guardar en él es guardar de verdad: lo que usted metió es lo que encontrará, esperándolo, cuando lo necesite. Eso, que debería ser lo mínimo que se le pide a un dinero, resulta ser un privilegio que solo el dinero honesto concede.</p>
+    <p><span class="w" data-w="1710">De</span> <span class="w" data-w="1711">todas</span> <span class="w" data-w="1712">las</span> <span class="w" data-w="1713">piezas</span> <span class="w" data-w="1714">que</span> <span class="w" data-w="1715">hemos</span> <span class="w" data-w="1716">recorrido</span>, <span class="w" data-w="1717">esta</span> <span class="w" data-w="1718">es</span> <span class="w" data-w="1719">la</span> <span class="w" data-w="1720">que</span> <span class="w" data-w="1721">cualquiera</span> <span class="w" data-w="1722">puede</span> <span class="w" data-w="1723">comprobar</span> <span class="w" data-w="1724">sin</span> <span class="w" data-w="1725">saber</span> <span class="w" data-w="1726">una</span> <span class="w" data-w="1727">palabra</span> <span class="w" data-w="1728">de</span> <span class="w" data-w="1729">economía</span>: <span class="w" data-w="1730">basta</span> <span class="w" data-w="1731">con</span> <span class="w" data-w="1732">haber</span> <span class="w" data-w="1733">visto</span> <span class="w" data-w="1734">a</span> <span class="w" data-w="1735">un</span> <span class="w" data-w="1736">abuelo</span> <span class="w" data-w="1737">contar</span> <span class="w" data-w="1738">lo</span> <span class="w" data-w="1739">que</span> <span class="w" data-w="1740">juntó</span>, <span class="w" data-w="1741">o</span> <span class="w" data-w="1742">con</span> <span class="w" data-w="1743">recordar</span> <span class="w" data-w="1744">lo</span> <span class="w" data-w="1745">que</span> <span class="w" data-w="1746">costaba</span> <span class="w" data-w="1747">el</span> <span class="w" data-w="1748">pan</span> <span class="w" data-w="1749">hace</span> <span class="w" data-w="1750">diez</span> <span class="w" data-w="1751">años</span>. <span class="w" data-w="1752">Y</span> <span class="w" data-w="1753">por</span> <span class="w" data-w="1754">eso</span> <span class="w" data-w="1755">mismo</span> <span class="w" data-w="1756">es</span> <span class="w" data-w="1757">la</span> <span class="w" data-w="1758">más</span> <span class="w" data-w="1759">reveladora</span>. <span class="term-verde"><span class="w" data-w="1760">Un</span> <span class="w" data-w="1761">dinero</span> <span class="w" data-w="1762">honesto</span> <span class="w" data-w="1763">es</span> <span class="w" data-w="1764">el</span> <span class="w" data-w="1765">único</span> <span class="w" data-w="1766">que</span> <span class="w" data-w="1767">le</span> <span class="w" data-w="1768">devuelve</span>, <span class="w" data-w="1769">intacto</span>, <span class="w" data-w="1770">el</span> <span class="w" data-w="1771">trabajo</span> <span class="w" data-w="1772">que</span> <span class="w" data-w="1773">usted</span> <span class="w" data-w="1774">le</span> <span class="w" data-w="1775">confió</span></span> —<span class="w" data-w="1776">no</span> <span class="w" data-w="1777">se</span> <span class="w" data-w="1778">lo</span> <span class="w" data-w="1779">multiplica</span> <span class="w" data-w="1780">por</span> <span class="w" data-w="1781">arte</span> <span class="w" data-w="1782">de</span> <span class="w" data-w="1783">magia</span>, <span class="w" data-w="1784">pero</span> <span class="w" data-w="1785">tampoco</span> <span class="w" data-w="1786">se</span> <span class="w" data-w="1787">lo</span> <span class="w" data-w="1788">roba</span> <span class="w" data-w="1789">en</span> <span class="w" data-w="1790">silencio</span>—. <span class="w" data-w="1791">Guardar</span> <span class="w" data-w="1792">en</span> <span class="w" data-w="1793">él</span> <span class="w" data-w="1794">es</span> <span class="w" data-w="1795">guardar</span> <span class="w" data-w="1796">de</span> <span class="w" data-w="1797">verdad</span>: <span class="w" data-w="1798">lo</span> <span class="w" data-w="1799">que</span> <span class="w" data-w="1800">usted</span> <span class="w" data-w="1801">metió</span> <span class="w" data-w="1802">es</span> <span class="w" data-w="1803">lo</span> <span class="w" data-w="1804">que</span> <span class="w" data-w="1805">encontrará</span>, <span class="w" data-w="1806">esperándolo</span>, <span class="w" data-w="1807">cuando</span> <span class="w" data-w="1808">lo</span> <span class="w" data-w="1809">necesite</span>. <span class="w" data-w="1810">Eso</span>, <span class="w" data-w="1811">que</span> <span class="w" data-w="1812">debería</span> <span class="w" data-w="1813">ser</span> <span class="w" data-w="1814">lo</span> <span class="w" data-w="1815">mínimo</span> <span class="w" data-w="1816">que</span> <span class="w" data-w="1817">se</span> <span class="w" data-w="1818">le</span> <span class="w" data-w="1819">pide</span> <span class="w" data-w="1820">a</span> <span class="w" data-w="1821">un</span> <span class="w" data-w="1822">dinero</span>, <span class="w" data-w="1823">resulta</span> <span class="w" data-w="1824">ser</span> <span class="w" data-w="1825">un</span> <span class="w" data-w="1826">privilegio</span> <span class="w" data-w="1827">que</span> <span class="w" data-w="1828">solo</span> <span class="w" data-w="1829">el</span> <span class="w" data-w="1830">dinero</span> <span class="w" data-w="1831">honesto</span> <span class="w" data-w="1832">concede</span>.</p>
 
-    <p>Hasta aquí hemos visto el saqueo por el lado del que guarda: el ahorro que se diluye. Pero hay otra mano en el mismo bolsillo, y mira al otro lado del mostrador —no a quien guarda el dinero, sino a quien lo recibe nuevo—. Porque el dinero que se crea de la nada no se reparte por igual ni llega a todos: alguien decide a quién se le presta primero, y ese alguien no es un mercado ciego, sino una banca que favorece a los suyos. Quién tiene acceso al dinero nuevo y quién no —quién está adentro y quién toca una puerta que no se abre— es la siguiente pieza, y revela que el dinero malo no solo empobrece a quien ahorra: también escoge, de antemano, a quién enriquece.</p>
+    <p><span class="w" data-w="1833">Hasta</span> <span class="w" data-w="1834">aquí</span> <span class="w" data-w="1835">hemos</span> <span class="w" data-w="1836">visto</span> <span class="w" data-w="1837">el</span> <span class="w" data-w="1838">saqueo</span> <span class="w" data-w="1839">por</span> <span class="w" data-w="1840">el</span> <span class="w" data-w="1841">lado</span> <span class="w" data-w="1842">del</span> <span class="w" data-w="1843">que</span> <span class="w" data-w="1844">guarda</span>: <span class="w" data-w="1845">el</span> <span class="w" data-w="1846">ahorro</span> <span class="w" data-w="1847">que</span> <span class="w" data-w="1848">se</span> <span class="w" data-w="1849">diluye</span>. <span class="w" data-w="1850">Pero</span> <span class="w" data-w="1851">hay</span> <span class="w" data-w="1852">otra</span> <span class="w" data-w="1853">mano</span> <span class="w" data-w="1854">en</span> <span class="w" data-w="1855">el</span> <span class="w" data-w="1856">mismo</span> <span class="w" data-w="1857">bolsillo</span>, <span class="w" data-w="1858">y</span> <span class="w" data-w="1859">mira</span> <span class="w" data-w="1860">al</span> <span class="w" data-w="1861">otro</span> <span class="w" data-w="1862">lado</span> <span class="w" data-w="1863">del</span> <span class="w" data-w="1864">mostrador</span> —<span class="w" data-w="1865">no</span> <span class="w" data-w="1866">a</span> <span class="w" data-w="1867">quien</span> <span class="w" data-w="1868">guarda</span> <span class="w" data-w="1869">el</span> <span class="w" data-w="1870">dinero</span>, <span class="w" data-w="1871">sino</span> <span class="w" data-w="1872">a</span> <span class="w" data-w="1873">quien</span> <span class="w" data-w="1874">lo</span> <span class="w" data-w="1875">recibe</span> <span class="w" data-w="1876">nuevo</span>—. <span class="w" data-w="1877">Porque</span> <span class="w" data-w="1878">el</span> <span class="w" data-w="1879">dinero</span> <span class="w" data-w="1880">que</span> <span class="w" data-w="1881">se</span> <span class="w" data-w="1882">crea</span> <span class="w" data-w="1883">de</span> <span class="w" data-w="1884">la</span> <span class="w" data-w="1885">nada</span> <span class="w" data-w="1886">no</span> <span class="w" data-w="1887">se</span> <span class="w" data-w="1888">reparte</span> <span class="w" data-w="1889">por</span> <span class="w" data-w="1890">igual</span> <span class="w" data-w="1891">ni</span> <span class="w" data-w="1892">llega</span> <span class="w" data-w="1893">a</span> <span class="w" data-w="1894">todos</span>: <span class="w" data-w="1895">alguien</span> <span class="w" data-w="1896">decide</span> <span class="w" data-w="1897">a</span> <span class="w" data-w="1898">quién</span> <span class="w" data-w="1899">se</span> <span class="w" data-w="1900">le</span> <span class="w" data-w="1901">presta</span> <span class="w" data-w="1902">primero</span>, <span class="w" data-w="1903">y</span> <span class="w" data-w="1904">ese</span> <span class="w" data-w="1905">alguien</span> <span class="w" data-w="1906">no</span> <span class="w" data-w="1907">es</span> <span class="w" data-w="1908">un</span> <span class="w" data-w="1909">mercado</span> <span class="w" data-w="1910">ciego</span>, <span class="w" data-w="1911">sino</span> <span class="w" data-w="1912">una</span> <span class="w" data-w="1913">banca</span> <span class="w" data-w="1914">que</span> <span class="w" data-w="1915">favorece</span> <span class="w" data-w="1916">a</span> <span class="w" data-w="1917">los</span> <span class="w" data-w="1918">suyos</span>. <span class="w" data-w="1919">Quién</span> <span class="w" data-w="1920">tiene</span> <span class="w" data-w="1921">acceso</span> <span class="w" data-w="1922">al</span> <span class="w" data-w="1923">dinero</span> <span class="w" data-w="1924">nuevo</span> <span class="w" data-w="1925">y</span> <span class="w" data-w="1926">quién</span> <span class="w" data-w="1927">no</span> —<span class="w" data-w="1928">quién</span> <span class="w" data-w="1929">está</span> <span class="w" data-w="1930">adentro</span> <span class="w" data-w="1931">y</span> <span class="w" data-w="1932">quién</span> <span class="w" data-w="1933">toca</span> <span class="w" data-w="1934">una</span> <span class="w" data-w="1935">puerta</span> <span class="w" data-w="1936">que</span> <span class="w" data-w="1937">no</span> <span class="w" data-w="1938">se</span> <span class="w" data-w="1939">abre</span>— <span class="w" data-w="1940">es</span> <span class="w" data-w="1941">la</span> <span class="w" data-w="1942">siguiente</span> <span class="w" data-w="1943">pieza</span>, <span class="w" data-w="1944">y</span> <span class="w" data-w="1945">revela</span> <span class="w" data-w="1946">que</span> <span class="w" data-w="1947">el</span> <span class="w" data-w="1948">dinero</span> <span class="w" data-w="1949">malo</span> <span class="w" data-w="1950">no</span> <span class="w" data-w="1951">solo</span> <span class="w" data-w="1952">empobrece</span> <span class="w" data-w="1953">a</span> <span class="w" data-w="1954">quien</span> <span class="w" data-w="1955">ahorra</span>: <span class="w" data-w="1956">también</span> <span class="w" data-w="1957">escoge</span>, <span class="w" data-w="1958">de</span> <span class="w" data-w="1959">antemano</span>, <span class="w" data-w="1960">a</span> <span class="w" data-w="1961">quién</span> <span class="w" data-w="1962">enriquece</span>.</p>
 
   </div>
 
-
 </article>
+
 <nav class="nav-foot"><a class="prev" href="predictibilidad-estructural.html">La predictibilidad del dinero</a><a class="idx" href="index.html">Índice</a><a class="next" href="discriminacion-bancaria.html">La discriminación bancaria</a></nav>
 
+<aside class="audio-pill" data-state="collapsed" data-duration="13:10" data-storage-key="poder-adquisitivo" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/poder-adquisitivo.mp3"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-resume-hint" aria-hidden="true"></div>
+  <div class="ap-meta">
+    <button class="ap-btn ap-skip ap-skip-back" type="button" aria-label="Retroceder 15 segundos" title="Retroceder 15 s (J)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 6V3L6 7l5 4V8c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H3c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/>
+        <text class="skip-label" x="11" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <button class="ap-btn ap-skip ap-skip-fwd" type="button" aria-label="Avanzar 15 segundos" title="Avanzar 15 s (L)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 6V3l5 4-5 4V8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/>
+        <text class="skip-label" x="13" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
+    <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
+        <path d="M19 18 V11.5 a3 3 0 0 0 -6 0 a3 3 0 0 0 3 3 a3 3 0 0 0 3 -3"/>
+        <line class="strike" x1="3" y1="20" x2="21" y2="4"/>
+      </svg>
+    </button>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción" title="Velocidad">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor" title="Minimizar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller v2 */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var skipBackBtn = pill.querySelector('.ap-skip-back');
+  var skipFwdBtn  = pill.querySelector('.ap-skip-fwd');
+  var karaokeBtn  = pill.querySelector('.ap-karaoke');
+  var hint        = pill.querySelector('.ap-resume-hint');
+  var STORAGE_KEY = pill.getAttribute('data-storage-key') || 'default';
+  var POS_KEY = 'audio-pill:pos:' + STORAGE_KEY;
+  var KARAOKE_KEY = 'audio-pill:karaoke';
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0, lastSaveAt = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  function safePlay(){
+    var p = a.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  function savePos(){
+    if (!a.duration || !isFinite(a.duration)) return;
+    var t = a.currentTime;
+    if (t > a.duration - 8) { try { localStorage.removeItem(POS_KEY); } catch(e){} return; }
+    if (t < 3) return;
+    try { localStorage.setItem(POS_KEY, String(Math.floor(t))); } catch(e){}
+  }
+  function loadPos(){
+    try { var v = localStorage.getItem(POS_KEY); var t = parseFloat(v); return isFinite(t) && t > 0 ? t : 0; }
+    catch(e){ return 0; }
+  }
+  function showResumeHint(s){
+    if (!hint) return;
+    hint.textContent = '↻ ' + fmt(s);
+    hint.classList.add('show');
+    setTimeout(function(){ hint.classList.remove('show'); }, 2200);
+  }
+  a.addEventListener('loadedmetadata', function(){
+    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
+    var saved = loadPos();
+    if (saved > 0 && saved < a.duration - 8) {
+      a.currentTime = saved;
+      showResumeHint(saved);
+    }
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime);
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+    if (!a.paused) {
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+      if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
+    }
+  });
+  a.addEventListener('pause', function(){ savePos(); });
+  window.addEventListener('beforeunload', savePos);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); try { localStorage.removeItem(POS_KEY); } catch(e){} });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) safePlay(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  function skip(secs){ if (!a.duration) return; a.currentTime = Math.max(0, Math.min(a.duration, a.currentTime + secs)); }
+  if (skipBackBtn) skipBackBtn.addEventListener('click', function(e){ e.stopPropagation(); skip(-15); });
+  if (skipFwdBtn)  skipFwdBtn.addEventListener('click',  function(e){ e.stopPropagation(); skip(+15); });
+  function applyKaraokePref(){
+    var off = false;
+    try { off = localStorage.getItem(KARAOKE_KEY) === 'off'; } catch(e){}
+    document.body.classList.toggle('karaoke-off', off);
+    if (karaokeBtn) {
+      karaokeBtn.classList.toggle('active', !off);
+      karaokeBtn.setAttribute('aria-pressed', String(!off));
+      karaokeBtn.setAttribute('aria-label', off ? 'Activar resaltado palabra por palabra' : 'Desactivar resaltado palabra por palabra');
+    }
+  }
+  applyKaraokePref();
+  if (karaokeBtn) karaokeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var current = document.body.classList.contains('karaoke-off');
+    try { localStorage.setItem(KARAOKE_KEY, current ? 'on' : 'off'); } catch(e){}
+    applyKaraokePref();
+  });
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!a.duration) return;
+      var r = tr.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      a.currentTime = pct * a.duration;
+    }
+    function onDown(e){
+      if (!a.duration) return;
+      dragging = true;
+      wasPlaying = !a.paused;
+      if (wasPlaying) a.pause();
+      tr.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      tr.classList.remove('dragging');
+      if (wasPlaying) { var p = a.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+    }
+    tr.addEventListener('mousedown', onDown);
+    tr.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
+  })();
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target && e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === ' ' && !(/^(BUTTON|A)$/.test(e.target.tagName))) {
+      if (!pill.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (a.paused) safePlay(); else a.pause();
+    } else if (k === 'j') { skip(-15); e.preventDefault(); }
+      else if (k === 'l') { skip(+15); e.preventDefault(); }
+      else if (k === 'k' && karaokeBtn) { karaokeBtn.click(); e.preventDefault(); }
+      else if (e.key === 'Escape' && pill.getAttribute('data-state') === 'expanded') { a.pause(); collapse(); }
+  });
+})();
+</script>
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/poder-adquisitivo.alignment.json';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+<script>
+/* Subrayado (highlights) — selecciona texto y aparece toolbar; se guarda en localStorage por capítulo */
+(function(){
+  var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
+  if (!Array.isArray(saved)) saved = [];
+  saved.forEach(function(idx){
+    var el = prose.querySelector('.w[data-w="'+idx+'"]');
+    if (el) el.classList.add('hl');
+  });
+
+  var toolbar = document.createElement('div');
+  toolbar.className = 'hl-toolbar';
+  toolbar.setAttribute('role', 'toolbar');
+  toolbar.setAttribute('aria-label', 'Acciones de subrayado');
+  document.body.appendChild(toolbar);
+
+  var selectedIdxs = [];
+
+  function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
+
+  function getSelectedWordIdxs(){
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.toString().trim() === '') return [];
+    var range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer) && !range.intersectsNode(prose)) return [];
+    var idxs = [];
+    var allWords = prose.querySelectorAll('.w');
+    for (var i = 0; i < allWords.length; i++){
+      if (range.intersectsNode(allWords[i])) {
+        var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
+        if (!isNaN(idx)) idxs.push(idx);
+      }
+    }
+    return idxs;
+  }
+
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
+
+  function apply(){
+    selectedIdxs.forEach(function(i){
+      var el = prose.querySelector('.w[data-w="'+i+'"]');
+      if (el) el.classList.add('hl');
+      if (saved.indexOf(i) === -1) saved.push(i);
+    });
+    save(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+  function remove(){
+    selectedIdxs.forEach(function(i){
+      var el = prose.querySelector('.w[data-w="'+i+'"]');
+      if (el) el.classList.remove('hl');
+      var k = saved.indexOf(i); if (k !== -1) saved.splice(k, 1);
+    });
+    save(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+
+  function showToolbar(x, y, anyHl){
+    toolbar.innerHTML = '';
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'hl-btn';
+    btn.textContent = anyHl ? 'Subrayar todo' : 'Subrayar';
+    btn.addEventListener('mousedown', function(e){ e.preventDefault(); });
+    btn.addEventListener('click', function(e){ e.stopPropagation(); apply(); });
+    toolbar.appendChild(btn);
+    if (anyHl) {
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
+      rm.textContent = 'Quitar';
+      rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); remove(); });
+      toolbar.appendChild(rm);
+    }
+    toolbar.classList.add('show');
+    var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
+    var vw = window.innerWidth;
+    var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
+    var top = Math.max(window.scrollY + 8, y - h - 8);
+    toolbar.style.left = left + 'px';
+    toolbar.style.top = top + 'px';
+  }
+
+  function onSelection(e){
+    if (e && e.target && toolbar.contains(e.target)) return;
+    if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
+    setTimeout(function(){
+      var idxs = getSelectedWordIdxs();
+      if (idxs.length === 0) { hideToolbar(); return; }
+      var sel = window.getSelection();
+      var range = sel.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0) { hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width / 2;
+      var y = rect.top + window.scrollY;
+      var anyHl = idxs.some(function(i){ return saved.indexOf(i) !== -1; });
+      selectedIdxs = idxs;
+      showToolbar(x, y, anyHl);
+    }, 10);
+  }
+
+  document.addEventListener('mouseup', onSelection);
+  document.addEventListener('touchend', onSelection);
+  document.addEventListener('mousedown', function(e){
+    if (toolbar.contains(e.target)) return;
+    hideToolbar();
+  });
+  window.addEventListener('scroll', hideToolbar, { passive: true });
+  window.addEventListener('resize', hideToolbar);
+})();
+</script>
 
 </body>
 </html>
