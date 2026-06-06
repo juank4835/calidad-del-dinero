@@ -153,9 +153,9 @@
       "audio_path": "audio/deforestacion.mp3",
       "alignment_path": "audio/deforestacion.alignment.json",
       "words": 1757,
-      "duration_seconds": 709.916735,
-      "generated_at": "2026-06-06T12:52:09Z",
-      "note": "v3: protagonista renombrado Jeisson → Francisco"
+      "duration_seconds": 712.657029,
+      "generated_at": "2026-06-06T12:59:59Z",
+      "note": "v3+pausas: pausas 1.2s tras títulos aplicadas (workaround del bug ffmpeg libmp3lame en último segmento)"
     }
   }
 }
