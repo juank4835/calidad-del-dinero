@@ -148,14 +148,14 @@
       "note": "recuadros+cita narrados; «La huida» regenerada con punto (entonación de cierre) + pausa 1.2s vía splice"
     },
     "deforestacion.html": {
-      "text_sha256": "d78c0dc2531d7b188335efcfaa3a7da1d8639e6214d1834ae80220404c8b6f0d",
-      "chars": 8098,
+      "text_sha256": "f1f434ac8abea94a2dc4ea6344d3eba14c2d3ed4505775612dea51c033ae8c70",
+      "chars": 9621,
       "audio_path": "audio/deforestacion.mp3",
       "alignment_path": "audio/deforestacion.alignment.json",
-      "words": 1478,
-      "duration_seconds": 588.446825,
-      "generated_at": "2026-06-06T12:09:10Z",
-      "note": "Bloque IV cap 14; prosa con 4 subtítulos; pausas 1.2s tras títulos"
+      "words": 1757,
+      "duration_seconds": 713.655283,
+      "generated_at": "2026-06-06T12:40:43Z",
+      "note": "v2: protagonista Jeisson; sección «Cámbiele una sola cosa» reescrita (colchón/ahorro)"
     }
   }
 }
