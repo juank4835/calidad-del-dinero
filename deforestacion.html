@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- usabilidad-v1 -->
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);}catch(e){}})();</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La deforestación — Arregla el dinero, arregla el mundo</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #FF7A18;
+  --rojo: #8A8A86;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: calc(19px * var(--font-scale, 1)); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.75; font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1; position: relative; overflow-x: hidden; }
+/* Glow difuminado naranja detrás de la cabecera (se desvanece al bajar) */
+body::before { content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 900px; max-width: 130vw; height: 720px; background: radial-gradient(ellipse 50% 50% at center, rgba(255,122,24,0.20) 0%, rgba(255,122,24,0.06) 38%, transparent 70%); pointer-events: none; z-index: 0; }
+.nav-top, .page, .audio-pill { position: relative; z-index: 1; }
+.page { max-width: 720px; margin: 0 auto; padding: 5rem 1.5rem 8rem; }
+.chapter-eyebrow { font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--verde); text-align: center; margin-bottom: 1.2rem; }
+.chapter-title { font-size: 2.6rem; font-weight: 400; text-align: center; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.chapter-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; color: var(--ink-soft); margin-bottom: 4rem; }
+.ornament { text-align: center; color: var(--verde); font-size: 1.2rem; margin: 0 auto 3.5rem; letter-spacing: 0.5em; }
+.prose p { font-size: 1.12rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.prose p.lead { font-size: 1.28rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.8rem; }
+.prose .lead::first-letter { font-size: 3.6rem; font-weight: 600; float: left; line-height: 0.82; margin: 0.08em 0.12em -0.1em 0; color: var(--verde); }
+.prose em { font-style: italic; }
+.prose strong { font-weight: 600; color: var(--ink); }
+.term-verde { color: var(--verde); font-style: italic; }
+.term-rojo { color: var(--rojo); font-style: italic; }
+.section-num { display: block; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.6rem; margin-top: 3.5rem; }
+blockquote { margin: 2.2rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--verde); font-style: italic; color: var(--ink-soft); font-size: 1.06rem; line-height: 1.65; }
+blockquote .cite { display: block; margin-top: 0.6rem; font-style: italic; font-size: 0.86rem; color: var(--ink-soft); opacity: 0.8; }
+blockquote .cite::before { content: "— "; }
+.cita-autor { background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem; border-radius: 4px; font-size: 1.06rem; line-height: 1.65; }
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
+.profundizacion { margin: 2.8rem 0; padding: 1.6rem 1.8rem; background: var(--surface); border-radius: 6px; border: 1px solid var(--rule); }
+.profundizacion .tag { display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.profundizacion p:last-child { margin-bottom: 0; }
+.pendiente { margin: 2.5rem 0; padding: 1.4rem 1.6rem; border: 1px dashed var(--rule); border-radius: 6px; font-style: italic; color: var(--ink-soft); font-size: 0.98rem; text-align: center; }
+.nav-top { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.5rem 0; }
+.nav-top a { font-size: 0.85rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-top a:hover { border-bottom-color: var(--verde); }
+.nav-foot { max-width: 720px; margin: 4rem auto 0; padding: 2rem 1.5rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.nav-foot a { font-size: 0.9rem; color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.nav-foot a:hover { border-bottom-color: var(--verde); }
+.nav-foot .prev::before { content: "← "; color: var(--ink-soft); }
+.nav-foot .next::after { content: " →"; color: var(--ink-soft); }
+.nav-foot .idx { color: var(--ink-soft); }
+
+/* highlights MVP — instalado por tools/add_highlights.py */
+.w.hl { background-color: transparent; box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95); padding: 0 0.5em; margin: 0 -0.5em; border-radius: 0; }
+.w.hl:hover { box-shadow: inset 0 -2.5px 0 rgba(255,238,0,1); }
+.w.activa.hl { box-shadow: inset 0 -1.5px 0 rgba(255,122,24,0.95); }
+.w.leida.hl { opacity: 1; }
+body.karaoke-off .w.hl { box-shadow: inset 0 -1.5px 0 rgba(255,238,0,0.95) !important; background-color: transparent !important; color: inherit; }
+.hl-toolbar { position: absolute; display: none; background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 3px; box-shadow: 0 4px 16px -4px rgba(0,0,0,0.6); z-index: 200; font-family: var(--font-body); white-space: nowrap; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+.hl-toolbar.show { display: block; }
+.hl-btn { background: transparent; border: none; color: var(--ink); padding: 0.42rem 0.85rem; cursor: pointer; border-radius: 4px; font-family: inherit; font-size: 0.84rem; letter-spacing: 0.02em; }
+.hl-btn:hover { background: var(--rule); }
+.hl-btn-rm { color: var(--ink-soft); }
+@media (max-width: 640px) { html { font-size: calc(17px * var(--font-scale, 1)); } .page { padding: 3rem 1.2rem 5rem; } .chapter-title { font-size: 2rem; } }
+.w { cursor: pointer; transition: color 0.25s ease, background-color 0.15s ease; border-radius: 2px; }
+.w:hover { color: var(--verde); }
+.w.leida { color: var(--ink-soft); opacity: 0.85; }
+.w.activa { background-color: rgba(255,122,24,0.18); color: var(--verde); padding: 0 0.12em; }
+.g { transition: color 0.25s ease, opacity 0.25s ease; }
+.g.leida { color: var(--ink-soft); opacity: 0.85; }
+body.karaoke-off .w { cursor: text; }
+body.karaoke-off .w:hover { color: inherit; }
+body.karaoke-off .w.leida, body.karaoke-off .w.activa,
+body.karaoke-off .g.leida { color: inherit; background-color: transparent; opacity: 1; padding: 0; }
+
+/* AUDIO PILL v2 — flotante, colapsa/expande, con skip + toggle karaoke + memoria */
+.audio-pill { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 100; display: flex; align-items: center; background: rgba(38,38,38,0.92); border: 1px solid var(--rule); border-radius: 28px; box-shadow: 0 12px 36px -14px rgba(0,0,0,0.75), 0 2px 8px -2px rgba(0,0,0,0.25); font-family: var(--font-body); height: 48px; padding: 4px; overflow: hidden; -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); transition: width 0.32s cubic-bezier(0.4,0,0.2,1), background 0.2s, box-shadow 0.2s; width: 56px; }
+.audio-pill[data-state="expanded"] { width: min(460px, calc(100vw - 2.5rem)); }
+.audio-pill:hover { box-shadow: 0 16px 40px -12px rgba(0,0,0,0.85), 0 4px 10px -2px rgba(0,0,0,0.3); }
+.ap-play { flex: 0 0 40px; height: 40px; border-radius: 50%; border: none; background: var(--verde); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, transform 0.1s; }
+.ap-play:hover { background: #d96a14; transform: scale(1.04); }
+.ap-play:active { transform: scale(0.96); }
+.ap-play:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+.ap-play svg { width: 16px; height: 16px; fill: currentColor; pointer-events: none; }
+.ap-icon-play { margin-left: 2px; }
+.ap-meta { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.4rem; margin-right: 0.2rem; flex: 1; min-width: 0; opacity: 0; transform: translateX(-4px); transition: opacity 0.18s 0.08s, transform 0.28s cubic-bezier(0.4,0,0.2,1); }
+.audio-pill[data-state="expanded"] .ap-meta { opacity: 1; transform: translateX(0); }
+.audio-pill[data-state="collapsed"] .ap-meta { pointer-events: none; }
+.ap-btn { flex: 0 0 28px; height: 28px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-btn:hover { background: var(--rule); color: var(--ink); }
+.ap-btn:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-btn svg { width: 14px; height: 14px; pointer-events: none; }
+.ap-btn.active { color: var(--verde); }
+.ap-skip svg { fill: currentColor; stroke: none; }
+.ap-skip .skip-label { font: 600 7px/1 ui-monospace, monospace; fill: currentColor; }
+.ap-karaoke svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ap-karaoke .strike { display: none; }
+body.karaoke-off .ap-karaoke .strike { display: block; }
+.ap-track { flex: 1; min-width: 40px; height: 24px; position: relative; cursor: pointer; }
+.ap-rail { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--rule); transform: translateY(-50%); border-radius: 1px; }
+.ap-fill { position: absolute; top: 50%; left: 0; height: 2px; width: 0; background: var(--verde); transform: translateY(-50%); border-radius: 1px; transition: width 0.1s linear; }
+.ap-thumb { position: absolute; top: 50%; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--verde); transform: translate(-50%,-50%); opacity: 0; transition: opacity 0.2s; }
+.audio-pill:hover .ap-thumb, .ap-track:focus-visible .ap-thumb, .ap-track.dragging .ap-thumb { opacity: 1; transform: translate(-50%,-50%) scale(1.3); }
+.ap-time { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; letter-spacing: 0.01em; white-space: nowrap; min-width: 78px; text-align: right; } .ap-duration { color: var(--ink-soft); opacity: 0.75; } .ap-sep { color: var(--ink-soft); opacity: 0.6; padding: 0 0.05em; }
+.audio-pill.playing .ap-time { color: var(--verde); }
+.ap-rate { flex: 0 0 auto; background: transparent; border: 1px solid var(--rule); color: var(--ink-soft); border-radius: 12px; height: 24px; padding: 0 8px; font-size: 0.7rem; font-family: inherit; cursor: pointer; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; white-space: nowrap; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+.ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+.ap-rate:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-rate.active { color: var(--verde); border-color: var(--verde); }
+.ap-close { flex: 0 0 26px; height: 26px; border-radius: 50%; background: transparent; border: none; color: var(--ink-soft); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: background 0.2s, color 0.2s; }
+.ap-close:hover { background: var(--rule); color: var(--ink); }
+.ap-close:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+.ap-close svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.audio-pill[data-state="collapsed"]::after { content: attr(data-duration); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--rule); color: var(--ink-soft); padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.72rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.audio-pill[data-state="collapsed"]:hover::after, .audio-pill[data-state="collapsed"]:focus-within::after { opacity: 1; }
+.ap-resume-hint { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%); background: var(--surface); border: 1px solid var(--verde); color: var(--verde); padding: 0.3rem 0.7rem; border-radius: 12px; font-size: 0.72rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ap-resume-hint.show { opacity: 1; }
+@media (max-width: 640px) {
+  .audio-pill { right: 0.85rem; bottom: 0.85rem; }
+  .audio-pill[data-state="expanded"] { left: 0.85rem; right: 0.85rem; width: auto; }
+  .audio-pill[data-state="collapsed"]::after { display: none; }
+  .ap-karaoke { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .audio-pill, .ap-fill, .ap-play, .ap-meta { transition: none; }
+}
+
+/* ===== usabilidad-v1 ===== */
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
+:root[data-theme="sepia"] body::before,
+:root[data-theme="claro"] body::before{ opacity:.5; }
+
+.read-progress{ position:fixed; top:0; left:0; height:3px; width:100%; background:transparent; z-index:300; pointer-events:none; }
+.read-progress > i{ display:block; height:100%; width:0; background:var(--verde); transition:width .08s linear; }
+
+.ui-settings{ position:fixed; top:14px; right:14px; z-index:260; font-family:var(--font-body); }
+.ui-gear{ width:42px; height:42px; border-radius:50%; border:1px solid var(--rule); background:var(--surface); color:var(--ink-soft); cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px -6px rgba(0,0,0,.5); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+.ui-gear:hover{ color:var(--ink); }
+.ui-gear svg{ width:20px; height:20px; }
+.ui-panel{ position:absolute; top:50px; right:0; width:214px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:14px; box-shadow:0 12px 32px -8px rgba(0,0,0,.55); display:none; }
+.ui-panel.open{ display:block; }
+.ui-panel h4{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 .55rem; font-weight:400; }
+.ui-row{ display:flex; gap:6px; margin-bottom:13px; }
+.ui-row:last-child{ margin-bottom:0; }
+.ui-row button{ flex:1; padding:.5rem .2rem; border:1px solid var(--rule); background:transparent; color:var(--ink-soft); border-radius:8px; cursor:pointer; font-family:var(--font-body); font-size:.9rem; line-height:1; }
+.ui-row button.active{ background:var(--ink); color:var(--bg); border-color:var(--ink); }
+
+.chapter-meta{ font-family:var(--font-body); font-size:.82rem; color:var(--ink-soft); letter-spacing:.02em; margin-top:.6rem; }
+
+.resume-read{ position:fixed; left:16px; bottom:18px; z-index:240; background:var(--surface); color:var(--ink); border:1px solid var(--rule); border-radius:22px; padding:.55rem .95rem; font-family:var(--font-body); font-size:.86rem; cursor:pointer; box-shadow:0 6px 20px -6px rgba(0,0,0,.5); display:none; }
+.resume-read.show{ display:inline-flex; align-items:center; gap:.4rem; }
+
+.next-card{ position:fixed; left:50%; bottom:92px; transform:translateX(-50%) translateY(10px); z-index:250; background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 16px 40px -10px rgba(0,0,0,.6); font-family:var(--font-body); text-align:center; max-width:88vw; opacity:0; pointer-events:none; transition:opacity .3s, transform .3s; }
+.next-card.show{ opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+.next-card .nc-label{ font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); }
+.next-card .nc-title{ font-size:1.05rem; color:var(--ink); margin:.3rem 0 .85rem; }
+.next-card .nc-actions{ display:flex; gap:.5rem; justify-content:center; }
+.next-card button, .next-card a{ border:1px solid var(--rule); background:transparent; color:var(--ink); border-radius:20px; padding:.45rem 1rem; font-family:var(--font-body); font-size:.9rem; cursor:pointer; text-decoration:none; }
+.next-card .nc-go{ background:var(--verde); border-color:var(--verde); color:#fff; }
+
+.skip-link{ position:absolute; left:-999px; top:0; z-index:400; background:var(--verde); color:#fff; padding:.6rem 1rem; border-radius:0 0 8px 0; font-family:var(--font-body); }
+.skip-link:focus{ left:0; }
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus-visible{ outline:2px solid var(--verde); outline-offset:2px; border-radius:3px; }
+.audio-pill .ap-play{ min-width:44px; min-height:44px; }
+@media (max-width:640px){ .ui-settings{ top:10px; right:10px; } .resume-read{ bottom:14px; } }
+
+/* hl-colors-v2 */
+:root{
+  --hl-color-a: rgba(255,238,0,0.95);   /* amarillo · importante */
+  --hl-color-n: rgba(255,150,40,0.95);  /* naranja  · cita/dato */
+  --hl-color-v: rgba(120,210,120,0.95); /* verde    · me convence */
+  --hl-color-c: rgba(255,128,128,0.95); /* coral    · dudo/revisar */
+}
+:root[data-theme="sepia"]{
+  --hl-color-a: rgba(212,160,0,0.9);
+  --hl-color-n: rgba(208,110,30,0.9);
+  --hl-color-v: rgba(80,150,80,0.9);
+  --hl-color-c: rgba(200,80,80,0.9);
+}
+:root[data-theme="claro"]{
+  --hl-color-a: rgba(218,160,0,0.95);
+  --hl-color-n: rgba(214,108,28,0.95);
+  --hl-color-v: rgba(64,140,64,0.95);
+  --hl-color-c: rgba(204,72,72,0.95);
+}
+.hl[data-c="a"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-c) !important; }
+.hl[data-c="a"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-c) !important; }
+
+.hl-swatch{
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: transparent; cursor: pointer; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin: 0 2px;
+  position: relative;
+}
+.hl-swatch::after{
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--sw-color);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+.hl-swatch[data-c="a"]{ --sw-color: var(--hl-color-a); }
+.hl-swatch[data-c="n"]{ --sw-color: var(--hl-color-n); }
+.hl-swatch[data-c="v"]{ --sw-color: var(--hl-color-v); }
+.hl-swatch[data-c="c"]{ --sw-color: var(--hl-color-c); }
+.hl-swatch:hover{ border-color: var(--rule); }
+.hl-swatch.current{ border-color: var(--ink); }
+.hl-toolbar .hl-divider{ display:inline-block; width:1px; height:18px; background: var(--rule); margin: 0 4px; vertical-align: middle; }
+
+/* En móvil la barra se ancla al fondo (lejos del menú nativo del SO),
+   más grande para tocar bien con el dedo. En desktop sigue contextual. */
+@media (max-width: 640px) {
+  .hl-toolbar {
+    position: fixed !important;
+    left: 16px !important; right: 16px !important;
+    top: auto !important; bottom: 84px !important;
+    max-width: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 12px 14px;
+    box-shadow: 0 20px 44px -10px rgba(0,0,0,0.75);
+    text-align: center;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .hl-swatch{ width: 38px; height: 38px; margin: 0 4px; }
+  .hl-swatch::after{ width: 22px; height: 22px; }
+  .hl-toolbar .hl-btn{ padding: 0.62rem 1rem; font-size: 0.92rem; }
+  .hl-toolbar .hl-divider{ height: 22px; margin: 0 6px; }
+}
+
+/* pill-polish-v1 */
+:root[data-theme="sepia"] .audio-pill,
+:root[data-theme="claro"] .audio-pill {
+  background: var(--surface);
+  border-color: var(--rule);
+  box-shadow:
+    0 14px 32px -14px rgba(80, 60, 30, 0.32),
+    0 4px 10px -2px rgba(80, 60, 30, 0.12),
+    0 0 0 3px rgba(255, 122, 24, 0.06);
+}
+:root[data-theme="sepia"] .audio-pill:hover,
+:root[data-theme="claro"] .audio-pill:hover {
+  box-shadow:
+    0 18px 40px -12px rgba(80, 60, 30, 0.42),
+    0 6px 14px -2px rgba(80, 60, 30, 0.18),
+    0 0 0 4px rgba(255, 122, 24, 0.10);
+}
+:root[data-theme="sepia"] .audio-pill .ap-play,
+:root[data-theme="claro"] .audio-pill .ap-play {
+  box-shadow:
+    0 4px 12px -2px rgba(255, 122, 24, 0.55),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+:root[data-theme="sepia"] .audio-pill .ap-play:hover,
+:root[data-theme="claro"] .audio-pill .ap-play:hover {
+  box-shadow:
+    0 6px 16px -2px rgba(255, 122, 24, 0.7),
+    0 3px 6px -1px rgba(0, 0, 0, 0.2);
+}
+/* En claro/sepia, el texto del rate y los iconos secundarios necesitan tomar
+   los colores del tema (algunos estaban hardcoded a tono oscuro). */
+:root[data-theme="sepia"] .audio-pill .ap-rate,
+:root[data-theme="claro"] .audio-pill .ap-rate { color: var(--ink-soft); border-color: var(--rule); }
+:root[data-theme="sepia"] .audio-pill .ap-rate:hover,
+:root[data-theme="claro"] .audio-pill .ap-rate:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+/* Pequeño realce permanente del play en oscuro también, para que el botón
+   principal sienta más «vivo» en cualquier tema (cambio sutil). */
+.audio-pill .ap-play {
+  box-shadow: 0 3px 10px -2px rgba(255, 122, 24, 0.35);
+}
+.audio-pill .ap-play:hover {
+  box-shadow: 0 5px 14px -2px rgba(255, 122, 24, 0.5);
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="read-progress" aria-hidden="true"><i></i></div>
+<div class="ui-settings">
+  <button class="ui-gear" aria-label="Ajustes de lectura" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+  </button>
+  <div class="ui-panel" role="menu" aria-label="Ajustes de lectura">
+    <h4>Tema</h4>
+    <div class="ui-row" data-group="theme">
+      <button data-theme-val="oscuro">Oscuro</button>
+      <button data-theme-val="sepia">Sepia</button>
+      <button data-theme-val="claro">Claro</button>
+    </div>
+    <h4>Tamaño del texto</h4>
+    <div class="ui-row" data-group="fs">
+      <button data-fs="0.9" style="font-size:.8rem">A</button>
+      <button data-fs="1">A</button>
+      <button data-fs="1.15" style="font-size:1.15rem">A</button>
+      <button data-fs="1.3" style="font-size:1.3rem">A</button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-top"><a href="index.html">← Índice</a></nav>
+
+<article class="page" id="contenido" tabindex="-1">
+
+  <div class="chapter-eyebrow">Primera consecuencia · lo más visible</div>
+  <h1 class="chapter-title"><span class="w" data-w="0">La</span> <span class="w" data-w="1">deforestación</span></h1>
+  <p class="chapter-subtitle"><span class="w" data-w="2">Por</span> <span class="w" data-w="3">qué</span> <span class="w" data-w="4">un</span> <span class="w" data-w="5">hombre</span> <span class="w" data-w="6">que</span> <span class="w" data-w="7">ama</span> <span class="w" data-w="8">su</span> <span class="w" data-w="9">bosque</span> <span class="w" data-w="10">termina</span> <span class="w" data-w="11">talándolo</span> —<span class="w" data-w="12">y</span> <span class="w" data-w="13">no</span> <span class="w" data-w="14">por</span> <span class="w" data-w="15">maldad</span></p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="prose">
+    <p class="lead"><span class="w" data-w="16">Hay</span> <span class="w" data-w="17">una</span> <span class="w" data-w="18">imagen</span> <span class="w" data-w="19">que</span> <span class="w" data-w="20">todos</span> <span class="w" data-w="21">llevamos</span> <span class="w" data-w="22">puesta</span> <span class="w" data-w="23">sin</span> <span class="w" data-w="24">pensarla</span>: <span class="w" data-w="25">la</span> <span class="w" data-w="26">deforestación</span> <span class="w" data-w="27">es</span> <span class="w" data-w="28">obra</span> <span class="w" data-w="29">de</span> <span class="w" data-w="30">gente</span> <span class="w" data-w="31">avara</span>. <span class="w" data-w="32">Empresas</span> <span class="w" data-w="33">que</span> <span class="w" data-w="34">ven</span> <span class="w" data-w="35">un</span> <span class="w" data-w="36">bosque</span> <span class="w" data-w="37">y</span> <span class="w" data-w="38">ven</span> <span class="w" data-w="39">dinero</span>, <span class="w" data-w="40">taladores</span> <span class="w" data-w="41">que</span> <span class="w" data-w="42">arrasan</span> <span class="w" data-w="43">por</span> <span class="w" data-w="44">codicia</span>, <span class="w" data-w="45">gobiernos</span> <span class="w" data-w="46">que</span> <span class="w" data-w="47">venden</span> <span class="w" data-w="48">la</span> <span class="w" data-w="49">selva</span> <span class="w" data-w="50">al</span> <span class="w" data-w="51">mejor</span> <span class="w" data-w="52">postor</span>. <span class="w" data-w="53">Donde</span> <span class="w" data-w="54">hay</span> <span class="w" data-w="55">un</span> <span class="w" data-w="56">árbol</span> <span class="w" data-w="57">caído</span>, <span class="w" data-w="58">buscamos</span> <span class="w" data-w="59">un</span> <span class="w" data-w="60">culpable</span> —<span class="w" data-w="61">alguien</span> <span class="w" data-w="62">a</span> <span class="w" data-w="63">quien</span> <span class="w" data-w="64">le</span> <span class="w" data-w="65">importó</span> <span class="w" data-w="66">poco</span> <span class="w" data-w="67">la</span> <span class="w" data-w="68">naturaleza</span> <span class="w" data-w="69">y</span> <span class="w" data-w="70">mucho</span> <span class="w" data-w="71">la</span> <span class="w" data-w="72">ganancia</span>—. <span class="w" data-w="73">Esa</span> <span class="w" data-w="74">imagen</span> <span class="w" data-w="75">es</span> <span class="w" data-w="76">cómoda</span> <span class="w" data-w="77">porque</span> <span class="w" data-w="78">reparte</span> <span class="w" data-w="79">el</span> <span class="w" data-w="80">mundo</span> <span class="w" data-w="81">en</span> <span class="w" data-w="82">buenos</span> <span class="w" data-w="83">y</span> <span class="w" data-w="84">malos</span>, <span class="w" data-w="85">y</span> <span class="w" data-w="86">nos</span> <span class="w" data-w="87">deja</span> <span class="w" data-w="88">a</span> <span class="w" data-w="89">nosotros</span> <span class="w" data-w="90">del</span> <span class="w" data-w="91">lado</span> <span class="w" data-w="92">bueno</span>. <span class="w" data-w="93">Y</span> <span class="w" data-w="94">como</span> <span class="w" data-w="95">casi</span> <span class="w" data-w="96">todas</span> <span class="w" data-w="97">las</span> <span class="w" data-w="98">imágenes</span> <span class="w" data-w="99">cómodas</span>, <span class="w" data-w="100">esconde</span> <span class="w" data-w="101">lo</span> <span class="w" data-w="102">que</span> <span class="w" data-w="103">de</span> <span class="w" data-w="104">verdad</span> <span class="w" data-w="105">importa</span>.</p>
+    <p><span class="w" data-w="106">Porque</span> <span class="w" data-w="107">la</span> <span class="w" data-w="108">mayor</span> <span class="w" data-w="109">parte</span> <span class="w" data-w="110">de</span> <span class="w" data-w="111">los</span> <span class="w" data-w="112">bosques</span> <span class="w" data-w="113">del</span> <span class="w" data-w="114">mundo</span> <span class="w" data-w="115">no</span> <span class="w" data-w="116">los</span> <span class="w" data-w="117">talan</span> <span class="w" data-w="118">villanos</span>. <span class="w" data-w="119">Los</span> <span class="w" data-w="120">talan</span> <span class="w" data-w="121">personas</span> <span class="w" data-w="122">que</span> <span class="w" data-w="123">harían</span> <span class="w" data-w="124">exactamente</span> <span class="w" data-w="125">lo</span> <span class="w" data-w="126">mismo</span> <span class="w" data-w="127">que</span> <span class="w" data-w="128">usted</span> <span class="w" data-w="129">haría</span> <span class="w" data-w="130">en</span> <span class="w" data-w="131">su</span> <span class="w" data-w="132">lugar</span>, <span class="w" data-w="133">haciendo</span> <span class="w" data-w="134">exactamente</span> <span class="w" data-w="135">la</span> <span class="w" data-w="136">cuenta</span> <span class="w" data-w="137">que</span> <span class="w" data-w="138">usted</span> <span class="w" data-w="139">haría</span>. <span class="w" data-w="140">Para</span> <span class="w" data-w="141">ver</span> <span class="w" data-w="142">eso</span> <span class="w" data-w="143">hay</span> <span class="w" data-w="144">que</span> <span class="w" data-w="145">dejar</span> <span class="w" data-w="146">de</span> <span class="w" data-w="147">mirar</span> <span class="w" data-w="148">al</span> <span class="w" data-w="149">talador</span> <span class="w" data-w="150">y</span> <span class="w" data-w="151">empezar</span> <span class="w" data-w="152">a</span> <span class="w" data-w="153">mirar</span> <span class="w" data-w="154">la</span> <span class="w" data-w="155">cuenta</span> <span class="w" data-w="156">que</span> <span class="w" data-w="157">tiene</span> <span class="w" data-w="158">delante</span>. <span class="w" data-w="159">Y</span> <span class="w" data-w="160">esa</span> <span class="w" data-w="161">cuenta</span>, <span class="w" data-w="162">como</span> <span class="w" data-w="163">todo</span> <span class="w" data-w="164">en</span> <span class="w" data-w="165">este</span> <span class="w" data-w="166">libro</span>, <span class="w" data-w="167">está</span> <span class="w" data-w="168">escrita</span> <span class="w" data-w="169">en</span> <span class="w" data-w="170">dinero</span>.</p>
+
+    <span class="section-num"><span class="w" data-w="171">El</span> <span class="w" data-w="172">hombre</span> <span class="w" data-w="173">del</span> <span class="w" data-w="174">nogal</span></span>
+    <p><span class="w" data-w="175">Imagine</span> <span class="w" data-w="176">a</span> <span class="w" data-w="177">un</span> <span class="w" data-w="178">hombre</span> <span class="w" data-w="179">del</span> <span class="w" data-w="180">mismo</span> <span class="w" data-w="181">pueblo</span> <span class="w" data-w="182">donde</span> <span class="w" data-w="183">Juan</span> <span class="w" data-w="184">apartaba</span> <span class="w" data-w="185">su</span> <span class="w" data-w="186">sueldo</span> —<span class="w" data-w="187">llamémoslo</span> <span class="w" data-w="188">Tomás</span>— <span class="w" data-w="189">con</span> <span class="w" data-w="190">un</span> <span class="w" data-w="191">nogal</span> <span class="w" data-w="192">en</span> <span class="w" data-w="193">el</span> <span class="w" data-w="194">fondo</span> <span class="w" data-w="195">de</span> <span class="w" data-w="196">su</span> <span class="w" data-w="197">terreno</span>. <span class="w" data-w="198">Lo</span> <span class="w" data-w="199">plantó</span> <span class="w" data-w="200">su</span> <span class="w" data-w="201">padre</span>, <span class="w" data-w="202">y</span> <span class="w" data-w="203">desde</span> <span class="w" data-w="204">hace</span> <span class="w" data-w="205">años</span> <span class="w" data-w="206">el</span> <span class="w" data-w="207">árbol</span> <span class="w" data-w="208">le</span> <span class="w" data-w="209">da</span> <span class="w" data-w="210">cada</span> <span class="w" data-w="211">otoño</span> <span class="w" data-w="212">una</span> <span class="w" data-w="213">cosecha</span> <span class="w" data-w="214">de</span> <span class="w" data-w="215">nueces</span> <span class="w" data-w="216">que</span> <span class="w" data-w="217">Tomás</span> <span class="w" data-w="218">vende</span> <span class="w" data-w="219">en</span> <span class="w" data-w="220">la</span> <span class="w" data-w="221">plaza</span>. <span class="w" data-w="222">No</span> <span class="w" data-w="223">es</span> <span class="w" data-w="224">una</span> <span class="w" data-w="225">fortuna</span>, <span class="w" data-w="226">pero</span> <span class="w" data-w="227">es</span> <span class="w" data-w="228">un</span> <span class="w" data-w="229">ingreso</span> <span class="w" data-w="230">fiel</span>: <span class="w" data-w="231">llega</span> <span class="w" data-w="232">todos</span> <span class="w" data-w="233">los</span> <span class="w" data-w="234">años</span>, <span class="w" data-w="235">sin</span> <span class="w" data-w="236">falta</span>, <span class="w" data-w="237">como</span> <span class="w" data-w="238">llegan</span> <span class="w" data-w="239">los</span> <span class="w" data-w="240">otoños</span>.</p>
+    <p><span class="w" data-w="241">Un</span> <span class="w" data-w="242">día</span> <span class="w" data-w="243">se</span> <span class="w" data-w="244">aparece</span> <span class="w" data-w="245">un</span> <span class="w" data-w="246">comprador</span> <span class="w" data-w="247">de</span> <span class="w" data-w="248">madera</span>. <span class="w" data-w="249">El</span> <span class="w" data-w="250">nogal</span> <span class="w" data-w="251">es</span> <span class="w" data-w="252">viejo</span> <span class="w" data-w="253">y</span> <span class="w" data-w="254">la</span> <span class="w" data-w="255">madera</span> <span class="w" data-w="256">es</span> <span class="w" data-w="257">buena</span>; <span class="w" data-w="258">el</span> <span class="w" data-w="259">hombre</span> <span class="w" data-w="260">le</span> <span class="w" data-w="261">ofrece</span>, <span class="w" data-w="262">por</span> <span class="w" data-w="263">el</span> <span class="w" data-w="264">árbol</span> <span class="w" data-w="265">entero</span>, <span class="w" data-w="266">lo</span> <span class="w" data-w="267">que</span> <span class="w" data-w="268">Tomás</span> <span class="w" data-w="269">sacaría</span> <span class="w" data-w="270">de</span> <span class="w" data-w="271">unas</span> <span class="w" data-w="272">quince</span> <span class="w" data-w="273">cosechas</span> <span class="w" data-w="274">de</span> <span class="w" data-w="275">nueces</span>. <span class="w" data-w="276">Una</span> <span class="w" data-w="277">suma</span> <span class="w" data-w="278">considerable</span>, <span class="w" data-w="279">de</span> <span class="w" data-w="280">golpe</span>, <span class="w" data-w="281">hoy</span>.</p>
+    <p><span class="w" data-w="282">Tomás</span> <span class="w" data-w="283">hace</span> <span class="w" data-w="284">la</span> <span class="w" data-w="285">cuenta</span>. <span class="w" data-w="286">Y</span> <span class="w" data-w="287">aquí</span> <span class="w" data-w="288">conviene</span> <span class="w" data-w="289">mirar</span> <span class="w" data-w="290">por</span> <span class="w" data-w="291">encima</span> <span class="w" data-w="292">de</span> <span class="w" data-w="293">su</span> <span class="w" data-w="294">hombro</span>, <span class="w" data-w="295">porque</span> <span class="w" data-w="296">la</span> <span class="w" data-w="297">cuenta</span> <span class="w" data-w="298">que</span> <span class="w" data-w="299">hace</span> <span class="w" data-w="300">es</span> <span class="w" data-w="301">exactamente</span> <span class="w" data-w="302">la</span> <span class="w" data-w="303">que</span> <span class="w" data-w="304">usted</span> <span class="w" data-w="305">haría</span>. <span class="w" data-w="306">Tiene</span> <span class="w" data-w="307">dos</span> <span class="w" data-w="308">opciones</span>. <span class="w" data-w="309">Una</span>: <span class="w" data-w="310">quedarse</span> <span class="w" data-w="311">el</span> <span class="w" data-w="312">árbol</span> <span class="w" data-w="313">y</span> <span class="w" data-w="314">seguir</span> <span class="w" data-w="315">cobrando</span> <span class="w" data-w="316">nueces</span> <span class="w" data-w="317">cada</span> <span class="w" data-w="318">otoño</span>, <span class="w" data-w="319">año</span> <span class="w" data-w="320">tras</span> <span class="w" data-w="321">año</span>, <span class="w" data-w="322">como</span> <span class="w" data-w="323">hasta</span> <span class="w" data-w="324">ahora</span> —<span class="w" data-w="325">y</span> <span class="w" data-w="326">dejárselo</span> <span class="w" data-w="327">a</span> <span class="w" data-w="328">sus</span> <span class="w" data-w="329">hijos</span>, <span class="w" data-w="330">que</span> <span class="w" data-w="331">seguirán</span> <span class="w" data-w="332">cobrando</span> <span class="w" data-w="333">cuando</span> <span class="w" data-w="334">él</span> <span class="w" data-w="335">ya</span> <span class="w" data-w="336">no</span> <span class="w" data-w="337">esté</span>—. <span class="w" data-w="338">Otra</span>: <span class="w" data-w="339">cortarlo</span>, <span class="w" data-w="340">cobrar</span> <span class="w" data-w="341">de</span> <span class="w" data-w="342">una</span> <span class="w" data-w="343">vez</span> <span class="w" data-w="344">el</span> <span class="w" data-w="345">equivalente</span> <span class="w" data-w="346">a</span> <span class="w" data-w="347">quince</span> <span class="w" data-w="348">cosechas</span>, <span class="w" data-w="349">y</span> <span class="w" data-w="350">quedarse</span> <span class="w" data-w="351">sin</span> <span class="w" data-w="352">árbol</span> <span class="w" data-w="353">para</span> <span class="w" data-w="354">siempre</span>.</p>
+    <p><span class="w" data-w="355">Si</span> <span class="w" data-w="356">Tomás</span> <span class="w" data-w="357">confía</span> <span class="w" data-w="358">en</span> <span class="w" data-w="359">el</span> <span class="w" data-w="360">futuro</span> —<span class="w" data-w="361">si</span> <span class="w" data-w="362">cree</span> <span class="w" data-w="363">que</span> <span class="w" data-w="364">habrá</span> <span class="w" data-w="365">otoños</span>, <span class="w" data-w="366">que</span> <span class="w" data-w="367">sus</span> <span class="w" data-w="368">nueces</span> <span class="w" data-w="369">seguirán</span> <span class="w" data-w="370">valiendo</span>, <span class="w" data-w="371">que</span> <span class="w" data-w="372">sus</span> <span class="w" data-w="373">hijos</span> <span class="w" data-w="374">heredarán</span> <span class="w" data-w="375">un</span> <span class="w" data-w="376">árbol</span> <span class="w" data-w="377">vivo</span> <span class="w" data-w="378">y</span> <span class="w" data-w="379">no</span> <span class="w" data-w="380">un</span> <span class="w" data-w="381">tocón</span>— <span class="w" data-w="382">la</span> <span class="w" data-w="383">cuenta</span> <span class="w" data-w="384">es</span> <span class="w" data-w="385">fácil</span>: <span class="w" data-w="386">no</span> <span class="w" data-w="387">vende</span>. <span class="w" data-w="388">Quince</span> <span class="w" data-w="389">cosechas</span> <span class="w" data-w="390">cobradas</span> <span class="w" data-w="391">de</span> <span class="w" data-w="392">a</span> <span class="w" data-w="393">poco</span>, <span class="w" data-w="394">más</span> <span class="w" data-w="395">todas</span> <span class="w" data-w="396">las</span> <span class="w" data-w="397">que</span> <span class="w" data-w="398">vendrán</span> <span class="w" data-w="399">después</span>, <span class="w" data-w="400">más</span> <span class="w" data-w="401">la</span> <span class="w" data-w="402">herencia</span>, <span class="w" data-w="403">valen</span> <span class="w" data-w="404">muchísimo</span> <span class="w" data-w="405">más</span> <span class="w" data-w="406">que</span> <span class="w" data-w="407">la</span> <span class="w" data-w="408">madera</span> <span class="w" data-w="409">de</span> <span class="w" data-w="410">una</span> <span class="w" data-w="411">sola</span> <span class="w" data-w="412">vez</span>. <span class="w" data-w="413">El</span> <span class="w" data-w="414">árbol</span> <span class="w" data-w="415">vivo</span> <span class="w" data-w="416">es</span> <span class="w" data-w="417">un</span> <span class="w" data-w="418">manantial</span>; <span class="w" data-w="419">la</span> <span class="w" data-w="420">madera</span>, <span class="w" data-w="421">un</span> <span class="w" data-w="422">balde</span>. <span class="w" data-w="423">Nadie</span> <span class="w" data-w="424">cambia</span> <span class="w" data-w="425">un</span> <span class="w" data-w="426">manantial</span> <span class="w" data-w="427">por</span> <span class="w" data-w="428">un</span> <span class="w" data-w="429">balde</span> <span class="w" data-w="430">si</span> <span class="w" data-w="431">confía</span> <span class="w" data-w="432">en</span> <span class="w" data-w="433">que</span> <span class="w" data-w="434">el</span> <span class="w" data-w="435">manantial</span> <span class="w" data-w="436">seguirá</span> <span class="w" data-w="437">manando</span>.</p>
+    <p><span class="w" data-w="438">Fíjese</span> <span class="w" data-w="439">bien</span> <span class="w" data-w="440">en</span> <span class="w" data-w="441">lo</span> <span class="w" data-w="442">que</span> <span class="w" data-w="443">sostiene</span> <span class="w" data-w="444">esa</span> <span class="w" data-w="445">decisión</span>. <span class="w" data-w="446">No</span> <span class="w" data-w="447">es</span> <span class="w" data-w="448">el</span> <span class="w" data-w="449">amor</span> <span class="w" data-w="450">de</span> <span class="w" data-w="451">Tomás</span> <span class="w" data-w="452">por</span> <span class="w" data-w="453">los</span> <span class="w" data-w="454">árboles</span>, <span class="w" data-w="455">aunque</span> <span class="w" data-w="456">lo</span> <span class="w" data-w="457">tenga</span>. <span class="w" data-w="458">No</span> <span class="w" data-w="459">es</span> <span class="w" data-w="460">conciencia</span> <span class="w" data-w="461">ecológica</span>, <span class="w" data-w="462">ni</span> <span class="w" data-w="463">virtud</span>, <span class="w" data-w="464">ni</span> <span class="w" data-w="465">una</span> <span class="w" data-w="466">ley</span> <span class="w" data-w="467">que</span> <span class="w" data-w="468">lo</span> <span class="w" data-w="469">obligue</span>. <span class="w" data-w="470">Es</span> <span class="w" data-w="471">una</span> <span class="w" data-w="472">cuenta</span> —<span class="w" data-w="473">y</span> <span class="w" data-w="474">una</span> <span class="w" data-w="475">cuenta</span> <span class="w" data-w="476">que</span> <span class="w" data-w="477">sale</span> <span class="w" data-w="478">a</span> <span class="w" data-w="479">favor</span> <span class="w" data-w="480">de</span> <span class="w" data-w="481">conservar</span> <span class="w" data-w="482">solo</span> <span class="w" data-w="483">si</span> <span class="w" data-w="484">Tomás</span> <span class="w" data-w="485">puede</span> <span class="w" data-w="486">confiar</span> <span class="w" data-w="487">en</span> <span class="w" data-w="488">que</span> <span class="w" data-w="489">el</span> <span class="w" data-w="490">futuro</span> <span class="w" data-w="491">llegará</span> <span class="w" data-w="492">y</span> <span class="w" data-w="493">se</span> <span class="w" data-w="494">parecerá</span> <span class="w" data-w="495">al</span> <span class="w" data-w="496">presente</span>—. <span class="w" data-w="497">La</span> <span class="w" data-w="498">conservación</span> <span class="w" data-w="499">del</span> <span class="w" data-w="500">bosque</span>, <span class="w" data-w="501">aquí</span>, <span class="w" data-w="502">no</span> <span class="w" data-w="503">es</span> <span class="w" data-w="504">un</span> <span class="w" data-w="505">acto</span> <span class="w" data-w="506">moral</span>. <span class="w" data-w="507">Es</span> <span class="w" data-w="508">el</span> <span class="w" data-w="509">resultado</span> <span class="w" data-w="510">frío</span> <span class="w" data-w="511">de</span> <span class="w" data-w="512">un</span> <span class="w" data-w="513">cálculo</span> <span class="w" data-w="514">que</span> <span class="w" data-w="515">premia</span> <span class="w" data-w="516">la</span> <span class="w" data-w="517">espera</span>. <span class="w" data-w="518">Tomás</span> <span class="w" data-w="519">guarda</span> <span class="w" data-w="520">el</span> <span class="w" data-w="521">árbol</span> <span class="w" data-w="522">por</span> <span class="w" data-w="523">la</span> <span class="w" data-w="524">misma</span> <span class="w" data-w="525">razón</span> <span class="w" data-w="526">por</span> <span class="w" data-w="527">la</span> <span class="w" data-w="528">que</span> <span class="w" data-w="529">Juan</span>, <span class="w" data-w="530">allá</span> <span class="w" data-w="531">en</span> <span class="w" data-w="532">el</span> <span class="w" data-w="533">capítulo</span> <span class="w" data-w="534">cinco</span>, <span class="w" data-w="535">guardaba</span> <span class="w" data-w="536">parte</span> <span class="w" data-w="537">de</span> <span class="w" data-w="538">su</span> <span class="w" data-w="539">sueldo</span>: <span class="w" data-w="540">porque</span> <span class="w" data-w="541">el</span> <span class="w" data-w="542">futuro</span> <span class="w" data-w="543">le</span> <span class="w" data-w="544">parece</span> <span class="w" data-w="545">lo</span> <span class="w" data-w="546">bastante</span> <span class="w" data-w="547">firme</span> <span class="w" data-w="548">como</span> <span class="w" data-w="549">para</span> <span class="w" data-w="550">que</span> <span class="w" data-w="551">valga</span> <span class="w" data-w="552">la</span> <span class="w" data-w="553">pena</span> <span class="w" data-w="554">esperarlo</span>.</p>
+
+    <span class="section-num"><span class="w" data-w="555">Cámbiele</span> <span class="w" data-w="556">una</span> <span class="w" data-w="557">sola</span> <span class="w" data-w="558">cosa</span></span>
+    <p><span class="w" data-w="559">Ahora</span> <span class="w" data-w="560">no</span> <span class="w" data-w="561">le</span> <span class="w" data-w="562">toque</span> <span class="w" data-w="563">nada</span> <span class="w" data-w="564">a</span> <span class="w" data-w="565">Tomás</span>. <span class="w" data-w="566">Déjele</span> <span class="w" data-w="567">su</span> <span class="w" data-w="568">amor</span> <span class="w" data-w="569">por</span> <span class="w" data-w="570">el</span> <span class="w" data-w="571">árbol</span>, <span class="w" data-w="572">su</span> <span class="w" data-w="573">inteligencia</span>, <span class="w" data-w="574">su</span> <span class="w" data-w="575">prudencia</span>, <span class="w" data-w="576">su</span> <span class="w" data-w="577">cariño</span> <span class="w" data-w="578">por</span> <span class="w" data-w="579">los</span> <span class="w" data-w="580">hijos</span> <span class="w" data-w="581">que</span> <span class="w" data-w="582">lo</span> <span class="w" data-w="583">heredarán</span>. <span class="w" data-w="584">No</span> <span class="w" data-w="585">lo</span> <span class="w" data-w="586">vuelva</span> <span class="w" data-w="587">avaro</span> <span class="w" data-w="588">ni</span> <span class="w" data-w="589">tonto</span>. <span class="w" data-w="590">Cámbiele</span> <span class="w" data-w="591">una</span> <span class="w" data-w="592">sola</span> <span class="w" data-w="593">cosa</span>, <span class="w" data-w="594">y</span> <span class="w" data-w="595">la</span> <span class="w" data-w="596">más</span> <span class="w" data-w="597">invisible</span> <span class="w" data-w="598">de</span> <span class="w" data-w="599">todas</span>: <span class="w" data-w="600">el</span> <span class="w" data-w="601">dinero</span> <span class="w" data-w="602">con</span> <span class="w" data-w="603">que</span> <span class="w" data-w="604">cobra</span> <span class="w" data-w="605">las</span> <span class="w" data-w="606">nueces</span>.</p>
+    <p><span class="w" data-w="607">Hasta</span> <span class="w" data-w="608">ahora</span> <span class="w" data-w="609">cobraba</span> <span class="w" data-w="610">en</span> <span class="w" data-w="611">dinero</span> <span class="w" data-w="612">honesto</span>, <span class="w" data-w="613">del</span> <span class="w" data-w="614">que</span> <span class="w" data-w="615">no</span> <span class="w" data-w="616">se</span> <span class="w" data-w="617">puede</span> <span class="w" data-w="618">fabricar</span> <span class="w" data-w="619">de</span> <span class="w" data-w="620">la</span> <span class="w" data-w="621">nada</span>, <span class="w" data-w="622">y</span> <span class="w" data-w="623">por</span> <span class="w" data-w="624">eso</span> <span class="w" data-w="625">quince</span> <span class="w" data-w="626">cosechas</span> <span class="w" data-w="627">futuras</span> <span class="w" data-w="628">eran</span> <span class="w" data-w="629">quince</span> <span class="w" data-w="630">cosechas</span> <span class="w" data-w="631">reales</span> <span class="w" data-w="632">esperándolo</span>. <span class="w" data-w="633">Cámbieselo</span> <span class="w" data-w="634">por</span> <span class="w" data-w="635">uno</span> <span class="w" data-w="636">que</span> <span class="w" data-w="637">se</span> <span class="w" data-w="638">diluye</span> <span class="w" data-w="639">cada</span> <span class="w" data-w="640">año</span>. <span class="w" data-w="641">Ya</span> <span class="w" data-w="642">sabe</span> <span class="w" data-w="643">lo</span> <span class="w" data-w="644">que</span> <span class="w" data-w="645">eso</span> <span class="w" data-w="646">le</span> <span class="w" data-w="647">hace</span> <span class="w" data-w="648">a</span> <span class="w" data-w="649">una</span> <span class="w" data-w="650">cuenta</span>: <span class="w" data-w="651">lo</span> <span class="w" data-w="652">vio</span> <span class="w" data-w="653">entero</span> <span class="w" data-w="654">en</span> <span class="w" data-w="655">la</span> <span class="w" data-w="656">pieza</span> <span class="w" data-w="657">de</span> <span class="w" data-w="658">la</span> <span class="w" data-w="659">asignación</span> <span class="w" data-w="660">intertemporal</span>. <span class="w" data-w="661">No</span> <span class="w" data-w="662">hace</span> <span class="w" data-w="663">falta</span> <span class="w" data-w="664">repetirlo</span> —<span class="w" data-w="665">solo</span> <span class="w" data-w="666">vea</span> <span class="w" data-w="667">cómo</span> <span class="w" data-w="668">le</span> <span class="w" data-w="669">cae</span> <span class="w" data-w="670">encima</span> <span class="w" data-w="671">a</span> <span class="w" data-w="672">este</span> <span class="w" data-w="673">hombre</span> <span class="w" data-w="674">concreto</span>.</p>
+    <p><span class="w" data-w="675">La</span> <span class="w" data-w="676">cuenta</span> <span class="w" data-w="677">se</span> <span class="w" data-w="678">da</span> <span class="w" data-w="679">vuelta</span> <span class="w" data-w="680">entera</span>. <span class="w" data-w="681">Y</span> <span class="w" data-w="682">no</span> <span class="w" data-w="683">porque</span> <span class="w" data-w="684">Tomás</span> <span class="w" data-w="685">haya</span> <span class="w" data-w="686">cambiado</span>, <span class="w" data-w="687">sino</span> <span class="w" data-w="688">porque</span> <span class="w" data-w="689">cambió</span> <span class="w" data-w="690">lo</span> <span class="w" data-w="691">único</span> <span class="w" data-w="692">que</span> <span class="w" data-w="693">usaba</span> <span class="w" data-w="694">para</span> <span class="w" data-w="695">calcular</span>. <span class="w" data-w="696">Las</span> <span class="w" data-w="697">quince</span> <span class="w" data-w="698">cosechas</span> <span class="w" data-w="699">le</span> <span class="w" data-w="700">llegarán</span> <span class="w" data-w="701">en</span> <span class="w" data-w="702">un</span> <span class="w" data-w="703">dinero</span> <span class="w" data-w="704">que</span> <span class="w" data-w="705">para</span> <span class="w" data-w="706">entonces</span> <span class="w" data-w="707">no</span> <span class="w" data-w="708">valdrá</span> <span class="w" data-w="709">casi</span> <span class="w" data-w="710">nada</span>; <span class="w" data-w="711">la</span> <span class="w" data-w="712">madera</span> <span class="w" data-w="713">se</span> <span class="w" data-w="714">la</span> <span class="w" data-w="715">pagan</span> <span class="w" data-w="716">hoy</span>, <span class="w" data-w="717">en</span> <span class="w" data-w="718">dinero</span> <span class="w" data-w="719">que</span> <span class="w" data-w="720">todavía</span> <span class="w" data-w="721">vale</span>. <span class="w" data-w="722">El</span> <span class="w" data-w="723">futuro</span> <span class="w" data-w="724">dejó</span> <span class="w" data-w="725">de</span> <span class="w" data-w="726">ser</span> <span class="w" data-w="727">un</span> <span class="w" data-w="728">manantial</span> <span class="w" data-w="729">confiable</span>: <span class="w" data-w="730">se</span> <span class="w" data-w="731">volvió</span> <span class="w" data-w="732">una</span> <span class="w" data-w="733">promesa</span> <span class="w" data-w="734">escrita</span> <span class="w" data-w="735">en</span> <span class="w" data-w="736">tinta</span> <span class="w" data-w="737">que</span> <span class="w" data-w="738">se</span> <span class="w" data-w="739">borra</span>. <span class="w" data-w="740">Y</span> <span class="w" data-w="741">frente</span> <span class="w" data-w="742">a</span> <span class="w" data-w="743">una</span> <span class="w" data-w="744">promesa</span> <span class="w" data-w="745">que</span> <span class="w" data-w="746">se</span> <span class="w" data-w="747">borra</span>, ¿<span class="w" data-w="748">quién</span> <span class="w" data-w="749">no</span> <span class="w" data-w="750">toma</span> <span class="w" data-w="751">lo</span> <span class="w" data-w="752">seguro</span> <span class="w" data-w="753">de</span> <span class="w" data-w="754">hoy</span>?</p>
+    <p><span class="w" data-w="755">Tomás</span> <span class="w" data-w="756">levanta</span> <span class="w" data-w="757">el</span> <span class="w" data-w="758">hacha</span>. <span class="w" data-w="759">No</span> <span class="w" data-w="760">porque</span> <span class="w" data-w="761">dejó</span> <span class="w" data-w="762">de</span> <span class="w" data-w="763">querer</span> <span class="w" data-w="764">el</span> <span class="w" data-w="765">árbol</span>, <span class="w" data-w="766">sino</span> <span class="w" data-w="767">porque</span> <span class="w" data-w="768">le</span> <span class="w" data-w="769">falsificaron</span> <span class="w" data-w="770">la</span> <span class="w" data-w="771">única</span> <span class="w" data-w="772">cifra</span> <span class="w" data-w="773">con</span> <span class="w" data-w="774">la</span> <span class="w" data-w="775">que</span> <span class="w" data-w="776">podía</span> <span class="w" data-w="777">saber</span> <span class="w" data-w="778">si</span> <span class="w" data-w="779">valía</span> <span class="w" data-w="780">la</span> <span class="w" data-w="781">pena</span> <span class="w" data-w="782">conservarlo</span>.</p>
+
+    <span class="section-num"><span class="w" data-w="783">La</span> <span class="w" data-w="784">cifra</span> <span class="w" data-w="785">falsificada</span></span>
+    <p><span class="w" data-w="786">Recuerde</span> <span class="w" data-w="787">la</span> <span class="w" data-w="788">tasa</span> <span class="w" data-w="789">que</span> <span class="w" data-w="790">miente</span>. <span class="w" data-w="791">La</span> <span class="w" data-w="792">decisión</span> <span class="w" data-w="793">de</span> <span class="w" data-w="794">Tomás</span> —<span class="w" data-w="795">conservar</span> <span class="w" data-w="796">o</span> <span class="w" data-w="797">talar</span>— <span class="w" data-w="798">es</span>, <span class="w" data-w="799">mírela</span> <span class="w" data-w="800">bien</span>, <span class="w" data-w="801">exactamente</span> <span class="w" data-w="802">ese</span> <span class="w" data-w="803">cálculo</span>: <span class="w" data-w="804">compara</span> <span class="w" data-w="805">un</span> <span class="w" data-w="806">flujo</span> <span class="w" data-w="807">de</span> <span class="w" data-w="808">ingresos</span> <span class="w" data-w="809">futuros</span> (<span class="w" data-w="810">las</span> <span class="w" data-w="811">nueces</span> <span class="w" data-w="812">de</span> <span class="w" data-w="813">muchos</span> <span class="w" data-w="814">años</span>) <span class="w" data-w="815">contra</span> <span class="w" data-w="816">una</span> <span class="w" data-w="817">suma</span> <span class="w" data-w="818">presente</span> (<span class="w" data-w="819">la</span> <span class="w" data-w="820">madera</span> <span class="w" data-w="821">de</span> <span class="w" data-w="822">una</span> <span class="w" data-w="823">vez</span>), <span class="w" data-w="824">y</span> <span class="w" data-w="825">para</span> <span class="w" data-w="826">decidir</span> <span class="w" data-w="827">tiene</span> <span class="w" data-w="828">que</span> <span class="w" data-w="829">descontar</span> <span class="w" data-w="830">el</span> <span class="w" data-w="831">futuro</span>, <span class="w" data-w="832">ponerle</span> <span class="w" data-w="833">un</span> <span class="w" data-w="834">precio</span> <span class="w" data-w="835">a</span> <span class="w" data-w="836">la</span> <span class="w" data-w="837">espera</span>. <span class="w" data-w="838">Ese</span> <span class="w" data-w="839">precio</span> <span class="w" data-w="840">es</span> <span class="w" data-w="841">la</span> <span class="w" data-w="842">tasa</span> <span class="w" data-w="843">de</span> <span class="w" data-w="844">interés</span>, <span class="w" data-w="845">que</span> <span class="w" data-w="846">en</span> <span class="w" data-w="847">su</span> <span class="w" data-w="848">forma</span> <span class="w" data-w="849">genuina</span> <span class="w" data-w="850">no</span> <span class="w" data-w="851">es</span> <span class="w" data-w="852">más</span> <span class="w" data-w="853">que</span> <span class="w" data-w="854">la</span> <span class="w" data-w="855">paciencia</span> <span class="w" data-w="856">de</span> <span class="w" data-w="857">la</span> <span class="w" data-w="858">sociedad</span> <span class="w" data-w="859">vuelta</span> <span class="w" data-w="860">cifra</span>.</p>
+    <p><span class="w" data-w="861">Cuando</span> <span class="w" data-w="862">la</span> <span class="w" data-w="863">cifra</span> <span class="w" data-w="864">es</span> <span class="w" data-w="865">honesta</span>, <span class="w" data-w="866">le</span> <span class="w" data-w="867">dice</span> <span class="w" data-w="868">a</span> <span class="w" data-w="869">Tomás</span> <span class="w" data-w="870">la</span> <span class="w" data-w="871">verdad</span> <span class="w" data-w="872">sobre</span> <span class="w" data-w="873">cuánto</span> <span class="w" data-w="874">futuro</span> <span class="w" data-w="875">puede</span> <span class="w" data-w="876">construir</span> <span class="w" data-w="877">con</span> <span class="w" data-w="878">seguridad</span>, <span class="w" data-w="879">y</span> <span class="w" data-w="880">la</span> <span class="w" data-w="881">cuenta</span> <span class="w" data-w="882">premia</span> <span class="w" data-w="883">conservar</span> <span class="w" data-w="884">el</span> <span class="w" data-w="885">manantial</span>. <span class="w" data-w="886">Cuando</span> <span class="w" data-w="887">está</span> <span class="w" data-w="888">falsificada</span>, <span class="w" data-w="889">le</span> <span class="w" data-w="890">miente</span>, <span class="w" data-w="891">y</span> <span class="w" data-w="892">la</span> <span class="w" data-w="893">mentira</span> <span class="w" data-w="894">empuja</span> <span class="w" data-w="895">hacia</span> <span class="w" data-w="896">el</span> <span class="w" data-w="897">balde</span>. <span class="w" data-w="898">El</span> <span class="w" data-w="899">hacha</span> <span class="w" data-w="900">de</span> <span class="w" data-w="901">Tomás</span> <span class="w" data-w="902">es</span> <span class="w" data-w="903">la</span> <span class="w" data-w="904">pieza</span> <span class="w" data-w="905">de</span> <span class="w" data-w="906">la</span> <span class="w" data-w="907">asignación</span> <span class="w" data-w="908">intertemporal</span> <span class="w" data-w="909">operando</span> <span class="w" data-w="910">en</span> <span class="w" data-w="911">un</span> <span class="w" data-w="912">bosque</span>: <span class="w" data-w="913">recursos</span> <span class="w" data-w="914">que</span> <span class="w" data-w="915">debían</span> <span class="w" data-w="916">fluir</span> <span class="w" data-w="917">hacia</span> <span class="w" data-w="918">el</span> <span class="w" data-w="919">futuro</span>, <span class="w" data-w="920">arrancados</span> <span class="w" data-w="921">hacia</span> <span class="w" data-w="922">el</span> <span class="w" data-w="923">presente</span> <span class="w" data-w="924">porque</span> <span class="w" data-w="925">la</span> <span class="w" data-w="926">señal</span> <span class="w" data-w="927">que</span> <span class="w" data-w="928">los</span> <span class="w" data-w="929">guiaba</span> <span class="w" data-w="930">estaba</span> <span class="w" data-w="931">corrompida</span>.</p>
+    <p><span class="w" data-w="932">No</span> <span class="w" data-w="933">hizo</span> <span class="w" data-w="934">falta</span> <span class="w" data-w="935">ningún</span> <span class="w" data-w="936">villano</span>. <span class="w" data-w="937">No</span> <span class="w" data-w="938">hizo</span> <span class="w" data-w="939">falta</span> <span class="w" data-w="940">que</span> <span class="w" data-w="941">a</span> <span class="w" data-w="942">nadie</span> <span class="w" data-w="943">le</span> <span class="w" data-w="944">importara</span> <span class="w" data-w="945">menos</span> <span class="w" data-w="946">la</span> <span class="w" data-w="947">naturaleza</span>. <span class="w" data-w="948">Bastó</span> <span class="w" data-w="949">con</span> <span class="w" data-w="950">corromper</span> <span class="w" data-w="951">el</span> <span class="w" data-w="952">dinero</span>, <span class="w" data-w="953">que</span> <span class="w" data-w="954">es</span> <span class="w" data-w="955">lo</span> <span class="w" data-w="956">mismo</span> <span class="w" data-w="957">que</span> <span class="w" data-w="958">corromper</span> <span class="w" data-w="959">la</span> <span class="w" data-w="960">cuenta</span>, <span class="w" data-w="961">que</span> <span class="w" data-w="962">es</span> <span class="w" data-w="963">lo</span> <span class="w" data-w="964">mismo</span> <span class="w" data-w="965">que</span> <span class="w" data-w="966">acortarle</span> <span class="w" data-w="967">a</span> <span class="w" data-w="968">todo</span> <span class="w" data-w="969">el</span> <span class="w" data-w="970">mundo</span> <span class="w" data-w="971">el</span> <span class="w" data-w="972">horizonte</span> <span class="w" data-w="973">a</span> <span class="w" data-w="974">la</span> <span class="w" data-w="975">vez</span>. <span class="w" data-w="976">Multiplique</span> <span class="w" data-w="977">a</span> <span class="w" data-w="978">Tomás</span> <span class="w" data-w="979">por</span> <span class="w" data-w="980">millones</span> <span class="w" data-w="981">de</span> <span class="w" data-w="982">dueños</span> <span class="w" data-w="983">de</span> <span class="w" data-w="984">bosques</span>, <span class="w" data-w="985">de</span> <span class="w" data-w="986">tierras</span>, <span class="w" data-w="987">de</span> <span class="w" data-w="988">pesquerías</span>, <span class="w" data-w="989">de</span> <span class="w" data-w="990">suelos</span> —<span class="w" data-w="991">cada</span> <span class="w" data-w="992">uno</span> <span class="w" data-w="993">haciendo</span> <span class="w" data-w="994">su</span> <span class="w" data-w="995">cuenta</span> <span class="w" data-w="996">privada</span> <span class="w" data-w="997">y</span> <span class="w" data-w="998">prudente</span>, <span class="w" data-w="999">cada</span> <span class="w" data-w="1000">uno</span> <span class="w" data-w="1001">descontando</span> <span class="w" data-w="1002">un</span> <span class="w" data-w="1003">futuro</span> <span class="w" data-w="1004">que</span> <span class="w" data-w="1005">el</span> <span class="w" data-w="1006">dinero</span> <span class="w" data-w="1007">volvió</span> <span class="w" data-w="1008">incierto</span>— <span class="w" data-w="1009">y</span> <span class="w" data-w="1010">tiene</span> <span class="w" data-w="1011">usted</span> <span class="w" data-w="1012">la</span> <span class="w" data-w="1013">deforestación</span> <span class="w" data-w="1014">de</span> <span class="w" data-w="1015">un</span> <span class="w" data-w="1016">continente</span>, <span class="w" data-w="1017">sin</span> <span class="w" data-w="1018">un</span> <span class="w" data-w="1019">solo</span> <span class="w" data-w="1020">malvado</span> <span class="w" data-w="1021">en</span> <span class="w" data-w="1022">la</span> <span class="w" data-w="1023">escena</span>.</p>
+
+    <span class="section-num"><span class="w" data-w="1024">Lo</span> <span class="w" data-w="1025">que</span> <span class="w" data-w="1026">se</span> <span class="w" data-w="1027">ve</span> <span class="w" data-w="1028">y</span> <span class="w" data-w="1029">lo</span> <span class="w" data-w="1030">que</span> <span class="w" data-w="1031">no</span> <span class="w" data-w="1032">se</span> <span class="w" data-w="1033">ve</span></span>
+    <p><span class="w" data-w="1034">Cuando</span> <span class="w" data-w="1035">cae</span> <span class="w" data-w="1036">el</span> <span class="w" data-w="1037">árbol</span>, <span class="w" data-w="1038">se</span> <span class="w" data-w="1039">ve</span> <span class="w" data-w="1040">el</span> <span class="w" data-w="1041">árbol</span> <span class="w" data-w="1042">caído</span>. <span class="w" data-w="1043">Se</span> <span class="w" data-w="1044">ve</span> <span class="w" data-w="1045">al</span> <span class="w" data-w="1046">talador</span>, <span class="w" data-w="1047">se</span> <span class="w" data-w="1048">ve</span> <span class="w" data-w="1049">la</span> <span class="w" data-w="1050">madera</span> <span class="w" data-w="1051">cargada</span> <span class="w" data-w="1052">en</span> <span class="w" data-w="1053">el</span> <span class="w" data-w="1054">camión</span>, <span class="w" data-w="1055">se</span> <span class="w" data-w="1056">ve</span> <span class="w" data-w="1057">el</span> <span class="w" data-w="1058">tocón</span>. <span class="w" data-w="1059">Todo</span> <span class="w" data-w="1060">lo</span> <span class="w" data-w="1061">visible</span> <span class="w" data-w="1062">apunta</span> <span class="w" data-w="1063">al</span> <span class="w" data-w="1064">hombre</span> <span class="w" data-w="1065">del</span> <span class="w" data-w="1066">hacha</span>, <span class="w" data-w="1067">y</span> <span class="w" data-w="1068">por</span> <span class="w" data-w="1069">eso</span> <span class="w" data-w="1070">a</span> <span class="w" data-w="1071">él</span> <span class="w" data-w="1072">dirigimos</span> <span class="w" data-w="1073">la</span> <span class="w" data-w="1074">indignación</span>, <span class="w" data-w="1075">las</span> <span class="w" data-w="1076">campañas</span>, <span class="w" data-w="1077">las</span> <span class="w" data-w="1078">leyes</span> <span class="w" data-w="1079">que</span> <span class="w" data-w="1080">prohíben</span> <span class="w" data-w="1081">talar</span>.</p>
+    <p><span class="w" data-w="1082">Lo</span> <span class="w" data-w="1083">que</span> <span class="w" data-w="1084">no</span> <span class="w" data-w="1085">se</span> <span class="w" data-w="1086">ve</span> <span class="w" data-w="1087">es</span> <span class="w" data-w="1088">la</span> <span class="w" data-w="1089">cuenta</span>. <span class="w" data-w="1090">No</span> <span class="w" data-w="1091">se</span> <span class="w" data-w="1092">ve</span> <span class="w" data-w="1093">la</span> <span class="w" data-w="1094">cifra</span> <span class="w" data-w="1095">falsificada</span> <span class="w" data-w="1096">que</span> <span class="w" data-w="1097">volvió</span> <span class="w" data-w="1098">racional</span> <span class="w" data-w="1099">el</span> <span class="w" data-w="1100">hacha</span>. <span class="w" data-w="1101">No</span> <span class="w" data-w="1102">se</span> <span class="w" data-w="1103">ve</span> <span class="w" data-w="1104">que</span> <span class="w" data-w="1105">Tomás</span>, <span class="w" data-w="1106">antes</span> <span class="w" data-w="1107">de</span> <span class="w" data-w="1108">cortar</span>, <span class="w" data-w="1109">hizo</span> <span class="w" data-w="1110">la</span> <span class="w" data-w="1111">aritmética</span> <span class="w" data-w="1112">de</span> <span class="w" data-w="1113">cualquier</span> <span class="w" data-w="1114">hombre</span> <span class="w" data-w="1115">prudente</span> <span class="w" data-w="1116">y</span> <span class="w" data-w="1117">le</span> <span class="w" data-w="1118">salió</span> <span class="w" data-w="1119">talar</span> —<span class="w" data-w="1120">porque</span> <span class="w" data-w="1121">el</span> <span class="w" data-w="1122">dinero</span> <span class="w" data-w="1123">con</span> <span class="w" data-w="1124">que</span> <span class="w" data-w="1125">calculaba</span> <span class="w" data-w="1126">le</span> <span class="w" data-w="1127">había</span> <span class="w" data-w="1128">borrado</span> <span class="w" data-w="1129">el</span> <span class="w" data-w="1130">futuro</span>—. <span class="w" data-w="1131">Prohibirle</span> <span class="w" data-w="1132">a</span> <span class="w" data-w="1133">Tomás</span> <span class="w" data-w="1134">que</span> <span class="w" data-w="1135">tale</span>, <span class="w" data-w="1136">sin</span> <span class="w" data-w="1137">tocar</span> <span class="w" data-w="1138">el</span> <span class="w" data-w="1139">dinero</span>, <span class="w" data-w="1140">es</span> <span class="w" data-w="1141">pelear</span> <span class="w" data-w="1142">con</span> <span class="w" data-w="1143">el</span> <span class="w" data-w="1144">síntoma</span>: <span class="w" data-w="1145">es</span> <span class="w" data-w="1146">pedirle</span> <span class="w" data-w="1147">que</span> <span class="w" data-w="1148">actúe</span> <span class="w" data-w="1149">contra</span> <span class="w" data-w="1150">su</span> <span class="w" data-w="1151">propia</span> <span class="w" data-w="1152">cuenta</span>, <span class="w" data-w="1153">esperar</span> <span class="w" data-w="1154">que</span> <span class="w" data-w="1155">la</span> <span class="w" data-w="1156">virtud</span> <span class="w" data-w="1157">de</span> <span class="w" data-w="1158">unos</span> <span class="w" data-w="1159">cuantos</span> <span class="w" data-w="1160">venza</span> <span class="w" data-w="1161">a</span> <span class="w" data-w="1162">la</span> <span class="w" data-w="1163">aritmética</span> <span class="w" data-w="1164">de</span> <span class="w" data-w="1165">todos</span>. <span class="w" data-w="1166">Algunos</span> <span class="w" data-w="1167">resistirán</span> <span class="w" data-w="1168">por</span> <span class="w" data-w="1169">amor</span> <span class="w" data-w="1170">a</span> <span class="w" data-w="1171">la</span> <span class="w" data-w="1172">tierra</span>. <span class="w" data-w="1173">La</span> <span class="w" data-w="1174">mayoría</span> <span class="w" data-w="1175">hará</span> <span class="w" data-w="1176">la</span> <span class="w" data-w="1177">cuenta</span>. <span class="w" data-w="1178">Siempre</span>, <span class="w" data-w="1179">en</span> <span class="w" data-w="1180">todas</span> <span class="w" data-w="1181">partes</span>, <span class="w" data-w="1182">la</span> <span class="w" data-w="1183">mayoría</span> <span class="w" data-w="1184">hace</span> <span class="w" data-w="1185">la</span> <span class="w" data-w="1186">cuenta</span>.</p>
+    <p><span class="w" data-w="1187">Y</span> <span class="w" data-w="1188">conviene</span> <span class="w" data-w="1189">decir</span> <span class="w" data-w="1190">con</span> <span class="w" data-w="1191">cuidado</span> <span class="w" data-w="1192">lo</span> <span class="w" data-w="1193">que</span> <span class="w" data-w="1194">este</span> <span class="w" data-w="1195">capítulo</span> <span class="w" data-w="1196">afirma</span> <span class="w" data-w="1197">y</span> <span class="w" data-w="1198">lo</span> <span class="w" data-w="1199">que</span> <span class="w" data-w="1200">no</span>. <span class="w" data-w="1201">No</span> <span class="w" data-w="1202">digo</span> <span class="w" data-w="1203">que</span> <span class="w" data-w="1204">el</span> <span class="w" data-w="1205">dinero</span> <span class="w" data-w="1206">blando</span> <span class="w" data-w="1207">sea</span> <span class="w" data-w="1208">la</span> <span class="w" data-w="1209">única</span> <span class="w" data-w="1210">causa</span> <span class="w" data-w="1211">de</span> <span class="w" data-w="1212">que</span> <span class="w" data-w="1213">caigan</span> <span class="w" data-w="1214">los</span> <span class="w" data-w="1215">bosques</span>. <span class="w" data-w="1216">Tomás</span> <span class="w" data-w="1217">podía</span> <span class="w" data-w="1218">talar</span> <span class="w" data-w="1219">también</span> <span class="w" data-w="1220">por</span> <span class="w" data-w="1221">otras</span> <span class="w" data-w="1222">razones</span> —<span class="w" data-w="1223">porque</span> <span class="w" data-w="1224">no</span> <span class="w" data-w="1225">fuera</span> <span class="w" data-w="1226">dueño</span> <span class="w" data-w="1227">del</span> <span class="w" data-w="1228">árbol</span> <span class="w" data-w="1229">y</span> <span class="w" data-w="1230">otro</span> <span class="w" data-w="1231">pudiera</span> <span class="w" data-w="1232">robárselo</span>, <span class="w" data-w="1233">porque</span> <span class="w" data-w="1234">un</span> <span class="w" data-w="1235">subsidio</span> <span class="w" data-w="1236">premiara</span> <span class="w" data-w="1237">la</span> <span class="w" data-w="1238">tala</span>, <span class="w" data-w="1239">porque</span> <span class="w" data-w="1240">la</span> <span class="w" data-w="1241">tierra</span> <span class="w" data-w="1242">no</span> <span class="w" data-w="1243">tuviera</span> <span class="w" data-w="1244">dueño</span> <span class="w" data-w="1245">y</span> <span class="w" data-w="1246">todos</span> <span class="w" data-w="1247">corrieran</span> <span class="w" data-w="1248">a</span> <span class="w" data-w="1249">llevarse</span> <span class="w" data-w="1250">lo</span> <span class="w" data-w="1251">que</span> <span class="w" data-w="1252">pudieran</span> <span class="w" data-w="1253">antes</span> <span class="w" data-w="1254">que</span> <span class="w" data-w="1255">el</span> <span class="w" data-w="1256">vecino</span>—. <span class="w" data-w="1257">Esas</span> <span class="w" data-w="1258">otras</span> <span class="w" data-w="1259">causas</span> <span class="w" data-w="1260">existen</span> <span class="w" data-w="1261">y</span> <span class="w" data-w="1262">son</span> <span class="w" data-w="1263">reales</span>. <span class="w" data-w="1264">Por</span> <span class="w" data-w="1265">eso</span> <span class="w" data-w="1266">le</span> <span class="w" data-w="1267">di</span> <span class="w" data-w="1268">a</span> <span class="w" data-w="1269">Tomás</span> <span class="w" data-w="1270">un</span> <span class="w" data-w="1271">árbol</span> <span class="w" data-w="1272">que</span> <span class="w" data-w="1273">era</span> <span class="w" data-w="1274">indiscutiblemente</span> <span class="w" data-w="1275">suyo</span>, <span class="w" data-w="1276">en</span> <span class="w" data-w="1277">su</span> <span class="w" data-w="1278">propio</span> <span class="w" data-w="1279">terreno</span>, <span class="w" data-w="1280">sin</span> <span class="w" data-w="1281">subsidio</span> <span class="w" data-w="1282">ni</span> <span class="w" data-w="1283">vecino</span> <span class="w" data-w="1284">que</span> <span class="w" data-w="1285">se</span> <span class="w" data-w="1286">lo</span> <span class="w" data-w="1287">dispute</span>. <span class="w" data-w="1288">Le</span> <span class="w" data-w="1289">quité</span> <span class="w" data-w="1290">todas</span> <span class="w" data-w="1291">las</span> <span class="w" data-w="1292">demás</span> <span class="w" data-w="1293">causas</span> <span class="w" data-w="1294">para</span> <span class="w" data-w="1295">dejar</span> <span class="w" data-w="1296">una</span> <span class="w" data-w="1297">sola</span> <span class="w" data-w="1298">sobre</span> <span class="w" data-w="1299">la</span> <span class="w" data-w="1300">mesa</span>. <span class="w" data-w="1301">Y</span> <span class="w" data-w="1302">aun</span> <span class="w" data-w="1303">así</span>, <span class="w" data-w="1304">con</span> <span class="w" data-w="1305">la</span> <span class="w" data-w="1306">propiedad</span> <span class="w" data-w="1307">segura</span> <span class="w" data-w="1308">y</span> <span class="w" data-w="1309">nadie</span> <span class="w" data-w="1310">que</span> <span class="w" data-w="1311">lo</span> <span class="w" data-w="1312">empuje</span>, <span class="w" data-w="1313">Tomás</span> <span class="w" data-w="1314">levantó</span> <span class="w" data-w="1315">el</span> <span class="w" data-w="1316">hacha</span> —<span class="w" data-w="1317">en</span> <span class="w" data-w="1318">cuanto</span> <span class="w" data-w="1319">le</span> <span class="w" data-w="1320">cambiamos</span> <span class="w" data-w="1321">el</span> <span class="w" data-w="1322">dinero</span>, <span class="w" data-w="1323">y</span> <span class="w" data-w="1324">solo</span> <span class="w" data-w="1325">por</span> <span class="w" data-w="1326">eso</span>—.</p>
+    <p><span class="w" data-w="1327">Eso</span> <span class="w" data-w="1328">es</span> <span class="w" data-w="1329">lo</span> <span class="w" data-w="1330">que</span> <span class="w" data-w="1331">este</span> <span class="w" data-w="1332">capítulo</span> <span class="w" data-w="1333">quería</span> <span class="w" data-w="1334">mostrar</span>. <span class="w" data-w="1335">No</span> <span class="w" data-w="1336">que</span> <span class="w" data-w="1337">el</span> <span class="w" data-w="1338">dinero</span> <span class="w" data-w="1339">explique</span> <span class="w" data-w="1340">todo</span> <span class="w" data-w="1341">bosque</span> <span class="w" data-w="1342">caído</span>, <span class="w" data-w="1343">sino</span> <span class="w" data-w="1344">que</span> <span class="w" data-w="1345">basta</span> <span class="w" data-w="1346">con</span> <span class="w" data-w="1347">corromperlo</span> <span class="w" data-w="1348">para</span> <span class="w" data-w="1349">que</span> <span class="w" data-w="1350">hombres</span> <span class="w" data-w="1351">buenos</span>, <span class="w" data-w="1352">con</span> <span class="w" data-w="1353">propiedad</span> <span class="w" data-w="1354">segura</span> <span class="w" data-w="1355">y</span> <span class="w" data-w="1356">sin</span> <span class="w" data-w="1357">más</span> <span class="w" data-w="1358">presión</span> <span class="w" data-w="1359">que</span> <span class="w" data-w="1360">la</span> <span class="w" data-w="1361">de</span> <span class="w" data-w="1362">su</span> <span class="w" data-w="1363">propia</span> <span class="w" data-w="1364">cuenta</span>, <span class="w" data-w="1365">talen</span> <span class="w" data-w="1366">lo</span> <span class="w" data-w="1367">que</span> <span class="w" data-w="1368">aman</span>. <span class="w" data-w="1369">El</span> <span class="w" data-w="1370">dinero</span> <span class="w" data-w="1371">honesto</span> <span class="w" data-w="1372">no</span> <span class="w" data-w="1373">garantiza</span> <span class="w" data-w="1374">que</span> <span class="w" data-w="1375">ningún</span> <span class="w" data-w="1376">árbol</span> <span class="w" data-w="1377">caiga</span>. <span class="w" data-w="1378">Pero</span> <span class="w" data-w="1379">el</span> <span class="w" data-w="1380">dinero</span> <span class="w" data-w="1381">falsificado</span> <span class="w" data-w="1382">garantiza</span> <span class="w" data-w="1383">que</span> <span class="w" data-w="1384">caerán</span> <span class="w" data-w="1385">los</span> <span class="w" data-w="1386">que</span> <span class="w" data-w="1387">no</span> <span class="w" data-w="1388">debían</span> —<span class="w" data-w="1389">porque</span> <span class="w" data-w="1390">le</span> <span class="w" data-w="1391">miente</span>, <span class="w" data-w="1392">a</span> <span class="w" data-w="1393">cada</span> <span class="w" data-w="1394">dueño</span> <span class="w" data-w="1395">de</span> <span class="w" data-w="1396">cada</span> <span class="w" data-w="1397">manantial</span>, <span class="w" data-w="1398">sobre</span> <span class="w" data-w="1399">cuánto</span> <span class="w" data-w="1400">vale</span> <span class="w" data-w="1401">esperar</span>.</p>
+    <p><span class="w" data-w="1402">El</span> <span class="w" data-w="1403">bosque</span> <span class="w" data-w="1404">no</span> <span class="w" data-w="1405">es</span> <span class="w" data-w="1406">la</span> <span class="w" data-w="1407">primera</span> <span class="w" data-w="1408">víctima</span> <span class="w" data-w="1409">del</span> <span class="w" data-w="1410">dinero</span> <span class="w" data-w="1411">blando</span> <span class="w" data-w="1412">ni</span> <span class="w" data-w="1413">la</span> <span class="w" data-w="1414">última</span>. <span class="w" data-w="1415">Es</span> <span class="w" data-w="1416">solo</span> <span class="w" data-w="1417">la</span> <span class="w" data-w="1418">más</span> <span class="w" data-w="1419">visible</span>, <span class="w" data-w="1420">porque</span> <span class="w" data-w="1421">un</span> <span class="w" data-w="1422">árbol</span> <span class="w" data-w="1423">que</span> <span class="w" data-w="1424">cae</span> <span class="w" data-w="1425">se</span> <span class="w" data-w="1426">ve</span> <span class="w" data-w="1427">a</span> <span class="w" data-w="1428">kilómetros</span>. <span class="w" data-w="1429">Las</span> <span class="w" data-w="1430">que</span> <span class="w" data-w="1431">vienen</span> —<span class="w" data-w="1432">lo</span> <span class="w" data-w="1433">que</span> <span class="w" data-w="1434">comemos</span>, <span class="w" data-w="1435">las</span> <span class="w" data-w="1436">guerras</span> <span class="w" data-w="1437">que</span> <span class="w" data-w="1438">se</span> <span class="w" data-w="1439">financian</span>, <span class="w" data-w="1440">la</span> <span class="w" data-w="1441">paciencia</span> <span class="w" data-w="1442">entera</span> <span class="w" data-w="1443">de</span> <span class="w" data-w="1444">una</span> <span class="w" data-w="1445">especie</span>— <span class="w" data-w="1446">se</span> <span class="w" data-w="1447">ven</span> <span class="w" data-w="1448">peor</span>, <span class="w" data-w="1449">pero</span> <span class="w" data-w="1450">salen</span> <span class="w" data-w="1451">de</span> <span class="w" data-w="1452">la</span> <span class="w" data-w="1453">misma</span> <span class="w" data-w="1454">cuenta</span> <span class="w" data-w="1455">trucada</span>. <span class="w" data-w="1456">Empezamos</span> <span class="w" data-w="1457">por</span> <span class="w" data-w="1458">el</span> <span class="w" data-w="1459">bosque</span> <span class="w" data-w="1460">porque</span> <span class="w" data-w="1461">es</span> <span class="w" data-w="1462">donde</span> <span class="w" data-w="1463">la</span> <span class="w" data-w="1464">mentira</span> <span class="w" data-w="1465">deja</span> <span class="w" data-w="1466">una</span> <span class="w" data-w="1467">marca</span> <span class="w" data-w="1468">que</span> <span class="w" data-w="1469">cualquiera</span> <span class="w" data-w="1470">puede</span> <span class="w" data-w="1471">tocar</span>: <span class="w" data-w="1472">un</span> <span class="w" data-w="1473">tocón</span> <span class="w" data-w="1474">donde</span> <span class="w" data-w="1475">había</span> <span class="w" data-w="1476">un</span> <span class="w" data-w="1477">manantial</span>.</p>
+
+  </div>
+
+</article>
+
+<nav class="nav-foot"><a class="prev" href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+
+<aside class="audio-pill" data-state="collapsed" data-duration="9:48" data-storage-key="deforestacion" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/deforestacion.mp3?v=1"></audio>
+  <button class="ap-play" type="button" aria-label="Reproducir capítulo">
+    <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+  </button>
+  <div class="ap-resume-hint" aria-hidden="true"></div>
+  <div class="ap-meta">
+    <button class="ap-btn ap-skip ap-skip-back" type="button" aria-label="Retroceder 15 segundos" title="Retroceder 15 s (J)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11 6V3L6 7l5 4V8c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6H3c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8z"/>
+        <text class="skip-label" x="11" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <button class="ap-btn ap-skip ap-skip-fwd" type="button" aria-label="Avanzar 15 segundos" title="Avanzar 15 s (L)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13 6V3l5 4-5 4V8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6h2c0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8z"/>
+        <text class="skip-label" x="13" y="17" text-anchor="middle">15</text>
+      </svg>
+    </button>
+    <div class="ap-track" role="slider" tabindex="0" aria-label="Posición del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="ap-rail"></div>
+      <div class="ap-fill"></div>
+      <div class="ap-thumb"></div>
+    </div>
+    <div class="ap-time"><span class="ap-current">0:00</span><span class="ap-sep"> / </span><span class="ap-duration">--:--</span></div>
+    <button class="ap-btn ap-karaoke" type="button" aria-label="Resaltado palabra por palabra (toggle)" title="Karaoke (K)">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 18 L8 7 L12 18 M5.5 14 L10.5 14"/>
+        <path d="M19 18 V11.5 a3 3 0 0 0 -6 0 a3 3 0 0 0 3 3 a3 3 0 0 0 3 -3"/>
+        <line class="strike" x1="3" y1="20" x2="21" y2="4"/>
+      </svg>
+    </button>
+    <button class="ap-rate" type="button" aria-label="Velocidad de reproducción" title="Velocidad">1×</button>
+    <button class="ap-close" type="button" aria-label="Minimizar reproductor" title="Minimizar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+</aside>
+
+<script>
+/* AUDIO PILL controller v2 */
+(function(){
+  var pill = document.querySelector('.audio-pill');
+  if (!pill) return;
+  var a = pill.querySelector('.ap-audio');
+  var b = pill.querySelector('.ap-play');
+  var pi = pill.querySelector('.ap-icon-play');
+  var ps = pill.querySelector('.ap-icon-pause');
+  var tr = pill.querySelector('.ap-track');
+  var fi = pill.querySelector('.ap-fill');
+  var th = pill.querySelector('.ap-thumb');
+  var cu = pill.querySelector('.ap-current');
+  var du = pill.querySelector('.ap-duration');
+  var rateBtn = pill.querySelector('.ap-rate');
+  var closeBtn = pill.querySelector('.ap-close');
+  var skipBackBtn = pill.querySelector('.ap-skip-back');
+  var skipFwdBtn  = pill.querySelector('.ap-skip-fwd');
+  var karaokeBtn  = pill.querySelector('.ap-karaoke');
+  var hint        = pill.querySelector('.ap-resume-hint');
+  var STORAGE_KEY = pill.getAttribute('data-storage-key') || 'default';
+  var POS_KEY = 'audio-pill:pos:' + STORAGE_KEY;
+  var KARAOKE_KEY = 'audio-pill:karaoke';
+  var RATES = [1, 1.25, 1.5, 0.8];
+  var rateIdx = 0, lastSaveAt = 0;
+  function fmt(t){ if(!isFinite(t)) return '0:00'; var m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+(s<10?'0':'')+s; }
+  function expand(){ pill.setAttribute('data-state','expanded'); }
+  function collapse(){ pill.setAttribute('data-state','collapsed'); }
+  function setPlayIcon(playing){
+    if (playing) { pi.style.display='none'; ps.style.display=''; b.setAttribute('aria-label','Pausar'); }
+    else         { pi.style.display=''; ps.style.display='none'; b.setAttribute('aria-label','Reproducir'); }
+  }
+  function safePlay(){
+    var p = a.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+  function savePos(){
+    if (!a.duration || !isFinite(a.duration)) return;
+    var t = a.currentTime;
+    if (t > a.duration - 8) { try { localStorage.removeItem(POS_KEY); } catch(e){} return; }
+    if (t < 3) return;
+    try { localStorage.setItem(POS_KEY, String(Math.floor(t))); } catch(e){}
+  }
+  function loadPos(){
+    try { var v = localStorage.getItem(POS_KEY); var t = parseFloat(v); return isFinite(t) && t > 0 ? t : 0; }
+    catch(e){ return 0; }
+  }
+  function showResumeHint(s){
+    if (!hint) return;
+    hint.textContent = '↻ ' + fmt(s);
+    hint.classList.add('show');
+    setTimeout(function(){ hint.classList.remove('show'); }, 2200);
+  }
+  a.addEventListener('loadedmetadata', function(){
+    if (isFinite(a.duration)) pill.setAttribute('data-duration', fmt(a.duration));
+    if (du && isFinite(a.duration)) du.textContent = fmt(a.duration);
+    var saved = loadPos();
+    if (saved > 0 && saved < a.duration - 8) {
+      a.currentTime = saved;
+      showResumeHint(saved);
+    }
+  });
+  a.addEventListener('timeupdate', function(){
+    var pct = a.duration ? (a.currentTime/a.duration)*100 : 0;
+    fi.style.width = pct+'%'; th.style.left = pct+'%';
+    cu.textContent = fmt(a.currentTime);
+    tr.setAttribute('aria-valuenow', Math.round(pct));
+    if (!a.paused) {
+      var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+      if (now - lastSaveAt > 3000) { savePos(); lastSaveAt = now; }
+    }
+  });
+  a.addEventListener('pause', function(){ savePos(); });
+  window.addEventListener('beforeunload', savePos);
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) savePos(); });
+  a.addEventListener('play',  function(){ pill.classList.add('playing'); setPlayIcon(true); expand(); });
+  a.addEventListener('pause', function(){ pill.classList.remove('playing'); setPlayIcon(false); });
+  a.addEventListener('ended', function(){ pill.classList.remove('playing'); setPlayIcon(false); try { localStorage.removeItem(POS_KEY); } catch(e){} });
+  b.addEventListener('click', function(e){ e.stopPropagation(); if (a.paused) safePlay(); else a.pause(); });
+  closeBtn.addEventListener('click', function(e){ e.stopPropagation(); a.pause(); collapse(); });
+  rateBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    rateIdx = (rateIdx+1) % RATES.length;
+    var r = RATES[rateIdx];
+    a.playbackRate = r;
+    rateBtn.textContent = (r % 1 === 0 ? r.toFixed(0) : r) + '×';
+    rateBtn.classList.toggle('active', r !== 1);
+    rateBtn.setAttribute('aria-label', 'Velocidad: ' + rateBtn.textContent + '. Tocar para cambiar.');
+  });
+  function skip(secs){ if (!a.duration) return; a.currentTime = Math.max(0, Math.min(a.duration, a.currentTime + secs)); }
+  if (skipBackBtn) skipBackBtn.addEventListener('click', function(e){ e.stopPropagation(); skip(-15); });
+  if (skipFwdBtn)  skipFwdBtn.addEventListener('click',  function(e){ e.stopPropagation(); skip(+15); });
+  function applyKaraokePref(){
+    var off = false;
+    try { off = localStorage.getItem(KARAOKE_KEY) === 'off'; } catch(e){}
+    document.body.classList.toggle('karaoke-off', off);
+    if (karaokeBtn) {
+      karaokeBtn.classList.toggle('active', !off);
+      karaokeBtn.setAttribute('aria-pressed', String(!off));
+      karaokeBtn.setAttribute('aria-label', off ? 'Activar resaltado palabra por palabra' : 'Desactivar resaltado palabra por palabra');
+    }
+  }
+  applyKaraokePref();
+  if (karaokeBtn) karaokeBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var current = document.body.classList.contains('karaoke-off');
+    try { localStorage.setItem(KARAOKE_KEY, current ? 'on' : 'off'); } catch(e){}
+    applyKaraokePref();
+  });
+  (function(){
+    var dragging = false, wasPlaying = false;
+    function seekAt(clientX){
+      if (!a.duration) return;
+      var r = tr.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+      a.currentTime = pct * a.duration;
+    }
+    function onDown(e){
+      if (!a.duration) return;
+      dragging = true;
+      wasPlaying = !a.paused;
+      if (wasPlaying) a.pause();
+      tr.classList.add('dragging');
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onMove(e){
+      if (!dragging) return;
+      var x = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+      seekAt(x);
+      e.preventDefault();
+    }
+    function onUp(){
+      if (!dragging) return;
+      dragging = false;
+      tr.classList.remove('dragging');
+      if (wasPlaying) { var p = a.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+    }
+    tr.addEventListener('mousedown', onDown);
+    tr.addEventListener('touchstart', onDown, { passive: false });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: false });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+    window.addEventListener('touchcancel', onUp);
+  })();
+  tr.addEventListener('keydown', function(e){
+    if (!a.duration) return;
+    if      (e.key==='ArrowRight'){ a.currentTime = Math.min(a.duration, a.currentTime+5); e.preventDefault(); }
+    else if (e.key==='ArrowLeft') { a.currentTime = Math.max(0, a.currentTime-5);          e.preventDefault(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.target && e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = e.key.toLowerCase();
+    if (k === ' ' && !(/^(BUTTON|A)$/.test(e.target.tagName))) {
+      if (!pill.contains(document.activeElement)) return;
+      e.preventDefault();
+      if (a.paused) safePlay(); else a.pause();
+    } else if (k === 'j') { skip(-15); e.preventDefault(); }
+      else if (k === 'l') { skip(+15); e.preventDefault(); }
+      else if (k === 'k' && karaokeBtn) { karaokeBtn.click(); e.preventDefault(); }
+      else if (e.key === 'Escape' && pill.getAttribute('data-state') === 'expanded') { a.pause(); collapse(); }
+  });
+})();
+</script>
+<script>
+/* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
+(function(){
+  var ALIGN_URL = 'audio/deforestacion.alignment.json?v=1';
+  var audio = document.querySelector('.ap-audio');
+  if (!audio) return;
+  var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
+  document.querySelectorAll('.w').forEach(function(el){
+    var i = parseInt(el.getAttribute('data-w'), 10);
+    if (!isNaN(i)) wordEls[i] = el;
+  });
+  try {
+    var allW = document.querySelectorAll('.w');
+    var rootEls = [];
+    allW.forEach(function(w){
+      var p = w.parentNode;
+      while (p && p !== document.body && !/^(P|H1|H2|H3|DIV|LI|BLOCKQUOTE)$/.test(p.tagName)) p = p.parentNode;
+      if (p && rootEls.indexOf(p) < 0) rootEls.push(p);
+    });
+    rootEls.forEach(function(root){
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, null);
+      var seq = [], n;
+      while ((n = walker.nextNode())) {
+        if (n.nodeType === 3) { if (n.textContent) seq.push(n); }
+        else if (n.nodeType === 1 && n.classList && n.classList.contains('w')) seq.push(n);
+      }
+      var currentIdx = -1;
+      seq.forEach(function(node){
+        if (node.nodeType === 1) {
+          var i = parseInt(node.getAttribute('data-w'), 10);
+          if (!isNaN(i)) currentIdx = i;
+        } else if (node.nodeType === 3 && currentIdx >= 0 && node.parentNode) {
+          var g = document.createElement('span');
+          g.className = 'g';
+          g.textContent = node.textContent;
+          node.parentNode.replaceChild(g, node);
+          if (!glueEls[currentIdx]) glueEls[currentIdx] = [];
+          glueEls[currentIdx].push(g);
+        }
+      });
+    });
+  } catch (err) { /* el karaoke base sigue funcionando sin glue */ }
+  fetch(ALIGN_URL)
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if (!data || !data.words) return;
+      words = data.words;
+      audio.addEventListener('timeupdate', tick);
+      audio.addEventListener('seeked', function(){ resetState(); tick(); });
+    })
+    .catch(function(){});
+  function findIdx(t){
+    if (!words || !words.length) return -1;
+    var lo = 0, hi = words.length - 1, ans = -1;
+    while (lo <= hi) { var mid = (lo + hi) >> 1; if (words[mid].s <= t) { ans = mid; lo = mid + 1; } else { hi = mid - 1; } }
+    return ans;
+  }
+  function setGlue(i, add){
+    var arr = glueEls[i]; if (!arr) return;
+    for (var k = 0; k < arr.length; k++) arr[k].classList[add ? 'add' : 'remove']('leida');
+  }
+  function resetState(){
+    for (var k = 0; k < wordEls.length; k++) {
+      if (wordEls[k]) wordEls[k].classList.remove('activa','leida');
+      setGlue(k, false);
+    }
+    lastIdx = -1;
+  }
+  function tick(){
+    if (!words) return;
+    var idx = findIdx(audio.currentTime);
+    if (idx === lastIdx) return;
+    if (idx < lastIdx) {
+      for (var i = idx + 1; i <= lastIdx; i++) {
+        if (wordEls[i]) wordEls[i].classList.remove('leida','activa');
+        setGlue(i, false);
+      }
+    } else {
+      for (var j = Math.max(0, lastIdx); j < idx; j++) {
+        if (wordEls[j]) { wordEls[j].classList.remove('activa'); wordEls[j].classList.add('leida'); }
+        setGlue(j, true);
+      }
+    }
+    if (idx >= 0 && wordEls[idx]) {
+      wordEls[idx].classList.remove('leida');
+      wordEls[idx].classList.add('activa');
+      var rect = wordEls[idx].getBoundingClientRect();
+      var vh = window.innerHeight;
+      if (rect.top < vh*0.22 || rect.bottom > vh*0.72) {
+        var now = (typeof performance !== 'undefined' && performance.now) ? performance.now() : 0;
+        if (now - lastScrollAt > 600) {
+          wordEls[idx].scrollIntoView({behavior:'smooth', block:'center'});
+          lastScrollAt = now;
+        }
+      }
+    }
+    lastIdx = idx;
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var wEl = (t && t.closest) ? t.closest('.w') : null;
+    if (!wEl) return;
+    var i = parseInt(wEl.getAttribute('data-w'), 10);
+    if (isNaN(i) || !words || !words[i]) return;
+    audio.currentTime = words[i].s;
+    if (audio.paused) { var p = audio.play(); if (p && typeof p.catch === 'function') p.catch(function(){}); }
+  });
+})();
+</script>
+<script>
+/* Subrayado con colores — instalado por tools/add_highlight_colors.py */
+(function(){
+  var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+  var COLORS = ['a','n','v','c'];
+  var LAST_COLOR_KEY = 'highlights:last-color';
+  var DEFAULT_COLOR = 'a';
+  var lastColor;
+  try { lastColor = localStorage.getItem(LAST_COLOR_KEY) || DEFAULT_COLOR; } catch(e){ lastColor = DEFAULT_COLOR; }
+  if (COLORS.indexOf(lastColor) === -1) lastColor = DEFAULT_COLOR;
+
+  // saved: arreglo donde cada item es Number (=amarillo, compat) o [idx, color].
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
+  if (!Array.isArray(saved)) saved = [];
+  // mapa idx → color para pintar
+  function buildMap(){
+    var m = {};
+    saved.forEach(function(it){
+      if (typeof it === 'number') m[it] = 'a';
+      else if (Array.isArray(it) && it.length >= 2) m[it[0]] = COLORS.indexOf(it[1]) !== -1 ? it[1] : 'a';
+    });
+    return m;
+  }
+  function paintAll(){
+    var m = buildMap();
+    prose.querySelectorAll('.w.hl').forEach(function(el){
+      el.classList.remove('hl'); el.removeAttribute('data-c');
+    });
+    Object.keys(m).forEach(function(idx){
+      var el = prose.querySelector('.w[data-w="'+idx+'"]');
+      if (el){ el.classList.add('hl'); el.setAttribute('data-c', m[idx]); }
+    });
+  }
+  paintAll();
+
+  function setColor(idx, color){
+    // quitar entry previa
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+    // guardar (forma compacta para amarillo)
+    if (color === 'a') saved.push(idx);
+    else saved.push([idx, color]);
+  }
+  function removeIdx(idx){
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+  }
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
+
+  var toolbar = document.createElement('div');
+  toolbar.className = 'hl-toolbar';
+  toolbar.setAttribute('role','toolbar');
+  toolbar.setAttribute('aria-label','Acciones de subrayado');
+  document.body.appendChild(toolbar);
+
+  var selectedIdxs = [];
+  function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
+
+  function getSelectedWordIdxs(){
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.toString().trim() === '') return [];
+    var range = sel.getRangeAt(0);
+    if (!prose.contains(range.commonAncestorContainer) && !range.intersectsNode(prose)) return [];
+    var idxs = [];
+    var allWords = prose.querySelectorAll('.w');
+    for (var i = 0; i < allWords.length; i++){
+      if (range.intersectsNode(allWords[i])){
+        var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
+        if (!isNaN(idx)) idxs.push(idx);
+      }
+    }
+    return idxs;
+  }
+
+  function applyColor(color){
+    selectedIdxs.forEach(function(i){ setColor(i, color); });
+    try { localStorage.setItem(LAST_COLOR_KEY, color); } catch(e){}
+    lastColor = color;
+    save(); paintAll(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+  function removeAll(){
+    selectedIdxs.forEach(function(i){ removeIdx(i); });
+    save(); paintAll(); hideToolbar();
+    var sel = window.getSelection(); if (sel) sel.removeAllRanges();
+  }
+
+  var COLOR_LABEL = { a: 'Amarillo · importante', n: 'Naranja · cita o dato', v: 'Verde · me convence', c: 'Coral · dudo' };
+
+  function showToolbar(x, y, currentColor){
+    toolbar.innerHTML = '';
+    COLORS.forEach(function(c){
+      var sw = document.createElement('button');
+      sw.type = 'button'; sw.className = 'hl-swatch';
+      sw.setAttribute('data-c', c);
+      sw.setAttribute('aria-label', COLOR_LABEL[c]);
+      sw.title = COLOR_LABEL[c];
+      if (currentColor === c) sw.classList.add('current');
+      sw.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      sw.addEventListener('click', function(e){ e.stopPropagation(); applyColor(c); });
+      toolbar.appendChild(sw);
+    });
+    if (currentColor){
+      var div = document.createElement('span'); div.className = 'hl-divider';
+      toolbar.appendChild(div);
+      var rm = document.createElement('button');
+      rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
+      rm.textContent = 'Quitar';
+      rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); removeAll(); });
+      toolbar.appendChild(rm);
+    }
+    toolbar.classList.add('show');
+    // En móvil, el CSS la fija al fondo con !important; el JS no posiciona.
+    if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+      toolbar.style.left = ''; toolbar.style.top = '';
+      return;
+    }
+    var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
+    var vw = window.innerWidth;
+    var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
+    var top = Math.max(window.scrollY + 8, y - h - 8);
+    toolbar.style.left = left + 'px';
+    toolbar.style.top = top + 'px';
+  }
+
+  function onSelection(e){
+    if (e && e.target && toolbar.contains(e.target)) return;
+    if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
+    setTimeout(function(){
+      var idxs = getSelectedWordIdxs();
+      if (idxs.length === 0){ hideToolbar(); return; }
+      var sel = window.getSelection();
+      var range = sel.getRangeAt(0);
+      var rect = range.getBoundingClientRect();
+      if (rect.width === 0 && rect.height === 0){ hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width/2;
+      var y = rect.top + window.scrollY;
+      var m = buildMap();
+      // color "actual" de la selección: si todas las palabras subrayadas comparten color, ese; si no, ninguno
+      var present = idxs.map(function(i){ return m[i]; }).filter(Boolean);
+      var allSame = present.length === idxs.length && present.every(function(c){ return c === present[0]; });
+      var currentColor = allSame && present.length ? present[0] : null;
+      selectedIdxs = idxs;
+      showToolbar(x, y, currentColor);
+    }, 10);
+  }
+
+  document.addEventListener('mouseup', onSelection);
+  document.addEventListener('touchend', onSelection);
+  document.addEventListener('mousedown', function(e){
+    if (toolbar.contains(e.target)) return;
+    hideToolbar();
+  });
+  window.addEventListener('scroll', hideToolbar, { passive: true });
+  window.addEventListener('resize', hideToolbar);
+})();
+</script>
+
+<script>
+/* usabilidad-v1 */
+(function(){
+  var doc=document.documentElement;
+  function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+  var gear=document.querySelector('.ui-gear'), panel=document.querySelector('.ui-panel');
+  if(gear&&panel){
+    gear.addEventListener('click',function(e){e.stopPropagation();var o=panel.classList.toggle('open');gear.setAttribute('aria-expanded',String(o));});
+    document.addEventListener('click',function(e){if(!panel.contains(e.target)&&!gear.contains(e.target)){panel.classList.remove('open');gear.setAttribute('aria-expanded','false');}});
+  }
+  function markActive(group,attr,val){
+    document.querySelectorAll('.ui-row[data-group="'+group+'"] button').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute(attr)===val);
+    });
+  }
+  var curTheme=lsGet('ui:theme')||'sepia';
+  markActive('theme','data-theme-val',curTheme);
+  document.querySelectorAll('[data-theme-val]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-theme-val');
+      if(v==='oscuro')doc.removeAttribute('data-theme');else doc.setAttribute('data-theme',v);
+      lsSet('ui:theme',v); markActive('theme','data-theme-val',v);
+    });
+  });
+  var curFs=lsGet('ui:fontscale')||'1';
+  doc.style.setProperty('--font-scale',curFs);
+  markActive('fs','data-fs',curFs);
+  document.querySelectorAll('[data-fs]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.getAttribute('data-fs');
+      doc.style.setProperty('--font-scale',v); lsSet('ui:fontscale',v); markActive('fs','data-fs',v);
+    });
+  });
+
+  var bar=document.querySelector('.read-progress > i'), ticking=false;
+  function updBar(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    var y=h.scrollTop||window.pageYOffset||0;
+    var pct=max>0?(y/max*100):0;
+    if(bar)bar.style.width=Math.min(100,Math.max(0,pct))+'%';
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(updBar);}},{passive:true});
+  window.addEventListener('resize',updBar); updBar();
+
+  var sub=document.querySelector('.chapter-subtitle');
+  if(sub&&!document.querySelector('.chapter-meta')){
+    var words=document.querySelectorAll('.prose .w, .chapter-title .w').length||0;
+    var mins=Math.max(1,Math.round(words/200));
+    var pe=document.querySelector('.audio-pill');
+    var dur=pe?pe.getAttribute('data-duration'):'';
+    var meta=document.createElement('p'); meta.className='chapter-meta';
+    meta.textContent='Lectura ≈ '+mins+' min'+(dur&&dur!=='0:00'?'  ·  audio '+dur:'');
+    sub.parentNode.insertBefore(meta, sub.nextSibling);
+  }
+
+  var pillEl=document.querySelector('.audio-pill');
+  var sk=pillEl?(pillEl.getAttribute('data-storage-key')||'default'):'default';
+  var SKEY='ui:scroll:'+sk, sticking=false;
+  function saveScroll(){var y=window.pageYOffset||document.documentElement.scrollTop||0;lsSet(SKEY,String(Math.round(y)));}
+  window.addEventListener('scroll',function(){if(!sticking){sticking=true;setTimeout(function(){saveScroll();sticking=false;},800);}},{passive:true});
+  window.addEventListener('beforeunload',saveScroll);
+  var savedY=parseInt(lsGet(SKEY)||'0',10);
+  if(savedY>600 && savedY<(document.documentElement.scrollHeight-window.innerHeight-200)){
+    var rr=document.createElement('button'); rr.className='resume-read';
+    rr.innerHTML='↓ Continuar donde ibas';
+    rr.addEventListener('click',function(){window.scrollTo({top:savedY,behavior:'smooth'});rr.classList.remove('show');});
+    document.body.appendChild(rr);
+    setTimeout(function(){rr.classList.add('show');},500);
+    setTimeout(function(){rr.classList.remove('show');},9000);
+  }
+
+  var audio=document.querySelector('.ap-audio');
+  var nextLink=document.querySelector('.nav-foot a.next');
+  if(audio&&nextLink){
+    var card=document.createElement('div'); card.className='next-card';
+    card.innerHTML='<div class="nc-label">Siguiente capítulo</div>'+
+      '<div class="nc-title"></div>'+
+      '<div class="nc-actions"><button class="nc-dismiss">Ahora no</button>'+
+      '<a class="nc-go">Reproducir →</a></div>';
+    card.querySelector('.nc-title').textContent=nextLink.textContent;
+    card.querySelector('.nc-go').setAttribute('href', nextLink.getAttribute('href')+'?autoplay=1');
+    document.body.appendChild(card);
+    audio.addEventListener('ended',function(){card.classList.add('show');});
+    card.querySelector('.nc-dismiss').addEventListener('click',function(){card.classList.remove('show');});
+  }
+  if(audio && /[?&]autoplay=1/.test(location.search)){
+    var go=function(){var p=audio.play();if(p&&p.catch)p.catch(function(){});};
+    if(audio.readyState>=2)go(); else audio.addEventListener('loadedmetadata',go,{once:true});
+  }
+})();
+</script>
+</body>
+</html>

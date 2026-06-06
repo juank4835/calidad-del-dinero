@@ -151,8 +151,8 @@ out = re.sub(r'<title>.*?</title>',
              '<title>¿Y por qué no volver al oro? — Arregla el dinero, arregla el mundo</title>',
              out, count=1, flags=re.DOTALL)
 out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
-# nav-foot: prev=auditabilidad, sin next (deforestación aún no existe)
-new_nav = '<nav class="nav-foot"><a class="prev" href="auditabilidad.html">La auditabilidad del dinero</a><a class="idx" href="index.html">Índice</a><span></span></nav>'
+# nav-foot: prev=auditabilidad, next=deforestación
+new_nav = '<nav class="nav-foot"><a class="prev" href="auditabilidad.html">La auditabilidad del dinero</a><a class="idx" href="index.html">Índice</a><a class="next" href="deforestacion.html">La deforestación</a></nav>'
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
 # CSS extra antes de </style>
 out = out.replace('</style>', EXTRA_CSS + '</style>', 1)

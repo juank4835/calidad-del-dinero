@@ -29,6 +29,14 @@ def extract(html: str) -> str:
         r'<aside[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</aside>',
         r'<blockquote[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</blockquote>',
         r'<cite[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</cite>',
+        # UI de usabilidad-v1 (skip-link, panel de ajustes, barra de progreso,
+        # botón «continuar donde ibas», tarjeta «siguiente capítulo»): nada de
+        # esto debe llegar al TTS — no es contenido del libro
+        r'<a[^>]*class="[^"]*skip-link[^"]*"[^>]*>.*?</a>',
+        r'<div[^>]*class="[^"]*ui-settings[^"]*"[^>]*>.*?</div>\s*</div>',
+        r'<div[^>]*class="[^"]*read-progress[^"]*"[^>]*>.*?</div>',
+        r'<button[^>]*class="[^"]*resume-read[^"]*"[^>]*>.*?</button>',
+        r'<div[^>]*class="[^"]*next-card[^"]*"[^>]*>.*?</div>',
     ]:
         body = re.sub(pat, "", body, flags=re.DOTALL | re.IGNORECASE)
 
