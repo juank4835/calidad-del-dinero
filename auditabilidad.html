@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <!-- usabilidad-v1 -->
-<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme');if(t&&t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);}catch(e){}})();</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -892,7 +892,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
       btn.classList.toggle('active', btn.getAttribute(attr)===val);
     });
   }
-  var curTheme=lsGet('ui:theme')||'oscuro';
+  var curTheme=lsGet('ui:theme')||'sepia';
   markActive('theme','data-theme-val',curTheme);
   document.querySelectorAll('[data-theme-val]').forEach(function(btn){
     btn.addEventListener('click',function(){

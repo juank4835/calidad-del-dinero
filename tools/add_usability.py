@@ -19,7 +19,7 @@ MARK = "<!-- usabilidad-v1 -->"
 
 HEAD_SCRIPT = (
     "<script>(function(){try{var d=document.documentElement;"
-    "var t=localStorage.getItem('ui:theme');if(t&&t!=='oscuro')d.setAttribute('data-theme',t);"
+    "var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);"
     "var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);"
     "}catch(e){}})();</script>\n"
 )
@@ -108,7 +108,7 @@ JS = """<script>
       btn.classList.toggle('active', btn.getAttribute(attr)===val);
     });
   }
-  var curTheme=lsGet('ui:theme')||'oscuro';
+  var curTheme=lsGet('ui:theme')||'sepia';
   markActive('theme','data-theme-val',curTheme);
   document.querySelectorAll('[data-theme-val]').forEach(function(btn){
     btn.addEventListener('click',function(){
