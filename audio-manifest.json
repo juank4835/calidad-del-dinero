@@ -148,14 +148,14 @@
       "note": "recuadros+cita narrados; «La huida» regenerada con punto (entonación de cierre) + pausa 1.2s vía splice"
     },
     "deforestacion.html": {
-      "text_sha256": "b2733c53103d72d35103332123d68e324dd58c1651a5df6d6a9b9cff622c17f3",
-      "chars": 9667,
+      "text_sha256": "198d2663a7ced4cd6aec249b4af9bb91a4934a97d11bc6779fc1d27d1af54d8d",
+      "chars": 9745,
       "audio_path": "audio/deforestacion.mp3",
       "alignment_path": "audio/deforestacion.alignment.json",
-      "words": 1757,
-      "duration_seconds": 712.657029,
-      "generated_at": "2026-06-06T12:59:59Z",
-      "note": "v3+pausas: pausas 1.2s tras títulos aplicadas (workaround del bug ffmpeg libmp3lame en último segmento)"
+      "words": 1793,
+      "duration_seconds": 720.768571,
+      "generated_at": "2026-06-06T14:02:40Z",
+      "note": "v5: sección «La cifra falsificada» reescrita con tono conversacional"
     }
   }
 }
