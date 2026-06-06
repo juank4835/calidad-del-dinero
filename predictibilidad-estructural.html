@@ -175,7 +175,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 .audio-pill .ap-play{ min-width:44px; min-height:44px; }
 @media (max-width:640px){ .ui-settings{ top:10px; right:10px; } .resume-read{ bottom:14px; } }
 
-/* hl-colors-v1 */
+/* hl-colors-v2 */
 :root{
   --hl-color-a: rgba(255,238,0,0.95);   /* amarillo · importante */
   --hl-color-n: rgba(255,150,40,0.95);  /* naranja  · cita/dato */
@@ -223,6 +223,29 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 .hl-swatch:hover{ border-color: var(--rule); }
 .hl-swatch.current{ border-color: var(--ink); }
 .hl-toolbar .hl-divider{ display:inline-block; width:1px; height:18px; background: var(--rule); margin: 0 4px; vertical-align: middle; }
+
+/* En móvil la barra se ancla al fondo (lejos del menú nativo del SO),
+   más grande para tocar bien con el dedo. En desktop sigue contextual. */
+@media (max-width: 640px) {
+  .hl-toolbar {
+    position: fixed !important;
+    left: 16px !important; right: 16px !important;
+    top: auto !important; bottom: 84px !important;
+    max-width: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 12px 14px;
+    box-shadow: 0 20px 44px -10px rgba(0,0,0,0.75);
+    text-align: center;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .hl-swatch{ width: 38px; height: 38px; margin: 0 4px; }
+  .hl-swatch::after{ width: 22px; height: 22px; }
+  .hl-toolbar .hl-btn{ padding: 0.62rem 1rem; font-size: 0.92rem; }
+  .hl-toolbar .hl-divider{ height: 22px; margin: 0 6px; }
+}
 </style>
 </head>
 <body>
@@ -793,6 +816,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
       toolbar.appendChild(rm);
     }
     toolbar.classList.add('show');
+    // En móvil, el CSS la fija al fondo con !important; el JS no posiciona.
+    if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+      toolbar.style.left = ''; toolbar.style.top = '';
+      return;
+    }
     var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
     var vw = window.innerWidth;
     var left = Math.max(8, Math.min(vw - w - 8, x - w/2));

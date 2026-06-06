@@ -21,7 +21,8 @@ import re
 import sys
 from pathlib import Path
 
-MARK = "/* hl-colors-v1 */"
+MARK = "/* hl-colors-v2 */"
+MARK_OLD = "/* hl-colors-v1 */"
 
 # CSS: 4 colores con variantes por tema. El default (oscuro) usa colores
 # saturados, sepia/claro usan tonos un poco más profundos para mantener el
@@ -75,6 +76,29 @@ CSS_BLOCK = """
 .hl-swatch:hover{ border-color: var(--rule); }
 .hl-swatch.current{ border-color: var(--ink); }
 .hl-toolbar .hl-divider{ display:inline-block; width:1px; height:18px; background: var(--rule); margin: 0 4px; vertical-align: middle; }
+
+/* En móvil la barra se ancla al fondo (lejos del menú nativo del SO),
+   más grande para tocar bien con el dedo. En desktop sigue contextual. */
+@media (max-width: 640px) {
+  .hl-toolbar {
+    position: fixed !important;
+    left: 16px !important; right: 16px !important;
+    top: auto !important; bottom: 84px !important;
+    max-width: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 12px 14px;
+    box-shadow: 0 20px 44px -10px rgba(0,0,0,0.75);
+    text-align: center;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .hl-swatch{ width: 38px; height: 38px; margin: 0 4px; }
+  .hl-swatch::after{ width: 22px; height: 22px; }
+  .hl-toolbar .hl-btn{ padding: 0.62rem 1rem; font-size: 0.92rem; }
+  .hl-toolbar .hl-divider{ height: 22px; margin: 0 6px; }
+}
 """
 
 # JS nuevo que reemplaza el bloque del subrayado. Mantiene la interfaz pero
@@ -203,6 +227,11 @@ NEW_JS = '''<script>
       toolbar.appendChild(rm);
     }
     toolbar.classList.add('show');
+    // En móvil, el CSS la fija al fondo con !important; el JS no posiciona.
+    if (window.matchMedia && window.matchMedia('(max-width: 640px)').matches) {
+      toolbar.style.left = ''; toolbar.style.top = '';
+      return;
+    }
     var w = toolbar.offsetWidth, h = toolbar.offsetHeight;
     var vw = window.innerWidth;
     var left = Math.max(8, Math.min(vw - w - 8, x - w/2));
@@ -248,12 +277,25 @@ NEW_JS = '''<script>
 def patch(html: str) -> str:
     if MARK in html:
         return html
+    # Si el archivo tiene v1, limpiamos el bloque CSS viejo y el JS viejo del
+    # subrayado antes de inyectar v2. (El JS viejo se reemplaza más abajo con
+    # el regex de `Subrayado con colores`, ya cubre v1 y v2.)
+    if MARK_OLD in html:
+        # quitar el bloque CSS de v1: desde el marcador hasta justo antes de </style>
+        html = re.sub(
+            re.escape("\n" + MARK_OLD) + r".*?(?=</style>)",
+            "",
+            html,
+            count=1,
+            flags=re.DOTALL,
+        )
     # 1) inyectar CSS antes de </style>
     html = html.replace("</style>", CSS_BLOCK + "</style>", 1)
     # 2) reemplazar el bloque del highlighter viejo por el nuevo. El bloque viejo
     #    empieza con "/* Subrayado (highlights)" y termina en "</script>".
+    # cubre v1 ("Subrayado con colores") y la versión original ("Subrayado (highlights)")
     pat = re.compile(
-        r'<script>\s*/\* Subrayado \(highlights\).*?</script>',
+        r'<script>\s*/\* Subrayado (?:\(highlights\)|con colores).*?</script>',
         re.DOTALL,
     )
     new_html, n = pat.subn(NEW_JS, html, count=1)
@@ -272,7 +314,7 @@ def main():
         print("ya tenía hl-colors-v1:", src)
     else:
         src.write_text(out, encoding="utf-8")
-        print("hl-colors-v1 inyectado →", src)
+        print("hl-colors-v2 inyectado →", src)
 
 
 if __name__ == "__main__":
