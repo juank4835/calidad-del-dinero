@@ -43,11 +43,36 @@ def probe_dur(path):
 
 
 def extract(src, t0, t1, dst):
-    args = ["ffmpeg", "-y", "-i", str(src), "-ss", f"{t0:.3f}"]
+    """Cortar [t0,t1] de src → dst. Si t1 es None corta hasta el final.
+
+    Intenta primero re-encode con libmp3lame (formato uniforme); si falla
+    —p.ej. por «inadequate AVFrame plane padding», un bug que se dispara con
+    frames mal formateados al final del MP3— cae a -c copy + re-encode en dos
+    pasadas, que es robusto al problema.
+    """
+    base = ["ffmpeg", "-y", "-i", str(src), "-ss", f"{t0:.3f}"]
     if t1 is not None:
-        args += ["-to", f"{t1:.3f}"]
-    args += ["-c:a", "libmp3lame", "-b:a", "128k", "-ar", "44100", "-ac", "1", str(dst)]
-    subprocess.run(args, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        base += ["-to", f"{t1:.3f}"]
+    try:
+        subprocess.run(
+            base + ["-c:a", "libmp3lame", "-b:a", "128k", "-ar", "44100", "-ac", "1", str(dst)],
+            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+        return
+    except subprocess.CalledProcessError:
+        pass
+    # fallback: cortar con -c copy primero, después re-encodear el bloque ya recortado
+    tmp = dst.with_suffix(".copy.mp3")
+    subprocess.run(
+        base + ["-c", "copy", str(tmp)],
+        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
+    subprocess.run(
+        ["ffmpeg", "-y", "-i", str(tmp),
+         "-c:a", "libmp3lame", "-b:a", "128k", "-ar", "44100", "-ac", "1", str(dst)],
+        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
+    tmp.unlink(missing_ok=True)
 
 
 def silence(dur, dst):
