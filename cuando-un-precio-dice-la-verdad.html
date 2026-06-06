@@ -174,6 +174,55 @@ body.karaoke-off .ap-karaoke .strike { display: block; }
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus-visible{ outline:2px solid var(--verde); outline-offset:2px; border-radius:3px; }
 .audio-pill .ap-play{ min-width:44px; min-height:44px; }
 @media (max-width:640px){ .ui-settings{ top:10px; right:10px; } .resume-read{ bottom:14px; } }
+
+/* hl-colors-v1 */
+:root{
+  --hl-color-a: rgba(255,238,0,0.95);   /* amarillo · importante */
+  --hl-color-n: rgba(255,150,40,0.95);  /* naranja  · cita/dato */
+  --hl-color-v: rgba(120,210,120,0.95); /* verde    · me convence */
+  --hl-color-c: rgba(255,128,128,0.95); /* coral    · dudo/revisar */
+}
+:root[data-theme="sepia"]{
+  --hl-color-a: rgba(212,160,0,0.9);
+  --hl-color-n: rgba(208,110,30,0.9);
+  --hl-color-v: rgba(80,150,80,0.9);
+  --hl-color-c: rgba(200,80,80,0.9);
+}
+:root[data-theme="claro"]{
+  --hl-color-a: rgba(218,160,0,0.95);
+  --hl-color-n: rgba(214,108,28,0.95);
+  --hl-color-v: rgba(64,140,64,0.95);
+  --hl-color-c: rgba(204,72,72,0.95);
+}
+.hl[data-c="a"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]{ box-shadow: inset 0 -1.5px 0 var(--hl-color-c) !important; }
+.hl[data-c="a"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-a) !important; }
+.hl[data-c="n"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-n) !important; }
+.hl[data-c="v"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-v) !important; }
+.hl[data-c="c"]:hover{ box-shadow: inset 0 -2.5px 0 var(--hl-color-c) !important; }
+
+.hl-swatch{
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: transparent; cursor: pointer; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin: 0 2px;
+  position: relative;
+}
+.hl-swatch::after{
+  content: ""; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--sw-color);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+.hl-swatch[data-c="a"]{ --sw-color: var(--hl-color-a); }
+.hl-swatch[data-c="n"]{ --sw-color: var(--hl-color-n); }
+.hl-swatch[data-c="v"]{ --sw-color: var(--hl-color-v); }
+.hl-swatch[data-c="c"]{ --sw-color: var(--hl-color-c); }
+.hl-swatch:hover{ border-color: var(--rule); }
+.hl-swatch.current{ border-color: var(--ink); }
+.hl-toolbar .hl-divider{ display:inline-block; width:1px; height:18px; background: var(--rule); margin: 0 4px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -593,28 +642,72 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 })();
 </script>
 <script>
-/* Subrayado (highlights) — selecciona texto y aparece toolbar; se guarda en localStorage por capítulo */
+/* Subrayado con colores — instalado por tools/add_highlight_colors.py */
 (function(){
   var STORAGE_KEY = 'highlights:' + (location.pathname.split('/').pop() || 'doc');
   var prose = document.querySelector('.prose');
   if (!prose) return;
+  var COLORS = ['a','n','v','c'];
+  var LAST_COLOR_KEY = 'highlights:last-color';
+  var DEFAULT_COLOR = 'a';
+  var lastColor;
+  try { lastColor = localStorage.getItem(LAST_COLOR_KEY) || DEFAULT_COLOR; } catch(e){ lastColor = DEFAULT_COLOR; }
+  if (COLORS.indexOf(lastColor) === -1) lastColor = DEFAULT_COLOR;
 
+  // saved: arreglo donde cada item es Number (=amarillo, compat) o [idx, color].
   var saved;
   try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ saved = []; }
   if (!Array.isArray(saved)) saved = [];
-  saved.forEach(function(idx){
-    var el = prose.querySelector('.w[data-w="'+idx+'"]');
-    if (el) el.classList.add('hl');
-  });
+  // mapa idx → color para pintar
+  function buildMap(){
+    var m = {};
+    saved.forEach(function(it){
+      if (typeof it === 'number') m[it] = 'a';
+      else if (Array.isArray(it) && it.length >= 2) m[it[0]] = COLORS.indexOf(it[1]) !== -1 ? it[1] : 'a';
+    });
+    return m;
+  }
+  function paintAll(){
+    var m = buildMap();
+    prose.querySelectorAll('.w.hl').forEach(function(el){
+      el.classList.remove('hl'); el.removeAttribute('data-c');
+    });
+    Object.keys(m).forEach(function(idx){
+      var el = prose.querySelector('.w[data-w="'+idx+'"]');
+      if (el){ el.classList.add('hl'); el.setAttribute('data-c', m[idx]); }
+    });
+  }
+  paintAll();
+
+  function setColor(idx, color){
+    // quitar entry previa
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+    // guardar (forma compacta para amarillo)
+    if (color === 'a') saved.push(idx);
+    else saved.push([idx, color]);
+  }
+  function removeIdx(idx){
+    for (var i = saved.length - 1; i >= 0; i--){
+      var it = saved[i];
+      var k = typeof it === 'number' ? it : (Array.isArray(it) ? it[0] : -1);
+      if (k === idx) saved.splice(i, 1);
+    }
+  }
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
+  }
 
   var toolbar = document.createElement('div');
   toolbar.className = 'hl-toolbar';
-  toolbar.setAttribute('role', 'toolbar');
-  toolbar.setAttribute('aria-label', 'Acciones de subrayado');
+  toolbar.setAttribute('role','toolbar');
+  toolbar.setAttribute('aria-label','Acciones de subrayado');
   document.body.appendChild(toolbar);
 
   var selectedIdxs = [];
-
   function hideToolbar(){ toolbar.classList.remove('show'); selectedIdxs = []; }
 
   function getSelectedWordIdxs(){
@@ -625,7 +718,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
     var idxs = [];
     var allWords = prose.querySelectorAll('.w');
     for (var i = 0; i < allWords.length; i++){
-      if (range.intersectsNode(allWords[i])) {
+      if (range.intersectsNode(allWords[i])){
         var idx = parseInt(allWords[i].getAttribute('data-w'), 10);
         if (!isNaN(idx)) idxs.push(idx);
       }
@@ -633,43 +726,42 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
     return idxs;
   }
 
-  function save(){
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch(e){}
-  }
-
-  function apply(){
-    selectedIdxs.forEach(function(i){
-      var el = prose.querySelector('.w[data-w="'+i+'"]');
-      if (el) el.classList.add('hl');
-      if (saved.indexOf(i) === -1) saved.push(i);
-    });
-    save(); hideToolbar();
+  function applyColor(color){
+    selectedIdxs.forEach(function(i){ setColor(i, color); });
+    try { localStorage.setItem(LAST_COLOR_KEY, color); } catch(e){}
+    lastColor = color;
+    save(); paintAll(); hideToolbar();
     var sel = window.getSelection(); if (sel) sel.removeAllRanges();
   }
-  function remove(){
-    selectedIdxs.forEach(function(i){
-      var el = prose.querySelector('.w[data-w="'+i+'"]');
-      if (el) el.classList.remove('hl');
-      var k = saved.indexOf(i); if (k !== -1) saved.splice(k, 1);
-    });
-    save(); hideToolbar();
+  function removeAll(){
+    selectedIdxs.forEach(function(i){ removeIdx(i); });
+    save(); paintAll(); hideToolbar();
     var sel = window.getSelection(); if (sel) sel.removeAllRanges();
   }
 
-  function showToolbar(x, y, anyHl){
+  var COLOR_LABEL = { a: 'Amarillo · importante', n: 'Naranja · cita o dato', v: 'Verde · me convence', c: 'Coral · dudo' };
+
+  function showToolbar(x, y, currentColor){
     toolbar.innerHTML = '';
-    var btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'hl-btn';
-    btn.textContent = anyHl ? 'Subrayar todo' : 'Subrayar';
-    btn.addEventListener('mousedown', function(e){ e.preventDefault(); });
-    btn.addEventListener('click', function(e){ e.stopPropagation(); apply(); });
-    toolbar.appendChild(btn);
-    if (anyHl) {
+    COLORS.forEach(function(c){
+      var sw = document.createElement('button');
+      sw.type = 'button'; sw.className = 'hl-swatch';
+      sw.setAttribute('data-c', c);
+      sw.setAttribute('aria-label', COLOR_LABEL[c]);
+      sw.title = COLOR_LABEL[c];
+      if (currentColor === c) sw.classList.add('current');
+      sw.addEventListener('mousedown', function(e){ e.preventDefault(); });
+      sw.addEventListener('click', function(e){ e.stopPropagation(); applyColor(c); });
+      toolbar.appendChild(sw);
+    });
+    if (currentColor){
+      var div = document.createElement('span'); div.className = 'hl-divider';
+      toolbar.appendChild(div);
       var rm = document.createElement('button');
       rm.type = 'button'; rm.className = 'hl-btn hl-btn-rm';
       rm.textContent = 'Quitar';
       rm.addEventListener('mousedown', function(e){ e.preventDefault(); });
-      rm.addEventListener('click', function(e){ e.stopPropagation(); remove(); });
+      rm.addEventListener('click', function(e){ e.stopPropagation(); removeAll(); });
       toolbar.appendChild(rm);
     }
     toolbar.classList.add('show');
@@ -686,16 +778,20 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
     if (e && e.target && e.target.closest && e.target.closest('.audio-pill')) return;
     setTimeout(function(){
       var idxs = getSelectedWordIdxs();
-      if (idxs.length === 0) { hideToolbar(); return; }
+      if (idxs.length === 0){ hideToolbar(); return; }
       var sel = window.getSelection();
       var range = sel.getRangeAt(0);
       var rect = range.getBoundingClientRect();
-      if (rect.width === 0 && rect.height === 0) { hideToolbar(); return; }
-      var x = rect.left + window.scrollX + rect.width / 2;
+      if (rect.width === 0 && rect.height === 0){ hideToolbar(); return; }
+      var x = rect.left + window.scrollX + rect.width/2;
       var y = rect.top + window.scrollY;
-      var anyHl = idxs.some(function(i){ return saved.indexOf(i) !== -1; });
+      var m = buildMap();
+      // color "actual" de la selección: si todas las palabras subrayadas comparten color, ese; si no, ninguno
+      var present = idxs.map(function(i){ return m[i]; }).filter(Boolean);
+      var allSame = present.length === idxs.length && present.every(function(c){ return c === present[0]; });
+      var currentColor = allSame && present.length ? present[0] : null;
       selectedIdxs = idxs;
-      showToolbar(x, y, anyHl);
+      showToolbar(x, y, currentColor);
     }, 10);
   }
 
