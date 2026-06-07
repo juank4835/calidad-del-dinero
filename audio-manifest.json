@@ -169,14 +169,14 @@
       "note": "Bloque IV cap 15; Andrés (suelo); cambio Tomás→Francisco por continuidad"
     },
     "el-horizonte-se-acorta.html": {
-      "text_sha256": "de998cf0de9259aae8aed4abfec707c41a420cdf56cc63090d9518b05ea6f6a6",
-      "chars": 16551,
+      "text_sha256": "6e26c78e457ad0c6ffe725f6859a0c3ce2244b10bbe46e15370005878747d5a7",
+      "chars": 18359,
       "audio_path": "audio/el-horizonte-se-acorta.mp3",
       "alignment_path": "audio/el-horizonte-se-acorta.alignment.json",
-      "words": 3031,
-      "duration_seconds": 1197.570612,
-      "generated_at": "2026-06-07T11:28:28Z",
-      "note": "v2: matiz crítico al «mundo del abuelo no era mejor»; precisión de las 3 condiciones del dinero; cierre matizado «todas comparten un suelo»"
+      "words": 3368,
+      "duration_seconds": 1333.067755,
+      "generated_at": "2026-06-07T16:34:04Z",
+      "note": "v3: párrafo del ahorro como privación real / dinero como vehículo; transición a la casa más fluida; va inclinando hacia abajo (metáfora del suelo)"
     }
   }
 }
