@@ -35,3 +35,4 @@ audio-pruebas/
 # temporales de empalme/pausas de audio
 audio/.splice_work/
 audio/.pause_work/
+.book.html
