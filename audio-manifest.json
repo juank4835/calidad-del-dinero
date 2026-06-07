@@ -157,6 +157,16 @@
       "duration_seconds": 720.768571,
       "generated_at": "2026-06-06T14:02:40Z",
       "note": "v5: sección «La cifra falsificada» reescrita con tono conversacional"
+    },
+    "degradacion-alimentaria.html": {
+      "text_sha256": "ff13e209f8c6f92ca2996aebbce31e4c99e42d1c6af3125411ca5fd042c461a6",
+      "chars": 6867,
+      "audio_path": "audio/degradacion-alimentaria.mp3",
+      "alignment_path": "audio/degradacion-alimentaria.alignment.json",
+      "words": 1248,
+      "duration_seconds": 512.335125,
+      "generated_at": "2026-06-07T02:00:02Z",
+      "note": "Bloque IV cap 15; Andrés (suelo); cambio Tomás→Francisco por continuidad"
     }
   }
 }

@@ -72,7 +72,7 @@ out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, ou
 new_nav = ('<nav class="nav-foot">'
            '<a class="prev" href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a>'
            '<a class="idx" href="index.html">Índice</a>'
-           '<span></span></nav>')
+           '<a class="next" href="degradacion-alimentaria.html">La degradación alimentaria</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
 # identificadores de audio
 out = out.replace('audio/tres-regimenes.mp3', 'audio/deforestacion.mp3')
