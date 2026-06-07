@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+"""Construye el cap 14 «El horizonte se acorta» (Bloque IV) usando el
+esqueleto del cap 3. Prosa corrida (sin subtítulos de sección), con citas
+cortas de Ammous incrustadas en el flujo (no en bloque)."""
+import re
+
+EYEBROW = "Primera consecuencia · la raíz"
+TITLE = "El horizonte se acorta"
+SUBTITLE = "Avanzamos hacia el abismo porque el futuro dejó de pesar lo que pesaba"
+
+# Items (sin secciones):
+#   ("lead", texto)        → primer párrafo con capital
+#   "texto"                → párrafo normal
+CONTENT = [
+    ("lead", 'Pregúntele a alguien que hoy tenga ochenta años qué esperaba de la vida cuando era joven, y le contestará en décadas. Esperaba un oficio para quedarse en él hasta el final —no un trabajo, un oficio—. Una casa que sería suya y después de sus hijos. Hijos criados sin prisa, a lo largo de veinte años. Esperaba plantar árboles a cuya sombra sabía que no se sentaría, y le parecía lo más natural del mundo hacerlo. Su horizonte —la distancia hasta donde alcanzaba a mirar cuando hacía planes— se medía en generaciones.'),
+
+    'Pregúntele lo mismo a alguien de veinte años hoy, y le contestará en meses. No por falta de ambición: por sentido común. Buscará lo que rinda pronto, lo que no lo ate, lo que pueda soltar si las cosas cambian —porque da por sentado que cambiarán—. Comprar una casa le parece una idea de otra época. Quedarse treinta años en un oficio, una condena más que una meta. Plantar un árbol para sus nietos no le pasa por la cabeza, y si se lo propusieran, la pregunta honesta sería: ¿para qué? Su horizonte se mide en lo que se ve desde aquí hasta el final del año.',
+
+    'Es tentador leer esto como una historia de decadencia: los viejos eran de otra madera, los jóvenes de hoy no aguantan nada. Resista la tentación, porque es falsa y además le impediría ver lo único que importa. Ninguna generación nace peor que la anterior. El joven de hoy tiene la misma capacidad de esperar, de sacrificarse, de mirar lejos que tenía su abuelo a su edad —la misma materia humana, intacta—. Si su abuelo, con veinte años, hubiera enfrentado exactamente las cuentas que este joven enfrenta, habría decidido igual que él. Y si el joven de hoy hubiera nacido en el mundo del abuelo, plantaría árboles sin pensarlo.',
+
+    'Entonces, si la gente no cambió, ¿qué cambió? Cambió la cuenta. No la naturaleza humana, sino la aritmética silenciosa que cada uno hace, sin darse cuenta de que la hace, cada vez que decide cuánto futuro vale la pena tener en cuenta. Esa cuenta —cuánto pesa el mañana frente al hoy— alguien se la torció a una generación entera a la vez. No los hizo peores. Les cambió los números con que deciden, y con otros números, las mismas personas deciden distinto.',
+
+    'Lo inquietante es que casi nadie eligió esto. Nadie despertó un día y resolvió mirar más corto. El horizonte se les encogió por debajo, despacio, sin aviso —como se encoge una cosa que nadie está vigilando—. Y aquí está la pregunta de la que cuelga todo lo que viene: ¿qué tiene el poder de cambiarle la cuenta, a la vez, a millones de personas que no se conocen ni se pusieron de acuerdo? ¿Qué les torció a todos, en silencio, el peso del futuro?',
+
+    'Empecemos por donde el lector más joven lo siente en carne propia, porque ahí la cuenta encogida se ve sin necesidad de teoría. Hay un consejo que durante décadas pasó de padres a hijos en casi toda América Latina, dicho con la certeza de quien transmite una verdad evidente: <em>compre una casa, mijo, que eso siempre se valoriza</em>. No era un consejo de inversionistas; era sabiduría doméstica, de sobremesa, repetida por gente que jamás abrió un libro de economía. Y tenían razón —la casa, en efecto, se valorizaba año tras año, década tras década—. Lo que casi nadie veía era por qué.',
+
+    'Porque la casa no estaba subiendo. Era el dinero el que se hundía debajo de ella. Recuerde lo que ya vimos: un dinero que se diluye sin freno convierte el ahorro en moneda en una forma lenta de perder. Y la gente, sin necesidad de que nadie se lo explicara, lo aprendió en la única escuela que enseña de verdad, la de ver evaporarse lo guardado. Así que hizo lo sensato: dejó de guardar valor en una moneda que se derretía y empezó a guardarlo en algo que el dinero no podía diluir —ladrillo, cemento, tierra—. La casa dejó de ser, en la cabeza de millones, un lugar donde vivir, y pasó a ser lo que la moneda ya no podía ser: una caja fuerte que no goteaba.',
+
+    'Y aquí empieza el bucle que lo cambia todo. Cuando millones de personas huyen al mismo refugio, el refugio se encarece. No porque hagan falta más casas para vivir —la gente no necesitaba de pronto tres techos—, sino porque la casa se había vuelto el depósito de valor que el dinero dejó de ser. El que tenía con qué compraba una para habitarla y otras para guardar en ellas; vivía en una y arrendaba el resto, no por codicia, sino porque era el único cofre disponible que no se vaciaba solo. Cada casa comprada para atesorar era una casa menos para habitar, y un empujón más al precio de todas. El refugio se infló a fuerza de gente refugiándose en él.',
+
+    'Ahora mire al joven de hoy, parado frente a ese precio. Él no vivió la inflación que ahuyentó a sus abuelos del dinero; nació después, cuando el polvo ya se había asentado. Pero heredó el resultado: una casa que cuesta, medida en años de su salario, varias veces lo que le costó a su padre la suya. No hizo nada mal, igual que el viejo que ahorró toda su vida no hizo nada mal. Simplemente llegó tarde a un cofre que ya estaba lleno de los ahorros que otros metieron huyendo de la moneda. La casa —que para sus padres fue la prueba de que el esfuerzo largo rendía, el ancla de toda una vida de planes— se le cerró antes de que pudiera siquiera intentarlo.',
+
+    'Y fíjese en lo que eso le hace a su cuenta del futuro, porque es el corazón de todo el capítulo. La casa no era solo un techo: era el eje alrededor del cual se organizaba el horizonte largo de una vida. Uno compraba la casa pensando a treinta años, y esos treinta años de pagarla ordenaban todo lo demás —quedarse en un oficio, echar raíces en un lugar, criar hijos con la mira puesta lejos—. Quítele la casa posible, y no le quita solo un edificio: le quita la razón para calcular a treinta años. ¿Para qué mirar tan lejos, para qué atarse, para qué esperar, si lo que anclaba esa espera —el techo propio, el patrimonio que dura— se volvió inalcanzable? El joven no se volvió impaciente por capricho. Se volvió impaciente porque le cerraron la puerta del futuro largo que sus padres sí pudieron cruzar, y nadie planea a treinta años en una casa que sabe que nunca tendrá.',
+
+    'Vea entonces lo que hizo el dinero, saltando de una generación a otra y cambiando de disfraz en el camino. En los padres fue defensa: compraban ladrillo para que la inflación no les comiera el fruto del trabajo. En los hijos es exclusión: no llegan a tener qué defender, porque el precio que la defensa de sus padres infló los dejó afuera. La misma falsificación monetaria, una sola, produjo las dos cosas —y la segunda es la más honda, porque no le roba a alguien lo que guardó: le roba, a una generación entera, la posibilidad misma de guardar a largo plazo—. La herida no fue la inflación que vivieron los abuelos. Fue lo que esa inflación le hizo a la cuenta de los nietos.',
+
+    'Pero sería un error cerrar aquí, pensando que esto es una historia sobre vivienda. La casa es solo la ventana por la que el joven toca con la mano algo mucho más grande —el primer lugar donde el horizonte encogido se vuelve visible, porque tiene un precio escrito y un salario que no alcanza—. La herida, sin embargo, no está en el mercado inmobiliario. Está en la cuenta misma, y esa cuenta gobierna mucho más que el techo.',
+
+    'Porque el mismo dinero que le cerró la casa al joven le está acortando el cálculo en todo lo demás, y no solo a él: a la sociedad entera. Una sociedad cuyo dinero castiga la espera no acorta el horizonte en un solo renglón de la vida —lo acorta en todos a la vez—. Deja de plantar lo que tarda. Deja de cuidar lo que solo rinde a largo plazo. Deja de construir lo que no se cosecha pronto. No por un acuerdo, no por una orden, no porque a alguien se le ocurriera —sino porque a cada uno, por separado, la cuenta le empezó a salir igual: el futuro no compensa, tome lo de hoy—. Millones de cuentas privadas, todas torcidas en la misma dirección por la misma causa silenciosa, suman el horizonte encogido de una civilización entera.',
+
+    'Y eso deja marcas en el mundo —marcas que usted ha visto, aunque nunca las haya atado a su origen—. Las verá en un hombre que tala el nogal que su padre plantó, no por maldad sino porque la cuenta se lo aconseja. En otro que exprime su tierra hasta dejarla muerta, sabiendo que la mata. En bosques que caen, en suelos que se vacían, en guerras que se financian con dinero que nadie aceptaría pagar de frente. Cada una parece un problema distinto, con sus propios culpables y sus propias soluciones. No lo son. Son la misma cuenta falseada saliendo por ventanas distintas. La vivienda fue la primera, la que el joven mira de cerca; las que vienen están más lejos de su vista, pero salen del mismo lugar.',
+
+    'Es hora de nombrar lo que el gancho dejó en suspenso. ¿Qué tiene el poder de torcerle la cuenta, a la vez, a millones de personas que no se conocen? La respuesta es la misma que ha recorrido todo este libro, solo que ahora la veremos hacer algo que hasta aquí no le habíamos visto hacer.',
+
+    'A lo largo de todo el recorrido anterior, el dinero malo cometió siempre el mismo crimen: falsificar señales. Torció la tasa de interés, deformó los precios, escondió las pérdidas, diluyó el ahorro. En cada caso, el daño consistía en mentir —en hacer que una señal dijera algo falso sobre el mundo—. Pero había un supuesto silencioso debajo de todo eso: que existía alguien capaz de leer la señal, alguien con la cabeza puesta lo bastante lejos como para que mentirle tuviera sentido. Toda la primera mitad del daño da por hecho que el lector de la señal todavía mira hacia el futuro.',
+
+    'Aquí está el segundo golpe, el que no habíamos visto, y es más hondo que el primero. El dinero malo no solo falsifica las señales que una sociedad lee sobre el futuro. Cambia cuánto le importa el futuro a esa sociedad, para empezar. No solo ensucia el mensaje: enferma al que lo lee. Y lo hace por un mecanismo que ya conoce, solo que nunca lo habíamos seguido hasta esta consecuencia. Un dinero que se preserva en el tiempo premia al que espera —guardar es ganar—, y premiar la espera, repetido sobre millones de personas durante generaciones, va bajando la preferencia temporal de un pueblo entero: lo vuelve más paciente, más capaz de mirar lejos. Un dinero que se diluye hace lo contrario: castiga al que espera, y empuja a todos —en palabras de Ammous— a volverse “propensos a gastarla o a pedirla prestada”. No es un consejo que la gente decida seguir; es la dirección hacia la que el suelo entero se inclina bajo sus pies.',
+
+    'Ammous lo dice sin rodeos, y conviene leerlo con cuidado porque invierte el orden con que solemos pensar la historia: el dinero sólido, escribe, preserva el valor en el tiempo, “lo que proporciona a la gente mayor incentivo para pensar en el futuro, y disminuye su preferencia temporal”, y “la reducción de la preferencia temporal es lo que inicia el proceso de civilización humana”. Léalo al revés y tiene la herida de este capítulo: si el dinero que baja la preferencia temporal es el que enciende la civilización, el dinero que la sube es el que la apaga. No metafóricamente. Por el mismo mecanismo, andando hacia atrás.',
+
+    'Y hay un detalle que vuelve esto peor de lo que parece a primera vista: el efecto no se queda quieto, se realimenta. Ammous recoge la observación de Hans-Hermann Hoppe de que, una vez que la preferencia temporal de una sociedad cae lo suficiente como para permitir que se acumule capital, la tendencia es que caiga todavía más —se entra en una espiral virtuosa, un “proceso de civilización” que se alimenta a sí mismo—. Pero toda espiral que sube puede bajar. Si el dinero degradado empuja la preferencia temporal hacia arriba, no la empuja una vez y se detiene: enciende la espiral en reversa. Cada grado de impaciencia hace más difícil ahorrar, y cada ahorro que no ocurre hace a la sociedad un grado más impaciente. La civilización no se apaga de golpe; se desenrosca.',
+
+    'Aquí debo ser honesto con usted sobre dónde termina lo que Ammous afirma y dónde empieza lo que este libro le suma. Ammous describe el doble efecto y la espiral; lo que añadimos en este capítulo es seguir esa espiral a través de las generaciones, hasta el joven del comienzo. Porque la parte más cruel del mecanismo es justamente la que no se ve dentro de una sola vida. El que vivió la inflación al menos supo que algo le estaban haciendo —vio diluirse lo suyo, sintió el robo—. El que nace después no siente nada: hereda una preferencia temporal alta como quien hereda el color de los ojos, sin sospechar que es el sedimento de una falsificación que ocurrió antes de que él llegara. Recibe el horizonte ya encogido y lo toma por el tamaño natural del mundo. No sabe que sus abuelos miraban más lejos; no tiene con qué comparar. La herida más profunda del dinero malo es esta: que termina siendo invisible para su última víctima, porque le llega convertida en sentido común.',
+
+    'Esto es lo que el dinero falso le hace a un pueblo antes de hacerle nada visible: le acorta el horizonte. No le quema los bosques ni le vacía los suelos ni le financia las guerras —todavía no—. Primero le hace algo más callado y más grave: le cambia, a millones de personas a la vez, la respuesta a la única pregunta de la que cuelga todo lo demás —cuánto futuro vale la pena tener en cuenta—. Lo demás viene después, y viene solo. Una especie que dejó de mirar lejos talará, vaciará, quemará y se endeudará sin que haga falta empujarla, porque cada una de esas cosas es, en el fondo, lo que hace alguien para quien el mañana pesa menos de lo que debería.',
+
+    'Por eso esta es la herida de la que cuelgan las demás, y por eso abre el bloque en vez de cerrarlo. Las consecuencias que vienen —el árbol que cae, la tierra que se agota, la mesa que se llena y no alimenta, la guerra que nadie pagaría de frente— no son seis problemas distintos con seis culpables distintos. Son una sola cuenta falseada, saliendo por seis ventanas. Aprendimos a ver la primera, la que el joven toca con la mano. Vamos ahora a las otras, que están más lejos de la vista pero salen del mismo lugar —y que usted, cuando las reconozca, ya no podrá volver a mirar como problemas sueltos.',
+]
+
+# ---- Construir el HTML del article ----
+parts = ['<article class="page" id="contenido" tabindex="-1">\n',
+         f'\n  <div class="chapter-eyebrow">{EYEBROW}</div>\n',
+         f'  <h1 class="chapter-title">{TITLE}</h1>\n',
+         f'  <p class="chapter-subtitle">{SUBTITLE}</p>\n',
+         '\n  <div class="ornament">• • •</div>\n',
+         '\n  <div class="prose">\n']
+for it in CONTENT:
+    if isinstance(it, str):
+        parts.append(f'    <p>{it}</p>\n')
+    elif it[0] == "lead":
+        parts.append(f'    <p class="lead">{it[1]}</p>\n')
+parts.append('\n  </div>\n\n</article>')
+article = ''.join(parts)
+
+# ---- Esqueleto del cap 3 ----
+sk = open('tres-regimenes.html', encoding='utf-8').read()
+out = sk
+out = re.sub(r'<title>.*?</title>',
+             '<title>El horizonte se acorta — Arregla el dinero, arregla el mundo</title>',
+             out, count=1, flags=re.DOTALL)
+out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
+# nav-foot: prev=bisagra del oro (cap 14 es el primer cap del Bloque IV);
+# next vacío (cap 15 «La gratificación inmediata» aún no existe)
+new_nav = ('<nav class="nav-foot">'
+           '<a class="prev" href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a>'
+           '<a class="idx" href="index.html">Índice</a>'
+           '<span></span></nav>')
+out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
+out = out.replace('audio/tres-regimenes.mp3', 'audio/el-horizonte-se-acorta.mp3')
+out = out.replace('audio/tres-regimenes.alignment.json', 'audio/el-horizonte-se-acorta.alignment.json')
+out = out.replace('data-storage-key="tres-regimenes"', 'data-storage-key="el-horizonte-se-acorta"')
+
+open('el-horizonte-se-acorta.html', 'w', encoding='utf-8').write(out)
+n_par = sum(1 for it in CONTENT if isinstance(it, str) or it[0] == "lead")
+print("el-horizonte-se-acorta.html creado")
+print(f"párrafos: {n_par}")
