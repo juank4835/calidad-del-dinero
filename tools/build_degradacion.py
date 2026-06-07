@@ -7,9 +7,9 @@ nogal—», pero el protagonista del cap 14 ya quedó como Francisco. Lo cambio
 aquí también para mantener la narrativa del libro coherente."""
 import re
 
-EYEBROW = "Segunda consecuencia · lo más visible"
+EYEBROW = "Cuarta consecuencia · lo más visible"
 TITLE = "La degradación alimentaria"
-SUBTITLE = "Por qué su comida es cada vez más abundante y cada vez más vacía —y no por glotonería de quien la come"
+SUBTITLE = "Por qué su comida es cada vez más abundante y más vacía"
 
 # (section_title or None, [items])
 # items: ("lead", txt) | "texto"

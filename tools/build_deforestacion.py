@@ -3,9 +3,9 @@
 esqueleto del cap 3. Prosa con 4 subtítulos de sección, sin citas en bloque."""
 import re
 
-EYEBROW = "Primera consecuencia · lo más visible"
+EYEBROW = "Tercera consecuencia · lo más visible"
 TITLE = "La deforestación"
-SUBTITLE = "Por qué un hombre que ama su bosque termina talándolo —y no por maldad"
+SUBTITLE = "Por qué un hombre que ama su bosque termina talándolo"
 
 # (section_title or None, [items])
 # items: ("lead", txt) | "texto"
