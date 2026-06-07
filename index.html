@@ -122,9 +122,15 @@ body {
   font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--ink-soft); opacity: 0.5;
 }
-/* Umbral de cierre del libro: mismo lenguaje visual que la bisagra, con un
-   poco más de aire arriba para que se sienta como «último gesto» del índice. */
-.bisagra.cierre { margin-top: 4.5rem; }
+/* Umbral de cierre del libro: mismo lenguaje visual que la bisagra del oro,
+   con dos ajustes sutiles que comunican «aquí termina». Más aire arriba para
+   que se sienta como último gesto, y sin filete inferior — el umbral del oro
+   tiene los dos porque está entre dos tramos; este no separa nada, no viene
+   más después, así que el filete de abajo se vuelve eco vacío. */
+.bisagra.cierre {
+  margin-top: 4.5rem;
+  border-bottom: none;
+}
 .bisagra.cierre .bis-titulo { font-size: 1.4rem; }
 
 .cadena {
