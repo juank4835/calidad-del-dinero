@@ -111,7 +111,8 @@ body {
   display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink-soft); margin-bottom: 0.7rem;
 }
-.bisagra a {
+.bisagra a, .bisagra .bis-titulo {
+  display: inline-block;
   color: var(--ink); text-decoration: none; font-size: 1.25rem; font-style: italic;
   border-bottom: 1px solid transparent; transition: border-color 0.2s;
 }
@@ -121,6 +122,10 @@ body {
   font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--ink-soft); opacity: 0.5;
 }
+/* Umbral de cierre del libro: mismo lenguaje visual que la bisagra, con un
+   poco más de aire arriba para que se sienta como «último gesto» del índice. */
+.bisagra.cierre { margin-top: 4.5rem; }
+.bisagra.cierre .bis-titulo { font-size: 1.4rem; }
 
 .cadena {
   margin: 2.4rem 0 0;
@@ -355,12 +360,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
       <span class="titulo">El efecto sobre la preferencia temporal de la humanidad</span>
       <span class="estado todo">Por escribir</span>
     </div>
-    <div class="cap pend">
-      <span class="num">19</span>
-      <span class="titulo">Arregla el dinero, arregla el mundo</span>
-      <span class="estado todo">Por escribir</span>
-    </div>
   </section>
+
+  <!-- UMBRAL DE CIERRE: el capítulo que da nombre al libro -->
+  <div class="bisagra cierre">
+    <span class="bis-tag">Al final · la respuesta ganada</span>
+    <span class="bis-titulo">Arregla el dinero, arregla el mundo</span>
+    <span class="bis-estado">Por escribir</span>
+  </div>
 
 </div>
 <script>
