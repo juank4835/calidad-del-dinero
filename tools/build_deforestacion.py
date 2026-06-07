@@ -5,7 +5,7 @@ import re
 
 EYEBROW = "Tercera consecuencia · lo más visible"
 TITLE = "La deforestación"
-SUBTITLE = "Por qué un hombre que ama su bosque termina talándolo"
+SUBTITLE = "Por qué un hombre que ama su bosque termina talándolo —y no por maldad"
 
 # (section_title or None, [items])
 # items: ("lead", txt) | "texto"
