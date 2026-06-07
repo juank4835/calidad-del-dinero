@@ -169,14 +169,14 @@
       "note": "Bloque IV cap 15; Andrés (suelo); cambio Tomás→Francisco por continuidad"
     },
     "el-horizonte-se-acorta.html": {
-      "text_sha256": "15c8543a245b427ce8ba42fe81edecc3d8a0411ac5dcd9a2fb32057a3a025830",
-      "chars": 14123,
+      "text_sha256": "de998cf0de9259aae8aed4abfec707c41a420cdf56cc63090d9518b05ea6f6a6",
+      "chars": 16551,
       "audio_path": "audio/el-horizonte-se-acorta.mp3",
       "alignment_path": "audio/el-horizonte-se-acorta.alignment.json",
-      "words": 2584,
-      "duration_seconds": 1028.37551,
-      "generated_at": "2026-06-07T10:46:37Z",
-      "note": "Bloque IV cap 14; raíz del bloque; prosa corrida; citas Ammous incrustadas"
+      "words": 3031,
+      "duration_seconds": 1197.570612,
+      "generated_at": "2026-06-07T11:28:28Z",
+      "note": "v2: matiz crítico al «mundo del abuelo no era mejor»; precisión de las 3 condiciones del dinero; cierre matizado «todas comparten un suelo»"
     }
   }
 }
