@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup · Dos formatos de cita de autor</title>
+<style>
+:root {
+  --bg: #1c1c1c; --surface: #262626; --ink: #ebe9e4;
+  --ink-soft: #9a988f; --rule: #3a3a38; --verde: #FF7A18;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 19px; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.7; }
+.page { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+.cover { text-align: center; margin-bottom: 3rem; }
+.cover .kicker { font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--verde); margin-bottom: 1rem; }
+.cover h1 { font-size: 2rem; font-weight: 400; line-height: 1.15; margin-bottom: 0.6rem; }
+.cover .sub { font-size: 1.05rem; font-style: italic; color: var(--ink-soft); }
+.variant { margin: 3rem 0; padding-top: 2rem; border-top: 1px dashed var(--rule); }
+.variant-label { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--verde); margin-bottom: 0.5rem; font-weight: 500; }
+.variant-where { font-size: 0.86rem; color: var(--ink-soft); font-style: italic; margin-bottom: 1.5rem; }
+.variant-where code { background: var(--surface); padding: 0.08em 0.4em; border-radius: 3px; font-size: 0.92em; font-family: ui-monospace, Menlo, Consolas, monospace; }
+.ctx p { font-size: 1.04rem; margin: 0 0 1rem; }
+.ctx p.cont { margin-top: 1rem; }
+
+/* === Formato A · cita-autor (caja con surface) === */
+.cita-autor {
+  background: var(--surface); margin: 2.4rem 0; padding: 1.8rem 2rem;
+  border-radius: 4px; font-size: 1.06rem; line-height: 1.65;
+}
+.cita-autor .texto { display: block; font-style: italic; }
+.cita-autor .atribucion { display: block; margin-top: 1rem; text-align: right; font-size: 0.86rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+.cita-autor .atribucion em { font-style: italic; }
+
+/* === Formato B · pull-quote (filete izquierdo, sin caja) === */
+.pull-quote { margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem; border-left: 2px solid var(--rule); }
+.pull-quote p { font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem; }
+.pull-quote cite { display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); }
+
+/* Notas */
+.nota { background: var(--surface); border-left: 2px solid var(--verde); padding: 1rem 1.2rem; font-size: 0.92rem; color: var(--ink-soft); margin: 2rem 0; line-height: 1.6; border-radius: 0 4px 4px 0; }
+.nota strong { color: var(--ink); font-weight: 500; }
+
+/* Tema panel */
+.tema-btns { position: fixed; top: 14px; right: 14px; display: flex; gap: 4px; padding: 6px; background: var(--surface); border: 1px solid var(--rule); border-radius: 22px; z-index: 100; }
+.tema-btns button { background: transparent; border: none; color: var(--ink-soft); padding: 0.3rem 0.7rem; border-radius: 16px; cursor: pointer; font-family: var(--font-body); font-size: 0.78rem; }
+.tema-btns button:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="tema-btns">
+  <button onclick="setT('oscuro')">Oscuro</button>
+  <button onclick="setT('sepia')">Sepia</button>
+  <button onclick="setT('claro')">Claro</button>
+</div>
+
+<div class="page">
+  <header class="cover">
+    <div class="kicker">Comparación</div>
+    <h1>Dos formatos de cita de autor</h1>
+    <p class="sub">La misma cita real (Rothbard en preferencia temporal) en cada formato existente</p>
+  </header>
+
+  <div class="nota">
+    <p><strong>Reconocimiento honesto:</strong> En mi auditoría anterior me concentré en <code>&lt;blockquote&gt;</code> y se me escaparon las <strong>31 citas con <code>&lt;div class="cita-autor"&gt;</code></strong> que usan 9 capítulos. El libro hoy tiene <strong>dos formatos visualmente bien distintos</strong> para "cita de autor": una caja con fondo (A) y un filete izquierdo (B). Antes de unificar 38 instancias, conviene que veas las dos juntas.</p>
+  </div>
+
+  <!-- A · cita-autor -->
+  <section class="variant">
+    <div class="variant-label">Formato A · cita-autor (con caja)</div>
+    <div class="variant-where">En 9 capítulos: <code>preferencia-temporal</code>, <code>asignacion-intertemporal</code>, <code>cuando-un-precio-dice-la-verdad</code>, <code>deteccion-mala-inversion</code>, <code>poder-adquisitivo</code>, <code>precios-relativos</code>, <code>predictibilidad-estructural</code>, <code>tasa-de-interes</code>, <code>tres-regimenes</code>, <code>auditabilidad</code>. <strong>31 instancias.</strong> Es claramente el formato dominante.</div>
+    <div class="ctx">
+      <p>...el consumo es el fin de toda producción. Rothbard lo dice sin rodeos:</p>
+      <div class="cita-autor">
+        <span class="texto">“Si un hombre, ceteris paribus, no prefiriera la satisfacción presente a la satisfacción futura, no consumiría... Pero el hecho de ‘no consumir nunca’ es un absurdo, ya que el consumo es el fin de toda producción.”</span>
+        <span class="atribucion">Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 1</span>
+      </div>
+      <p class="cont">Y eso no es una tendencia estadística que admita excepciones, sino una condición de la acción misma...</p>
+    </div>
+  </section>
+
+  <!-- B · pull-quote -->
+  <section class="variant">
+    <div class="variant-label">Formato B · pull-quote (filete izquierdo)</div>
+    <div class="variant-where">En 3 capítulos: <code>dinero-como-informacion</code>, <code>asignacion-credito</code>, <code>por-que-no-volver-al-oro</code>. <strong>5 instancias.</strong> El que recomendé antes por desconocimiento del A.</div>
+    <div class="ctx">
+      <p>...el consumo es el fin de toda producción. Rothbard lo dice sin rodeos:</p>
+      <blockquote class="pull-quote">
+        <p>“Si un hombre, ceteris paribus, no prefiriera la satisfacción presente a la satisfacción futura, no consumiría... Pero el hecho de ‘no consumir nunca’ es un absurdo, ya que el consumo es el fin de toda producción.”</p>
+        <cite>Rothbard, <em>El hombre, la economía y el Estado</em>, cap. 1</cite>
+      </blockquote>
+      <p class="cont">Y eso no es una tendencia estadística que admita excepciones, sino una condición de la acción misma...</p>
+    </div>
+  </section>
+
+  <!-- Recomendación -->
+  <h2 style="margin-top: 4rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--verde); font-weight: 500;">Lo que opino</h2>
+
+  <p style="margin: 1.5rem 0; line-height: 1.7;">El <strong>Formato A (cita-autor con caja)</strong> es el que ya domina el libro <strong>(31 vs 5 instancias)</strong>, así que <strong>la unificación más rápida y respetuosa del trabajo previo sería pasar las 5 pull-quote a cita-autor</strong>, no al revés.</p>
+
+  <p style="margin: 1rem 0; line-height: 1.7;">Editorialmente las dos opciones son válidas:</p>
+
+  <ul style="margin: 0.5rem 0 2rem 2rem; line-height: 1.7;">
+    <li><strong>A (caja con surface):</strong> da más presencia, separa más del texto, dice "esto es una pausa para mirar la cita". Más editorial.</li>
+    <li><strong>B (filete izquierdo):</strong> más discreto, mantiene el ritmo de la prosa, atribución alineada a la izquierda. Más literario clásico.</li>
+  </ul>
+
+  <p style="margin-top: 1.5rem;">La decisión es tuya. <strong>Sea cual sea, recomiendo no quedarse con los dos.</strong></p>
+</div>
+
+<script>
+function setT(t){
+  var d=document.documentElement;
+  if(t==='oscuro') d.removeAttribute('data-theme');
+  else d.setAttribute('data-theme',t);
+  try{ localStorage.setItem('ui:theme',t); }catch(e){}
+}
+</script>
+</body>
+</html>
