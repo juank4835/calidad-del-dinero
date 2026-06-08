@@ -47,15 +47,26 @@ for sec_title, items in CONTENT:
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
         elif it[0] == "lema":
-            # Mismo formato que el blockquote de «criterio de evaluación»:
-            # cursiva + filete naranja a la izquierda (no centrado, no caja).
-            # El CSS ya vive en el esqueleto del cap 3.
-            parts.append(f'    <blockquote>{it[1]}</blockquote>\n')
+            # Máxima destacada: centrada, cursiva, con filetes finos arriba y
+            # abajo (variante B del mockup, eco visual de la bisagra del oro).
+            # CSS específico de .lema más abajo, sobrescribe el blockquote base.
+            parts.append(f'    <blockquote class="lema">{it[1]}</blockquote>\n')
 parts.append('\n  </div>\n\n</article>')
 article = ''.join(parts)
 
-# Sin EXTRA_CSS: el blockquote ya tiene su estilo en el esqueleto del cap 3
-# (cursiva + filete naranja, igual al destacado del criterio de evaluación).
+# CSS de .lema — sobrescribe el blockquote base del esqueleto del cap 3
+# para que la máxima quede centrada, con filetes finos arriba/abajo
+# (formato definitivo, elegido como variante B en mockups-lemas).
+EXTRA_CSS = """
+/* ===== Máxima destacada: centrada, con filetes finos arriba y abajo ===== */
+blockquote.lema {
+  margin: 2.8rem 0; padding: 1.4rem 1rem;
+  border-left: none;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  text-align: center; font-style: italic;
+  font-size: 1.18rem; line-height: 1.5; color: var(--ink);
+}
+"""
 
 # ---- Esqueleto del cap 3 ----
 sk = open('tres-regimenes.html', encoding='utf-8').read()
@@ -70,6 +81,8 @@ new_nav = ('<nav class="nav-foot">'
            '<a class="idx" href="index.html">Índice</a>'
            '<a class="next" href="preferencia-temporal.html">La preferencia temporal</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
+# CSS de .lema antes de </style>
+out = out.replace('</style>', EXTRA_CSS + '</style>', 1)
 # identificadores de audio
 out = out.replace('audio/tres-regimenes.mp3', 'audio/tres-formas-organizar-dinero.mp3')
 out = out.replace('audio/tres-regimenes.alignment.json', 'audio/tres-formas-organizar-dinero.alignment.json')
