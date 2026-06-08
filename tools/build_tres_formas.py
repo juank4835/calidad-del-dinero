@@ -20,7 +20,14 @@ CONTENT = [
     ("¿Qué significa que el dinero mienta?", [
         '¿Cómo puede mentir una cifra? Pensémoslo con un caso extremo, que es como mejor se ve. Imagine que esta noche, mientras todos duermen, la cantidad de dinero del país se duplica: cada billete, cada cuenta, ahora marca el doble. ¿Amaneció el país dos veces más rico? No hay un solo pan más, ni un par de zapatos más, ni una casa más que ayer. Lo único que cambió fue el número. Y como ahora hay el doble de dinero persiguiendo las mismas cosas de siempre, los precios no tardan en acomodarse: todo termina costando el doble, y usted volvió al punto de partida —o peor, porque ese dinero nuevo no le llegó a usted primero—. Ahí está la mentira, a plena luz: el dinero anunció que había el doble de riqueza, y era falso. No la dijo con palabras; la dijo con cantidad. Un dinero dice la verdad cuando la cantidad que hay corresponde a cosas que de verdad se produjeron; miente cuando aparecen cifras nuevas que no corresponden a nada. Y lo que usted acaba de ver —los precios que suben— es apenas la cara visible de esa mentira: por debajo desordena cosas mucho más hondas, de las que se ocupará buena parte de este libro.',
 
-        'Eso que el dinero falso traiciona tiene la forma de un acuerdo tan elemental que casi nunca se dice en voz alta: que el dinero solo entre por una puerta. La puerta de la producción —arrancar el oro a la tierra, minar un bitcoin, fabricar algo que alguien quiera—. Por esa puerta, para llevarse una unidad de dinero hay que dejar, a cambio, algo real. El dinero honesto tiene solo esa entrada. El dinero deshonesto tiene una segunda puerta, una que no da a ningún taller ni a ninguna mina: da a un despacho donde alguien firma. Por esa puerta entran unidades nuevas sin que nadie haya producido nada —y quien firma se lleva un valor que no creó, restándoselo, sin que se note, a todos los que sí lo crearon—.',
+        'Eso que el dinero falso traiciona tiene la forma de un acuerdo tan elemental que casi nunca se dice en voz alta:',
+
+        ("lema", 'El dinero no se crea de la nada: se produce.'),
+
+        'Dicho de otro modo: el dinero solo debería entrar por una puerta, la de la producción —arrancar el oro a la tierra, minar un bitcoin, fabricar algo que alguien quiera—. Por esa puerta, para llevarse una unidad de dinero hay que dejar, a cambio, algo real. El dinero honesto tiene solo esa entrada. El dinero deshonesto tiene una segunda puerta, una que no da a ningún taller ni a ninguna mina —y no importa quién la abra: puede ser el sello de un gobierno o la firma de un banco privado—. Por ella entran unidades nuevas sin que nadie haya producido nada, y quien las emite se lleva un valor que no creó, restándoselo, sin que se note, a todos los que sí lo crearon.',
+    ]),
+    ("Tres maneras de tratar el acuerdo", [
+        'A lo largo de la historia, la humanidad ha organizado su dinero de tres maneras —lo que los economistas llaman regímenes monetarios—, y se distinguen por cómo tratan ese acuerdo. Una lo respeta por completo: nadie puede crear dinero de la nada. Otra lo rompe a medias, casi sin proponérselo. Y la tercera lo rompe del todo. Tres maneras distintas; pero, para lo único que aquí importa —si el dinero dice la verdad—, solo dan dos resultados: o se respeta el acuerdo, o se rompe. Empezaremos por los dos extremos, donde todo se ve más nítido, y dejaremos para el final el caso del medio, que es donde se esconde la lección más fina de todas.',
     ]),
 ]
 
@@ -39,8 +46,20 @@ for sec_title, items in CONTENT:
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "lema":
+            parts.append(f'    <p class="lema">{it[1]}</p>\n')
 parts.append('\n  </div>\n\n</article>')
 article = ''.join(parts)
+
+# CSS para la línea-tesis destacada (centrada, cursiva sobria, sin caja)
+EXTRA_CSS = """
+/* ===== Lema: una declaración corta destacada en el flujo, sin caja ===== */
+.prose .lema {
+  margin: 2rem auto; text-align: center;
+  font-style: italic; font-size: 1.18rem; color: var(--ink);
+  max-width: 28rem; line-height: 1.5;
+}
+"""
 
 # ---- Esqueleto del cap 3 ----
 sk = open('tres-regimenes.html', encoding='utf-8').read()
@@ -55,6 +74,8 @@ new_nav = ('<nav class="nav-foot">'
            '<a class="idx" href="index.html">Índice</a>'
            '<a class="next" href="preferencia-temporal.html">La preferencia temporal</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
+# CSS del lema antes de </style>
+out = out.replace('</style>', EXTRA_CSS + '</style>', 1)
 # identificadores de audio
 out = out.replace('audio/tres-regimenes.mp3', 'audio/tres-formas-organizar-dinero.mp3')
 out = out.replace('audio/tres-regimenes.alignment.json', 'audio/tres-formas-organizar-dinero.alignment.json')

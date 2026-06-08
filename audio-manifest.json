@@ -179,14 +179,14 @@
       "note": "v3: párrafo del ahorro como privación real / dinero como vehículo; transición a la casa más fluida; va inclinando hacia abajo (metáfora del suelo)"
     },
     "tres-formas-organizar-dinero.html": {
-      "text_sha256": "3b57dd05796dcf9895bd3def37ed23a8cc385417ca92fa8c56e6dcc46179afec",
-      "chars": 2528,
+      "text_sha256": "96c62f89d220bb31f0f505e36a6df7b23b928f9f8902177e724594b428b7b75d",
+      "chars": 3323,
       "audio_path": "audio/tres-formas-organizar-dinero.mp3",
       "alignment_path": "audio/tres-formas-organizar-dinero.alignment.json",
-      "words": 469,
-      "duration_seconds": 190.9778,
-      "generated_at": "2026-06-08T15:49:35Z",
-      "note": "Corrección del cap 3 «Los tres regímenes»; coexiste con el original; lead + 1 subtítulo + 2 párrafos"
+      "words": 617,
+      "duration_seconds": 251.295714,
+      "generated_at": "2026-06-08T16:52:18Z",
+      "note": "v2: añadido lema «El dinero no se crea de la nada: se produce» + sección «Tres maneras de tratar el acuerdo»"
     }
   }
 }
