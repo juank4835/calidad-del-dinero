@@ -47,19 +47,15 @@ for sec_title, items in CONTENT:
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
         elif it[0] == "lema":
-            parts.append(f'    <p class="lema">{it[1]}</p>\n')
+            # Mismo formato que el blockquote de «criterio de evaluación»:
+            # cursiva + filete naranja a la izquierda (no centrado, no caja).
+            # El CSS ya vive en el esqueleto del cap 3.
+            parts.append(f'    <blockquote>{it[1]}</blockquote>\n')
 parts.append('\n  </div>\n\n</article>')
 article = ''.join(parts)
 
-# CSS para la línea-tesis destacada (centrada, cursiva sobria, sin caja)
-EXTRA_CSS = """
-/* ===== Lema: una declaración corta destacada en el flujo, sin caja ===== */
-.prose .lema {
-  margin: 2rem auto; text-align: center;
-  font-style: italic; font-size: 1.18rem; color: var(--ink);
-  max-width: 28rem; line-height: 1.5;
-}
-"""
+# Sin EXTRA_CSS: el blockquote ya tiene su estilo en el esqueleto del cap 3
+# (cursiva + filete naranja, igual al destacado del criterio de evaluación).
 
 # ---- Esqueleto del cap 3 ----
 sk = open('tres-regimenes.html', encoding='utf-8').read()
@@ -74,8 +70,6 @@ new_nav = ('<nav class="nav-foot">'
            '<a class="idx" href="index.html">Índice</a>'
            '<a class="next" href="preferencia-temporal.html">La preferencia temporal</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
-# CSS del lema antes de </style>
-out = out.replace('</style>', EXTRA_CSS + '</style>', 1)
 # identificadores de audio
 out = out.replace('audio/tres-regimenes.mp3', 'audio/tres-formas-organizar-dinero.mp3')
 out = out.replace('audio/tres-regimenes.alignment.json', 'audio/tres-formas-organizar-dinero.alignment.json')
