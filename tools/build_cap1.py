@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Construye el cap 1 «El dinero como sistema que transmite información»
+"""Construye el cap 1 «El dinero es información»
 con la estructura del libro, usando el esqueleto del cap 3.
 
 Prosa corrida (sin subtítulos de sección) con UNA cita en bloque (Hayek).
@@ -8,7 +8,7 @@ narre el TTS (el narrador ya nombró a Hayek y la fecha justo antes)."""
 import re
 
 EYEBROW = "Bloque I · Fundamentos"
-TITLE = "El dinero como sistema que transmite información"
+TITLE = "El dinero es información"
 SUBTITLE = "Por qué una ciudad se alimenta cada mañana sin que nadie lo ordene"
 
 # Items (sin secciones):
@@ -115,7 +115,7 @@ article = ''.join(parts)
 sk = open('tres-regimenes.html', encoding='utf-8').read()
 out = sk
 out = re.sub(r'<title>.*?</title>',
-             '<title>El dinero como sistema que transmite información — Arregla el dinero, arregla el mundo</title>',
+             '<title>El dinero es información — Arregla el dinero, arregla el mundo</title>',
              out, count=1, flags=re.DOTALL)
 out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
 # nav-foot: prev = índice; next = criterio de evaluación
