@@ -177,6 +177,16 @@
       "duration_seconds": 1333.067755,
       "generated_at": "2026-06-07T16:34:04Z",
       "note": "v3: párrafo del ahorro como privación real / dinero como vehículo; transición a la casa más fluida; va inclinando hacia abajo (metáfora del suelo)"
+    },
+    "tres-formas-organizar-dinero.html": {
+      "text_sha256": "3b57dd05796dcf9895bd3def37ed23a8cc385417ca92fa8c56e6dcc46179afec",
+      "chars": 2528,
+      "audio_path": "audio/tres-formas-organizar-dinero.mp3",
+      "alignment_path": "audio/tres-formas-organizar-dinero.alignment.json",
+      "words": 469,
+      "duration_seconds": 190.9778,
+      "generated_at": "2026-06-08T15:49:35Z",
+      "note": "Corrección del cap 3 «Los tres regímenes»; coexiste con el original; lead + 1 subtítulo + 2 párrafos"
     }
   }
 }

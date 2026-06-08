@@ -79,6 +79,11 @@ body {
 .cap .grav {
   font-size: 0.72rem; color: var(--rojo); margin-left: 0.5rem; font-style: italic;
 }
+/* Sub-capítulo (corrección u otra versión): visualmente colgado del cap padre.
+   Más sangría, tipografía un poco menor, opacidad sutil. */
+.cap.subcap { padding: 0.2rem 0 0.55rem 1.8rem; font-size: 0.94rem; }
+.cap.subcap a { color: var(--ink-soft); }
+.cap.subcap a:hover { color: var(--ink); border-bottom-color: var(--rojo); }
 
 .cimiento {
   margin-top: 1.6rem; padding-top: 1.4rem;
@@ -236,6 +241,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
       <span class="num">3</span>
       <a href="tres-regimenes.html" class="titulo">Los tres regímenes</a>
       <span class="estado ok">Completo</span>
+    </div>
+    <div class="cap subcap">
+      <span class="num"></span>
+      <a href="tres-formas-organizar-dinero.html" class="titulo">↳ Las tres formas de organizar el dinero</a>
+      <span class="estado rev">Corrección</span>
     </div>
   </section>
 
