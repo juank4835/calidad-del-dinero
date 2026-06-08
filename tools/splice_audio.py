@@ -27,11 +27,11 @@ import urllib.error
 from pathlib import Path
 
 
-def tts(text, voice_id, api_key, model, prev_text="", next_text=""):
+def tts(text, voice_id, api_key, model, prev_text="", next_text="", voice_settings=None):
     body = {
         "text": text,
         "model_id": model,
-        "voice_settings": {
+        "voice_settings": voice_settings or {
             "stability": 0.65,
             "similarity_boost": 0.75,
             "style": 0.20,
@@ -139,9 +139,13 @@ def main():
     # 1. TTS del fragmento nuevo
     fragment_text = plan["new_fragment_text"]
     print(f"Sintetizando fragmento: {len(fragment_text)} chars...")
+    vs = plan.get("voice_settings")
+    if vs:
+        print(f"  voice_settings override: {vs}")
     resp = tts(fragment_text, voice_id, api_key, model,
                prev_text=plan.get("previous_text", ""),
-               next_text=plan.get("next_text", ""))
+               next_text=plan.get("next_text", ""),
+               voice_settings=vs)
     frag_audio = base64.b64decode(resp["audio_base64"])
     align = resp["alignment"]
     frag_words = chars_to_words(
