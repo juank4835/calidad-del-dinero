@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Construye «Las tres formas de organizar el dinero» — VERSIÓN CORREGIDA
 del cap 3 del Bloque I. NO reemplaza al cap 3 original (tres-regimenes.html):
-es una versión alternativa que coexiste con la original, enlazada desde el
-índice con un estado «Corrección» en rojo."""
+reemplaza al cap 3 original como el cap 3 oficial del libro. El archivo
+tres-regimenes.html sigue existiendo como esqueleto técnico de los builders
+pero queda fuera del índice."""
 import re
 
-EYEBROW = "Bloque I · Fundamentos · corrección"
+EYEBROW = "Bloque I · Fundamentos"
 TITLE = "Las tres formas de organizar el dinero"
 SUBTITLE = "Tres maneras, dos resultados"
 
