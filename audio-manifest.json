@@ -179,14 +179,14 @@
       "note": "v3: párrafo del ahorro como privación real / dinero como vehículo; transición a la casa más fluida; va inclinando hacia abajo (metáfora del suelo)"
     },
     "tres-formas-organizar-dinero.html": {
-      "text_sha256": "66c850c3e25d265c170cd6861798fcd0322c2459f9e9a240110041f84c19ad86",
-      "chars": 22697,
+      "text_sha256": "828812c88f6e65c810392af201e7e1624400817cdc9e243a4a61664dcaf1511c",
+      "chars": 22094,
       "audio_path": "audio/tres-formas-organizar-dinero.mp3",
       "alignment_path": "audio/tres-formas-organizar-dinero.alignment.json",
-      "words": 4096,
-      "duration_seconds": 1699.313968,
-      "generated_at": "2026-06-08T18:02:26Z",
-      "note": "v3: capítulo COMPLETO con 5 secciones (¿qué significa mentir?, dinero duro, banca central, banca libre, los tres juntos), 1 lema y 3 citas (Rothbard×2, Hayek)"
+      "words": 3988,
+      "duration_seconds": 1645.8939,
+      "generated_at": "2026-06-08T19:41:20Z",
+      "note": "v4: párrafo de cierre de «el dinero duro» simplificado (más fluido y conciso)"
     }
   }
 }
