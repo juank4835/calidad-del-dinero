@@ -179,14 +179,14 @@
       "note": "v3: párrafo del ahorro como privación real / dinero como vehículo; transición a la casa más fluida; va inclinando hacia abajo (metáfora del suelo)"
     },
     "tres-formas-organizar-dinero.html": {
-      "text_sha256": "96c62f89d220bb31f0f505e36a6df7b23b928f9f8902177e724594b428b7b75d",
-      "chars": 3323,
+      "text_sha256": "66c850c3e25d265c170cd6861798fcd0322c2459f9e9a240110041f84c19ad86",
+      "chars": 22697,
       "audio_path": "audio/tres-formas-organizar-dinero.mp3",
       "alignment_path": "audio/tres-formas-organizar-dinero.alignment.json",
-      "words": 617,
-      "duration_seconds": 251.295714,
-      "generated_at": "2026-06-08T16:52:18Z",
-      "note": "v2: añadido lema «El dinero no se crea de la nada: se produce» + sección «Tres maneras de tratar el acuerdo»"
+      "words": 4096,
+      "duration_seconds": 1699.313968,
+      "generated_at": "2026-06-08T18:02:26Z",
+      "note": "v3: capítulo COMPLETO con 5 secciones (¿qué significa mentir?, dinero duro, banca central, banca libre, los tres juntos), 1 lema y 3 citas (Rothbard×2, Hayek)"
     }
   }
 }
