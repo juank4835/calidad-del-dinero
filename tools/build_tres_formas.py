@@ -103,7 +103,14 @@ CONTENT = [
 
 # CSS de .lema + .pull-quote (.lema sobrescribe el blockquote base del esqueleto)
 EXTRA_CSS = """
-/* CSS de blockquote.lema ya vive en el esqueleto tres-regimenes.html */
+/* ===== Máxima destacada: centrada, con filetes finos arriba y abajo ===== */
+blockquote.lema {
+  margin: 2.8rem 0; padding: 1.4rem 1rem;
+  border-left: none;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  text-align: center; font-style: italic;
+  font-size: 1.18rem; line-height: 1.5; color: var(--ink);
+}
 /* ===== Citas de autor — filete fino gris a la izquierda ===== */
 .prose .pull-quote {
   margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
