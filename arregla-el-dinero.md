@@ -213,15 +213,7 @@ Por eso la pregunta de quién controla el dinero —la que el debate de siempre 
 
 Antes de seguir, conviene detenerse en algo que cambiará la forma de leer todo lo que viene. Estas tres formas de organizar el dinero no son un asunto que ahora cerramos para pasar a otra cosa. Son el suelo sobre el que se parará el resto del libro. Porque cada cosa que examinaremos de aquí en adelante —la paciencia de una sociedad, su ahorro, la tasa de interés, los precios que coordinan a millones— no flota en el aire: viaja sobre el dinero. Y por eso hereda su honestidad o su mentira. Donde el dinero respeta el acuerdo, esas señales pueden decir la verdad. Donde el dinero se crea de la nada, todas nacen contaminadas: no hay forma de que la tasa diga la verdad si el dinero que la expresa es falso, ni de que el ahorro signifique algo si puede fabricarse de un plumazo. El tipo de dinero no es un tema más entre otros: es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.
 
-> **EN**
->
-> El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:
->
-> **Dinero duro** (oro y Bitcoin) — lo respeta.
-> 
-> **Banca libre** — lo rompe a medias.
-> 
-> **Banca central** — lo rompe del todo.
+En síntesis. El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada. *Dinero duro* (oro y Bitcoin) lo respeta. *Banca libre* lo rompe a medias. *Banca central* lo rompe del todo.
 
 Ya sabemos, entonces, tres cosas: qué es el dinero —el sistema que transporta la información con que todos decidimos—, con qué vara se juzga —si esa información dice la verdad— y cuáles son las tres formas de organizarlo según cuánto la respetan. Pero hemos hablado de "la señal", de "la información", como si fueran una sola cosa abstracta. No lo son. La información que el dinero transmite tiene una forma concreta, cotidiana, que usted lee todos los días sin saber que la lee: son los precios. Y antes de entrar a las señales una por una, hace falta aprender a leerlas —saber cuándo un precio le está diciendo la verdad y cuándo le miente—, porque sin esa destreza todo lo que viene se leería a ciegas. Esa es la herramienta que necesitamos antes que ninguna otra, y a afilarla dedicamos lo que sigue.
 

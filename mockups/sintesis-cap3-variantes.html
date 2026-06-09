@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es" data-theme="sepia">
+<head>
+<meta charset="utf-8">
+<title>Síntesis cap 3 — variantes</title>
+<style>
+:root {
+  --bg: #f3ead6; --surface: #e9dcc0; --ink: #2f2718; --ink-soft: #6e6048;
+  --rule: #d6c9ab; --verde: #FF7A18; --rojo: #8A8A86;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Source Serif Pro", Georgia, serif;
+}
+:root[data-theme="oscuro"] {
+  --bg: #1a1a1a; --surface: #262626; --ink: #e8e6e1; --ink-soft: #9c9690;
+  --rule: #3a3a3a;
+}
+:root[data-theme="claro"] {
+  --bg: #fbf9f5; --surface: #eeeae3; --ink: #1a1916; --ink-soft: #5d584f;
+  --rule: #e2ddd3;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 19px; line-height: 1.7;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: 2.4rem; margin: 0 0 0.4rem; }
+.intro { color: var(--ink-soft); font-style: italic; margin: 0 0 2.5rem; }
+.theme-pick {
+  display: flex; gap: 0.5rem; margin-bottom: 3rem;
+  padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule);
+}
+.theme-pick button {
+  background: var(--surface); border: 1px solid var(--rule); color: var(--ink);
+  padding: 0.4rem 0.9rem; cursor: pointer; font-family: inherit;
+  font-size: 0.85rem; border-radius: 4px;
+}
+.theme-pick button:hover { background: var(--ink-soft); color: var(--bg); }
+
+.variante {
+  margin: 0 0 4.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.variante:last-child { border-bottom: none; }
+.label {
+  display: inline-block; font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  background: var(--surface); padding: 0.3rem 0.7rem; border-radius: 3px;
+  margin-bottom: 1.3rem;
+}
+.variante h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.3rem; margin: 0 0 0.4rem;
+}
+.variante .nota {
+  color: var(--ink-soft); font-size: 0.88rem; font-style: italic;
+  margin: 0 0 2rem; max-width: 540px;
+}
+
+/* Párrafos de contexto (lo que va antes y después del recuadro) */
+.ctx { color: var(--ink); margin: 0 0 1.2rem; }
+.ctx.next { margin-top: 1.5rem; }
+
+/* ===================================================== */
+/* VARIANTE A — la actual (referencia) */
+/* ===================================================== */
+.va-actual .recuadro {
+  margin: 3rem 0 1rem; padding: 1.5rem 0;
+  background: none;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.va-actual .recuadro-tag {
+  display: block; text-align: center;
+  font-size: 0.68rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.va-actual .recuadro p { margin: 0 0 0.7rem; }
+.va-actual .recuadro p:last-child { margin: 0; }
+
+/* ===================================================== */
+/* VARIANTE B — prosa pura (sin tag, sin marca) */
+/* ===================================================== */
+/* Un solo párrafo más que se integra con el flujo */
+.vb-prosa .sintesis {
+  margin: 0 0 1.2rem;
+}
+
+/* ===================================================== */
+/* VARIANTE C — tag inline en small-caps */
+/* ===================================================== */
+/* "En síntesis." como apertura, todo prosa */
+.vc-inline .sintesis { margin: 0 0 1.2rem; }
+.vc-inline .sintesis .opener {
+  font-variant: small-caps; letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.vc-inline .sintesis .nombre {
+  font-style: italic; color: var(--ink);
+}
+
+/* ===================================================== */
+/* VARIANTE D — tres líneas con dash em, sin caja */
+/* ===================================================== */
+.vd-dashes .sintesis {
+  margin: 0 0 1.2rem;
+  padding-left: 1.5rem;
+}
+.vd-dashes .sintesis .lead { margin: 0 0 0.6rem; color: var(--ink-soft); }
+.vd-dashes .sintesis .lista {
+  margin: 0; padding: 0; list-style: none;
+}
+.vd-dashes .sintesis .lista li {
+  position: relative; padding-left: 1.4rem; margin-bottom: 0.3rem;
+}
+.vd-dashes .sintesis .lista li::before {
+  content: "—"; position: absolute; left: 0;
+  color: var(--ink-soft);
+}
+.vd-dashes .sintesis .nombre { font-style: italic; color: var(--ink); }
+
+/* ===================================================== */
+/* VARIANTE E — cursiva total, indentado, sin nada más */
+/* ===================================================== */
+.ve-cursiva .sintesis {
+  margin: 0 0 1.2rem;
+  padding: 0 1.5rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.ve-cursiva .sintesis .nombre {
+  font-style: normal; color: var(--ink);
+}
+
+/* ===================================================== */
+/* VARIANTE F — hairline arriba solo + tag inline a la izquierda */
+/* ===================================================== */
+.vf-half .sintesis {
+  margin: 2rem 0 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+.vf-half .sintesis .tag {
+  font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-right: 0.7rem;
+}
+.vf-half .sintesis .nombre { font-style: italic; color: var(--ink); }
+
+/* ===================================================== */
+/* VARIANTE G — coda zen: tres mantras centrados, sin tag */
+/* ===================================================== */
+.vg-coda .sintesis {
+  margin: 1.5rem 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+.vg-coda .sintesis .lead { margin: 0 0 0.8rem; }
+.vg-coda .sintesis .nombre {
+  font-style: italic; color: var(--ink); font-weight: 500;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Síntesis cap 3 — variantes</h1>
+  <p class="intro">El recuadro actual rompe el flujo de la prosa. Pruebo alternativas más integradas. Cada variante muestra el párrafo previo + la síntesis + el párrafo siguiente, todo en el mismo ancho de lectura del libro.</p>
+
+  <div class="theme-pick">
+    <button onclick="document.documentElement.setAttribute('data-theme','sepia')">sepia</button>
+    <button onclick="document.documentElement.setAttribute('data-theme','oscuro')">oscuro</button>
+    <button onclick="document.documentElement.setAttribute('data-theme','claro')">claro</button>
+  </div>
+
+  <!-- ============ A — actual ============ -->
+  <section class="variante va-actual">
+    <span class="label">A · actual (referencia)</span>
+    <h2>Caja con hairlines y tag uppercase</h2>
+    <p class="nota">Lo que está en producción. La doble línea horizontal + tag centrado parten el ritmo de la prosa en dos. El lector siente que llegó a otro modo.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <p><strong>Dinero duro</strong> (oro y Bitcoin) — lo respeta.<br>
+         <strong>Banca libre</strong> — lo rompe a medias.<br>
+         <strong>Banca central</strong> — lo rompe del todo.</p>
+    </aside>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+  <!-- ============ B — prosa pura ============ -->
+  <section class="variante vb-prosa">
+    <span class="label">B · prosa pura</span>
+    <h2>Una oración integrada al cuerpo</h2>
+    <p class="nota">Sin caja, sin tag, sin nada. Las tres formas viven en una oración del párrafo. El énfasis lo hacen los nombres en cursiva. Lo más invisible posible — la síntesis fluye.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <p class="sintesis">En síntesis, el dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada: el <em>dinero duro</em> (oro y Bitcoin) lo respeta, la <em>banca libre</em> lo rompe a medias, la <em>banca central</em> lo rompe del todo.</p>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+  <!-- ============ C — tag inline ============ -->
+  <section class="variante vc-inline">
+    <span class="label">C · tag inline</span>
+    <h2>«En síntesis» como apertura, todo prosa</h2>
+    <p class="nota">«En síntesis» queda como apertura del párrafo en versalitas (small-caps), discreto, sin separarlo del flujo. Los nombres en cursiva. Se mantiene el ritmo, pero el ojo nota que es la síntesis.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <p class="sintesis">
+      <span class="opener">En síntesis</span>, el dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada. El <span class="nombre">dinero duro</span> (oro y Bitcoin) lo respeta. La <span class="nombre">banca libre</span> lo rompe a medias. La <span class="nombre">banca central</span> lo rompe del todo.
+    </p>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+  <!-- ============ D — dashes ============ -->
+  <section class="variante vd-dashes">
+    <span class="label">D · dashes</span>
+    <h2>Tres líneas con guion em al inicio</h2>
+    <p class="nota">Un párrafo introductorio normal + tres líneas con «—» como prefijo. La estructura tipográfica de lista, sin lista. Ligero indent, sin caja.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <div class="sintesis">
+      <p class="lead">En síntesis, el dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <ul class="lista">
+        <li><span class="nombre">Dinero duro</span> (oro y Bitcoin): lo respeta.</li>
+        <li><span class="nombre">Banca libre</span>: lo rompe a medias.</li>
+        <li><span class="nombre">Banca central</span>: lo rompe del todo.</li>
+      </ul>
+    </div>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+  <!-- ============ E — cursiva total ============ -->
+  <section class="variante ve-cursiva">
+    <span class="label">E · cursiva</span>
+    <h2>Párrafo en cursiva, indentado, sin tag</h2>
+    <p class="nota">Todo el párrafo en cursiva y color ink-soft, ligeramente indentado a los lados. El cuerpo cambia de registro tipográfico (de redonda a cursiva) — lo que comunica «esto es un aparte, no avanza el argumento». Los nombres de las formas vuelven a redonda para destacar.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <p class="sintesis">
+      En síntesis, el dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada. El <span class="nombre">dinero duro</span> (oro y Bitcoin) lo respeta; la <span class="nombre">banca libre</span> lo rompe a medias; la <span class="nombre">banca central</span> lo rompe del todo.
+    </p>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+  <!-- ============ F — hairline solo arriba ============ -->
+  <section class="variante vf-half">
+    <span class="label">F · hairline arriba</span>
+    <h2>Una sola línea arriba + tag inline a la izquierda</h2>
+    <p class="nota">Solo una hairline arriba marca el aparte (sin la doble línea de la caja). Tag a la izquierda en uppercase pequeño, sin centrar. Las tres formas en una oración. Menos peso visual que la caja, pero aún se nota el aparte.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <p class="sintesis">
+      <span class="tag">En síntesis</span>el dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada. El <span class="nombre">dinero duro</span> (oro y Bitcoin) lo respeta; la <span class="nombre">banca libre</span> lo rompe a medias; la <span class="nombre">banca central</span> lo rompe del todo.
+    </p>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+  <!-- ============ G — coda zen ============ -->
+  <section class="variante vg-coda">
+    <span class="label">G · coda</span>
+    <h2>Tres mantras centrados, color soft, sin tag</h2>
+    <p class="nota">Sin tag «En síntesis». Una intro centrada en color soft, después tres mantras separados visualmente. Estilo despedida / coda. Más estilizado pero discreto.</p>
+    <p class="ctx">…es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.</p>
+    <div class="sintesis">
+      <p class="lead">El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada.</p>
+      <p>
+        <span class="nombre">Dinero duro</span> lo respeta. ·
+        <span class="nombre">Banca libre</span> lo rompe a medias. ·
+        <span class="nombre">Banca central</span> lo rompe del todo.
+      </p>
+    </div>
+    <p class="ctx next">Ya sabemos, entonces, tres cosas: qué es el dinero…</p>
+  </section>
+
+</div>
+</body>
+</html>
