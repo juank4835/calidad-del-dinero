@@ -161,7 +161,7 @@ out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, ou
 new_nav = ('<nav class="nav-foot">'
            '<a class="prev" href="criterio-de-evaluacion.html">La vara de la verdad</a>'
            '<a class="idx" href="index.html">Índice</a>'
-           '<a class="next" href="preferencia-temporal.html">La preferencia temporal</a></nav>')
+           '<a class="next" href="preferencia-temporal.html">Saber esperar</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
 out = out.replace('</style>', EXTRA_CSS + '</style>', 1)
 out = out.replace('audio/tres-regimenes.mp3', 'audio/tres-formas-organizar-dinero.mp3')

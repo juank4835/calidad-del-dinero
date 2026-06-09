@@ -11,7 +11,7 @@
 1. El dinero es información
 2. La vara de la verdad
 3. Las tres formas de organizar el dinero
-4. La preferencia temporal
+4. Saber esperar
 5. El ahorro real
 6. ¿Cuándo un precio dice la verdad?
 7. La tasa de interés
@@ -230,7 +230,7 @@ Con esto cerramos los cimientos. Ya sabemos qué es el dinero —el sistema que 
 
 _Concepto previo_
 
-# La preferencia temporal
+# Saber esperar
 
 *Por qué prefiere usted lo bueno ahora —y por qué eso lo explica casi todo*
 
