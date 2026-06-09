@@ -12,7 +12,7 @@
 2. La vara de la verdad
 3. Las tres formas de organizar el dinero
 4. Saber esperar
-5. El ahorro real
+5. Lo que la espera libera
 6. ¿Cuándo un precio dice la verdad?
 7. La tasa de interés
 8. La asignación intertemporal
@@ -289,7 +289,7 @@ Y si dice algo verdadero, entonces puede ser falsificada. Aquí es donde todo lo
 
 _Concepto previo_
 
-# El ahorro real
+# Lo que la espera libera
 
 *Por qué ahorrar no es guardar dinero, sino liberar pedazos del mundo*
 
