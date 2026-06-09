@@ -293,7 +293,21 @@ def validate_chapter(html_path: Path) -> tuple[list[str], list[str], dict]:
                 )
     stats["recuadros"] = len(re.findall(r'<aside class="recuadro"', html))
 
-    # ── 9. pull-quotes — stats ─────────────────────────────────────
+    # ── 9. Sin resaltados de color en palabras del cuerpo ───────────
+    # Las clases pueden estar DEFINIDAS en el CSS del esqueleto (no
+    # estorban), pero NO deben USARSE en el cuerpo del cap. Filtramos
+    # el <style> antes de buscar.
+    style_re = re.compile(r'<style[^>]*>.*?</style>', re.DOTALL)
+    body_only = style_re.sub('', html)
+    term_uses = re.findall(r'<span class="term-(verde|rojo)"', body_only)
+    if term_uses:
+        errors.append(
+            f"usa <span class='term-*'> en el cuerpo ({len(term_uses)} "
+            f"ocurrencias) — el estándar no permite resaltado de color "
+            f"en palabras"
+        )
+
+    # ── 10. pull-quotes — stats ─────────────────────────────────────
     stats["pull_quotes"] = len(re.findall(
         r'<blockquote class="pull-quote"', html
     ))

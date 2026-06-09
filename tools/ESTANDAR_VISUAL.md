@@ -174,7 +174,30 @@ Caja de cierre del cap (o de una sección) con un resumen sintético.
 
 ---
 
-## 6. Audio y karaoke (sin excepciones)
+## 6. Palabras en el cuerpo: SIN resaltados de color
+
+**Regla**: en la prosa narrativa del libro NO se usan resaltados de
+color en palabras individuales. Esto incluye específicamente:
+
+- `<span class="term-verde">…</span>` (color naranja `#FF7A18`)
+- `<span class="term-rojo">…</span>` (gris)
+- Cualquier otra clase `term-*` con color
+
+Estas clases pueden quedar **definidas en el CSS** del esqueleto
+(no estorban si no se usan), pero **no deben aparecer en el cuerpo
+de ningún cap**. La razón: en los caps 1–3 (referencia) se decidió
+que el énfasis se logra con la voz del texto, no con marcas
+tipográficas que rompen el flujo lector.
+
+Para énfasis legítimos siguen disponibles:
+- `<em>` → cursiva
+- `<strong>` → negrita
+
+Pero úsalos sólo cuando aclaran; no para decorar.
+
+---
+
+## 7. Audio y karaoke (sin excepciones)
 
 ### Reglas
 - Cada cap tiene MP3 (`audio/<slug>.mp3`) + alignment JSON (`audio/<slug>.alignment.json`).
@@ -185,7 +208,7 @@ Caja de cierre del cap (o de una sección) con un resumen sintético.
 
 ---
 
-## 7. CSS — qué vive dónde
+## 8. CSS — qué vive dónde
 
 | Regla | Vive en | Notas |
 |---|---|---|
@@ -201,7 +224,7 @@ generados con los builders.
 
 ---
 
-## 8. Capítulos de referencia (allowlist)
+## 9. Capítulos de referencia (allowlist)
 
 Los siguientes caps están al estándar y **el validador los chequea
 en modo strict**: si fallan, el `publish.sh` aborta.
