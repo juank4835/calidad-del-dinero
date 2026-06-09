@@ -213,8 +213,6 @@ Por eso la pregunta de quién controla el dinero —la que el debate de siempre 
 
 Antes de seguir, conviene detenerse en algo que cambiará la forma de leer todo lo que viene. Estas tres formas de organizar el dinero no son un asunto que ahora cerramos para pasar a otra cosa. Son el suelo sobre el que se parará el resto del libro. Porque cada cosa que examinaremos de aquí en adelante —la paciencia de una sociedad, su ahorro, la tasa de interés, los precios que coordinan a millones— no flota en el aire: viaja sobre el dinero. Y por eso hereda su honestidad o su mentira. Donde el dinero respeta el acuerdo, esas señales pueden decir la verdad. Donde el dinero se crea de la nada, todas nacen contaminadas: no hay forma de que la tasa diga la verdad si el dinero que la expresa es falso, ni de que el ahorro signifique algo si puede fabricarse de un plumazo. El tipo de dinero no es un tema más entre otros: es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.
 
-Ya sabemos, entonces, tres cosas: qué es el dinero —el sistema que transporta la información con que todos decidimos—, con qué vara se juzga —si esa información dice la verdad— y cuáles son las tres formas de organizarlo según cuánto la respetan. Pero hemos hablado de "la señal", de "la información", como si fueran una sola cosa abstracta. No lo son. La información que el dinero transmite tiene una forma concreta, cotidiana, que usted lee todos los días sin saber que la lee: son los precios. Y antes de entrar a las señales una por una, hace falta aprender a leerlas —saber cuándo un precio le está diciendo la verdad y cuándo le miente—, porque sin esa destreza todo lo que viene se leería a ciegas. Esa es la herramienta que necesitamos antes que ninguna otra, y a afilarla dedicamos lo que sigue.
-
 > **EN**
 >
 > El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:
@@ -225,10 +223,12 @@ Ya sabemos, entonces, tres cosas: qué es el dinero —el sistema que transporta
 > 
 > **Banca central** — lo rompe del todo.
 
+Ya sabemos, entonces, tres cosas: qué es el dinero —el sistema que transporta la información con que todos decidimos—, con qué vara se juzga —si esa información dice la verdad— y cuáles son las tres formas de organizarlo según cuánto la respetan. Pero hemos hablado de "la señal", de "la información", como si fueran una sola cosa abstracta. No lo son. La información que el dinero transmite tiene una forma concreta, cotidiana, que usted lee todos los días sin saber que la lee: son los precios. Y antes de entrar a las señales una por una, hace falta aprender a leerlas —saber cuándo un precio le está diciendo la verdad y cuándo le miente—, porque sin esa destreza todo lo que viene se leería a ciegas. Esa es la herramienta que necesitamos antes que ninguna otra, y a afilarla dedicamos lo que sigue.
+
 
 ---
 
-_Antes de las piezas · la pregunta del precio_
+_Bloque I · Fundamentos_
 
 # ¿Cuándo un precio dice la verdad?
 
@@ -280,9 +280,9 @@ Y hay un vuelco final, el más revelador de todos. ¿Cómo hace un banco central
 
 Por eso este libro no juzga al dinero por si mantiene los precios quietos, sino por algo muy distinto: por si deja que digan la verdad. Un buen dinero no aquieta el estanque. Solo se asegura de que nadie, nunca, pueda verter agua en él.
 
-Tiene, por fin, las gafas puestas. De aquí en adelante, ante cada precio que se mueva, usted ya sabrá hacerse la única pregunta que importa: este movimiento, ¿es una piedra o es agua vertida? ¿Me está diciendo algo verdadero sobre el mundo, o solo me llega la onda de una imprenta lejana?
+Y así cierra el primer bloque del libro. Empezamos preguntándonos qué es el dinero —el sistema que transporta la información con que una sociedad decide—; seguimos con la vara para juzgarlo —no la quietud de los precios, sino si dicen la verdad—; vimos las tres formas de organizarlo según respeten o rompan el acuerdo de no crear dinero de la nada; y ahora, por fin, sabemos leer un precio: distinguir el movimiento que informa del que miente, la piedra del agua vertida. Aquella vara abstracta del segundo capítulo —juzgar por la verdad— ya tiene en la mano su instrumento concreto: ante cualquier precio que se mueva, usted sabe preguntarse si le dice algo real sobre el mundo o si solo le llega la onda de una imprenta lejana.
 
-Pero antes de usar las gafas hace falta saber sobre qué vamos a mirar primero. De todas las señales que el dinero transmite, hay una más importante que las demás: la que le pone precio al tiempo mismo. No nace de una cosecha ni de una mina, sino de algo que llevamos dentro cada uno de nosotros —de cuánto estamos dispuestos a esperar, y de lo que ocurre en el mundo real cuando alguien espera—. Esas dos fuerzas, la paciencia y el ahorro, son el suelo del que brota la primera señal que vamos a juzgar. A conocerlas dedicamos los dos capítulos que siguen; con ellas en la mano, y las gafas puestas, estaremos por fin listos para leer la señal más manipulada de todas.
+Tiene, por fin, las gafas puestas. Pero unas gafas no sirven de nada si no se sabe hacia dónde mirar. De todas las señales que el dinero transmite, hay una más importante que las demás: la que le pone precio al tiempo mismo. No nace de una cosecha ni de una mina, sino de algo que llevamos dentro cada uno de nosotros —de cuánto estamos dispuestos a esperar, y de lo que ocurre en el mundo real cuando alguien espera—. Esas dos fuerzas, la paciencia y el ahorro, son el suelo del que brota la primera señal que vamos a juzgar. A conocerlas dedicamos el bloque que sigue; con ellas entendidas, y las gafas puestas, estaremos por fin listos para leer la señal más manipulada de todas.
 
 
 ---
