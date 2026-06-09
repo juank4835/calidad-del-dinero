@@ -28,6 +28,9 @@ cd "$(dirname "$0")/.."
 
 MSG="${1:-Actualización del libro + regeneración del MD}"
 
+echo "→ Validando estándar visual…"
+python3 tools/validate_visual_standard.py
+
 echo "→ Regenerando Markdown del libro…"
 python3 tools/build_book_md.py
 
