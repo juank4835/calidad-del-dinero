@@ -30,7 +30,7 @@ CHAPTERS = [
     # Bloque I · Fundamentos
     "dinero-como-informacion.html",
     "criterio-de-evaluacion.html",
-    "tres-regimenes.html",
+    "tres-formas-organizar-dinero.html",
     # Bloque II · Conceptos previos
     "preferencia-temporal.html",
     "ahorro-real.html",
