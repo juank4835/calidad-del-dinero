@@ -11,9 +11,9 @@
 1. El dinero es información
 2. La vara de la verdad
 3. Las tres formas de organizar el dinero
-4. Saber esperar
-5. Lo que la espera libera
-6. ¿Cuándo un precio dice la verdad?
+4. ¿Cuándo un precio dice la verdad?
+5. Saber esperar
+6. Lo que la espera libera
 7. La tasa de interés
 8. La asignación intertemporal
 9. La detección de la mala inversión
@@ -228,6 +228,65 @@ Ya sabemos, entonces, tres cosas: qué es el dinero —el sistema que transporta
 
 ---
 
+_Antes de las piezas · la pregunta del precio_
+
+# ¿Cuándo un precio dice la verdad?
+
+*A distinguir un movimiento que informa de uno que miente*
+
+---
+
+El café subió. Usted lo nota en la tienda, en la factura, en lo que paga por el tinto de la mañana: lo que antes costaba mil ahora cuesta mil doscientos. Y casi siempre reaccionamos igual —con fastidio, como ante una mala noticia sin más—. Pero deténgase un segundo en algo que casi nadie se pregunta: *¿por qué* subió? Porque "el café subió" puede significar dos cosas que no se parecen en nada, aunque el número que usted ve sea exactamente el mismo.
+
+Puede ser que una helada arruinara las cosechas en Brasil, y ahora haya menos café en el mundo. O puede ser que el banco central haya impreso una montaña de dinero, y ese dinero, al circular, esté empujando hacia arriba el precio de todo —el café entre tantas cosas—. En el primer caso, el precio que subió le está diciendo algo verdadero: *hay menos café, es más escaso, conviene cuidarlo y conviene producir más*. En el segundo, no le dice nada del café —no hay menos que ayer—; solo refleja que hay más dinero dando vueltas. El mismo número, mil doscientos, significa en un caso una verdad sobre el mundo y en el otro una distorsión que no informa de nada real.
+
+Y este es el problema que vamos a resolver en este capítulo, porque es una de las herramientas más importantes que usted puede llevarse del libro entero. Todo el tiempo, los precios se mueven. Suben, bajan, oscilan. A esa inquietud de los precios la solemos llamar, con un dejo de reproche, *volatilidad* —y hemos aprendido a verla como un defecto, como algo malo que un buen dinero debería evitar—. Pero acabamos de ver que no todo movimiento es igual: algunos movimientos son información preciosa, y otros son puro engaño. Confundirlos —tratar a los dos como lo mismo— es el error que está detrás de casi todas las malas ideas sobre el dinero. Aprender a separarlos es aprender a leer. Porque un precio no es bueno ni malo. Es información. Y lo único que importa de una información es si es verdadera o falsa.
+
+Para no perderse entre los dos tipos de movimiento, conviene una imagen. Piense en una brújula. Su aguja apunta al norte, y eso le sirve para orientarse: la aguja le dice algo verdadero sobre el mundo —dónde está el norte—, y usted camina con confianza siguiéndola. Un precio honesto es exactamente eso: una aguja que apunta a algo real. Cuando el café se encarece porque de verdad hay menos café, el precio es una brújula funcionando: señala una escasez que existe, y quien la lee se orienta bien —consume con cuidado, o se lanza a producir más, sabiendo que hará falta—. Un precio no es, en el fondo, solo lo que algo cuesta: es un mensaje. Y como todo mensaje, puede ser verdadero o puede ser falso. Esa es la distinción que pasaremos el resto del capítulo aprendiendo a hacer.
+
+Ahora acerque un imán a esa brújula. La aguja se mueve —gira, se desvía, señala una dirección nueva con la misma firmeza de siempre—. Si usted no ve el imán, no tiene cómo saber que lo que la aguja marca ya no es el norte: parece tan convincente como antes. Camina seguro en la dirección que le indica, y se pierde. La aguja no se rompió; sigue moviéndose con naturalidad. Lo que pasa es que ya no responde al mundo, sino al imán.
+
+Eso es, exactamente, lo que el dinero creado de la nada le hace al sistema de precios. Cuando el banco central inyecta dinero nuevo, los precios se mueven —suben, cambian, oscilan— con la misma apariencia de siempre. Pero ya no se mueven porque el mundo cambió; se mueven porque alguien acercó un imán. El precio del café que sube por la helada y el que sube por la emisión se ven idénticos —la aguja apunta a un lado en los dos casos—, pero uno señala un norte real y el otro un norte fabricado. Y quien no sabe que hay un imán cerca —que es casi todo el mundo— lee la aguja desviada como si dijera la verdad, y orienta su vida por ella: invierte, ahorra, se endeuda, produce, siguiendo una dirección que no existe.
+
+Aquí está lo más difícil de aceptar, y lo más importante: *desde el precio mismo, usted no puede ver el imán*. El número que sube no trae una etiqueta que diga "este movimiento es real" o "este es por emisión". La aguja se ve igual en los dos casos. Por eso tanta gente vive desorientada sin saberlo: confía en precios que parecen informar y en realidad están desviados, y nunca ve la causa —porque el imán, el dinero que se crea de la nada, actúa lejos, en el sistema bancario, mucho antes de que el precio llegue a sus manos—.
+
+Entonces, si en un precio suelto no se ve el imán, ¿estamos condenados a la ceguera? No. Porque aunque un precio aislado no delate su causa, el *conjunto* de los precios sí lo hace. La distinción no se ve en una aguja sola; se ve en el patrón de todas. Y para eso conviene una segunda imagen, esta vez sobre el agua.
+
+Imagine un estanque en calma. Si cae una piedra, se forman ondas: círculos que nacen de un punto y se expanden hacia afuera. Mirando esas ondas, usted sabe dos cosas —que algo pasó, y dónde pasó—. Las ondas tienen un origen, un centro identificable. Así se mueven los precios cuando la causa es real: la helada encarece el café, y desde ahí las ondas se propagan —sube el café, suben los sustitutos, se ajustan los que dependen de él—, pero otras cosas no se mueven, o se mueven en sentido contrario. Si al mismo tiempo se descubrió un yacimiento de petróleo, la gasolina baja. Cada cambio real es una piedra distinta en un punto distinto: unos precios suben, otros bajan, cada uno apuntando a su propia escasez o abundancia. El patrón es desigual, con direcciones cruzadas —y esa misma desigualdad es la información: dibuja el mapa de lo que de verdad cambió en el mundo—.
+
+Ahora imagine que, en vez de una piedra, alguien empieza a verter agua por una esquina del estanque. El nivel sube —no de golpe ni parejo, sino avanzando desde esa esquina—: las orillas cercanas se mojan primero, las lejanas después. No hay un centro que señale un hecho del mundo; hay un punto de entrada —la esquina por donde se vierte— y una ola que se expande desde ahí. Así se mueven los precios cuando la causa es monetaria: el dinero nuevo entra por un punto —el banco central, los bancos— y empuja los precios hacia arriba en cascada, llegando antes a unos y después a otros. Y ese orden de llegada no es inocente: quien recibe el dinero nuevo primero compra a precios viejos, todavía bajos, y sale ganando; quien lo recibe último encuentra que todo ya subió antes de que su parte llegara, y sale perdiendo. No es que la marea suba parejo y al final todos queden igual de mojados —es que moja antes a unas orillas que a otras, y las primeras se benefician a costa de las últimas—. No es el patrón cruzado de la piedra —unos arriba por una escasez real, otros abajo por una abundancia real—; es una sola dirección, hacia arriba, propagándose desde la esquina, repartiendo ganancias y pérdidas según quién esté más cerca del punto de entrada. Que el agua entre por una esquina, y no que suba pareja en todo el estanque, no es un detalle de la imagen: es el mecanismo. Rothbard descarta de plano la versión simultánea —el dinero que se duplicara para todos a la vez—:
+
+> "El movimiento de los precios desde una situación de equilibrio a la otra no tendrá lugar de forma suave y simultánea. No tendrá lugar de acuerdo con el famoso ejemplo de David Hume y John Stuart Mill, en el que todo el mundo encuentra, al despertar, que su provisión de dinero se ha duplicado durante la noche."
+>
+> — Rothbard, *El hombre, la economía y el Estado*, cap. 11
+
+Ahí está la clave para distinguirlos sin ver el imán directamente. Cuando solo cambian algunos precios, en direcciones distintas, con sentido —unos suben porque algo escaseó, otros bajan porque algo abundó—, eso es información: piedras en el estanque, cada una marcando un hecho real. Cuando casi todos los precios suben a la vez, sostenidamente, sin que haya pasado nada en el mundo que lo explique, eso es el agua entrando por la esquina: la marca del dinero que se creó de la nada. El primero es un mapa de la realidad; el segundo, la huella de la imprenta. (Ese desfase —que el agua moje antes a unas orillas que a otras— tiene consecuencias profundas, y le dedicaremos un capítulo entero más adelante; por ahora basta con reconocer la forma.)
+
+Y ahora fíjese en lo que esto revela sobre el dinero, porque es lo que ata este capítulo a todos los demás. El agua vertida por la esquina —el movimiento falso de los precios— necesita que alguien pueda verter agua. Es decir: necesita un dinero que se pueda crear de la nada. Donde el dinero es duro, donde nadie puede fabricar unidades por decreto, no hay esquina por donde entre agua nueva: el estanque solo se mueve cuando cae una piedra —cuando algo real cambia en el mundo—. Los precios siguen moviéndose, claro, a veces mucho; pero todos sus movimientos son piedras, todos dicen una verdad. La brújula nunca tiene un imán cerca, porque no existe quien lo acerque.
+
+De modo que la volatilidad no es una sola cosa que el dinero bueno elimine y el malo permita. Son dos cosas opuestas que conviene no volver a confundir. Está el movimiento honesto —las piedras, las agujas que apuntan a un norte real— y ese existe con cualquier dinero, y es bueno: es la información fluyendo. Y está el movimiento falso —el agua vertida, la aguja desviada por el imán— y ese solo aparece cuando el dinero se puede crear de la nada. El dinero honesto no aquieta los precios: deja intactas todas las piedras, y se limita a que nadie pueda verter agua. No silencia la información; elimina el ruido. El dinero deshonesto hace lo contrario: suma su agua a las piedras, hasta que ya no se distingue cuál onda vino de un hecho real y cuál de la imprenta.
+
+Esto nos deja en posición de desarmar una de las creencias más extendidas y más dañinas sobre el dinero. Pregúntele a casi cualquier economista, o lea el mandato de casi cualquier banco central, y le dirán que el buen dinero es el que mantiene los precios *estables* —quietos, sin sobresaltos, subiendo apenas un poquito predecible cada año—. La volatilidad, desde esa óptica, es el enemigo: un buen dinero sería el que la elimina.
+
+Pero ya tenemos las herramientas para ver por qué eso está mal de raíz. Querer los precios quietos es querer un estanque sin ondas. Y un estanque sin ondas no es un estanque sano: es uno donde se prohibieron hasta las piedras —donde la información dejó de fluir—. Los precios se mueven, cuando el dinero es honesto, porque el mundo se mueve: porque hubo una helada, un invento, una mina nueva, una guerra. Cada uno de esos movimientos es una verdad que alguien necesita saber. Aquietarlos a la fuerza no hace al dinero mejor: ciega a la sociedad.
+
+Piénselo como un termómetro. La fiebre es desagradable, pero el número que la marca es información que salva: dice que hay una infección, que hay que actuar. A nadie sensato se le ocurre que la cura sea meter el termómetro en hielo para que marque 37 —el cuerpo seguiría enfermo, solo que ahora a ciegas—. Pues bien: perseguir la "estabilidad de precios" a la fuerza es exactamente eso, meter el termómetro en hielo. Los precios que querían avisar de una escasez se mantienen quietos por decreto, y la sociedad pierde la información que necesitaba.
+
+Y hay un vuelco final, el más revelador de todos. ¿Cómo hace un banco central para mantener "estable" el nivel general de precios? Inyectando o retirando dinero —vertiendo agua en el estanque, o sacándola—. Es decir: para que el promedio no se mueva, mueve el dinero. Y al mover el dinero, deforma los precios relativos, que es el único movimiento que de verdad miente. En nombre de la estabilidad, produce la distorsión. Persigue un número quieto en la superficie y, para lograrlo, agita el agua por debajo. El remedio *es* la enfermedad. No es una opinión: es una imposibilidad demostrable. Como lo expresa Rothbard,
+
+> "El programa estabilizador de fijar el valor del dinero o el nivel de precios sin distorsionar los precios relativos está necesariamente destinado al fracaso. Se trata de un programa imposible."
+>
+> — Rothbard, *El hombre, la economía y el Estado*, cap. 11, secc. 14
+
+Por eso este libro no juzga al dinero por si mantiene los precios quietos, sino por algo muy distinto: por si deja que digan la verdad. Un buen dinero no aquieta el estanque. Solo se asegura de que nadie, nunca, pueda verter agua en él.
+
+Tiene, por fin, las gafas puestas. De aquí en adelante, ante cada precio que se mueva, usted ya sabrá hacerse la única pregunta que importa: este movimiento, ¿es una piedra o es agua vertida? ¿Me está diciendo algo verdadero sobre el mundo, o solo me llega la onda de una imprenta lejana?
+
+Pero antes de usar las gafas hace falta saber sobre qué vamos a mirar primero. De todas las señales que el dinero transmite, hay una más importante que las demás: la que le pone precio al tiempo mismo. No nace de una cosecha ni de una mina, sino de algo que llevamos dentro cada uno de nosotros —de cuánto estamos dispuestos a esperar, y de lo que ocurre en el mundo real cuando alguien espera—. Esas dos fuerzas, la paciencia y el ahorro, son el suelo del que brota la primera señal que vamos a juzgar. A conocerlas dedicamos los dos capítulos que siguen; con ellas en la mano, y las gafas puestas, estaremos por fin listos para leer la señal más manipulada de todas.
+
+
+---
+
 _Primer cimiento_
 
 # Saber esperar
@@ -334,65 +393,6 @@ Y alguien le cree. Vuelva a Hernando una última vez. Recibe el dinero impreso, 
 Eso es lo que un dinero deshonesto le hace a una sociedad entera —no a un Hernando, sino a millones a la vez—: les promete recursos que no están, y los pone a construir sobre el vacío. Porque el dinero, ya lo vio, no es un número en una pantalla. Es un mensaje. Y de que ese mensaje diga la verdad depende que lo que una sociedad construye se sostenga, o se derrumbe.
 
 Ya tenemos las dos piezas: la paciencia que mueve a esperar, y el ahorro real que esa espera libera. Y tenemos, de antes, las gafas para leer un precio. Es hora de juntarlas sobre la señal que las funde a las dos en una sola cifra —la que recoge cuánta paciencia hay en una sociedad y cuántos recursos quedaron de verdad libres—: la tasa de interés. Es el precio más importante que existe, y también el más manipulado. A él dedicamos lo que sigue.
-
-
----
-
-_Antes de las piezas · la pregunta del precio_
-
-# ¿Cuándo un precio dice la verdad?
-
-*A distinguir un movimiento que informa de uno que miente*
-
----
-
-El café subió. Usted lo nota en la tienda, en la factura, en lo que paga por el tinto de la mañana: lo que antes costaba mil ahora cuesta mil doscientos. Y casi siempre reaccionamos igual —con fastidio, como ante una mala noticia sin más—. Pero deténgase un segundo en algo que casi nadie se pregunta: *¿por qué* subió? Porque "el café subió" puede significar dos cosas que no se parecen en nada, aunque el número que usted ve sea exactamente el mismo.
-
-Puede ser que una helada arruinara las cosechas en Brasil, y ahora haya menos café en el mundo. O puede ser que el banco central haya impreso una montaña de dinero, y ese dinero, al circular, esté empujando hacia arriba el precio de todo —el café entre tantas cosas—. En el primer caso, el precio que subió le está diciendo algo verdadero: *hay menos café, es más escaso, conviene cuidarlo y conviene producir más*. En el segundo, no le dice nada del café —no hay menos que ayer—; solo refleja que hay más dinero dando vueltas. El mismo número, mil doscientos, significa en un caso una verdad sobre el mundo y en el otro una distorsión que no informa de nada real.
-
-Y este es el problema que vamos a resolver en este capítulo, porque es una de las herramientas más importantes que usted puede llevarse del libro entero. Todo el tiempo, los precios se mueven. Suben, bajan, oscilan. A esa inquietud de los precios la solemos llamar, con un dejo de reproche, *volatilidad* —y hemos aprendido a verla como un defecto, como algo malo que un buen dinero debería evitar—. Pero acabamos de ver que no todo movimiento es igual: algunos movimientos son información preciosa, y otros son puro engaño. Confundirlos —tratar a los dos como lo mismo— es el error que está detrás de casi todas las malas ideas sobre el dinero. Aprender a separarlos es aprender a leer. Porque un precio no es bueno ni malo. Es información. Y lo único que importa de una información es si es verdadera o falsa.
-
-Para no perderse entre los dos tipos de movimiento, conviene una imagen. Piense en una brújula. Su aguja apunta al norte, y eso le sirve para orientarse: la aguja le dice algo verdadero sobre el mundo —dónde está el norte—, y usted camina con confianza siguiéndola. Un precio honesto es exactamente eso: una aguja que apunta a algo real. Cuando el café se encarece porque de verdad hay menos café, el precio es una brújula funcionando: señala una escasez que existe, y quien la lee se orienta bien —consume con cuidado, o se lanza a producir más, sabiendo que hará falta—. Un precio no es, en el fondo, solo lo que algo cuesta: es un mensaje. Y como todo mensaje, puede ser verdadero o puede ser falso. Esa es la distinción que pasaremos el resto del capítulo aprendiendo a hacer.
-
-Ahora acerque un imán a esa brújula. La aguja se mueve —gira, se desvía, señala una dirección nueva con la misma firmeza de siempre—. Si usted no ve el imán, no tiene cómo saber que lo que la aguja marca ya no es el norte: parece tan convincente como antes. Camina seguro en la dirección que le indica, y se pierde. La aguja no se rompió; sigue moviéndose con naturalidad. Lo que pasa es que ya no responde al mundo, sino al imán.
-
-Eso es, exactamente, lo que el dinero creado de la nada le hace al sistema de precios. Cuando el banco central inyecta dinero nuevo, los precios se mueven —suben, cambian, oscilan— con la misma apariencia de siempre. Pero ya no se mueven porque el mundo cambió; se mueven porque alguien acercó un imán. El precio del café que sube por la helada y el que sube por la emisión se ven idénticos —la aguja apunta a un lado en los dos casos—, pero uno señala un norte real y el otro un norte fabricado. Y quien no sabe que hay un imán cerca —que es casi todo el mundo— lee la aguja desviada como si dijera la verdad, y orienta su vida por ella: invierte, ahorra, se endeuda, produce, siguiendo una dirección que no existe.
-
-Aquí está lo más difícil de aceptar, y lo más importante: *desde el precio mismo, usted no puede ver el imán*. El número que sube no trae una etiqueta que diga "este movimiento es real" o "este es por emisión". La aguja se ve igual en los dos casos. Por eso tanta gente vive desorientada sin saberlo: confía en precios que parecen informar y en realidad están desviados, y nunca ve la causa —porque el imán, el dinero que se crea de la nada, actúa lejos, en el sistema bancario, mucho antes de que el precio llegue a sus manos—.
-
-Entonces, si en un precio suelto no se ve el imán, ¿estamos condenados a la ceguera? No. Porque aunque un precio aislado no delate su causa, el *conjunto* de los precios sí lo hace. La distinción no se ve en una aguja sola; se ve en el patrón de todas. Y para eso conviene una segunda imagen, esta vez sobre el agua.
-
-Imagine un estanque en calma. Si cae una piedra, se forman ondas: círculos que nacen de un punto y se expanden hacia afuera. Mirando esas ondas, usted sabe dos cosas —que algo pasó, y dónde pasó—. Las ondas tienen un origen, un centro identificable. Así se mueven los precios cuando la causa es real: la helada encarece el café, y desde ahí las ondas se propagan —sube el café, suben los sustitutos, se ajustan los que dependen de él—, pero otras cosas no se mueven, o se mueven en sentido contrario. Si al mismo tiempo se descubrió un yacimiento de petróleo, la gasolina baja. Cada cambio real es una piedra distinta en un punto distinto: unos precios suben, otros bajan, cada uno apuntando a su propia escasez o abundancia. El patrón es desigual, con direcciones cruzadas —y esa misma desigualdad es la información: dibuja el mapa de lo que de verdad cambió en el mundo—.
-
-Ahora imagine que, en vez de una piedra, alguien empieza a verter agua por una esquina del estanque. El nivel sube —no de golpe ni parejo, sino avanzando desde esa esquina—: las orillas cercanas se mojan primero, las lejanas después. No hay un centro que señale un hecho del mundo; hay un punto de entrada —la esquina por donde se vierte— y una ola que se expande desde ahí. Así se mueven los precios cuando la causa es monetaria: el dinero nuevo entra por un punto —el banco central, los bancos— y empuja los precios hacia arriba en cascada, llegando antes a unos y después a otros. Y ese orden de llegada no es inocente: quien recibe el dinero nuevo primero compra a precios viejos, todavía bajos, y sale ganando; quien lo recibe último encuentra que todo ya subió antes de que su parte llegara, y sale perdiendo. No es que la marea suba parejo y al final todos queden igual de mojados —es que moja antes a unas orillas que a otras, y las primeras se benefician a costa de las últimas—. No es el patrón cruzado de la piedra —unos arriba por una escasez real, otros abajo por una abundancia real—; es una sola dirección, hacia arriba, propagándose desde la esquina, repartiendo ganancias y pérdidas según quién esté más cerca del punto de entrada. Que el agua entre por una esquina, y no que suba pareja en todo el estanque, no es un detalle de la imagen: es el mecanismo. Rothbard descarta de plano la versión simultánea —el dinero que se duplicara para todos a la vez—:
-
-> "El movimiento de los precios desde una situación de equilibrio a la otra no tendrá lugar de forma suave y simultánea. No tendrá lugar de acuerdo con el famoso ejemplo de David Hume y John Stuart Mill, en el que todo el mundo encuentra, al despertar, que su provisión de dinero se ha duplicado durante la noche."
->
-> — Rothbard, *El hombre, la economía y el Estado*, cap. 11
-
-Ahí está la clave para distinguirlos sin ver el imán directamente. Cuando solo cambian algunos precios, en direcciones distintas, con sentido —unos suben porque algo escaseó, otros bajan porque algo abundó—, eso es información: piedras en el estanque, cada una marcando un hecho real. Cuando casi todos los precios suben a la vez, sostenidamente, sin que haya pasado nada en el mundo que lo explique, eso es el agua entrando por la esquina: la marca del dinero que se creó de la nada. El primero es un mapa de la realidad; el segundo, la huella de la imprenta. (Ese desfase —que el agua moje antes a unas orillas que a otras— tiene consecuencias profundas, y le dedicaremos un capítulo entero más adelante; por ahora basta con reconocer la forma.)
-
-Y ahora fíjese en lo que esto revela sobre el dinero, porque es lo que ata este capítulo a todos los demás. El agua vertida por la esquina —el movimiento falso de los precios— necesita que alguien pueda verter agua. Es decir: necesita un dinero que se pueda crear de la nada. Donde el dinero es duro, donde nadie puede fabricar unidades por decreto, no hay esquina por donde entre agua nueva: el estanque solo se mueve cuando cae una piedra —cuando algo real cambia en el mundo—. Los precios siguen moviéndose, claro, a veces mucho; pero todos sus movimientos son piedras, todos dicen una verdad. La brújula nunca tiene un imán cerca, porque no existe quien lo acerque.
-
-De modo que la volatilidad no es una sola cosa que el dinero bueno elimine y el malo permita. Son dos cosas opuestas que conviene no volver a confundir. Está el movimiento honesto —las piedras, las agujas que apuntan a un norte real— y ese existe con cualquier dinero, y es bueno: es la información fluyendo. Y está el movimiento falso —el agua vertida, la aguja desviada por el imán— y ese solo aparece cuando el dinero se puede crear de la nada. El dinero honesto no aquieta los precios: deja intactas todas las piedras, y se limita a que nadie pueda verter agua. No silencia la información; elimina el ruido. El dinero deshonesto hace lo contrario: suma su agua a las piedras, hasta que ya no se distingue cuál onda vino de un hecho real y cuál de la imprenta.
-
-Esto nos deja en posición de desarmar una de las creencias más extendidas y más dañinas sobre el dinero. Pregúntele a casi cualquier economista, o lea el mandato de casi cualquier banco central, y le dirán que el buen dinero es el que mantiene los precios *estables* —quietos, sin sobresaltos, subiendo apenas un poquito predecible cada año—. La volatilidad, desde esa óptica, es el enemigo: un buen dinero sería el que la elimina.
-
-Pero ya tenemos las herramientas para ver por qué eso está mal de raíz. Querer los precios quietos es querer un estanque sin ondas. Y un estanque sin ondas no es un estanque sano: es uno donde se prohibieron hasta las piedras —donde la información dejó de fluir—. Los precios se mueven, cuando el dinero es honesto, porque el mundo se mueve: porque hubo una helada, un invento, una mina nueva, una guerra. Cada uno de esos movimientos es una verdad que alguien necesita saber. Aquietarlos a la fuerza no hace al dinero mejor: ciega a la sociedad.
-
-Piénselo como un termómetro. La fiebre es desagradable, pero el número que la marca es información que salva: dice que hay una infección, que hay que actuar. A nadie sensato se le ocurre que la cura sea meter el termómetro en hielo para que marque 37 —el cuerpo seguiría enfermo, solo que ahora a ciegas—. Pues bien: perseguir la "estabilidad de precios" a la fuerza es exactamente eso, meter el termómetro en hielo. Los precios que querían avisar de una escasez se mantienen quietos por decreto, y la sociedad pierde la información que necesitaba.
-
-Y hay un vuelco final, el más revelador de todos. ¿Cómo hace un banco central para mantener "estable" el nivel general de precios? Inyectando o retirando dinero —vertiendo agua en el estanque, o sacándola—. Es decir: para que el promedio no se mueva, mueve el dinero. Y al mover el dinero, deforma los precios relativos, que es el único movimiento que de verdad miente. En nombre de la estabilidad, produce la distorsión. Persigue un número quieto en la superficie y, para lograrlo, agita el agua por debajo. El remedio *es* la enfermedad. No es una opinión: es una imposibilidad demostrable. Como lo expresa Rothbard,
-
-> "El programa estabilizador de fijar el valor del dinero o el nivel de precios sin distorsionar los precios relativos está necesariamente destinado al fracaso. Se trata de un programa imposible."
->
-> — Rothbard, *El hombre, la economía y el Estado*, cap. 11, secc. 14
-
-Por eso este libro no juzga al dinero por si mantiene los precios quietos, sino por algo muy distinto: por si deja que digan la verdad. Un buen dinero no aquieta el estanque. Solo se asegura de que nadie, nunca, pueda verter agua en él.
-
-Tiene, por fin, las gafas puestas. De aquí en adelante, ante cada precio que se mueva, usted ya sabrá hacerse la única pregunta que importa: este movimiento, ¿es una piedra o es agua vertida? ¿Me está diciendo algo verdadero sobre el mundo, o solo me llega la onda de una imprenta lejana?
-
-Pero antes de usar las gafas hace falta saber sobre qué vamos a mirar primero. De todas las señales que el dinero transmite, hay una más importante que las demás: la que le pone precio al tiempo mismo. No nace de una cosecha ni de una mina, sino de algo que llevamos dentro cada uno de nosotros —de cuánto estamos dispuestos a esperar, y de lo que ocurre en el mundo real cuando alguien espera—. Esas dos fuerzas, la paciencia y el ahorro, son el suelo del que brota la primera señal que vamos a juzgar. A conocerlas dedicamos los dos capítulos que siguen; con ellas en la mano, y las gafas puestas, estaremos por fin listos para leer la señal más manipulada de todas.
 
 
 ---

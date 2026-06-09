@@ -43,10 +43,11 @@ CHAPTERS = [
     "dinero-como-informacion.html",
     "criterio-de-evaluacion.html",
     "tres-formas-organizar-dinero.html",
+    # Bisagra entre Bloque I y Bloque II
+    "cuando-un-precio-dice-la-verdad.html",
     # Bloque II · Los cimientos
     "preferencia-temporal.html",
     "ahorro-real.html",
-    "cuando-un-precio-dice-la-verdad.html",
     # Bloque III · La anatomía
     "tasa-de-interes.html",
     "asignacion-intertemporal.html",
