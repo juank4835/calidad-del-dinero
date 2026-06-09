@@ -32,9 +32,29 @@ ROOT = Path(__file__).resolve().parent.parent
 # ALLOWLIST: capítulos al estándar (modo strict)
 # ──────────────────────────────────────────────────────────────────────
 STANDARD_ALLOWLIST = {
+    # Bloque I
     "dinero-como-informacion.html",
     "criterio-de-evaluacion.html",
     "tres-formas-organizar-dinero.html",
+    # Bloque II
+    "preferencia-temporal.html",
+    "ahorro-real.html",
+    "cuando-un-precio-dice-la-verdad.html",
+    # Bloque III
+    "tasa-de-interes.html",
+    "asignacion-intertemporal.html",
+    "deteccion-mala-inversion.html",
+    "precios-relativos.html",
+    "predictibilidad-estructural.html",
+    "poder-adquisitivo.html",
+    "asignacion-credito.html",
+    "auditabilidad.html",
+    # Bisagra
+    "por-que-no-volver-al-oro.html",
+    # Bloque IV
+    "el-horizonte-se-acorta.html",
+    "deforestacion.html",
+    "degradacion-alimentaria.html",
 }
 
 # Todos los caps del libro (orden canónico) — usado para validar TODO
