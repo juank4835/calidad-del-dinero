@@ -29,6 +29,10 @@ def extract(html: str) -> str:
         r'<aside[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</aside>',
         r'<blockquote[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</blockquote>',
         r'<cite[^>]*class="[^"]*no-audio[^"]*"[^>]*>.*?</cite>',
+        # ornament visual «• • •»: decorativo, NO debe leerse (el TTS
+        # lo pronunciaría como tres puntos sueltos y desalinearía los
+        # spans karaoke).
+        r'<div[^>]*class="[^"]*ornament[^"]*"[^>]*>.*?</div>',
         # UI de usabilidad-v1 (skip-link, panel de ajustes, barra de progreso,
         # botón «continuar donde ibas», tarjeta «siguiente capítulo»): nada de
         # esto debe llegar al TTS — no es contenido del libro
