@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es" data-theme="sepia">
+<head>
+<meta charset="utf-8">
+<title>Recuadro cap 3 — variantes</title>
+<style>
+/* === variables del libro === */
+:root {
+  --bg: #f3ead6; --surface: #e9dcc0; --ink: #2f2718; --ink-soft: #6e6048;
+  --rule: #d6c9ab; --verde: #5a7a4a; --rojo: #b54a3a;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Source Serif Pro", Georgia, serif;
+}
+:root[data-theme="oscuro"] {
+  --bg: #1a1a1a; --surface: #262626; --ink: #e8e6e1; --ink-soft: #9c9690;
+  --rule: #3a3a3a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 19px; line-height: 1.7;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+h1 { font-family: var(--font-display); font-weight: 400; font-size: 2.4rem; margin: 0 0 0.4rem; }
+.intro { color: var(--ink-soft); font-style: italic; margin: 0 0 2.5rem; }
+.theme-pick {
+  display: flex; gap: 0.5rem; margin-bottom: 3rem;
+  padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule);
+}
+.theme-pick button {
+  background: var(--surface); border: 1px solid var(--rule); color: var(--ink);
+  padding: 0.4rem 0.9rem; cursor: pointer; font-family: inherit;
+  font-size: 0.85rem; border-radius: 4px;
+}
+.theme-pick button:hover { background: var(--ink-soft); color: var(--bg); }
+
+.variante {
+  margin: 0 0 4.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.variante:last-child { border-bottom: none; }
+.label {
+  display: inline-block; font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  background: var(--surface); padding: 0.3rem 0.7rem; border-radius: 3px;
+  margin-bottom: 1.3rem;
+}
+.variante h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.3rem; margin: 0 0 0.4rem;
+}
+.variante .nota {
+  color: var(--ink-soft); font-size: 0.88rem; font-style: italic;
+  margin: 0 0 2rem; max-width: 540px;
+}
+
+/* contexto: párrafo previo simulando el cierre del cap */
+.prev-paragraph {
+  margin: 0 0 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  border-left: 2px dotted var(--rule);
+  padding-left: 1rem;
+}
+
+/* ===================================================== */
+/* VARIANTE A — la actual (referencia: caja gris) */
+/* ===================================================== */
+.va-actual .recuadro {
+  margin: 2.6rem 0 0; padding: 1.5rem 1.7rem;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
+}
+.va-actual .recuadro-tag {
+  display: block; font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.9rem;
+}
+.va-actual .recuadro p { margin: 0 0 0.7rem; }
+.va-actual .recuadro p:last-child { margin: 0; }
+
+/* ===================================================== */
+/* VARIANTE B — hairlines arriba/abajo, sin fondo */
+/* ===================================================== */
+.vb-hairlines .recuadro {
+  margin: 3rem 0 0; padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: none;
+}
+.vb-hairlines .recuadro-tag {
+  display: block; font-size: 0.68rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 1rem; text-align: center;
+}
+.vb-hairlines .recuadro p { margin: 0 0 0.7rem; }
+.vb-hairlines .recuadro p:last-child { margin: 0; }
+
+/* ===================================================== */
+/* VARIANTE C — ornament + cursiva centrada, sin nada más */
+/* ===================================================== */
+.vc-ornament .recuadro {
+  margin: 3rem 0 0; padding: 0;
+  background: none; border: none;
+  text-align: center;
+}
+.vc-ornament .recuadro::before {
+  content: "•  •  •";
+  display: block;
+  color: var(--ink-soft);
+  letter-spacing: 0.5em;
+  font-size: 0.7rem;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+.vc-ornament .recuadro-tag {
+  display: block; font-size: 0.68rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+.vc-ornament .recuadro p {
+  margin: 0 0 1rem; font-style: italic;
+  color: var(--ink-soft);
+}
+.vc-ornament .recuadro p:last-child { margin: 0; }
+
+/* ===================================================== */
+/* VARIANTE D — diagrama de tres columnas */
+/* ===================================================== */
+.vd-columnas .recuadro {
+  margin: 3rem 0 0; padding: 1.8rem 0;
+  background: none;
+  border-top: 1px solid var(--rule);
+}
+.vd-columnas .recuadro-tag {
+  display: block; font-size: 0.68rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 1.3rem;
+}
+.vd-columnas .recuadro .lead-text {
+  margin: 0 0 1.8rem; color: var(--ink-soft); font-size: 0.95rem;
+}
+.vd-columnas .cols {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.4rem;
+}
+.vd-columnas .col { text-align: left; }
+.vd-columnas .col .nombre {
+  display: block; font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 500; color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem; margin-bottom: 0.5rem;
+}
+.vd-columnas .col .desc {
+  display: block; color: var(--ink-soft); font-size: 0.86rem;
+  font-style: italic; line-height: 1.45;
+}
+@media (max-width: 600px) {
+  .vd-columnas .cols { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* ===================================================== */
+/* VARIANTE E — left-rule vertical, sin caja */
+/* ===================================================== */
+.ve-leftrule .recuadro {
+  margin: 3rem 0 0;
+  padding: 0.4rem 0 0.4rem 1.7rem;
+  border-left: 2px solid var(--rule);
+  background: none;
+}
+.ve-leftrule .recuadro-tag {
+  display: block; font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+}
+.ve-leftrule .recuadro p { margin: 0 0 0.65rem; }
+.ve-leftrule .recuadro p:last-child { margin: 0; }
+
+/* ===================================================== */
+/* VARIANTE F — tres mantras en una línea, sin tag */
+/* ===================================================== */
+.vf-mantra .recuadro {
+  margin: 3rem 0 0; padding: 1.2rem 0 0;
+  background: none; border: none;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+.vf-mantra .recuadro p {
+  margin: 0 0 0.7rem; color: var(--ink-soft); font-size: 0.95rem;
+}
+.vf-mantra .recuadro .mantras {
+  margin: 0; color: var(--ink); font-size: 1rem; line-height: 1.9;
+}
+.vf-mantra .recuadro .mantras .nombre {
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 500; color: var(--ink);
+}
+.vf-mantra .recuadro .mantras .sep {
+  display: inline-block; margin: 0 0.5rem; color: var(--ink-soft);
+  opacity: 0.5;
+}
+
+/* ===================================================== */
+/* VARIANTE G — small-caps tag a la izquierda como apostilla */
+/* ===================================================== */
+.vg-apostilla .recuadro {
+  margin: 3rem 0 0; padding: 1.5rem 0;
+  background: none;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+.vg-apostilla .recuadro-tag {
+  font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  padding-top: 0.2rem;
+}
+.vg-apostilla .recuadro .cuerpo p { margin: 0 0 0.7rem; }
+.vg-apostilla .recuadro .cuerpo p:last-child { margin: 0; }
+@media (max-width: 600px) {
+  .vg-apostilla .recuadro { grid-template-columns: 1fr; gap: 0.6rem; }
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Recuadro «En síntesis» — variantes</h1>
+  <p class="intro">7 alternativas al final del cap 3. La A es la actual; B–G son más sutiles. Mismo CSS-base del libro (variables, tipografía, colores). Mira con tema oscuro y sepia.</p>
+
+  <div class="theme-pick">
+    <button onclick="document.documentElement.setAttribute('data-theme','sepia')">sepia</button>
+    <button onclick="document.documentElement.setAttribute('data-theme','oscuro')">oscuro</button>
+    <button onclick="document.documentElement.setAttribute('data-theme','claro')">claro</button>
+  </div>
+
+  <!-- ============ A — actual ============ -->
+  <section class="variante va-actual">
+    <span class="label">A · actual (referencia)</span>
+    <h2>Caja gris con border-radius</h2>
+    <p class="nota">Lo que está en producción. Bloque sólido, marca claramente que es "otra cosa", pero pesa visualmente y compite con el flujo lector.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <p><strong>Dinero duro</strong> (oro y Bitcoin) — lo respeta.<br>
+         <strong>Banca libre</strong> — lo rompe a medias.<br>
+         <strong>Banca central</strong> — lo rompe del todo.</p>
+    </aside>
+  </section>
+
+  <!-- ============ B — hairlines ============ -->
+  <section class="variante vb-hairlines">
+    <span class="label">B · hairlines</span>
+    <h2>Dos hairlines arriba y abajo, sin fondo</h2>
+    <p class="nota">Mismo lenguaje del <code>blockquote.lema</code>: dos líneas finas que abrazan el contenido. Tag centrado arriba. Muy del libro, muy quieto. Cero ruido.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <p><strong>Dinero duro</strong> (oro y Bitcoin) — lo respeta.<br>
+         <strong>Banca libre</strong> — lo rompe a medias.<br>
+         <strong>Banca central</strong> — lo rompe del todo.</p>
+    </aside>
+  </section>
+
+  <!-- ============ C — ornament + cursiva ============ -->
+  <section class="variante vc-ornament">
+    <span class="label">C · ornament + cursiva</span>
+    <h2>Tres puntos centrados, todo en cursiva</h2>
+    <p class="nota">El <code>• • •</code> que el libro ya usa para abrir el cap, ahora reutilizado para cerrar. Cuerpo en cursiva y color soft. Más como una coda que como un recuadro. Lo más "literario" de las opciones.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <p><strong>Dinero duro</strong> (oro y Bitcoin) — lo respeta.<br>
+         <strong>Banca libre</strong> — lo rompe a medias.<br>
+         <strong>Banca central</strong> — lo rompe del todo.</p>
+    </aside>
+  </section>
+
+  <!-- ============ D — diagrama tres columnas ============ -->
+  <section class="variante vd-columnas">
+    <span class="label">D · diagrama</span>
+    <h2>Tres columnas, comparación visual</h2>
+    <p class="nota">Las tres formas alineadas como un mini-cuadro comparativo. Cada nombre arriba, su consecuencia abajo en cursiva. Sin caja. Útil porque hace visible la simetría. En móvil se apilan.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <p class="lead-text">El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <div class="cols">
+        <div class="col">
+          <span class="nombre">Dinero duro</span>
+          <span class="desc">oro y Bitcoin<br>lo respeta</span>
+        </div>
+        <div class="col">
+          <span class="nombre">Banca libre</span>
+          <span class="desc">lo rompe<br>a medias</span>
+        </div>
+        <div class="col">
+          <span class="nombre">Banca central</span>
+          <span class="desc">lo rompe<br>del todo</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ E — left rule ============ -->
+  <section class="variante ve-leftrule">
+    <span class="label">E · left-rule</span>
+    <h2>Hairline vertical a la izquierda</h2>
+    <p class="nota">Como el <code>pull-quote</code> del libro pero sin cursiva. Un solo border-left de 2px. Sutil, conserva el peso del texto.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+      <p><strong>Dinero duro</strong> (oro y Bitcoin) — lo respeta.<br>
+         <strong>Banca libre</strong> — lo rompe a medias.<br>
+         <strong>Banca central</strong> — lo rompe del todo.</p>
+    </aside>
+  </section>
+
+  <!-- ============ F — mantras en una línea ============ -->
+  <section class="variante vf-mantra">
+    <span class="label">F · mantras</span>
+    <h2>Tres mantras alineados, sin tag</h2>
+    <p class="nota">Sin tag «En síntesis» — la propia estructura habla. Una hairline arriba, intro centrada, las tres formas como tres frases breves debajo, separadas por · . Estilo coda zen.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada.</p>
+      <div class="mantras">
+        <span class="nombre">Dinero duro</span> lo respeta.
+        <span class="sep">·</span>
+        <span class="nombre">Banca libre</span> lo rompe a medias.
+        <span class="sep">·</span>
+        <span class="nombre">Banca central</span> lo rompe del todo.
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ G — apostilla a la izquierda ============ -->
+  <section class="variante vg-apostilla">
+    <span class="label">G · apostilla</span>
+    <h2>Tag en columna lateral, estilo libro académico</h2>
+    <p class="nota">«En síntesis» a la izquierda en uppercase pequeño, contenido a la derecha. Convención de libro académico (Penguin Classics, OUP). Discreto y le da estructura visual sin caja.</p>
+    <p class="prev-paragraph">…hay otra capa más en esta historia, que es lo que ocurre cuando alguien ahorra.</p>
+    <aside class="recuadro">
+      <span class="recuadro-tag">En síntesis</span>
+      <div class="cuerpo">
+        <p>El dinero se puede organizar según cómo cada forma trata el acuerdo de no crear dinero de la nada:</p>
+        <p><strong>Dinero duro</strong> (oro y Bitcoin) — lo respeta.<br>
+           <strong>Banca libre</strong> — lo rompe a medias.<br>
+           <strong>Banca central</strong> — lo rompe del todo.</p>
+      </div>
+    </aside>
+  </section>
+
+</div>
+</body>
+</html>

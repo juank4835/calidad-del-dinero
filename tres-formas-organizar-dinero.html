@@ -324,22 +324,21 @@ blockquote.lema {
   display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
 }
 
-/* ===== Recuadro de resumen / caja destacada ===== */
+/* ===== Recuadro de resumen — variante hairlines (sutil, mismo lenguaje del lema) ===== */
 .prose .recuadro {
-  margin: 2.6rem 0; padding: 1.5rem 1.7rem;
-  background: var(--surface); border: 1px solid var(--rule); border-radius: 8px;
+  margin: 3rem 0 1rem; padding: 1.5rem 0;
+  background: none;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 .prose .recuadro .recuadro-tag {
-  display: block; font-size: 0.72rem; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.9rem;
+  display: block; text-align: center;
+  font-size: 0.68rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 1rem;
 }
-.prose .recuadro p {
-  margin: 0 0 0.7rem;
-}
-.prose .recuadro p:last-child { margin-bottom: 0; }
-@media (max-width: 640px) {
-  .prose .recuadro { padding: 1.1rem 1.2rem; }
-}
+.prose .recuadro p { margin: 0 0 0.7rem; }
+.prose .recuadro p:last-child { margin: 0; }
 </style>
 </head>
 <body>
