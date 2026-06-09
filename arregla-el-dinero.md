@@ -13,7 +13,7 @@
 3. Las tres formas de organizar el dinero
 4. La preferencia temporal
 5. El ahorro real
-6. Cuándo un precio dice la verdad
+6. ¿Cuándo un precio dice la verdad?
 7. La tasa de interés
 8. La asignación intertemporal
 9. La detección de la mala inversión
@@ -314,7 +314,7 @@ Piénselo un momento, porque es más grave de lo que parece a primera vista. Si 
 
 _Concepto previo_
 
-# Cuándo un precio dice la verdad
+# ¿Cuándo un precio dice la verdad?
 
 *A distinguir un movimiento que informa de uno que miente*
 
