@@ -108,7 +108,7 @@ def main():
     out = re.sub(r'<article class="page"[^>]*>.*?</article>',
                  lambda _m: article, out, count=1, flags=re.DOTALL)
     new_nav = ('<nav class="nav-foot">'
-               '<a class="prev" href="tres-formas-organizar-dinero.html">Las tres formas de organizar el dinero</a>'
+               '<a class="prev" href="cuando-un-precio-dice-la-verdad.html">¿Cuándo un precio dice la verdad?</a>'
                '<a class="idx" href="index.html">Índice</a>'
                '<a class="next" href="ahorro-real.html">Lo que la espera libera</a></nav>')
     out = re.sub(r'<nav class="nav-foot">.*?</nav>',

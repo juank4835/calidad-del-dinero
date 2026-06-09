@@ -50,7 +50,9 @@ CONTENT = [
 
     'Y alguien le cree. Vuelva a Hernando una última vez. Recibe el dinero impreso, lee el aviso que siempre supo leer —"hay cemento, hay acero, adelante con tu taller"— y hace lo que haría cualquiera: empieza a construir. Compra lo que puede, levanta los muros, y a mitad de obra descubre que los materiales no alcanzan, que cada cosa cuesta más de lo que esperaba, que algo no cuadra. No fue mala suerte ni mal cálculo. Fue que el aviso mentía: le prometieron un cemento que nadie había producido. Hernando hizo todo bien; construyó sobre un mundo que solo existía en el mensaje.',
 
-    'Eso es lo que un dinero deshonesto le hace a una sociedad entera —no a un Hernando, sino a millones a la vez—: les promete recursos que no están, y los pone a construir sobre el vacío. A entender cómo ocurre eso, pieza por pieza, y qué señales se corrompen en el camino, dedicaremos lo que viene. Porque el dinero, ya lo vio, no es un número en una pantalla. Es un mensaje. Y de que ese mensaje diga la verdad depende que lo que una sociedad construye se sostenga, o se derrumbe.',
+    'Eso es lo que un dinero deshonesto le hace a una sociedad entera —no a un Hernando, sino a millones a la vez—: les promete recursos que no están, y los pone a construir sobre el vacío. Porque el dinero, ya lo vio, no es un número en una pantalla. Es un mensaje. Y de que ese mensaje diga la verdad depende que lo que una sociedad construye se sostenga, o se derrumbe.',
+
+    'Ya tenemos las dos piezas: la paciencia que mueve a esperar, y el ahorro real que esa espera libera. Y tenemos, de antes, las gafas para leer un precio. Es hora de juntarlas sobre la señal que las funde a las dos en una sola cifra —la que recoge cuánta paciencia hay en una sociedad y cuántos recursos quedaron de verdad libres—: la tasa de interés. Es el precio más importante que existe, y también el más manipulado. A él dedicamos lo que sigue.',
 ]
 
 
@@ -86,7 +88,7 @@ def main():
     new_nav = ('<nav class="nav-foot">'
                '<a class="prev" href="preferencia-temporal.html">Saber esperar</a>'
                '<a class="idx" href="index.html">Índice</a>'
-               '<a class="next" href="cuando-un-precio-dice-la-verdad.html">¿Cuándo un precio dice la verdad?</a></nav>')
+               '<a class="next" href="tasa-de-interes.html">La tasa de interés</a></nav>')
     out = re.sub(r'<nav class="nav-foot">.*?</nav>',
                  lambda _m: new_nav, out, count=1, flags=re.DOTALL)
     out = out.replace('audio/tres-regimenes.mp3', 'audio/ahorro-real.mp3')

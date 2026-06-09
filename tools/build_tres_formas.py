@@ -98,7 +98,7 @@ CONTENT = [
 
         'Antes de seguir, conviene detenerse en algo que cambiará la forma de leer todo lo que viene. Estas tres formas de organizar el dinero no son un asunto que ahora cerramos para pasar a otra cosa. Son el suelo sobre el que se parará el resto del libro. Porque cada cosa que examinaremos de aquí en adelante —la paciencia de una sociedad, su ahorro, la tasa de interés, los precios que coordinan a millones— no flota en el aire: viaja sobre el dinero. Y por eso hereda su honestidad o su mentira. Donde el dinero respeta el acuerdo, esas señales pueden decir la verdad. Donde el dinero se crea de la nada, todas nacen contaminadas: no hay forma de que la tasa diga la verdad si el dinero que la expresa es falso, ni de que el ahorro signifique algo si puede fabricarse de un plumazo. El tipo de dinero no es un tema más entre otros: es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.',
 
-        'Con esto cerramos los cimientos. Ya sabemos qué es el dinero —el sistema que transporta la información con que todos decidimos—, con qué vara se juzga —si esa información dice la verdad— y cuáles son las tres formas de organizarlo según cuánto la respetan. Pero hemos hablado de “la señal”, de “la información”, como si fueran una sola cosa abstracta. No lo son. La información que el dinero transmite tiene una forma concreta, cotidiana, que usted lee todos los días sin saber que la lee: son los precios, y sobre todo uno de ellos, el más importante y el más manipulado de todos. A entenderlo dedicaremos lo que viene. Pero antes necesitamos dos piezas que están debajo de todo precio: la paciencia, y lo que ocurre cuando alguien ahorra.',
+        'Ya sabemos, entonces, tres cosas: qué es el dinero —el sistema que transporta la información con que todos decidimos—, con qué vara se juzga —si esa información dice la verdad— y cuáles son las tres formas de organizarlo según cuánto la respetan. Pero hemos hablado de "la señal", de "la información", como si fueran una sola cosa abstracta. No lo son. La información que el dinero transmite tiene una forma concreta, cotidiana, que usted lee todos los días sin saber que la lee: son los precios. Y antes de entrar a las señales una por una, hace falta aprender a leerlas —saber cuándo un precio le está diciendo la verdad y cuándo le miente—, porque sin esa destreza todo lo que viene se leería a ciegas. Esa es la herramienta que necesitamos antes que ninguna otra, y a afilarla dedicamos lo que sigue.',
     ]),
 ]
 
@@ -161,7 +161,7 @@ out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, ou
 new_nav = ('<nav class="nav-foot">'
            '<a class="prev" href="criterio-de-evaluacion.html">La vara de la verdad</a>'
            '<a class="idx" href="index.html">Índice</a>'
-           '<a class="next" href="preferencia-temporal.html">Saber esperar</a></nav>')
+           '<a class="next" href="cuando-un-precio-dice-la-verdad.html">¿Cuándo un precio dice la verdad?</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
 out = out.replace('</style>', EXTRA_CSS + '</style>', 1)
 out = out.replace('audio/tres-regimenes.mp3', 'audio/tres-formas-organizar-dinero.mp3')
