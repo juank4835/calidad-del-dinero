@@ -36,3 +36,6 @@ audio-pruebas/
 audio/.splice_work/
 audio/.pause_work/
 .book.html
+
+# PDF se mantiene fuera del repo (el libro vive como MD + web)
+arregla-el-dinero.pdf
