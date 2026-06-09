@@ -228,7 +228,7 @@ Con esto cerramos los cimientos. Ya sabemos qué es el dinero —el sistema que 
 
 ---
 
-_Concepto previo_
+_Primer cimiento_
 
 # Saber esperar
 
@@ -287,7 +287,7 @@ Y si dice algo verdadero, entonces puede ser falsificada. Aquí es donde todo lo
 
 ---
 
-_Concepto previo_
+_Segundo cimiento_
 
 # Lo que la espera libera
 
@@ -312,7 +312,7 @@ Piénselo un momento, porque es más grave de lo que parece a primera vista. Si 
 
 ---
 
-_Concepto previo_
+_Antes de las piezas · la pregunta del precio_
 
 # ¿Cuándo un precio dice la verdad?
 

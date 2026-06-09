@@ -31,7 +31,7 @@ CHAPTERS = [
     "dinero-como-informacion.html",
     "criterio-de-evaluacion.html",
     "tres-formas-organizar-dinero.html",
-    # Bloque II · Conceptos previos
+    # Bloque II · Los cimientos
     "preferencia-temporal.html",
     "ahorro-real.html",
     "cuando-un-precio-dice-la-verdad.html",
