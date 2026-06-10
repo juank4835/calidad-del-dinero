@@ -22,8 +22,9 @@ Estructura:
 import re
 
 EYEBROW = "Bloque III · La anatomía de la falsificación"
-TITLE = "La tasa de interés"
-SUBTITLE = "La paciencia de una sociedad, vuelta información"
+TITLE = "El precio del tiempo"
+TITLE_TECNICO = "La tasa de interés"
+SUBTITLE = "Por qué la tasa de interés no es el precio del dinero"
 
 CONTENT = [
     ("lead",
@@ -33,7 +34,7 @@ CONTENT = [
 
     'Lo difícil viene después. Llega el viernes. Llega la cuota. Llega la factura. Llega el mensaje de cobro. Y entonces aparece una pregunta que estaba escondida desde el principio: ¿cuánto cuesta traer al presente un dinero que todavía no se ha ganado?',
 
-    'Ese costo tiene un nombre que usted ha escuchado toda la vida: la tasa de interés. La escucha en las noticias. "El banco central subió las tasas". "El banco central las bajó". Suena como algo lejano, propio de economistas, banqueros y funcionarios de corbata. Pero es exactamente la misma idea que estaba detrás del fiado, de la tarjeta, del crédito para la moto o del préstamo del barrio. La tasa de interés es el precio del tiempo: lo que alguien exige para entregarle hoy algo que, de otro modo, usted solo tendría mañana.',
+    'Ese costo tiene un nombre que usted ha escuchado toda la vida: la tasa de interés. La escucha en las noticias. "El banco central subió las tasas". "El banco central las bajó". Suena como algo lejano, propio de economistas, banqueros y funcionarios de corbata. Pero es exactamente la misma idea que estaba detrás del fiado, de la tarjeta, del crédito para la moto o del préstamo del barrio. Y conviene decirla completa, porque ahí vive la primera sorpresa: la tasa de interés es el precio del tiempo, no el precio del dinero. Solemos pensar que el interés es lo que cuesta "alquilar" unos billetes; pero lo que el que presta le entrega al que pide no es, en el fondo, dinero: es tiempo —una espera que él ya hizo y que el otro no quiere hacer—. El dinero es solo el vehículo en que ese tiempo viaja de uno a otro. El interés es lo que alguien exige para entregarle hoy algo que, de otro modo, usted solo tendría mañana.',
 
     'Y para la mayoría de las personas la historia termina ahí. La tasa simplemente existe. Aparece en la cuota, en el extracto, en el contrato —un número decidido por otros, en algún lugar lejano—. Pero pocos se hacen la pregunta que de verdad importa: ¿quién decide cuánto vale esperar?',
 
@@ -141,7 +142,7 @@ def main():
     sk = open('tres-regimenes.html', encoding='utf-8').read()
     out = sk
     out = re.sub(r'<title>.*?</title>',
-                 '<title>La tasa de interés — Arregla el dinero, arregla el mundo</title>',
+                 '<title>El precio del tiempo — Arregla el dinero, arregla el mundo</title>',
                  out, count=1, flags=re.DOTALL)
     out = re.sub(r'<article class="page"[^>]*>.*?</article>',
                  lambda _m: article, out, count=1, flags=re.DOTALL)

@@ -88,7 +88,7 @@ def main():
     new_nav = ('<nav class="nav-foot">'
                '<a class="prev" href="preferencia-temporal.html">Saber esperar</a>'
                '<a class="idx" href="index.html">Índice</a>'
-               '<a class="next" href="tasa-de-interes.html">La tasa de interés</a></nav>')
+               '<a class="next" href="tasa-de-interes.html">El precio del tiempo</a></nav>')
     out = re.sub(r'<nav class="nav-foot">.*?</nav>',
                  lambda _m: new_nav, out, count=1, flags=re.DOTALL)
     out = out.replace('audio/tres-regimenes.mp3', 'audio/ahorro-real.mp3')
