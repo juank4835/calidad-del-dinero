@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="es" data-theme="sepia">
+<head>
+<meta charset="utf-8">
+<title>Índice — nombres técnicos</title>
+<style>
+:root {
+  --bg: #f3ead6; --surface: #e9dcc0; --ink: #2f2718; --ink-soft: #6e6048;
+  --rule: #d6c9ab; --verde: #FF7A18; --rojo: #8A8A86;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Source Serif Pro", Georgia, serif;
+}
+:root[data-theme="oscuro"] {
+  --bg: #1a1a1a; --surface: #262626; --ink: #e8e6e1; --ink-soft: #9c9690;
+  --rule: #3a3a3a;
+}
+:root[data-theme="claro"] {
+  --bg: #fbf9f5; --surface: #eeeae3; --ink: #1a1916; --ink-soft: #5d584f;
+  --rule: #e2ddd3;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 19px; line-height: 1.7;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+h1.titulo-mockup { font-family: var(--font-display); font-weight: 400; font-size: 2.4rem; margin: 0 0 0.4rem; }
+.intro { color: var(--ink-soft); font-style: italic; margin: 0 0 2.5rem; }
+.theme-pick {
+  display: flex; gap: 0.5rem; margin-bottom: 3rem;
+  padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule);
+}
+.theme-pick button {
+  background: var(--surface); border: 1px solid var(--rule); color: var(--ink);
+  padding: 0.4rem 0.9rem; cursor: pointer; font-family: inherit;
+  font-size: 0.85rem; border-radius: 4px;
+}
+.theme-pick button:hover { background: var(--ink-soft); color: var(--bg); }
+
+.variante {
+  margin: 0 0 5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.variante:last-child { border-bottom: none; }
+.label {
+  display: inline-block; font-size: 0.7rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+  background: var(--surface); padding: 0.3rem 0.7rem; border-radius: 3px;
+  margin-bottom: 1.3rem;
+}
+.variante h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.3rem; margin: 0 0 0.4rem;
+}
+.variante .nota {
+  color: var(--ink-soft); font-size: 0.88rem; font-style: italic;
+  margin: 0 0 2rem; max-width: 540px;
+}
+
+/* === Estilo base del índice (igual al libro) === */
+.demo {
+  border-top: 1px solid var(--rule);
+  padding-top: 2rem;
+}
+.demo .bloque-tit {
+  font-family: var(--font-display);
+  font-size: 1.3rem; font-weight: 400;
+  margin: 0 0 0.4rem;
+}
+.demo .bloque-desc {
+  font-size: 0.92rem; color: var(--ink-soft); font-style: italic;
+  margin: 0 0 1.5rem;
+}
+.demo .cap {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+}
+.demo .cap .num {
+  font-family: var(--font-display);
+  font-size: 1.4rem; color: var(--ink-soft);
+}
+.demo .cap .titulo {
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.demo .cap .titulo:hover { border-bottom-color: var(--verde); }
+.demo .cap .estado {
+  font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+/* ============ VARIANTE A — toggle arriba del índice ============ */
+.va .controls {
+  display: flex; justify-content: flex-end; margin: 0 0 1.5rem;
+}
+.va .toggle {
+  font-size: 0.8rem; color: var(--ink-soft);
+  cursor: pointer; user-select: none;
+  padding: 0.3rem 0.7rem; border: 1px solid var(--rule);
+  border-radius: 4px; background: transparent;
+}
+.va .toggle:hover { background: var(--surface); }
+.va .toggle .state { font-style: italic; color: var(--ink); margin-left: 0.3em; }
+.va .cap .tecnico {
+  display: none;
+  grid-column: 2;
+  font-size: 0.82rem; font-style: italic;
+  color: var(--ink-soft); margin-top: 0.1rem;
+}
+.va.show-tecnicos .cap .tecnico { display: block; }
+
+/* ============ VARIANTE B — siempre visible, en pequeño bajo el título ============ */
+.vb .cap .titulo-wrap { display: flex; flex-direction: column; }
+.vb .cap .tecnico {
+  font-size: 0.78rem; font-style: italic;
+  color: var(--ink-soft); margin-top: 0.15rem;
+  letter-spacing: 0.02em;
+}
+
+/* ============ VARIANTE C — al hover (solo escritorio) ============ */
+.vc .cap .tecnico {
+  font-size: 0.78rem; font-style: italic;
+  color: var(--ink-soft); margin-top: 0.15rem;
+  opacity: 0; transition: opacity 0.25s;
+  height: 0; overflow: hidden;
+}
+.vc .cap:hover .tecnico {
+  opacity: 1; height: auto;
+}
+
+/* ============ VARIANTE D — toggle en cada cap (click individual) ============ */
+.vd .cap {
+  cursor: default;
+}
+.vd .cap .tecnico-toggle {
+  font-size: 0.72rem; color: var(--ink-soft); cursor: pointer;
+  margin-left: 0.5em; opacity: 0.5; user-select: none;
+}
+.vd .cap .tecnico-toggle:hover { opacity: 1; }
+.vd .cap .tecnico {
+  display: none;
+  grid-column: 2;
+  font-size: 0.82rem; font-style: italic;
+  color: var(--ink-soft); margin-top: 0.15rem;
+}
+.vd .cap.open .tecnico { display: block; }
+.vd .cap.open .tecnico-toggle { opacity: 1; }
+
+/* ============ VARIANTE E — toggle arriba + tecnicos como pequeños subtítulos ============ */
+.ve .controls {
+  text-align: center; margin: 0 0 2rem;
+}
+.ve .toggle {
+  font-size: 0.78rem; color: var(--ink-soft);
+  cursor: pointer; user-select: none;
+  letter-spacing: 0.04em;
+  border-bottom: 1px dotted var(--rule); padding-bottom: 1px;
+}
+.ve .toggle:hover { color: var(--ink); }
+.ve .cap {
+  transition: padding 0.25s;
+}
+.ve .cap .tecnico {
+  display: none;
+  grid-column: 2;
+  font-size: 0.78rem; font-style: italic;
+  color: var(--ink-soft); margin-top: 0.1rem;
+  letter-spacing: 0.02em;
+}
+.ve.show-tecnicos .cap .tecnico { display: block; }
+.ve.show-tecnicos .cap { padding: 0.7rem 0; }
+.ve.show-tecnicos .toggle::after { content: " (ocultar)"; }
+.ve:not(.show-tecnicos) .toggle::after { content: " (mostrar)"; }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1 class="titulo-mockup">Nombres técnicos en el índice</h1>
+  <p class="intro">El lector ve los títulos humanos en la página-casa. Pruebo formas de revelar el nombre técnico (preferencia temporal, ahorro real, etc.) cuando le interese. Solo aplica a los 6 caps con título distinto del técnico. Botones para sepia / oscuro / claro arriba.</p>
+
+  <div class="theme-pick">
+    <button onclick="document.documentElement.setAttribute('data-theme','sepia')">sepia</button>
+    <button onclick="document.documentElement.setAttribute('data-theme','oscuro')">oscuro</button>
+    <button onclick="document.documentElement.setAttribute('data-theme','claro')">claro</button>
+  </div>
+
+  <!-- ============ A — toggle arriba del índice ============ -->
+  <section class="variante va" id="va">
+    <span class="label">A · toggle arriba (recomendada)</span>
+    <h2>Toggle pequeño arriba del índice</h2>
+    <p class="nota">Un botón arriba del índice: «Ver nombres técnicos». Click → se despliegan los técnicos bajo el título de cada cap (solo los 6 que tienen). Click otra vez → se ocultan. Persistible con localStorage en la versión final.</p>
+    <div class="demo">
+      <div class="controls">
+        <button class="toggle" onclick="document.querySelector('#va .va').classList.toggle('show-tecnicos');" id="toggle-a"
+                onclick="document.getElementById('va').querySelector('.va') ? document.getElementById('va').querySelector('.va').classList.toggle('show-tecnicos') : null;">
+          Ver nombres técnicos
+        </button>
+      </div>
+      <div class="va" id="va-target">
+        <div class="bloque-tit">Bloque I · Fundamentos</div>
+        <p class="bloque-desc">Qué es el dinero y cómo se reconoce uno bueno.</p>
+        <div class="cap">
+          <span class="num">1</span>
+          <a class="titulo">El dinero es información</a>
+          <span class="estado">Completo</span>
+          <span class="tecnico">El dinero como sistema de información</span>
+        </div>
+        <div class="cap">
+          <span class="num">2</span>
+          <a class="titulo">La vara de la verdad</a>
+          <span class="estado">Completo</span>
+          <span class="tecnico">Criterio de evaluación</span>
+        </div>
+        <div class="cap">
+          <span class="num">3</span>
+          <a class="titulo">Las tres formas de organizar el dinero</a>
+          <span class="estado">Por revisar</span>
+          <span class="tecnico">Los regímenes monetarios</span>
+        </div>
+        <div class="cap">
+          <span class="num">4</span>
+          <a class="titulo">¿Cuándo un precio dice la verdad?</a>
+          <span class="estado">Por revisar</span>
+          <span class="tecnico">La función informativa del precio</span>
+        </div>
+        <div class="bloque-tit" style="margin-top: 2rem;">Bloque II · Los cimientos</div>
+        <p class="bloque-desc">Las dos piezas que están debajo de todo precio.</p>
+        <div class="cap">
+          <span class="num">5</span>
+          <a class="titulo">Saber esperar</a>
+          <span class="estado">Por revisar</span>
+          <span class="tecnico">La preferencia temporal</span>
+        </div>
+        <div class="cap">
+          <span class="num">6</span>
+          <a class="titulo">Lo que la espera libera</a>
+          <span class="estado">Por revisar</span>
+          <span class="tecnico">El ahorro real</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ B — siempre visible bajo el título ============ -->
+  <section class="variante vb">
+    <span class="label">B · siempre visible</span>
+    <h2>Línea pequeña bajo el título, sin toggle</h2>
+    <p class="nota">El técnico aparece SIEMPRE bajo el título del cap, en pequeño y color soft. Cero clicks. Pero ocupa espacio permanente y compite con el título humano.</p>
+    <div class="demo">
+      <div class="vb">
+        <div class="bloque-tit">Bloque II · Los cimientos</div>
+        <p class="bloque-desc">Las dos piezas que están debajo de todo precio.</p>
+        <div class="cap">
+          <span class="num">5</span>
+          <div class="titulo-wrap">
+            <a class="titulo">Saber esperar</a>
+            <span class="tecnico">La preferencia temporal</span>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+        <div class="cap">
+          <span class="num">6</span>
+          <div class="titulo-wrap">
+            <a class="titulo">Lo que la espera libera</a>
+            <span class="tecnico">El ahorro real</span>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ C — al hover ============ -->
+  <section class="variante vc">
+    <span class="label">C · hover</span>
+    <h2>Aparece al pasar el cursor</h2>
+    <p class="nota">El técnico aparece bajo el título cuando el cursor pasa por la fila del cap. Discreto en escritorio, pero NO funciona en móvil (no hay hover). Buen efecto pero accesibilidad limitada.</p>
+    <div class="demo">
+      <div class="vc">
+        <div class="bloque-tit">Bloque II · Los cimientos</div>
+        <p class="bloque-desc">Las dos piezas que están debajo de todo precio.</p>
+        <div class="cap">
+          <span class="num">5</span>
+          <div>
+            <a class="titulo">Saber esperar</a>
+            <div class="tecnico">La preferencia temporal</div>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+        <div class="cap">
+          <span class="num">6</span>
+          <div>
+            <a class="titulo">Lo que la espera libera</a>
+            <div class="tecnico">El ahorro real</div>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ D — click individual por cap ============ -->
+  <section class="variante vd">
+    <span class="label">D · click por cap</span>
+    <h2>Click en pequeño «+» de cada cap</h2>
+    <p class="nota">Cada cap tiene un pequeño «+» al lado del título. Click → revela el técnico solo de ese cap. Más granular pero requiere más clicks si quieres ver varios.</p>
+    <div class="demo">
+      <div class="vd">
+        <div class="bloque-tit">Bloque II · Los cimientos</div>
+        <p class="bloque-desc">Las dos piezas que están debajo de todo precio.</p>
+        <div class="cap">
+          <span class="num">5</span>
+          <div>
+            <a class="titulo">Saber esperar</a>
+            <span class="tecnico-toggle" onclick="this.closest('.cap').classList.toggle('open')">+</span>
+            <div class="tecnico">La preferencia temporal</div>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+        <div class="cap">
+          <span class="num">6</span>
+          <div>
+            <a class="titulo">Lo que la espera libera</a>
+            <span class="tecnico-toggle" onclick="this.closest('.cap').classList.toggle('open')">+</span>
+            <div class="tecnico">El ahorro real</div>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ E — toggle centrado discreto ============ -->
+  <section class="variante ve">
+    <span class="label">E · toggle centrado</span>
+    <h2>Toggle de texto centrado, sin botón</h2>
+    <p class="nota">Variante de A pero más discreta: en lugar de botón con borde, una pequeña frase clickeable centrada arriba del índice. «Ver nombres técnicos (mostrar)». Igual de funcional pero menos UI evidente.</p>
+    <div class="demo">
+      <div class="ve" id="ve-target">
+        <div class="controls">
+          <span class="toggle" onclick="document.getElementById('ve-target').classList.toggle('show-tecnicos')">
+            Ver nombres técnicos
+          </span>
+        </div>
+        <div class="bloque-tit">Bloque II · Los cimientos</div>
+        <p class="bloque-desc">Las dos piezas que están debajo de todo precio.</p>
+        <div class="cap">
+          <span class="num">5</span>
+          <div>
+            <a class="titulo">Saber esperar</a>
+            <div class="tecnico">La preferencia temporal</div>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+        <div class="cap">
+          <span class="num">6</span>
+          <div>
+            <a class="titulo">Lo que la espera libera</a>
+            <div class="tecnico">El ahorro real</div>
+          </div>
+          <span class="estado">Por revisar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script>
+// Fix de la variante A para que el toggle funcione
+document.getElementById('toggle-a').onclick = function() {
+  document.getElementById('va-target').classList.toggle('show-tecnicos');
+};
+</script>
+</body>
+</html>

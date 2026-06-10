@@ -79,6 +79,20 @@ body {
 .cap .grav {
   font-size: 0.72rem; color: var(--rojo); margin-left: 0.5rem; font-style: italic;
 }
+
+/* ===== Nombres técnicos (revelables al hover) ===== */
+.cap .titulo-wrap { display: flex; flex-direction: column; min-width: 0; }
+.cap .tecnico {
+  font-size: 0.78rem; font-style: italic;
+  color: var(--ink-soft); margin-top: 0.15rem;
+  letter-spacing: 0.02em;
+  opacity: 0; max-height: 0; overflow: hidden;
+  transition: opacity 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
+}
+.cap:hover .tecnico {
+  opacity: 1; max-height: 2em; margin-top: 0.2rem;
+}
+
 /* Sub-capítulo (corrección u otra versión): visualmente colgado del cap padre.
    Más sangría, tipografía un poco menor, opacidad sutil. */
 .cap.subcap { padding: 0.2rem 0 0.55rem 1.8rem; font-size: 0.94rem; }
@@ -229,22 +243,22 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 
     <div class="cap">
       <span class="num">1</span>
-      <a href="dinero-como-informacion.html" class="titulo">El dinero es información</a>
+      <div class="titulo-wrap"><a href="dinero-como-informacion.html" class="titulo">El dinero es información</a><span class="tecnico">El dinero como sistema de información</span></div>
       <span class="estado ok">Completo</span>
     </div>
     <div class="cap">
       <span class="num">2</span>
-      <a href="criterio-de-evaluacion.html" class="titulo">La vara de la verdad</a>
+      <div class="titulo-wrap"><a href="criterio-de-evaluacion.html" class="titulo">La vara de la verdad</a><span class="tecnico">Criterio de evaluación</span></div>
       <span class="estado ok">Completo</span>
     </div>
     <div class="cap">
       <span class="num">3</span>
-      <a href="tres-formas-organizar-dinero.html" class="titulo">Las tres formas de organizar el dinero</a>
+      <div class="titulo-wrap"><a href="tres-formas-organizar-dinero.html" class="titulo">Las tres formas de organizar el dinero</a><span class="tecnico">Los regímenes monetarios</span></div>
       <span class="estado prog">Por revisar</span>
     </div>
     <div class="cap">
       <span class="num">4</span>
-      <a href="cuando-un-precio-dice-la-verdad.html" class="titulo">¿Cuándo un precio dice la verdad?</a>
+      <div class="titulo-wrap"><a href="cuando-un-precio-dice-la-verdad.html" class="titulo">¿Cuándo un precio dice la verdad?</a><span class="tecnico">La función informativa del precio</span></div>
       <span class="estado prog">Por revisar</span>
     </div>
   </section>
@@ -256,12 +270,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 
     <div class="cap">
       <span class="num">5</span>
-      <a href="preferencia-temporal.html" class="titulo">Saber esperar</a>
+      <div class="titulo-wrap"><a href="preferencia-temporal.html" class="titulo">Saber esperar</a><span class="tecnico">La preferencia temporal</span></div>
       <span class="estado prog">Por revisar</span>
     </div>
     <div class="cap">
       <span class="num">6</span>
-      <a href="ahorro-real.html" class="titulo">Lo que la espera libera</a>
+      <div class="titulo-wrap"><a href="ahorro-real.html" class="titulo">Lo que la espera libera</a><span class="tecnico">El ahorro real</span></div>
       <span class="estado prog">Por revisar</span>
     </div>
   </section>
