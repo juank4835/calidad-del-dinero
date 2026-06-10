@@ -29,18 +29,20 @@ Continúa la plantilla:
 import re
 
 EYEBROW = "Cuarta pieza · gravedad media"
-TITLE = "Los precios relativos"
+TITLE = "Los primeros y los últimos"
 SUBTITLE = "El reparto oculto: quién recibe el dinero nuevo primero"
 
 CONTENT = [
     ("lead",
-     'Hay una pregunta que probablemente usted se ha hecho, aunque quizás nunca con estas palabras: ¿por qué, cada vez que se imprime dinero, los que ya están cerca del dinero parecen hacerse más ricos —los bancos, las grandes fortunas, los que tienen activos— mientras a usted la misma inflación lo empobrece? No es mala suerte ni paranoia. Es un mecanismo, ocurre siempre del mismo modo, y tiene nombre. Cuando lo vea funcionar, no podrá dejar de verlo.'),
+     'A usted le ha pasado esto, aunque quizá nunca lo haya puesto en números. Su sueldo subió este año —el aumento de siempre, el que cierra la cuenta de recursos humanos—. Y sin embargo el mercado alcanza para menos, el arriendo se llevó el aumento entero antes de que usted lo estrenara, y en las noticias, ese mismo año, los bancos anuncian utilidades récord. Entonces aparece la pregunta, aunque quizás nunca con estas palabras: ¿por qué, cada vez que se imprime dinero, los que ya están cerca del dinero parecen hacerse más ricos —los bancos, las grandes fortunas, los que tienen activos— mientras a usted la misma inflación lo empobrece? No es mala suerte ni paranoia. Es un mecanismo, ocurre siempre del mismo modo, y tiene nombre. Cuando lo vea funcionar, no podrá dejar de verlo.'),
 
     '¿Recuerda el agua vertida por la esquina del estanque —la que mojaba primero las orillas cercanas y después las lejanas—? Le prometimos entonces un capítulo entero para ese desfase. Es este. Para cobrarlo, hay que recordar por dónde entra el dinero nuevo: no cae del cielo sobre todos a la vez. Nace en un punto y de ahí fluye hacia afuera siguiendo un camino. Y ese punto no es solo el banco central: son sobre todo los bancos comerciales, que fabrican dinero nuevo cada vez que prestan —habilitados y respaldados por el banco central, pero son ellos quienes abren el grifo—. (A esa fábrica le dedicaremos su propio capítulo más adelante; por ahora basta con saber que el dinero nuevo entra por ahí.) De quien lo crea pasa a su clientela: las grandes empresas, los que tienen acceso al préstamo, los que están en la primera fila. De ahí, poco a poco, va goteando hacia el resto —los proveedores de esas empresas, sus empleados— hasta llegar, al final del recorrido, a la gente común: el asalariado, el pensionado, el que vive de un ingreso fijo. El dinero nuevo recorre la economía como el agua en aquel estanque: moja primero las orillas cercanas a la esquina por donde entra, y llega tarde, y ya diluido, a las orillas lejanas.',
 
     'Y aquí está el truco que lo cambia todo —y que casi nadie ve—. El que recibe el dinero nuevo <em>primero</em> lo gasta cuando los precios todavía no han subido. Compra a precios viejos, con dinero nuevo. El que lo recibe <em>último</em> se encuentra con que, para cuando le llega, los precios ya subieron —porque todos los que cobraron antes que él ya salieron a comprar y empujaron los precios hacia arriba—. Compra a precios nuevos, después de que el dinero ya perdió valor. El primero hizo su compra barata; el último la hace cara. Y la diferencia entre uno y otro no la paga nadie en una factura visible: se transfiere, en silencio, del último al primero.',
 
     'Pongámosle los personajes de siempre. Cuando el dinero nuevo entra, los primeros en gastarlo —los bancos que lo fabrican y las grandes empresas que acceden a ese crédito recién creado— salen a comprar: activos, propiedades, materiales. Lo hacen a los precios de ayer, que aún no reaccionan. Juan y Luisa, en cambio, están al final de la fila. Su sueldo sube —si sube— mucho después, cuando el arriendo, la comida y todo lo demás ya se encarecieron. Reciben más pesos nominales, sí, pero compran menos con ellos que antes.',
+
+    'Y usted conoce esa fila por dentro, porque está parado en ella. Su sueldo llega el treinta; cuando llega, el arriendo ya subió, el mercado ya subió, la pensión del colegio ya subió. Usted no hizo nada distinto este año. Solo cobra de último.',
 
     'No es, entonces, que la impresión de dinero reparta un beneficio para todos —"más dinero circulando, más prosperidad"—. Lo que hace es <em>redistribuir</em>: pasar riqueza de los que llegan tarde a los que llegan temprano. Rothbard la describe como lo que es, una carrera:',
 
@@ -104,7 +106,7 @@ def main():
     sk = open('tres-regimenes.html', encoding='utf-8').read()
     out = sk
     out = re.sub(r'<title>.*?</title>',
-                 '<title>Los precios relativos — Arregla el dinero, arregla el mundo</title>',
+                 '<title>Los primeros y los últimos — Arregla el dinero, arregla el mundo</title>',
                  out, count=1, flags=re.DOTALL)
     out = re.sub(r'<article class="page"[^>]*>.*?</article>',
                  lambda _m: article, out, count=1, flags=re.DOTALL)

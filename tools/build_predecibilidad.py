@@ -157,7 +157,7 @@ def main():
     out = re.sub(r'<article class="page"[^>]*>.*?</article>',
                  lambda _m: article, out, count=1, flags=re.DOTALL)
     new_nav = ('<nav class="nav-foot">'
-               '<a class="prev" href="precios-relativos.html">Los precios relativos</a>'
+               '<a class="prev" href="precios-relativos.html">Los primeros y los últimos</a>'
                '<a class="idx" href="index.html">Índice</a>'
                '<a class="next" href="poder-adquisitivo.html">El poder adquisitivo del dinero</a></nav>')
     out = re.sub(r'<nav class="nav-foot">.*?</nav>',
