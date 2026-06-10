@@ -18,7 +18,7 @@
 8. La longitud de la cadena
 9. El dolor que avisa
 10. Los primeros y los últimos
-11. La predecibilidad del dinero
+11. La cinta métrica
 12. El poder adquisitivo del dinero
 13. La asignación del crédito
 14. La auditabilidad del dinero
@@ -663,9 +663,9 @@ Hasta aquí, todas las señales que hemos visto comparten un supuesto que convie
 
 _Quinta pieza · gravedad media_
 
-# La predecibilidad del dinero
+# La cinta métrica
 
-*Por qué para construir el futuro hay que poder leerlo*
+*Por qué para construir el futuro hay que poder medirlo*
 
 ---
 

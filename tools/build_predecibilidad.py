@@ -45,8 +45,9 @@ Arco narrativo:
 import re
 
 EYEBROW = "Quinta pieza · gravedad media"
-TITLE = "La predecibilidad del dinero"
-SUBTITLE = "Por qué para construir el futuro hay que poder leerlo"
+TITLE = "La cinta métrica"
+TITLE_TECNICO = "La predecibilidad del dinero"
+SUBTITLE = "Por qué para construir el futuro hay que poder medirlo"
 
 CONTENT = [
     ("lead",
@@ -152,7 +153,7 @@ def main():
     sk = open('tres-regimenes.html', encoding='utf-8').read()
     out = sk
     out = re.sub(r'<title>.*?</title>',
-                 '<title>La predecibilidad del dinero — Arregla el dinero, arregla el mundo</title>',
+                 '<title>La cinta métrica — Arregla el dinero, arregla el mundo</title>',
                  out, count=1, flags=re.DOTALL)
     out = re.sub(r'<article class="page"[^>]*>.*?</article>',
                  lambda _m: article, out, count=1, flags=re.DOTALL)
