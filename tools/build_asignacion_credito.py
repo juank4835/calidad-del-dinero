@@ -10,8 +10,9 @@ números romanos suenan mal, y el narrador ya nombra al autor justo antes."""
 import re
 
 EYEBROW = "Séptima pieza · gravedad media"
-TITLE = "La asignación del crédito"
-SUBTITLE = "Quién recibe el crédito —y por qué casi nunca es usted"
+TITLE = "La puerta que no se abre"
+TITLE_TECNICO = "La asignación del crédito"
+SUBTITLE = "Quién recibe el crédito —y por qué casi nunca es usted—"
 
 # Items (sin secciones):
 #   ("lead", texto)        → primer párrafo con capital
@@ -19,6 +20,8 @@ SUBTITLE = "Quién recibe el crédito —y por qué casi nunca es usted"
 #   ("quote", texto, cita) → cita en bloque; el texto se narra, la cita no
 CONTENT = [
     ("lead", 'Dos personas entran al banco el mismo día a pedir un crédito. La primera es una empresa grande, conocida, con cuentas abiertas en esa entidad desde hace años y un gerente que almuerza con el director. La segunda es Juan, con un proyecto sólido —ha hecho los números, el negocio se sostiene— pero sin más respaldo que su trabajo y una idea buena. Usted ya sabe cómo termina la historia: a la empresa le aprueban el crédito esa misma semana, a una tasa baja; a Juan le piden garantías que no tiene, le ofrecen una tasa más alta, o simplemente le dicen que no. Y aquí está lo que importa: no es porque el proyecto de Juan sea peor. Es porque Juan está lejos, y la empresa está cerca.'),
+
+    'Y si usted alguna vez tocó esa puerta —con una idea buena y sin más respaldo que su trabajo—, no necesita que nadie le cuente la escena: el codeudor que le pidieron, la tasa que le ofrecieron, el no con el que salió. Usted ha estado en la silla de Juan.',
 
     '¿Cerca de qué? De la fuente del dinero. Y para entender qué significa eso —y por qué decide quién prospera y quién no en una economía entera— hay que mirar de frente algo que casi todos malentienden: de dónde sale, en realidad, el dinero que el banco presta.',
 
@@ -32,7 +35,7 @@ CONTENT = [
 
     'Guarde esa frase —“dinero mágico”, “prácticamente todo es ganancia”—, porque es la llave de por qué Juan pierde. Un banco que vive de fabricar dinero no vive de acertar con los proyectos. Vive de emitir.',
 
-    'Esto cambia por completo quién es el protagonista de esta historia. Solemos imaginar que la fábrica del dinero es el banco central —el edificio imponente, el comité, la imprenta—. Y es verdad que el banco central está en el origen: pone la base, respalda el sistema, rescata a quien tropieza, coordina a todos para que inflen al mismo ritmo. Pero el que de verdad crea la mayor parte del dinero nuevo, el que lo fabrica peso a peso cada vez que aprueba un préstamo, es el banco comercial —el de la esquina, el de la fila donde están Juan y la empresa—. El banco central habilita y respalda; los bancos comerciales fabrican. Están enchufados a él —por eso pueden crear sin miedo, sabiendo que si fallan habrá quien los sostenga—, pero son ellos los que están en la cabeza de la cadena: la mano que abre el grifo del dinero nuevo, y que decide hacia dónde corre.',
+    'Esto cambia por completo quién es el protagonista de esta historia —y cobra una promesa pendiente: a esta fábrica le debíamos su propio capítulo; es este—. Solemos imaginar que la fábrica del dinero es el banco central —el edificio imponente, el comité, la imprenta—. Y es verdad que el banco central está en el origen: pone la base, respalda el sistema, rescata a quien tropieza, coordina a todos para que inflen al mismo ritmo. Pero el que de verdad crea la mayor parte del dinero nuevo, el que lo fabrica peso a peso cada vez que aprueba un préstamo, es el banco comercial —el de la esquina, el de la fila donde están Juan y la empresa—. El banco central habilita y respalda; los bancos comerciales fabrican. Están enchufados a él —por eso pueden crear sin miedo, sabiendo que si fallan habrá quien los sostenga—, pero son ellos los que están en la cabeza de la cadena: la mano que abre el grifo del dinero nuevo, y que decide hacia dónde corre.',
 
     'Y ese “hacia dónde” es todo el asunto. Pero antes de seguirlo, hay que responder la pregunta que la fila del principio dejó en el aire y que casi nunca se responde de verdad: ¿por qué el banco elige a la empresa y no a Juan? Decir “porque la empresa está cerca” no explica nada —cerca era justo lo que había que entender—. Así que mirémoslo de frente.',
 
@@ -52,7 +55,7 @@ CONTENT = [
 
     'Cuando el dinero se fabrica, ese lado de la balanza se vacía. Y aquí está la clave, la que tardamos en ver. No es que el riesgo deje de importar —el banco todavía necesita que le devuelvan para cobrar su interés, así que sigue sin prestarle a quien con seguridad no paga—. Lo que desaparece es el contrapeso del riesgo: el rendimiento. Recuerde la frase de Rothbard: la ganancia del banco ya no está al final del camino, en que el proyecto rinda, sino al principio, en el acto mismo de emitir. Y si el rendimiento ya no es de donde sale su ganancia, el banquero deja de hacerse la segunda pregunta. Ya no se pregunta “¿quién me rinde más?” —su ganancia no depende de la respuesta—; se queda solo con “¿quién me devuelve con más seguridad?”. Y mire lo que eso le hace a Juan: en cuanto la decisión se reduce a pura seguridad de repago, sin premiar ya el rendimiento, la empresa gana sola, porque es la más segura, aunque Juan rinda el doble. El mayor riesgo de Juan, que en el otro mundo era un costo que valía la pena pagar por su rendimiento, aquí es un estorbo sin contrapartida. No es que el banco se haya vuelto ciego al mérito de Juan: es que ya no tiene ninguna razón para pagar por él. Las cuatro comodidades ganan, no porque hayan crecido, sino porque se quedaron sin rival.',
 
-    'Detengámonos en lo que está en juego, porque es una señal más, de las que venimos siguiendo todo el libro. El crédito, bien entendido, es una de las señales más importantes de una economía: dice hacia dónde debe fluir el capital —qué proyectos merecen recursos, cuáles no—. En un sistema honesto, donde solo se presta lo ahorrado, esa señal funciona: el ahorro fluye hacia quien promete devolverlo con el mayor rendimiento, es decir, hacia donde será más productivo. El crédito dirige el capital de la sociedad hacia sus mejores usos, como una brújula que apunta al proyecto que más vale la pena. No importa si usted tiene padrinos: importa si su proyecto es bueno.',
+    'Detengámonos en lo que está en juego, porque es una señal más, de las que venimos siguiendo todo el libro. El crédito, bien entendido, es una de las señales más importantes de una economía: dice hacia dónde debe fluir el capital —qué proyectos merecen recursos, cuáles no: lo que los economistas llaman la asignación del crédito—. En un sistema honesto, donde solo se presta lo ahorrado, esa señal funciona: el ahorro fluye hacia quien promete devolverlo con el mayor rendimiento, es decir, hacia donde será más productivo. El crédito dirige el capital de la sociedad hacia sus mejores usos, como una brújula que apunta al proyecto que más vale la pena. No importa si usted tiene padrinos: importa si su proyecto es bueno.',
 
     'Cuando el dinero se fabrica, esa brújula se desvía. El crédito ya no fluye hacia el mejor proyecto, sino hacia el más cercano a quien fabrica el dinero. Y la cercanía da una doble ventaja, porque —como vimos al hablar de los precios— el que recibe el dinero nuevo primero lo recibe cuando todavía vale, antes de que los precios suban. Rothbard nombra a los beneficiarios sin rodeos:',
 
@@ -122,7 +125,7 @@ article = ''.join(parts)
 sk = open('tres-regimenes.html', encoding='utf-8').read()
 out = sk
 out = re.sub(r'<title>.*?</title>',
-             '<title>La asignación del crédito — Arregla el dinero, arregla el mundo</title>',
+             '<title>La puerta que no se abre — Arregla el dinero, arregla el mundo</title>',
              out, count=1, flags=re.DOTALL)
 out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
 new_nav = ('<nav class="nav-foot">'
