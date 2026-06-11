@@ -884,7 +884,7 @@ _La pieza que las sostiene a todas_
 
 # La auditabilidad del dinero
 
-*Por qué de nada sirven las demás piezas si no se puede verificar la base sobre la que todas se apoyan*
+*No confíe, verifique*
 
 ---
 
@@ -916,7 +916,7 @@ El dinero fiat es el peor de los tres, y por partida doble. Su cantidad la contr
 
 El oro es mucho mejor —su cantidad no la infla nadie por decreto, y un lingote se puede pesar y morder—. Pero a escala de sistema arrastra una opacidad vieja: usted puede verificar el oro que tiene en la mano, pero no el que el banco *dice* tener en la bóveda. Y es justo en esa rendija —entre el oro que se promete y el que de verdad está— donde anida el fraude de los recibos sin respaldo que acabamos de ver. El oro es honesto en su naturaleza, pero su custodia obliga, otra vez, a confiar: a creer que la bóveda contiene lo que el papel afirma. Nadie, desde su casa, puede contar todo el oro que respalda los billetes que usa.
 
-Y entonces aparece Bitcoin, que hace algo que ningún dinero anterior pudo hacer: vuelve la verificación posible para cualquiera, sin pedirle permiso a nadie. Cuántos bitcoins existen, cuántos existirán, si alguien creó uno de más —todo está escrito en un libro contable público que cualquier persona, desde su casa, puede revisar entero y comprobar por sí misma—. No hay una bóveda cerrada en la que haya que confiar; no hay cifras oficiales que haya que creer; no hay creación oculta posible, porque cada unidad que existe está a la vista de todos y es validada por miles de participantes que no se conocen ni se necesitan confiar entre sí. Por primera vez en la historia del dinero, no hay que creerle al emisor: se verifica.
+Y entonces aparece Bitcoin, que hace algo que ningún dinero anterior pudo hacer: vuelve la verificación posible para cualquiera, sin pedirle permiso a nadie. Cuántos bitcoins existen, cuántos existirán, si alguien creó uno de más —todo está escrito en un libro contable público que cualquier persona, desde su casa, puede revisar entero y comprobar por sí misma—. No hay una bóveda cerrada en la que haya que confiar; no hay cifras oficiales que haya que creer; no hay creación oculta posible, porque cada unidad que existe está a la vista de todos y es validada por miles de participantes que no se conocen ni necesitan confiar entre sí. Por primera vez en la historia del dinero, no hay que creerle al emisor: se verifica.
 
 De ahí la frase que resume toda esta manera de pensar, y que conviene entender en su sentido más hondo: no confíe, verifique. No es un eslogan sobre tecnología. Es la afirmación de que, por primera vez, una sociedad puede comprobar —sin pedirle permiso a ningún banco, ningún gobierno, ningún comité— que su dinero no está siendo falsificado. Y aquí se cierra el círculo de todo el bloque: si usted puede verificar que la cantidad de dinero es exactamente la que debe ser, entonces puede confiar en que la tasa, los precios, el ahorro, el crédito —todas las señales que se apoyan sobre esa cantidad— descansan sobre algo real, y no sobre un engaño oculto en la base. La auditabilidad no protege una señal: las protege todas. Es la que convierte la honestidad del dinero en algo que ya no hay que creer, sino que se puede comprobar.
 
