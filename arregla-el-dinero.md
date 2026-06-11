@@ -19,7 +19,7 @@
 9. El dolor que avisa
 10. Los primeros y los últimos
 11. La cinta métrica
-12. El poder adquisitivo del dinero
+12. El robo sin ladrón
 13. La asignación del crédito
 14. La auditabilidad del dinero
 15. ¿Y por qué no volver al oro?
@@ -750,9 +750,9 @@ Hemos hablado de poder *calcular* el futuro —de que la unidad de medida no cam
 
 _Sexta pieza · gravedad media_
 
-# El poder adquisitivo del dinero
+# El robo sin ladrón
 
-*El saqueo que no deja huellas*
+*Cómo se esfuma el trabajo de una vida sin que nadie meta la mano en su bolsillo*
 
 ---
 
@@ -770,7 +770,7 @@ Y conviene ver con claridad qué es lo que se mide, porque es fácil confundirse
 
 Entonces, ¿qué le pasó a la persona que ahorró toda una vida? No le subieron los precios por arte de magia. Pasó algo más concreto, y lo venimos viendo desde el principio del libro: mientras ella guardaba, alguien estuvo creando dinero nuevo de la nada. Y cada unidad nueva que aparece no añade riqueza —no hay más panes, ni más techos, ni más trabajo en el mundo por el hecho de imprimir—; lo único que hace es repartir el mismo valor entre más unidades. Cada peso nuevo que se crea le resta un poco de valor a todos los pesos que ya existían —incluidos los que ella tenía guardados—. Su dinero no se movió de la cuenta; pero el valor se le fue saliendo por debajo, diluido por cada unidad que se fabricó mientras dormía.
 
-Es importante ver por qué esto solo puede pasar con cierto tipo de dinero. Con dinero honesto —ese que nadie puede crear por decreto— lo que usted guarda se queda quieto en valor, o incluso vale más con el tiempo: si la sociedad produce más cosas y la cantidad de dinero no se infla, cada unidad compra más, no menos. Ahorrar, bajo dinero honesto, es guardar el fruto del trabajo tal cual, sin que se derrita. Pero con dinero que se crea de la nada, ahorrar es llenar un balde que tiene una fuga en el fondo: usted echa agua —trabaja, guarda—, y el nivel baja igual, porque alguien, en otra parte, abrió un agujero que usted no ve ni controla. Y fíjese bien dónde está el saqueo: no en que le saquen agua del balde, sino en que agrandan el balde —crean más unidades— y su agua, la misma de siempre, ahora llena una fracción menor.
+Es importante ver por qué esto solo puede pasar con cierto tipo de dinero. Con dinero honesto —ese que nadie puede crear por decreto— lo que usted guarda se queda quieto en valor, o incluso vale más con el tiempo: si la sociedad produce más cosas y la cantidad de dinero no se infla, cada unidad compra más, no menos. Ahorrar, bajo dinero honesto, es guardar el fruto del trabajo tal cual, sin que se derrita. Pero con dinero que se crea de la nada, ahorrar se siente como llenar un balde con una fuga en el fondo: usted echa agua —trabaja, guarda—, y el nivel baja igual. Solo que fíjese bien, porque aquí está la trampa del crimen perfecto: el balde no tiene ningún agujero. Nadie le saca una gota de su agua —sus pesos siguen ahí, completos, contables—. Lo que hacen es agrandar el balde: crean más unidades, y su agua, la misma de siempre, pasa a llenar una fracción cada vez menor. Por eso no hay ladrón que atrapar: nadie tocó lo suyo. Tocaron el tamaño de todo lo demás.
 
 Y aquí está lo que vuelve este saqueo distinto de cualquier otro: es un robo que no deja huellas. Cuando suben un impuesto, usted lo ve: hay una ley, un debate, un porcentaje con nombre, alguien a quien reclamarle. Cuando le roban la casa, hay un delito, una víctima, una denuncia. Pero cuando le diluyen el ahorro creando dinero, no hay ley que usted haya votado, no hay una cifra que le hayan cobrado, no hay un culpable señalado, no hay siquiera un momento exacto en que ocurrió —fue gota a gota, todos los días, durante años—. Por eso es el saqueo perfecto: empobrece a millones sin que ninguno pueda señalar el instante en que le quitaron algo. Es un impuesto que nadie aprobó, que no aparece en ninguna factura, y que recae con más fuerza sobre quien menos puede defenderse: el que ahorra en efectivo, el que no tiene cómo poner su dinero a salvo, el viejo de nuestra historia.
 
@@ -796,7 +796,7 @@ Y ahora la pregunta de siempre: ¿de qué depende que el dinero conserve el valo
 
 Frente a él, los dos dineros honestos se comportan igual, y por eso aquí vuelven a ir del brazo. Ni el oro ni Bitcoin se pueden crear por decreto, y por eso ninguno de los dos diluye lo que usted guarda: lo que ahorra en ellos conserva su valor, porque nadie puede fabricar unidades nuevas para licuar las suyas. En la pieza anterior —la predecibilidad— los separamos, porque mirando al futuro no son idénticos. Pero en esta, la de preservar el valor de lo ya guardado frente a la dilución, están del mismo lado: los dos protegen el fruto del trabajo, mientras que el fiat lo derrite. Lo que ahorró aquella persona se habría salvado en cualquiera de los dos; lo que la arruinó fue el único de los tres que se puede imprimir.
 
-Recoja la forma, que es la de siempre. La causa es la misma de todo el libro: el trabajo guardado, el ahorro de quien prefirió esperar. La pieza de este capítulo no es una señal sobre el mundo, sino una propiedad del dinero mismo: el poder adquisitivo —cuánto vale, en cosas reales, lo que usted tiene——. La lectura es tan directa que no necesita teoría: usted abre la billetera y ve qué alcanza. Y el desenlace depende, como siempre, del dinero: si es honesto, lo guardado se conserva y el trabajo de una vida sigue siendo el trabajo de una vida; si se puede crear de la nada, lo guardado se diluye y el trabajo de una vida se evapora sin que nadie lo toque.
+Recoja la forma, que es la de siempre. La causa es la misma de todo el libro: el trabajo guardado, el ahorro de quien prefirió esperar. La pieza de este capítulo no es una señal sobre el mundo, sino una propiedad del dinero mismo: el poder adquisitivo —cuánto vale, en cosas reales, lo que usted tiene—. La lectura es tan directa que no necesita teoría: usted abre la billetera y ve qué alcanza. Y el desenlace depende, como siempre, del dinero: si es honesto, lo guardado se conserva y el trabajo de una vida sigue siendo el trabajo de una vida; si se puede crear de la nada, lo guardado se diluye y el trabajo de una vida se evapora sin que nadie lo toque.
 
 De todas las piezas que hemos recorrido, esta es la que cualquiera puede comprobar sin saber una palabra de economía: basta con haber visto a un abuelo contar lo que juntó, o con recordar lo que costaba el pan hace diez años. Y por eso mismo es la más reveladora. Un dinero honesto es el único que le devuelve, intacto, el trabajo que usted le confió —no se lo multiplica por arte de magia, pero tampoco se lo roba en silencio—. Guardar en él es guardar de verdad: lo que usted metió es lo que encontrará, esperándolo, cuando lo necesite. Eso, que debería ser lo mínimo que se le pide a un dinero, resulta ser un privilegio que solo el dinero honesto concede.
 
