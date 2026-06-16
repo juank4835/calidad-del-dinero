@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <!-- usabilidad-v1 -->
-<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var a=localStorage.getItem('ui:ajas');if(a==='on')d.setAttribute('data-ajas','on');}catch(e){}})();</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -302,6 +302,22 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 }
 .prose .pull-quote cite {
   display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ===== Ajás (feature de edición — invisible por defecto) =====
+   Un párrafo marcado como <p class="aja"> es donde vive el "clic" conceptual
+   del capítulo. Cuando el interruptor del índice está apagado (sin atributo
+   data-ajas en el html), no hay ninguna regla aplicada: el párrafo se ve
+   exactamente igual que cualquier otro. Cuando se prende, recibe un filete
+   sutil a la izquierda y un fondo levísimo del color de acento del libro.
+   El texto no cambia de tamaño ni de posición —solo cobra contorno—. */
+[data-ajas="on"] .prose .aja {
+  border-left: 2px solid var(--verde);
+  background: rgba(255, 122, 24, 0.06);
+  padding: 0.4rem 1rem 0.4rem 1.1rem;
+  margin-left: -1.1rem;
+  margin-right: -1rem;
+  border-radius: 2px 6px 6px 2px;
 }
 </style>
 </head>

@@ -42,7 +42,8 @@ CONTENT = [
 
     'Piense en un joven eligiendo qué estudiar. Cree que decide libremente, y en parte lo hace. Pero a su alrededor hay señales por todas partes: ciertas carreras pagan bien y otras apenas alcanzan, ciertos oficios abundan en ofertas y otros no aparecen, cierto tipo de conocimiento parece tener futuro y otro parece condenado. Todas esas señales son, en el fondo, precios —el precio del trabajo de cada clase, que le dice a la sociedad dónde hace falta gente y dónde sobra—. El joven no lo piensa en esos términos, pero los precios están inclinando su decisión, empujándolo con suavidad hacia donde la señal dice que hay valor. Y como él, millones de jóvenes a la vez. La suma de todas esas decisiones individuales determina hacia dónde fluye el talento de una generación entera.',
 
-    'Quizá usted eligió así. La carrera que estudió, la ciudad en la que vive, el oficio al que le entregó su veintena —es posible que fueran, en buena parte, la respuesta a una señal que nunca vio como tal—. No lo decidió del todo usted. Lo decidió, en parte, un precio. Y ya no puede devolver esos años para preguntarle al número si decía la verdad.',
+    ("aja",
+     'Quizá usted eligió así. La carrera que estudió, la ciudad en la que vive, el oficio al que le entregó su veintena —es posible que fueran, en buena parte, la respuesta a una señal que nunca vio como tal—. No lo decidió del todo usted. Lo decidió, en parte, un precio. Y ya no puede devolver esos años para preguntarle al número si decía la verdad.'),
 
     'Lo mismo ocurre con lo que una sociedad llega a construir. ¿Se investiga una cura, se desarrolla una tecnología, se levanta una industria? Nada de eso lo decide una sola persona. Lo deciden, en gran parte, las señales: dónde parece haber recursos disponibles, qué promete recompensa, qué horizonte de tiempo se ve sostenible. Los precios y la tasa de interés no garantizan que se cure el cáncer ni que se invente nada —eso depende de mil cosas más—. Pero sí inclinan la balanza: hacen que valga la pena, o que no valga la pena, dedicarle a algo los años, el dinero y las mejores mentes. A escala de una civilización entera, inclinar esa balanza es, en la práctica, moldear el futuro.',
 
@@ -102,6 +103,8 @@ for it in CONTENT:
         parts.append(f'    <p>{it}</p>\n')
     elif it[0] == "lead":
         parts.append(f'    <p class="lead">{it[1]}</p>\n')
+    elif it[0] == "aja":
+        parts.append(f'    <p class="aja">{it[1]}</p>\n')
     elif it[0] == "quote":
         _, qtext, cite = it
         parts.append('\n    <blockquote class="pull-quote">\n')

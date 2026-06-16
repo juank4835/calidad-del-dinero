@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <!-- usabilidad-v1 -->
-<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var tec=localStorage.getItem('ui:tecnicos');if(tec==='on')document.documentElement.setAttribute('data-tecnicos','on');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var tec=localStorage.getItem('ui:tecnicos');if(tec==='on')d.setAttribute('data-tecnicos','on');var a=localStorage.getItem('ui:ajas');if(a==='on')d.setAttribute('data-ajas','on');}catch(e){}})();</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +47,25 @@ body {
   color: var(--ink-soft);
 }
 .cover .autor em { font-style: normal; color: var(--ink); }
-.ornament { text-align: center; color: var(--verde); letter-spacing: 0.5em; margin: 2.5rem 0 4rem; }
+.ornament {
+  text-align: center; color: var(--verde); letter-spacing: 0.5em; margin: 2.5rem 0 4rem;
+  user-select: none; -webkit-user-select: none; touch-action: manipulation;
+}
+
+/* ===== Toast del interruptor escondido (ajás) =====
+   Aparece brevemente cuando el lector encuentra el doble-click sobre el
+   ornamento. Si nunca lo encuentra, este nodo nunca se renderiza. */
+.ajas-toast {
+  position: fixed; left: 50%; bottom: 2.4rem; transform: translateX(-50%);
+  background: var(--surface); border: 1px solid var(--rule);
+  color: var(--ink); font-family: var(--font-body); font-style: italic;
+  font-size: 0.85rem; letter-spacing: 0.02em;
+  padding: 0.55rem 1.2rem; border-radius: 999px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 500;
+}
+.ajas-toast.show { opacity: 1; }
 
 .bloque { margin-bottom: 3.2rem; }
 .bloque-tit {
@@ -544,6 +562,33 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
   bar.addEventListener('keydown', function(e){
     if(e.key===' '||e.key==='Enter'){ e.preventDefault(); toggle(); }
   });
+})();
+</script>
+
+<script>
+(function(){
+  var orn=document.querySelector('.ornament');
+  if(!orn) return;
+  var root=document.documentElement;
+  var toast=null;
+  var showToast=function(msg){
+    if(!toast){
+      toast=document.createElement('div');
+      toast.className='ajas-toast';
+      document.body.appendChild(toast);
+    }
+    toast.textContent=msg;
+    toast.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t=setTimeout(function(){ toast.classList.remove('show'); }, 1600);
+  };
+  var toggle=function(){
+    var on=root.getAttribute('data-ajas')!=='on';
+    if(on){ root.setAttribute('data-ajas','on'); showToast('ajás encendidos'); }
+    else  { root.removeAttribute('data-ajas');  showToast('ajás apagados'); }
+    try { localStorage.setItem('ui:ajas', on?'on':'off'); } catch(e){}
+  };
+  orn.addEventListener('dblclick', toggle);
 })();
 </script>
 </body>
