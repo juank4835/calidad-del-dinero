@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <!-- usabilidad-v1 -->
-<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var tec=localStorage.getItem('ui:tecnicos');if(tec==='on')document.documentElement.setAttribute('data-tecnicos','on');}catch(e){}})();</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,7 +80,7 @@ body {
   font-size: 0.72rem; color: var(--rojo); margin-left: 0.5rem; font-style: italic;
 }
 
-/* ===== Nombres técnicos (revelables al hover) ===== */
+/* ===== Nombres técnicos (revelables al hover y/o vía switch global) ===== */
 .cap .titulo-wrap { display: flex; flex-direction: column; min-width: 0; }
 .cap .tecnico {
   font-size: 0.78rem; font-style: italic;
@@ -89,8 +89,46 @@ body {
   opacity: 0; max-height: 0; overflow: hidden;
   transition: opacity 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
 }
-.cap:hover .tecnico {
-  opacity: 1; max-height: 2em; margin-top: 0.2rem;
+.cap:hover .tecnico,
+[data-tecnicos="on"] .cap .tecnico {
+  opacity: 1; max-height: 3em; margin-top: 0.2rem;
+}
+
+/* ===== Switch global para revelar todos los nombres técnicos ===== */
+.tecnicos-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: 10px; padding: 0.55rem 0.9rem;
+  margin: -1rem 0 2.4rem;
+  font-size: 0.82rem; color: var(--ink);
+  cursor: pointer; user-select: none;
+  transition: border-color 0.2s ease;
+}
+.tecnicos-bar:hover { border-color: var(--ink-soft); }
+.tecnicos-bar .tecnicos-label {
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+}
+.tecnicos-bar .tecnicos-hint {
+  font-size: 0.7rem; font-style: italic; color: var(--ink-soft);
+  margin-left: 0.5rem;
+}
+.tecnicos-switch {
+  width: 36px; height: 20px; border-radius: 999px;
+  background: var(--rule);
+  position: relative; flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+.tecnicos-switch::after {
+  content: ''; position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--bg);
+  transition: transform 0.2s ease;
+}
+[data-tecnicos="on"] .tecnicos-switch { background: var(--ink); }
+[data-tecnicos="on"] .tecnicos-switch::after { transform: translateX(16px); }
+@media (max-width: 640px) {
+  .tecnicos-bar .tecnicos-hint { display: none; }
 }
 
 /* Sub-capítulo (corrección u otra versión): visualmente colgado del cap padre.
@@ -235,6 +273,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
   </header>
 
   <div class="ornament">• • •</div>
+
+  <div class="tecnicos-bar" id="tecnicos-bar" role="button" tabindex="0" aria-pressed="false" aria-label="Mostrar u ocultar los nombres técnicos de los capítulos">
+    <span>
+      <span class="tecnicos-label">Mostrar nombres técnicos</span>
+      <span class="tecnicos-hint">— los nombres de la teoría austriaca, debajo de cada título</span>
+    </span>
+    <span class="tecnicos-switch" aria-hidden="true"></span>
+  </div>
 
   <!-- BLOQUE I -->
   <section class="bloque">
@@ -480,6 +526,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
     var go=function(){var p=audio.play();if(p&&p.catch)p.catch(function(){});};
     if(audio.readyState>=2)go(); else audio.addEventListener('loadedmetadata',go,{once:true});
   }
+})();
+</script>
+
+<script>
+(function(){
+  var bar=document.getElementById('tecnicos-bar');
+  if(!bar) return;
+  var root=document.documentElement;
+  var setState=function(on){
+    if(on){ root.setAttribute('data-tecnicos','on'); bar.setAttribute('aria-pressed','true'); }
+    else  { root.removeAttribute('data-tecnicos');  bar.setAttribute('aria-pressed','false'); }
+    try { localStorage.setItem('ui:tecnicos', on ? 'on' : 'off'); } catch(e){}
+  };
+  setState(root.getAttribute('data-tecnicos')==='on');
+  var toggle=function(){ setState(root.getAttribute('data-tecnicos')!=='on'); };
+  bar.addEventListener('click', toggle);
+  bar.addEventListener('keydown', function(e){
+    if(e.key===' '||e.key==='Enter'){ e.preventDefault(); toggle(); }
+  });
 })();
 </script>
 </body>
