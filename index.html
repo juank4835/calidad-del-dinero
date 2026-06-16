@@ -80,7 +80,7 @@ body {
   font-size: 0.72rem; color: var(--rojo); margin-left: 0.5rem; font-style: italic;
 }
 
-/* ===== Nombres técnicos (revelables al hover y/o vía switch global) ===== */
+/* ===== Nombres técnicos (revelables solo vía switch global) ===== */
 .cap .titulo-wrap { display: flex; flex-direction: column; min-width: 0; }
 .cap .tecnico {
   font-size: 0.78rem; font-style: italic;
@@ -89,7 +89,6 @@ body {
   opacity: 0; max-height: 0; overflow: hidden;
   transition: opacity 0.25s ease, max-height 0.25s ease, margin-top 0.25s ease;
 }
-.cap:hover .tecnico,
 [data-tecnicos="on"] .cap .tecnico {
   opacity: 1; max-height: 3em; margin-top: 0.2rem;
 }
