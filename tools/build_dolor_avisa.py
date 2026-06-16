@@ -54,7 +54,8 @@ CONTENT = [
      '"Si no hubiera ni pérdidas ni ganancias, los empresarios ignorarían las más urgentes necesidades de los consumidores."',
      'Mises, <em>La acción humana</em>, cap. XV'),
 
-    'Sin pérdidas, nadie sabría que se equivocó. Esa es la función de la pérdida: es el hambre de la aldea, traducida al lenguaje del dinero. Le dice a quien invirtió mal —y a toda la sociedad que observa— "esto no servía, deténgase, mueva los recursos a otra parte". Una economía sin pérdidas sería como un cuerpo que no siente dolor: seguiría apoyándose en el hueso roto hasta destruirse, porque nada le avisaría del daño. El dolor es desagradable, pero es información que salva. La pérdida también.',
+    ("aja",
+     'Sin pérdidas, nadie sabría que se equivocó. Esa es la función de la pérdida: es el hambre de la aldea, traducida al lenguaje del dinero. Le dice a quien invirtió mal —y a toda la sociedad que observa— "esto no servía, deténgase, mueva los recursos a otra parte". Una economía sin pérdidas sería como un cuerpo que no siente dolor: seguiría apoyándose en el hueso roto hasta destruirse, porque nada le avisaría del daño. El dolor es desagradable, pero es información que salva. La pérdida también.'),
 
     'Y aquí llega la falsificación propia de este capítulo —distinta de la que ya vimos, y en cierto modo más perversa—. Porque hasta ahora el dinero deshonesto <em>creaba</em> el error, falsificando la tasa. Lo que hace ahora es algo peor: esconder el error una vez cometido, silenciando la señal que lo delataría.',
 
@@ -94,6 +95,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')

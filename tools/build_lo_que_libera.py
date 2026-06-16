@@ -40,7 +40,8 @@ CONTENT = [
 
     'Y fíjese en el papel que jugó el dinero en todo esto: ninguno, salvo el de mensajero. El dinero le avisó a Hernando que había recursos libres y le dio el derecho a reclamarlos; pero el taller no se levanta con billetes, se levanta con cemento y acero. El dinero solo conectó una cosa con la otra —le pasó a Hernando el aviso de que Juan había dejado algo disponible—. Fue el que llevó el mensaje entre el que ahorró y el que construye. Importante, pero nada más que eso.',
 
-    'Y aquí aparece la grieta de la que cuelga el resto del libro. Conviene verla despacio, porque es sencilla y lo cambia todo. Acabamos de decir que el dinero es el mensajero: lo que de verdad importa son los recursos reales que el ahorro dejó libres, y el dinero solo los representa, los cuenta, los pasa de mano en mano. Pues bien: el mensajero se puede fabricar. Los recursos, no.',
+    ("aja",
+     'Y aquí aparece la grieta de la que cuelga el resto del libro. Conviene verla despacio, porque es sencilla y lo cambia todo. Acabamos de decir que el dinero es el mensajero: lo que de verdad importa son los recursos reales que el ahorro dejó libres, y el dinero solo los representa, los cuenta, los pasa de mano en mano. Pues bien: el mensajero se puede fabricar. Los recursos, no.'),
 
     'Piénselo un momento, porque la asimetría es el corazón del asunto. Imprimir un billete toma un segundo. Pero no se imprime el saco de cemento, ni el litro de gasolina, ni el alimento que ese billete promete —esos hay que producirlos, y producirlos toma tiempo, esfuerzo, recursos que alguien tuvo que dejar libres—. El mensajero es fácil de crear; lo que el mensajero anuncia, no.',
 
@@ -68,6 +69,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')

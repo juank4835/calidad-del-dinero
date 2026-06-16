@@ -107,8 +107,8 @@ CONTENT = [
 
     'Bitcoin cierra esa última rendija. No solo nadie puede crearlo por decreto —eso lo comparte con el oro, es la honestidad—; además, su cantidad futura está fijada y es pública hasta la última unidad: veintiún millones, en un calendario escrito que cualquiera puede leer, y que ni el precio ni la demanda ni la ambición de nadie pueden alterar. Por más que su valor se dispare y más gente se ponga a producirlo, no aparece una sola unidad de más de las previstas. Donde el oro dice "nadie me manipula, pero no sé exactamente cuánto vendré a ser", Bitcoin dice "nadie me manipula, y además sé exactamente cuánto seré, para siempre". Es una cinta no solo honesta, sino de tamaño fijo y conocido de antemano.',
 
-    'Por eso aquí —y solo aquí, en la pieza de la predecibilidad— los dos dineros honestos por fin se separan. No en honestidad: en eso siguen empatados, los dos dicen la verdad. Se separan en la firmeza de la cinta de cara al futuro. Para casi todo lo que vimos en los capítulos anteriores, la diferencia no importaba —para que la tasa no mienta, para que las pérdidas avisen, para que los precios relativos no se distorsionen, basta con que el dinero sea honesto, y los dos lo son—. Pero para esta pieza, la de poder plantar un nogal y calcular a cuarenta años, la predecibilidad lo es todo. Es la primera de nuestras piezas en la que el oro y Bitcoin dejan de ir del brazo: la primera en que uno ofrece algo que el otro no puede dar.',
-
+    ("aja",
+     'Por eso aquí —y solo aquí, en la pieza de la predecibilidad— los dos dineros honestos por fin se separan. No en honestidad: en eso siguen empatados, los dos dicen la verdad. Se separan en la firmeza de la cinta de cara al futuro. Para casi todo lo que vimos en los capítulos anteriores, la diferencia no importaba —para que la tasa no mienta, para que las pérdidas avisen, para que los precios relativos no se distorsionen, basta con que el dinero sea honesto, y los dos lo son—. Pero para esta pieza, la de poder plantar un nogal y calcular a cuarenta años, la predecibilidad lo es todo. Es la primera de nuestras piezas en la que el oro y Bitcoin dejan de ir del brazo: la primera en que uno ofrece algo que el otro no puede dar.'),
     'Aquí es donde usted, con razón, va a levantar la mano. "¿Bitcoin, predecible? Si su precio sube y baja como una montaña rusa —veinte por ciento en una semana, a veces en un día—. ¿Cómo va a ser eso una cinta de tamaño fijo?" La objeción es buena, y merece una respuesta franca, porque encierra justo la confusión que este libro existe para deshacer.',
 
     'Hay que separar dos cosas que la objeción mete en el mismo saco: el <em>precio</em> de Bitcoin y la <em>cantidad</em> de Bitcoin. Son cosas distintas, y solo una de las dos es la cinta. El precio —cuántos dólares cuesta un bitcoin hoy— en efecto se mueve, y mucho. La cantidad —cuántos bitcoins existen y existirán— no se mueve en absoluto: está fijada hasta la última unidad. Cuando este capítulo dice que Bitcoin es predecible, no habla del precio. Habla de la cantidad. La cinta es la cantidad, no el precio.',
@@ -141,6 +141,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')

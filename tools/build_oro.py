@@ -56,7 +56,8 @@ CONTENT = [
         ('Recuerde cómo empezó este libro. Empezó con el tiempo —con la preferencia temporal, con la paciencia como la materia prima de todo lo que un ser humano construye—. El dinero, el oro, la tierra: todo se puede perder y recuperar. El tiempo no. Es lo único de verdad escaso que poseemos. Y aquí se cierra un círculo cruel. La civilización entera es, en el fondo, el lento descenso de la preferencia temporal: aprender a valorar el mañana lo bastante como para construirlo. El dinero duro debía servir a eso, enseñarnos a esperar. Por eso esta es la ironía más amarga del oro: lo llamamos escaso, lo atesoramos por escaso —y al obligarnos a gastar nuestras horas en cada transacción, nos hace derrochar a manos llenas lo único que de verdad no nos sobra. El metal que debía bajarnos la preferencia temporal nos la sube, porque nos quema en fricción las horas que son la medida misma del futuro. El oro cuida su propia escasez quemando la nuestra.'),
     ]),
     ("Todas las grietas dan a la misma puerta", [
-        ('Detengámonos y miremos el día completo, las escenas una al lado de la otra. El café que no se puede partir. El oro que se queda en la aduana. El metal que no entra por el cable. El lingote que hay que certificar. Las horas que se evaporan. Parecían cinco molestias distintas, cinco inconvenientes sueltos. No lo son. Son cinco caras de una sola propiedad fallando —la que Menger, el fundador de esta tradición, llamó la <em>vendibilidad</em> del dinero: qué tan fácilmente se deja partir, mover, comprobar y entregar—. Y todas terminaron en el mismo gesto, repetido una y otra vez: para usar el oro, usted tuvo que ponerlo en manos de otro.'),
+        ("aja",
+         'Detengámonos y miremos el día completo, las escenas una al lado de la otra. El café que no se puede partir. El oro que se queda en la aduana. El metal que no entra por el cable. El lingote que hay que certificar. Las horas que se evaporan. Parecían cinco molestias distintas, cinco inconvenientes sueltos. No lo son. Son cinco caras de una sola propiedad fallando —la que Menger, el fundador de esta tradición, llamó la <em>vendibilidad</em> del dinero: qué tan fácilmente se deja partir, mover, comprobar y entregar—. Y todas terminaron en el mismo gesto, repetido una y otra vez: para usar el oro, usted tuvo que ponerlo en manos de otro.'),
         ('Y un dinero que solo puede usarse en manos de otros es un dinero que, tarde o temprano, termina amontonado en manos de unos pocos. En las bóvedas. En los bancos. En las casas que lo custodian. En los Estados. La concentración del oro no fue una desgracia ni la obra de un villano: fue su destino físico, escrito en su propia naturaleza. No es que el oro no tuviera adversarios —los tuvo, y muchos: todo gobierno que quiso inflar, toda guerra que hubo que financiar, todo planificador que necesitó manipular precios vio en el oro un estorbo, como advirtió Mises—. Pero ningún enemigo habría bastado si la propia naturaleza del metal no les hubiera abierto la puerta. El oro, por ser lo que es, rueda siempre hacia donde alguien lo guarde.'),
         ("quote",
          '“La centralización del oro lo hizo vulnerable a que sus enemigos usurparan su rol monetario; y el oro, simplemente, tenía demasiados enemigos.”',
@@ -132,6 +133,8 @@ for sec_title, items in CONTENT:
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "recuadro":
             _, label, paras = it
             parts.append('\n    <aside class="recuadro">\n')

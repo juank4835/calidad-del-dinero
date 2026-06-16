@@ -71,7 +71,8 @@ CONTENT = [
 
     'Y hay un daño que no se recupera. Mientras se construía el astillero imposible, se dejaron de tejer las redes que sí se podían sostener. Los recursos que se hundieron en la etapa demasiado larga —el trabajo, los materiales específicos que solo servían para ese astillero— no se pueden recuperar cuando la cadena se acorta. Hayek lo señaló: los bienes hechos para las etapas lejanas, cuando la estructura se contrae, <em>pierden su valor o se vuelven inútiles</em>. La aldea no solo vuelve a donde estaba: vuelve más pobre, porque gastó esfuerzo real en algo que nunca pudo ser.',
 
-    'Esta es la diferencia con el capítulo anterior, y vale la pena verla con claridad. Allá vimos <em>que</em> la tasa falsa engaña. Aquí vemos <em>qué</em> destruye exactamente: la forma física de la economía —cuántas etapas, cuán largas, cuánto de lo construido sobrevive y cuánto queda en ruinas—. La falsificación de la tasa no es un error de un número en una pantalla. Es un astillero a medio levantar, pudriéndose en la playa, que se construyó con el pescado que la aldea necesitaba para comer. Y aunque hablemos de pescadores, esto tiene nombres que usted reconoce: cada gran crisis financiera de las últimas décadas es, en el fondo, un astillero abandonado a escala de millones —lo veremos, con nombre y fecha, más adelante—.',
+    ("aja",
+     'Esta es la diferencia con el capítulo anterior, y vale la pena verla con claridad. Allá vimos <em>que</em> la tasa falsa engaña. Aquí vemos <em>qué</em> destruye exactamente: la forma física de la economía —cuántas etapas, cuán largas, cuánto de lo construido sobrevive y cuánto queda en ruinas—. La falsificación de la tasa no es un error de un número en una pantalla. Es un astillero a medio levantar, pudriéndose en la playa, que se construyó con el pescado que la aldea necesitaba para comer. Y aunque hablemos de pescadores, esto tiene nombres que usted reconoce: cada gran crisis financiera de las últimas décadas es, en el fondo, un astillero abandonado a escala de millones —lo veremos, con nombre y fecha, más adelante—.'),
 
     'Conviene recoger lo que esta historia nos enseñó, porque tiene una forma que vale la pena reconocer. Todo empezó con una disposición: cuánta gente está dispuesta a esperar. Esa disposición, cuando es real, libera recursos —el pescado no comido—. La tasa de interés recoge ese hecho y lo anuncia. Los empresarios la leen y reorganizan la economía hacia las etapas largas. Y si la señal decía la verdad, la cadena se alarga sobre suelo firme; si mentía, se alarga sobre el vacío y termina derrumbándose. Una causa, una consecuencia física, una señal que las comunica, una reacción que reorganiza el mundo, y un desenlace que depende de si la señal era honesta. Esa forma —guárdela— va a reaparecer en cada uno de los capítulos que siguen, con otras señales y otros daños, pero con la misma estructura por debajo. Aprender a verla es aprender a leer el libro entero.',
 
@@ -91,6 +92,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')

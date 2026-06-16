@@ -38,7 +38,8 @@ CONTENT = [
 
     '¿Recuerda el agua vertida por la esquina del estanque —la que mojaba primero las orillas cercanas y después las lejanas—? Le prometimos entonces un capítulo entero para ese desfase. Es este. Para cobrarlo, hay que recordar por dónde entra el dinero nuevo: no cae del cielo sobre todos a la vez. Nace en un punto y de ahí fluye hacia afuera siguiendo un camino. Y ese punto no es solo el banco central: son sobre todo los bancos comerciales, que fabrican dinero nuevo cada vez que prestan —habilitados y respaldados por el banco central, pero son ellos quienes abren el grifo—. (A esa fábrica le dedicaremos su propio capítulo más adelante; por ahora basta con saber que el dinero nuevo entra por ahí.) De quien lo crea pasa a su clientela: las grandes empresas, los que tienen acceso al préstamo, los que están en la primera fila. De ahí, poco a poco, va goteando hacia el resto —los proveedores de esas empresas, sus empleados— hasta llegar, al final del recorrido, a la gente común: el asalariado, el pensionado, el que vive de un ingreso fijo. El dinero nuevo recorre la economía como el agua en aquel estanque: moja primero las orillas cercanas a la esquina por donde entra, y llega tarde, y ya diluido, a las orillas lejanas.',
 
-    'Y aquí está el truco que lo cambia todo —y que casi nadie ve—. El que recibe el dinero nuevo <em>primero</em> lo gasta cuando los precios todavía no han subido. Compra a precios viejos, con dinero nuevo. El que lo recibe <em>último</em> se encuentra con que, para cuando le llega, los precios ya subieron —porque todos los que cobraron antes que él ya salieron a comprar y empujaron los precios hacia arriba—. Compra a precios nuevos, después de que el dinero ya perdió valor. El primero hizo su compra barata; el último la hace cara. Y la diferencia entre uno y otro no la paga nadie en una factura visible: se transfiere, en silencio, del último al primero.',
+    ("aja",
+     'Y aquí está el truco que lo cambia todo —y que casi nadie ve—. El que recibe el dinero nuevo <em>primero</em> lo gasta cuando los precios todavía no han subido. Compra a precios viejos, con dinero nuevo. El que lo recibe <em>último</em> se encuentra con que, para cuando le llega, los precios ya subieron —porque todos los que cobraron antes que él ya salieron a comprar y empujaron los precios hacia arriba—. Compra a precios nuevos, después de que el dinero ya perdió valor. El primero hizo su compra barata; el último la hace cara. Y la diferencia entre uno y otro no la paga nadie en una factura visible: se transfiere, en silencio, del último al primero.'),
 
     'Pongámosle los personajes de siempre. Cuando el dinero nuevo entra, los primeros en gastarlo —los bancos que lo fabrican y las grandes empresas que acceden a ese crédito recién creado— salen a comprar: activos, propiedades, materiales. Lo hacen a los precios de ayer, que aún no reaccionan. Juan y Luisa, en cambio, están al final de la fila. Su sueldo sube —si sube— mucho después, cuando el arriendo, la comida y todo lo demás ya se encarecieron. Reciben más pesos nominales, sí, pero compran menos con ellos que antes.',
 
@@ -94,6 +95,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')

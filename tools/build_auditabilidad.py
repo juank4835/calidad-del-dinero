@@ -52,8 +52,8 @@ CONTENT = [
      '"Solo se puede saber qué recibos en concreto son fraudulentos después de que un pánico bancario haya tenido lugar... y los de los últimos reclamantes se queden impagados."',
      'Rothbard, <em>¿Qué ha hecho el gobierno de nuestro dinero?</em>'),
 
-    'Lea bien lo que eso significa: la falsificación solo se descubre cuando ya es tarde, cuando el sistema colapsa y alguien se queda sin lo suyo. Mientras tanto, todos creyeron que su dinero estaba ahí —y todos estaban equivocados, sin manera de saberlo—. Un dinero que no se puede auditar es un dinero que puede estar falsificado en este mismo instante, bajo sus pies, sin que usted, ni nadie, pueda comprobarlo hasta que sea demasiado tarde. La opacidad no es un defecto accesorio del fraude: es lo que lo hace posible y lo que lo sostiene.',
-
+    ("aja",
+     'Lea bien lo que eso significa: la falsificación solo se descubre cuando ya es tarde, cuando el sistema colapsa y alguien se queda sin lo suyo. Mientras tanto, todos creyeron que su dinero estaba ahí —y todos estaban equivocados, sin manera de saberlo—. Un dinero que no se puede auditar es un dinero que puede estar falsificado en este mismo instante, bajo sus pies, sin que usted, ni nadie, pueda comprobarlo hasta que sea demasiado tarde. La opacidad no es un defecto accesorio del fraude: es lo que lo hace posible y lo que lo sostiene.'),
     'Pongamos ahora a los tres dineros frente a esta pregunta —¿se puede verificar?—, porque aquí, más que en ninguna otra pieza, se separan.',
 
     'El dinero fiat es el peor de los tres, y por partida doble. Su cantidad la controla quien lo emite, y la información sobre cuánto se crea viene del mismo que lo crea: usted confía en las cifras del banco central porque no tiene otra cosa. Y por debajo, la creación que de verdad importa —la de los bancos comerciales fabricando dinero al prestar, que vimos en el capítulo anterior— ocurre de un modo tan difuso que ni siquiera ellos podrían decirle, en tiempo real, cuánto dinero existe en total. No es que las cifras estén ocultas en una caja fuerte: es que la cantidad real es, en buena medida, incomprobable. Confiar es la única opción.',
@@ -92,6 +92,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')

@@ -108,7 +108,8 @@ CONTENT = [
 
     'Y aquí vuelve la distinción que le pedí guardar. El banco central falsificó la transmisión, pero el hecho no lo pudo tocar: la paciencia real de la sociedad sigue siendo la que era, y los recursos realmente libres siguen siendo los que eran —pocos—. El mensaje dice una cosa; el mundo es otra. Miles de proyectos largos avanzan contando con un acero, un trabajo, un ahorro que el mensaje prometió y el mundo no tiene. Y como lo que se falsificó fue el mensaje y no el mundo, los dos van a encontrarse en algún punto del camino. Ese encuentro no es un riesgo que una buena gestión pueda evitar: quedó escrito el día en que la señal mintió, porque ninguna cifra, por bien empujada que esté, fabrica el acero que anuncia.',
 
-    'Y aquí se cierra el círculo que abrimos al principio del capítulo. Preguntamos quién decide cuánto vale esperar, y ya tenemos la respuesta completa: nadie lo decide —y por eso mismo nadie puede decidirlo—. La tasa no es una perilla que alguien gradúa con mejor o peor criterio: es la lectura de un hecho que ningún comité conoce ni puede conocer —la paciencia de millones, los recursos que de verdad quedaron libres—. Lo único que un comité puede hacer con esa cifra es empujarla; y empujarla es hacerla mentir. Todo lo demás se sigue solo, porque millones de personas honestas —Hernando entre ellas— le creen. La tasa falsa no engaña con palabras. Engaña con cifras, y las cifras se obedecen sin sospechar.',
+    ("aja",
+     'Y aquí se cierra el círculo que abrimos al principio del capítulo. Preguntamos quién decide cuánto vale esperar, y ya tenemos la respuesta completa: nadie lo decide —y por eso mismo nadie puede decidirlo—. La tasa no es una perilla que alguien gradúa con mejor o peor criterio: es la lectura de un hecho que ningún comité conoce ni puede conocer —la paciencia de millones, los recursos que de verdad quedaron libres—. Lo único que un comité puede hacer con esa cifra es empujarla; y empujarla es hacerla mentir. Todo lo demás se sigue solo, porque millones de personas honestas —Hernando entre ellas— le creen. La tasa falsa no engaña con palabras. Engaña con cifras, y las cifras se obedecen sin sospechar.'),
 
     'De todas las distorsiones que produce el dinero deshonesto, esta es la más profunda, porque no tuerce <em>qué</em> compramos hoy, sino <em>qué construimos para mañana</em>. Cuando el banco central empuja la tasa, miente sobre las dos caras de una misma moneda: dice que la sociedad está dispuesta a esperar cuando no lo está, y dice que hay recursos reales liberados cuando siguen ocupados. Una sola cifra, dos mentiras enlazadas —porque la paciencia y los recursos liberados nunca van por separado—. Falsificar la tasa es falsificar el futuro: empujar a una sociedad entera a edificar lo que no podrá habitar, con un material que creyó libre y no estaba. En el próximo capítulo veremos en detalle esa distorsión —cómo el capital se dirige a los lugares equivocados, qué le hace la mentira a la forma física de lo que una sociedad construye, y qué ocurre el día en que el mensaje y el mundo por fin se encuentran—.',
 ]
@@ -128,6 +129,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "lema":
             parts.append(f'    <blockquote class="lema">{it[1]}</blockquote>\n')
         elif it[0] == "quote":

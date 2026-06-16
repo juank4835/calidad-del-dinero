@@ -94,7 +94,8 @@ CONTENT = [
 
         'Dos pensadores que discrepaban en mucho —incluso en si la reserva fraccionaria es o no un fraude— coinciden, sin embargo, en este punto: lo que distingue al dinero del Estado no es que falsifique, porque eso también puede hacerlo un privado. Es que lo obliga a usted, por la fuerza de la ley, a aceptar esa falsificación. La coerción es la línea que ninguno de los dos perdona.',
 
-        'Por eso la pregunta de quién controla el dinero —la que el debate de siempre plantea— no era superficial: era decisiva, solo que por una razón más honda de la que el debate ve. No importa por una cuestión de banderas, de público contra privado en abstracto. Importa porque <em>solo lo público trae la fuerza</em>, y la fuerza es lo que convierte una mentira que usted podría rechazar en una mentira que está obligado a vivir. El falsificador privado le miente y usted puede irse. El falsificador estatal le miente y le cierra la puerta. Esa es la diferencia que de verdad condena a la banca central por encima de todo lo demás —no que falsifique más, sino que lo encadene a su falsificación—.',
+        ("aja",
+         'Por eso la pregunta de quién controla el dinero —la que el debate de siempre plantea— no era superficial: era decisiva, solo que por una razón más honda de la que el debate ve. No importa por una cuestión de banderas, de público contra privado en abstracto. Importa porque <em>solo lo público trae la fuerza</em>, y la fuerza es lo que convierte una mentira que usted podría rechazar en una mentira que está obligado a vivir. El falsificador privado le miente y usted puede irse. El falsificador estatal le miente y le cierra la puerta. Esa es la diferencia que de verdad condena a la banca central por encima de todo lo demás —no que falsifique más, sino que lo encadene a su falsificación—.'),
 
         'Antes de seguir, conviene detenerse en algo que cambiará la forma de leer todo lo que viene. Estas tres formas de organizar el dinero no son un asunto que ahora cerramos para pasar a otra cosa. Son el suelo sobre el que se parará el resto del libro. Porque cada cosa que examinaremos de aquí en adelante —la paciencia de una sociedad, su ahorro, la tasa de interés, los precios que coordinan a millones— no flota en el aire: viaja sobre el dinero. Y por eso hereda su honestidad o su mentira. Donde el dinero respeta el acuerdo, esas señales pueden decir la verdad. Donde el dinero se crea de la nada, todas nacen contaminadas: no hay forma de que la tasa diga la verdad si el dinero que la expresa es falso, ni de que el ahorro signifique algo si puede fabricarse de un plumazo. El tipo de dinero no es un tema más entre otros: es la condición de que todos los demás puedan funcionar. Esa es la razón profunda detrás del título de este libro —y la iremos viendo, señal por señal, hasta que al final no quede duda—.',
 
@@ -140,6 +141,8 @@ for sec_title, items in CONTENT:
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "lema":
             parts.append(f'    <blockquote class="lema">{it[1]}</blockquote>\n')
         elif it[0] == "quote":

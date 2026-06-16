@@ -56,8 +56,8 @@ CONTENT = [
 
     'Esa es la regla, y conviene grabarla: cuando el futuro se ve firme, se puede esperar; cuando se ve incierto, la espera se vuelve un lujo que nadie puede pagar. La incertidumbre acorta el horizonte de todos a la vez.',
 
-    'Guarde esta idea, porque es la bisagra de todo el libro: la paciencia de una sociedad no es fija. Depende de las condiciones en que vive. Y entre esas condiciones hay una más silenciosa que todas, tan silenciosa que casi nadie la ve operar —el tipo de dinero que usa—. Si el dinero mismo puede acortarle el horizonte a una sociedad entera, sin que nadie lo decida y sin que casi nadie lo note, entonces moldea su paciencia desde un lugar al que no llega la voluntad de ninguno. Pero a eso llegaremos, a su tiempo.',
-
+    ("aja",
+     'Guarde esta idea, porque es la bisagra de todo el libro: la paciencia de una sociedad no es fija. Depende de las condiciones en que vive. Y entre esas condiciones hay una más silenciosa que todas, tan silenciosa que casi nadie la ve operar —el tipo de dinero que usa—. Si el dinero mismo puede acortarle el horizonte a una sociedad entera, sin que nadie lo decida y sin que casi nadie lo note, entonces moldea su paciencia desde un lugar al que no llega la voluntad de ninguno. Pero a eso llegaremos, a su tiempo.'),
     'Note algo de todo lo anterior: casi ningún ejemplo era sobre dinero. El que estudia una carrera en vez de salir a ganar ya; el que entrena el cuerpo cuando preferiría el sofá; el que se muerde la lengua en una pelea para no romper algo que tardó años en construir; el que cría a un hijo con paciencia en lugar de comprar su cariño con permisos fáciles. Todos hacen lo mismo, en el fondo: pagan un costo hoy por algo mejor que solo llega después. Todos están, sin saberlo, ejerciendo su preferencia temporal.',
 
     'Por eso no es un concepto económico en sentido estrecho. Es una de las claves de la conducta humana entera: define cuánto puede esperar una persona y, por lo tanto, qué puede construir. Y aquí conviene nombrar las cosas con precisión. A esa capacidad de esperar —de descontar el futuro con suavidad, de no dejarse arrastrar por el hoy— los economistas la llaman <em>preferencia temporal baja</em>. Suena al revés de lo que uno esperaría: el que más puede esperar es el que menos tira hacia el presente, y por eso su preferencia es "baja". No significa no preferir el presente —eso, ya lo vimos, es imposible—, sino preferirlo con menos fuerza: poder renunciar a un gusto de hoy porque se tiene la mirada puesta lejos.',
@@ -90,6 +90,8 @@ def main():
             parts.append(f'    <p>{it}</p>\n')
         elif it[0] == "lead":
             parts.append(f'    <p class="lead">{it[1]}</p>\n')
+        elif it[0] == "aja":
+            parts.append(f'    <p class="aja">{it[1]}</p>\n')
         elif it[0] == "quote":
             _, qtext, cite = it
             parts.append('\n    <blockquote class="pull-quote">\n')
