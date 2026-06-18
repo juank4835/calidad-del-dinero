@@ -24,8 +24,6 @@
 14. La auditabilidad del dinero
 15. ¿Y por qué no volver al oro?
 16. El horizonte se acorta
-17. La deforestación
-18. La degradación alimentaria
 
 ---
 
@@ -1075,98 +1073,6 @@ Aquí debo ser honesto con usted sobre dónde termina lo que Ammous afirma y dó
 Esto es lo que el dinero falso le hace a un pueblo antes de hacerle nada visible: le acorta el horizonte. No le quema los bosques ni le vacía los suelos ni le financia las guerras —todavía no—. Primero le hace algo más callado y más grave: le cambia, a millones de personas a la vez, la respuesta a la única pregunta de la que cuelga todo lo demás —cuánto futuro vale la pena tener en cuenta—. Lo demás viene después, y viene solo. Una especie que dejó de mirar lejos talará, vaciará, quemará y se endeudará sin que haga falta empujarla, porque cada una de esas cosas es, en el fondo, lo que hace alguien para quien el mañana pesa menos de lo que debería.
 
 Por eso esta es la herida de la que cuelgan las demás, y por eso abre el bloque en vez de cerrarlo. Las consecuencias que vienen —el árbol que cae, la tierra que se agota, la mesa que se llena y no alimenta, la guerra que nadie pagaría de frente— no son seis problemas distintos con seis culpables distintos. Cada una tiene, es cierto, sus causas propias —y a su tiempo las nombraremos—. Pero todas comparten un suelo, y el dinero falso es ese suelo: no talla cada herida con su propia mano, pero inclina el piso bajo todas a la vez, de modo que todo rueda hacia el mismo lado. Son la misma cuenta falseada, inclinando seis pendientes distintas. Aprendimos a ver la primera, la que el joven toca con la mano. Vamos ahora a las otras, que están más lejos de la vista pero salen del mismo lugar —y que usted, cuando las reconozca, ya no podrá volver a mirar como problemas sueltos.
-
-
----
-
-_Tercera consecuencia · lo más visible_
-
-# La deforestación
-
-*Por qué un hombre que ama su bosque termina talándolo —y no por maldad*
-
----
-
-Hay una imagen que todos llevamos puesta sin pensarla: la deforestación es obra de gente avara. Empresas que ven un bosque y ven dinero, taladores que arrasan por codicia, gobiernos que venden la selva al mejor postor. Donde hay un árbol caído, buscamos un culpable —alguien a quien le importó poco la naturaleza y mucho la ganancia—. Esa imagen es cómoda porque reparte el mundo en buenos y malos, y nos deja a nosotros del lado bueno. Y como casi todas las imágenes cómodas, esconde lo que de verdad importa.
-
-Porque la mayor parte de los bosques del mundo no los talan villanos. Los talan personas que harían exactamente lo mismo que usted haría en su lugar, haciendo exactamente la cuenta que usted haría. Para ver eso hay que dejar de mirar al talador y empezar a mirar la cuenta que tiene delante. Y esa cuenta, como todo en este libro, está escrita en dinero.
-
-Imagine a un hombre del mismo pueblo donde Juan apartaba su sueldo —llamémoslo Francisco— con un nogal en el fondo de su terreno. Lo plantó su padre, y desde hace años el árbol le da cada otoño una cosecha de nueces que Francisco vende en la plaza. No es una fortuna, pero es un ingreso fiel: llega todos los años, sin falta, como llegan los otoños.
-
-Un día se aparece un comprador de madera. El nogal es viejo y la madera es buena; el hombre le ofrece, por el árbol entero, lo que Francisco sacaría de unas quince cosechas de nueces. Una suma considerable, de golpe, hoy.
-
-Francisco hace la cuenta. Y aquí conviene mirar por encima de su hombro, porque la cuenta que hace es exactamente la que usted haría. Tiene dos opciones. Una: quedarse el árbol y seguir cobrando nueces cada otoño, año tras año, como hasta ahora —y dejárselo a sus hijos, que seguirán cobrando cuando él ya no esté—. Otra: cortarlo, cobrar de una vez el equivalente a quince cosechas, y quedarse sin árbol para siempre.
-
-Si Francisco confía en el futuro —si cree que habrá otoños, que sus nueces seguirán valiendo, que sus hijos heredarán un árbol vivo y no un tocón— la cuenta es fácil: no vende. Quince cosechas cobradas de a poco, más todas las que vendrán después, más la herencia, valen muchísimo más que la madera de una sola vez. El árbol vivo es un manantial; la madera, un balde. Nadie cambia un manantial por un balde si confía en que el manantial seguirá manando.
-
-Fíjese bien en lo que sostiene esa decisión. No es el amor de Francisco por los árboles, aunque lo tenga. No es conciencia ecológica, ni virtud, ni una ley que lo obligue. Es una cuenta —y una cuenta que sale a favor de conservar solo si Francisco puede confiar en que el futuro llegará y se parecerá al presente—. La conservación del bosque, aquí, no es un acto moral. Es el resultado frío de un cálculo que premia la espera. Francisco guarda el árbol por la misma razón por la que Juan, allá en el capítulo cinco, guardaba parte de su sueldo: porque el futuro le parece lo bastante firme como para que valga la pena esperarlo.
-
-Ahora no le toque nada a Francisco. Déjele su amor por el árbol, su inteligencia, su prudencia, su cariño por los hijos que lo heredarán. No lo vuelva avaro ni tonto. Cámbiele una sola cosa, y la más invisible de todas: el dinero con que cobra las nueces.
-
-Hasta ahora cobraba en dinero honesto, del que no se puede fabricar de la nada. Cada peso que apartaba seguía valiendo el año siguiente, y el siguiente —así que, sin pensarlo, Francisco tenía un colchón—. Lo que le sobraba de las cosechas buenas lo guardaba para las malas; tenía con qué aguantar una enfermedad, un techo que se cae, un año flaco. Y porque tenía con qué aguantar, podía esperar. El nogal le daba de a poco, año tras año, y a él le bastaba con eso, porque tenía un respaldo debajo.
-
-Cámbiele ese dinero por uno que se diluye cada año. Y mire lo primero que desaparece: el colchón. Ahora lo que Francisco aparta se le derrite en las manos —guardar es perder—, así que deja de guardar. No por imprudente: porque ahorrar dejó de servir de nada. Lo vio usted entero en el capítulo del ahorro real: con dinero que no preserva valor, el ahorro ya no guarda pedazos del mundo para después; no guarda nada. Y un hombre que no puede ahorrar es un hombre que no puede esperar —porque esperar quince años de cosechas exige tener con qué vivir mientras llegan, y eso es precisamente lo que ya no tiene—.
-
-Aquí es donde la sensación se vuelve física, y conviene que la sienta usted también. Francisco tiene un nogal que es un manantial, sí: le dará nueces durante quince otoños. Pero hoy le llegó la cuenta del médico, o se le cayó media casa, o simplemente no alcanzó el mes. Y no hay colchón debajo, porque el dinero se lo comió. El manantial no sirve para hoy —el manantial da de a gotas, año tras año—. Lo que la urgencia exige es un balde lleno, ahora. Y resulta que Francisco tiene un balde a la mano: el árbol entero, vendido como madera, pagado de golpe. El nogal, que era su futuro, es de pronto lo único líquido que le queda. Es la reserva que no pudo tener en ninguna otra forma, porque el dinero le impidió tenerla.
-
-Francisco levanta el hacha. No porque dejó de querer el árbol, sino porque el dinero le quitó toda otra forma de aguantar el presente —y cuando el presente aprieta y no hay colchón, hasta el manantial se vende por un balde—.
-
-Y la cuenta fría, encima, lo empuja en la misma dirección: las quince cosechas le llegarían en un dinero que para entonces no valdrá casi nada, mientras la madera se la pagan hoy, en dinero que todavía vale. Pero esa aritmética es el agravante, no el corazón. El corazón es más simple y más humano: un hombre sin ahorros no elige el futuro, porque no llega a él. Lo alcanza apenas el presente.
-
-¿Vio lo que hizo Francisco sin saber que lo hacía? Comparó. Puso de un lado las nueces de muchos años, que llegan despacio; del otro, la madera de una vez, que llega hoy. Y para elegir entre las dos tuvo que hacer lo que usted hace cada vez que decide si espera o no: le puso un precio a la espera. Cuánto vale aguantar. Eso —ni más ni menos— es la tasa de interés. No la que anuncia un banco: la de verdad, la que cada uno lleva por dentro y no es otra cosa que la paciencia vuelta número.
-
-Cuando el dinero es honesto, ese número dice la verdad, y la verdad casi siempre premia esperar: el manantial gana. Cuando el dinero se corrompe, el número miente —le susurra a Francisco que el futuro no vale, que tome el balde—. Es la misma mentira que recorrió todo este libro, ahora con un hacha en la mano. Y no le hizo falta engañar a Francisco con palabras: le bastó con tocarle el dinero, porque el dinero es el número con que cuenta.
-
-No hizo falta ningún villano. No hizo falta que a nadie le importara menos la naturaleza. Bastó con corromper el dinero, que es lo mismo que corromper la cuenta, que es lo mismo que acortarle a todo el mundo el horizonte a la vez. Multiplique a Francisco por millones de dueños de bosques, de tierras, de pesquerías, de suelos —cada uno haciendo su cuenta privada y prudente, cada uno descontando un futuro que el dinero volvió incierto— y tiene usted la deforestación de un continente, sin un solo malvado en la escena.
-
-Cuando cae el árbol, se ve el árbol caído. Se ve al talador, se ve la madera cargada en el camión, se ve el tocón. Todo lo visible apunta al hombre del hacha, y por eso a él dirigimos la indignación, las campañas, las leyes que prohíben talar.
-
-Lo que no se ve es la cuenta. No se ve la cifra falsificada que volvió racional el hacha. No se ve que Francisco, antes de cortar, hizo la aritmética de cualquier hombre prudente y le salió talar —porque el dinero con que calculaba le había borrado el futuro—. Prohibirle a Francisco que tale, sin tocar el dinero, es pelear con el síntoma: es pedirle que actúe contra su propia cuenta, esperar que la virtud de unos cuantos venza a la aritmética de todos. Algunos resistirán por amor a la tierra. La mayoría hará la cuenta. Siempre, en todas partes, la mayoría hace la cuenta.
-
-Y conviene decir con cuidado lo que este capítulo afirma y lo que no. No digo que el dinero blando sea la única causa de que caigan los bosques. Francisco podía talar también por otras razones —porque no fuera dueño del árbol y otro pudiera robárselo, porque un subsidio premiara la tala, porque la tierra no tuviera dueño y todos corrieran a llevarse lo que pudieran antes que el vecino—. Esas otras causas existen y son reales. Por eso le di a Francisco un árbol que era indiscutiblemente suyo, en su propio terreno, sin subsidio ni vecino que se lo dispute. Le quité todas las demás causas para dejar una sola sobre la mesa. Y aun así, con la propiedad segura y nadie que lo empuje, Francisco levantó el hacha —en cuanto le cambiamos el dinero, y solo por eso—.
-
-Eso es lo que este capítulo quería mostrar. No que el dinero explique todo bosque caído, sino que basta con corromperlo para que hombres buenos, con propiedad segura y sin más presión que la de su propia cuenta, talen lo que aman. El dinero honesto no garantiza que ningún árbol caiga. Pero el dinero falsificado garantiza que caerán los que no debían —porque le miente, a cada dueño de cada manantial, sobre cuánto vale esperar.
-
-El bosque no es la primera víctima del dinero blando ni la última. Es solo la más visible, porque un árbol que cae se ve a kilómetros. Las que vienen —lo que comemos, las guerras que se financian, la paciencia entera de una especie— se ven peor, pero salen de la misma cuenta falseada. Empezamos por el bosque porque es donde la mentira deja una marca que cualquiera puede tocar: un tocón donde había un manantial.
-
-
----
-
-_Cuarta consecuencia · lo más visible_
-
-# La degradación alimentaria
-
-*Por qué su comida es cada vez más abundante y cada vez más vacía —y no por glotonería de quien la come*
-
----
-
-Esta noche usted va a comer, y lo más probable es que coma bien —al menos eso parece—. Habrá comida de sobra: más barata, más abundante, más variada que la que comieron sus abuelos. Por casi cualquier medida visible, la mesa de hoy le gana a la de hace un siglo. Le dirán, y es cierto, que nunca en la historia tanta gente tuvo tanto que comer.
-
-Y sin embargo, algo no cuadra. Nunca hubo tanta comida, y nunca estuvimos tan enfermos de cosas que vienen de comer: obesidad donde antes había hambre, diabetes en gente joven, una población entera que come y come y sigue, de algún modo, insatisfecha. La explicación cómoda ya la conoce, porque se la repiten todos los días: comemos mal por glotonería, por falta de voluntad, por pereza, por no informarnos. El problema —dicen— es suyo. Coma menos, muévase más, lea la etiqueta.
-
-Esa explicación es cómoda por la misma razón que lo era la del talador avaro: reparte la culpa entre millones de individuos débiles y deja intacto el sistema que les puso ese plato delante. Y como casi todas las explicaciones cómodas, esconde lo que de verdad importa. Porque la pregunta que nadie hace no es por qué usted come lo que come. Es otra, una que se decide mucho antes de que usted entre a la cocina: ¿por qué lo barato, lo abundante, lo que llena los estantes, es justamente lo más vacío? ¿Quién decidió que el alimento del mundo se inclinara hacia ahí?
-
-Nadie lo decidió —y a la vez, algo lo decidió—. No se decide en su cocina. Se decide mucho antes, en una cuenta que hace alguien que usted nunca ve: el que cultiva lo que usted come. Para entenderlo hay que dejar de mirar el plato y empezar a mirar el suelo del que ese plato salió.
-
-Imagine otra vez al pueblo de Francisco —el del nogal— y mire ahora al vecino de al lado. Llamémoslo Andrés. Andrés tiene un campo que heredó, como Francisco heredó su árbol. De ese campo ha sacado de comer toda su vida, y antes su padre, y antes su abuelo.
-
-Andrés sabe algo que ningún manual le enseñó, que aprendió mirando trabajar a su padre: que su campo no es solo tierra, es un manantial. Si lo cuida —si lo deja descansar cada cierto tiempo, si alterna las siembras, si mete el ganado a pastar para que abone y la tierra recupere lo que la cosecha le sacó—, el campo le dará de comer todos los años, sin falta, y se lo dará después a sus hijos. El suelo bien cuidado es como el nogal de Francisco: una fuente que mana mientras no la agotes. Cuidarlo cuesta —cuesta paciencia, cuesta dejar una parcela quieta un año que podría estar produciendo, cuesta criar ganado que rinde poco y lento—. Pero a cambio el manantial no se seca nunca.
-
-Andrés tiene delante, sin saber que la tiene, la misma cuenta que Francisco. Puede tratar su tierra como un manantial —sacarle una cosecha sostenible cada año, para siempre— o puede tratarla como un balde: exprimirla al máximo ahora, sembrar lo mismo una y otra vez sin descanso, sacar tres cosechas donde debería sacar una, y vaciarla. El balde da mucho de golpe. Después queda seco.
-
-Fíjese, igual que con Francisco, en qué sostiene la decisión de cuidar. No es que Andrés ame la tierra —aunque la ame—. No es virtud ecológica ni sabiduría ancestral. Es una cuenta: cuidar el suelo solo conviene si Andrés puede confiar en que habrá un mañana que se parezca al hoy —en que sus cosechas futuras seguirán valiendo, en que sus hijos heredarán tierra viva y no polvo—. Cuando el futuro es firme, la cuenta premia conservar el manantial. Andrés cuida su campo por exactamente la misma razón por la que Juan guardaba parte del sueldo y Francisco no vendía el nogal: porque esperar valía la pena.
-
-No le toque nada a Andrés. Déjele su conocimiento, su cariño por la tierra, su deseo de dejarles algo a los hijos. No lo vuelva ignorante ni codicioso. Cámbiele una sola cosa, la más invisible de todas: el dinero en que cobra sus cosechas.
-
-Ya sabe lo que ese cambio le hace a una cuenta —lo vio entero en la pieza de la asignación intertemporal—. Cuando el dinero se diluye año tras año, el futuro deja de ser un manantial confiable y se vuelve una promesa escrita en tinta que se borra.
-
-Aquí mucha gente siente, con razón, una objeción —y vale la pena atenderla, porque parece deshacer todo el argumento—. Si el dinero pierde valor, ¿no sería más sensato que Andrés no vaciara su tierra? Al fin y al cabo, un suelo fértil es riqueza real, de la que aguanta la diluición; mientras el dinero se evapora en el bolsillo, la tierra viva sigue valiendo. ¿No debería entonces el dinero blando empujarlo a cuidar el manantial con más celo que nunca?
-
-Parece sólido, hasta que se mira de cerca qué es lo que Andrés cobra. Andrés no vive de tener tierra; vive de vender lo que la tierra produce. Y ahí está la trampa: la cosecha de más que arranca hoy, exprimiendo el suelo, la cobra hoy, en dinero que todavía vale. Las cosechas que conservaría cuidando el manantial le llegarían dentro de diez, veinte, treinta años —en un dinero que para entonces no valdrá casi nada—. El dinero blando no le miente sobre cuánto vale su tierra: le miente sobre cuándo conviene cobrarla. Y la respuesta que le susurra es siempre la misma: ahora, todo, antes de que el número se borre. La tierra conserva su valor, sí —pero el dinero castiga al que espera para cobrarlo, y premia al que lo arranca ya—. La cuenta se da vuelta entera. Y no porque Andrés haya cambiado, sino porque cambió lo único con que calculaba.
-
-Andrés empieza a tratar su manantial como un balde. Siembra lo mismo todos los años sin dejar descansar la tierra. Saca el ganado, porque rinde lento y ya no puede permitirse lo lento. Le exige al campo más de lo que el campo puede reponer. Y cuando la tierra, exhausta, empieza a rendir menos, no la deja sanar: le echa fertilizante comprado, que la obliga a seguir pariendo cosechas sobre un suelo que por dentro ya está muerto. El campo sigue verde por fuera. Por dentro es un balde casi vacío al que se le echa agua de afuera para que parezca lleno.
-
-Aquí conviene detenerse, porque esto es lo que cierra el círculo hasta su plato. Un suelo agotado no deja de producir —produce, mientras le echen fertilizante—. Pero produce distinto. La planta crece rápida, grande, abundante; solo que crece sobre una tierra que ya no tiene casi nada que pasarle. Sale comida con la forma de siempre y cada vez menos de lo que hacía que esa comida alimentara. Abundante por fuera, vacía por dentro —igual que el suelo del que vino—. La cosecha se parece, peldaño por peldaño, al dinero con que se cobró: más cantidad, menos sustancia. Por eso su mesa de esta noche puede tener más que nunca y nutrir menos que nunca. No es una paradoja. Es la misma cuenta de Andrés, servida en su plato.
 
 
 ---
