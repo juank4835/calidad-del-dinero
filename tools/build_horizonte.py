@@ -85,12 +85,11 @@ out = re.sub(r'<title>.*?</title>',
              '<title>El horizonte se acorta — Arregla el dinero, arregla el mundo</title>',
              out, count=1, flags=re.DOTALL)
 out = re.sub(r'<article class="page"[^>]*>.*?</article>', lambda _m: article, out, count=1, flags=re.DOTALL)
-# nav-foot: prev=bisagra del oro (cap 14 es el primer cap del Bloque IV);
-# next vacío (cap 15 «La gratificación inmediata» aún no existe)
+# nav-foot: prev=bisagra del oro; next=cap 16 «Comerse la semilla».
 new_nav = ('<nav class="nav-foot">'
            '<a class="prev" href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a>'
            '<a class="idx" href="index.html">Índice</a>'
-           '<span></span></nav>')
+           '<a class="next" href="comerse-la-semilla.html">Comerse la semilla</a></nav>')
 out = re.sub(r'<nav class="nav-foot">.*?</nav>', lambda _m: new_nav, out, count=1, flags=re.DOTALL)
 out = out.replace('audio/tres-regimenes.mp3', 'audio/el-horizonte-se-acorta.mp3')
 out = out.replace('audio/tres-regimenes.alignment.json', 'audio/el-horizonte-se-acorta.alignment.json')

@@ -49,6 +49,7 @@ CHAPTERS = [
     "por-que-no-volver-al-oro.html",
     # Bloque IV
     "el-horizonte-se-acorta.html",
+    "comerse-la-semilla.html",
 ]
 
 

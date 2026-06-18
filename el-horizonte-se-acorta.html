@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <!-- usabilidad-v1 -->
-<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);var f=localStorage.getItem('ui:fontscale');if(f)d.style.setProperty('--font-scale',f);var a=localStorage.getItem('ui:ajas');if(a==='on')d.setAttribute('data-ajas','on');}catch(e){}})();</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -291,6 +291,34 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 .audio-pill .ap-play:hover {
   box-shadow: 0 5px 14px -2px rgba(255, 122, 24, 0.5);
 }
+
+/* ===== Citas en bloque — alineadas a la izquierda, filete fino gris ===== */
+.prose .pull-quote {
+  margin: 2.4rem 0; padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--rule);
+}
+.prose .pull-quote p {
+  font-size: 1.06rem; font-style: italic; line-height: 1.7; color: var(--ink); margin: 0 0 0.7rem;
+}
+.prose .pull-quote cite {
+  display: block; font-style: italic; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft);
+}
+
+/* ===== Ajás (feature de edición — invisible por defecto) =====
+   Un párrafo marcado como <p class="aja"> es donde vive el "clic" conceptual
+   del capítulo. Cuando el interruptor del índice está apagado (sin atributo
+   data-ajas en el html), no hay ninguna regla aplicada: el párrafo se ve
+   exactamente igual que cualquier otro. Cuando se prende, recibe un filete
+   sutil a la izquierda y un fondo levísimo del color de acento del libro.
+   El texto no cambia de tamaño ni de posición —solo cobra contorno—. */
+[data-ajas="on"] .prose .aja {
+  border-left: 2px solid var(--verde);
+  background: rgba(255, 122, 24, 0.06);
+  padding: 0.4rem 1rem 0.4rem 1.1rem;
+  margin-left: -1.1rem;
+  margin-right: -1rem;
+  border-radius: 2px 6px 6px 2px;
+}
 </style>
 </head>
 <body>
@@ -358,10 +386,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 
 </article>
 
-<nav class="nav-foot"><a class="prev" href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a><a class="idx" href="index.html">Índice</a><span></span></nav>
+<nav class="nav-foot"><a class="prev" href="por-que-no-volver-al-oro.html">¿Y por qué no volver al oro?</a><a class="idx" href="index.html">Índice</a><a class="next" href="comerse-la-semilla.html">Comerse la semilla</a></nav>
 
-<aside class="audio-pill" data-state="collapsed" data-duration="22:13" data-storage-key="el-horizonte-se-acorta" aria-label="Reproductor de audio del capítulo">
-  <audio class="ap-audio" preload="metadata" src="audio/el-horizonte-se-acorta.mp3?v=3"></audio>
+<aside class="audio-pill" data-state="collapsed" data-duration="29:20" data-storage-key="el-horizonte-se-acorta" aria-label="Reproductor de audio del capítulo">
+  <audio class="ap-audio" preload="metadata" src="audio/el-horizonte-se-acorta.mp3"></audio>
   <button class="ap-play" type="button" aria-label="Reproducir capítulo">
     <svg class="ap-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
     <svg class="ap-icon-pause" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
@@ -571,7 +599,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, .ap-track:focus
 <script>
 /* Karaoke v2: carga alignment y resalta palabra + puntuación. Respeta body.karaoke-off. */
 (function(){
-  var ALIGN_URL = 'audio/el-horizonte-se-acorta.alignment.json?v=3';
+  var ALIGN_URL = 'audio/el-horizonte-se-acorta.alignment.json';
   var audio = document.querySelector('.ap-audio');
   if (!audio) return;
   var words = null, wordEls = [], glueEls = [], lastIdx = -1, lastScrollAt = 0;
