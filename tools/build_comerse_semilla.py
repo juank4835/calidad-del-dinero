@@ -100,7 +100,7 @@ def main():
     new_nav = ('<nav class="nav-foot">'
                '<a class="prev" href="el-horizonte-se-acorta.html">El horizonte se acorta</a>'
                '<a class="idx" href="index.html">Índice</a>'
-               '<span></span></nav>')
+               '<a class="next" href="el-estado-sin-freno.html">El Estado sin freno</a></nav>')
     out = re.sub(r'<nav class="nav-foot">.*?</nav>',
                  lambda _m: new_nav, out, count=1, flags=re.DOTALL)
     out = out.replace('audio/tres-regimenes.mp3', 'audio/comerse-la-semilla.mp3')
