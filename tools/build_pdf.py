@@ -51,6 +51,8 @@ CHAPTERS = [
     "el-horizonte-se-acorta.html",
     "comerse-la-semilla.html",
     "el-estado-sin-freno.html",
+    # Umbral de cierre
+    "arregla-el-dinero-arregla-el-mundo.html",
 ]
 
 
