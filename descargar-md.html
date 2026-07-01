@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- descarga-md-v1 -->
+<script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('ui:theme')||'sepia';if(t!=='oscuro')d.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descargar el libro (MD) — Arregla el dinero, arregla el mundo</title>
+<style>
+:root {
+  --bg: #1c1c1c;
+  --surface: #262626;
+  --ink: #ebe9e4;
+  --ink-soft: #9a988f;
+  --rule: #3a3a38;
+  --verde: #FF7A18;
+  --font-body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+:root[data-theme="sepia"]{ --bg:#f3ead6; --surface:#e9dcc0; --ink:#2f2718; --ink-soft:#6e6048; --rule:#d6c9ab; }
+:root[data-theme="claro"]{ --bg:#fbf9f5; --surface:#eeeae3; --ink:#1a1916; --ink-soft:#5d584f; --rule:#e2ddd3; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 19px; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); line-height: 1.7;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem 1.5rem;
+}
+.card {
+  max-width: 560px; width: 100%;
+  text-align: center;
+}
+.kicker {
+  font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--verde); margin-bottom: 1.4rem;
+}
+h1 {
+  font-size: 2.2rem; font-weight: 400; line-height: 1.15;
+  letter-spacing: -0.01em; margin-bottom: 0.7rem;
+}
+.sub {
+  font-size: 1rem; font-style: italic; color: var(--ink-soft);
+  margin-bottom: 2.5rem;
+}
+.ornament {
+  color: var(--verde); letter-spacing: 0.5em;
+  margin: 1.8rem 0 2.2rem;
+}
+.status {
+  font-size: 1rem; color: var(--ink);
+  padding: 1rem 1.4rem;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+.status.error {
+  color: var(--verde);
+}
+.download-btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: var(--ink); color: var(--bg);
+  border-radius: 8px; border: 1px solid var(--ink);
+  font-family: var(--font-body); font-size: 1rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.download-btn:hover { opacity: 0.85; }
+.meta {
+  margin-top: 2.5rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem; color: var(--ink-soft);
+  line-height: 1.6;
+}
+.meta strong { color: var(--ink); font-weight: 400; font-style: italic; }
+.back {
+  display: inline-block; margin-top: 1.8rem;
+  color: var(--ink-soft); font-size: 0.85rem;
+  text-decoration: none; border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+.back:hover { color: var(--ink); border-bottom-color: var(--verde); }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="kicker">Descarga del libro completo</div>
+  <h1>Arregla el dinero,<br>arregla el mundo</h1>
+  <p class="sub">Versión Markdown, para leer o cargar en un modelo de IA</p>
+
+  <div class="ornament">• • •</div>
+
+  <div class="status" id="status">Iniciando descarga…</div>
+
+  <a
+    id="dl"
+    href="arregla-el-dinero.md"
+    download="arregla-el-dinero.md"
+    class="download-btn"
+  >Descargar el libro</a>
+
+  <p class="meta">
+    <strong>Arregla el dinero, arregla el mundo</strong><br>
+    por Juan Camilo Álvarez Ramírez<br>
+    19 capítulos · ~47.000 palabras · ~260 KB
+  </p>
+
+  <a href="index.html" class="back">← Volver al índice</a>
+</main>
+
+<script>
+(function(){
+  var link = document.getElementById('dl');
+  var status = document.getElementById('status');
+
+  // Auto-trigger the download on load.
+  // Uses the <a download> attribute (same-origin, so it works on GitHub Pages).
+  function triggerDownload() {
+    try {
+      link.click();
+      status.textContent = 'Descarga en camino. Si no aparece, toca el botón.';
+    } catch (e) {
+      status.textContent = 'El navegador bloqueó la descarga automática. Toca el botón para descargar.';
+      status.classList.add('error');
+    }
+  }
+
+  // Small delay so the user sees the page briefly before the download prompt.
+  setTimeout(triggerDownload, 400);
+
+  // Update status when user clicks manually
+  link.addEventListener('click', function(){
+    status.textContent = 'Descarga en camino. Revisa la carpeta de descargas.';
+  });
+})();
+</script>
+</body>
+</html>
