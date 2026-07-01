@@ -305,6 +305,31 @@ def main():
     words = len(re.findall(r'\w+', out))
     print(f"OK: {out_path} ({kb:.0f} KB, {len(CHAPTERS)} capítulos, ~{words:,} palabras)")
 
+    # Sincronizar la página de descarga con estos números.
+    # La línea a actualizar en descargar-md.html es:
+    #   "N capítulos · ~X palabras · ~Y KB"
+    # Se localiza dentro del <p class="meta"> y se reescribe en formato
+    # con separador de miles en español (punto).
+    dl_path = root / "descargar-md.html"
+    if dl_path.exists():
+        # Formatea el número de palabras redondeado a la centena más cercana,
+        # con separador de miles con punto (formato español).
+        rounded = int(round(words, -2))
+        formatted_words = f"{rounded:,}".replace(",", ".")
+        new_stats = f"{len(CHAPTERS)} capítulos · ~{formatted_words} palabras · ~{kb:.0f} KB"
+        html = dl_path.read_text(encoding="utf-8")
+        # Reemplaza solo la línea de stats (el último <br> del <p class="meta">).
+        new_html = re.sub(
+            r'(<br>\s*\n\s*)\d+\s+cap[íi]tulos\s*·\s*~[\d\.,]+\s+palabras\s*·\s*~\d+\s*KB',
+            r'\g<1>' + new_stats,
+            html, count=1
+        )
+        if new_html != html:
+            dl_path.write_text(new_html, encoding="utf-8")
+            print(f"OK: {dl_path.name} sincronizado ({new_stats})")
+        else:
+            print(f"OK: {dl_path.name} ya tenía los mismos números")
+
 
 if __name__ == "__main__":
     main()
